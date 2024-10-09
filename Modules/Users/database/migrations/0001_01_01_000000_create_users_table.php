@@ -13,6 +13,24 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            // Club data
+            $table->date('birthdate');
+            $table->string('address')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->string('city')->nullable();
+            $table->string('mobile_phone')->nullable();
+            $table->integer('club_status')->nullable();
+            $table->string('knvvl')->nullable();
+            $table->string('rdw_number')->nullable();
+            $table->integer('instruct')->nullable();
+            $table->integer('has_plane_brevet')->nullable();
+            $table->integer('has_helicopter_brevet')->nullable();
+            $table->integer('has_glider_brevet')->nullable();
+            $table->integer('has_drone_a1')->nullable();
+            $table->integer('has_drone_a2')->nullable();
+            $table->integer('has_drone_a3')->nullable();
+            $table->integer('in_memoriam')->nullable();
+            // End club data
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
