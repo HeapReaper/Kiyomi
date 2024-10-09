@@ -3,5 +3,6 @@
     "Flights": true,
     "Contact": true,
     "Settings": true,
-    "Logging": true
+    "Logging": true,
+    "Panel": true
 }
