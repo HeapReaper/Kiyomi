@@ -4,62 +4,44 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Users\Entities\User;
+use Auth;
+use Session;
+use Redirect;
 
 class AuthenticationController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Shows the login page
+     *
+     * @author AutiCodes
+     * @return View
      */
     public function index()
     {
-        return view('users::index');
+        return view('auth.pages.login');
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Signs in the user
+     *
+     * @author AutiCodes
+     * @param Request $request
      */
-    public function create()
+    public function signIn(Request $request)
     {
-        return view('users::create');
-    }
+        $validated = $request->validate([
+            'email' => ['required', 'string'],
+            'password' => ['required', 'string'],
+        ]);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        if (!Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']])) {
+            return redirect()
+                        ->back()
+                        ->with('error', 'Login incorrect!')
+                        ->withInput();
+        }
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('users::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('users::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
+        return 'signed in!';
     }
 }

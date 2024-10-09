@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Users\Http\Controllers\UsersController;
+use Modules\Users\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,9 @@ use Modules\Users\Http\Controllers\UsersController;
 
 Route::group([], function () {
     Route::resource('users', UsersController::class)->names('users');
+});
+
+Route::group([], function () {
+    Route::get('login', [AuthenticationController::class, 'index'])->name('login');
+    Route::post('login-post', [AuthenticationController::class, 'signIn'])->name('login-post');
 });
