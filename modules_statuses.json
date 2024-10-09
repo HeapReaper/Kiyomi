@@ -1,0 +1,7 @@
+{
+    "Users": true,
+    "Flights": true,
+    "Contact": true,
+    "Settings": true,
+    "Logging": true
+}
