@@ -39,7 +39,7 @@
           Bestuur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Bestuurleden</a>
+          <a class="dropdown-item" href="">Overzicht</a>
           <a class="dropdown-item" href="">Toevoegen</a>
           <a class="dropdown-item" href="">Contact</a>
         </div>
@@ -68,11 +68,11 @@
     <ul class="navbar-nav ms-auto"> 
       <li class="nav-item dropdown mr-3">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Welkom {{ Auth::user()->name }}
+          Welkom {{ Auth::user()->name }}!
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('users.edit', auth()->user()->id) }}">Wijzig je profiel</a>
-          <a class="dropdown-item" href="/logout">Log jezelf uit</a>
+          <a class="dropdown-item" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
+          <a class="dropdown-item" href="/logout">Uitloggen</a>
         </div>
       </li>
     </ul>
