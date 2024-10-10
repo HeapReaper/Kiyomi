@@ -26,6 +26,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthdate',
+        'address',
+        'zip_code',
+        'city',
+        'mobile_phone',
+        'rdw_number',
+        'instruct',
+        'has_plane_brevet',
+        'has_helicopter_brevet',
+        'has_glider_brevet',
+        'has_drone_a1',
+        'has_drone_a2',
+        'has_drone_a3',
+        'in_memoriam',
     ];
 
     /**

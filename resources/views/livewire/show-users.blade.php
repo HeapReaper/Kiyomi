@@ -12,13 +12,27 @@
               <div class="col mr-2">
                 <div class="w-25 mb-4 me-4 float-end">
                     <select wire:model.live="role" class="form-control form-control-lg">
-                      <option selected value='all'>Alle rollen</option>
-                      <option value="junior_member">Jeugd lid</option>
-                      <option value="aspirant_member">Aspirant lid</option>
-                      <option value="member">Lid</option>
-                      <option value="management">Bestuur</option>
-                      <option value="donor">Donateur</option>
-                      <option value="not_paid">Niet betaald</option>
+                      <option selected value='all'>
+                        Alle rollen
+                      </option>
+                      <option value="junior_member">
+                        Jeugd lid
+                      </option>
+                      <option value="aspirant_member">
+                        Aspirant lid
+                      </option>
+                      <option value="member">
+                        Lid
+                      </option>
+                      <option value="management">
+                        Bestuur
+                      </option>
+                      <option value="donor">
+                        Donateur
+                      </option>
+                      <option value="not_paid">
+                        Niet betaald
+                      </option>
                   </select>
                 </div>
                 </div>
@@ -105,7 +119,7 @@
                                 <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                               </span>
                             </a>
-                            <a href="leden/verwijder/{{ $user->id }}" class="table-link danger" onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');">
+                            <a href="users-remove/{{ $user->id }}" class="table-link danger" onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');">
                               <span class="fa-stack" style="font-size: 1rem;">
                                 <i class="fa fa-square fa-stack-2x"></i>
                                 <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
