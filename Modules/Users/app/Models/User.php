@@ -14,6 +14,7 @@ class User extends Authenticatable
 {
     use HasFactory, HasRoles;
 
+    protected $table = 'users';
     protected $guard_name = 'web';
 
     /**

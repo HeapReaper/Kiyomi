@@ -5,6 +5,7 @@ namespace Modules\Users\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Users\Models\User;
+use Carbon\Carbon;
 
 class UsersController extends Controller
 {
@@ -29,7 +30,51 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:40'],
+            'birthdate' => ['required', 'date'],
+            'address' => ['required', 'string', 'max:100'],
+            'postcode' => ['required', 'string', 'max:10'],
+            'city' => ['required', 'string', 'max:50'],
+            'phone' => ['required', 'string', 'max:15'],
+            'rdw_number' => ['nullable'],
+            'knvvl' => ['nullable'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role' => ['required', 'string'],
+            'instruct' => ['required', 'integer', 'max:1'],
+            'PlaneCertCheckbox' => ['nullable'],
+            'HeliCertCheckbox' => ['nullable'],
+            'gliderCertCheckbox' => ['nullable'],
+            'honoraryMemberCheckbox' => ['nullable'], 
+            'droneA1Checkbox' => ['nullable'],
+            'droneA2Checkbox' => ['nullable'],
+            'droneA3Checkbox' => ['nullable'],
+        ]);
+
+        $user = User::create([
+            'name' => $validated['name'],
+            'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),	
+            'address' => $validated['address'],
+            'postcode' => $validated['postcode'],
+            'city' => $validated['city'],
+            'phone' => $validated['phone'],
+            'rdw_number' => $validated['rdw_number'],
+            'KNVvl' => $validated['knvvl'],
+            'email' => $validated['email'],
+            'instruct' => $validated['instruct'],
+            'has_plane_brevet' => $validated['PlaneCertCheckbox'] ?? 0,
+            'has_helicopter_brevet' => $validated['HeliCertCheckbox'] ?? 0,
+            'has_glider_brevet' => $validated['gliderCertCheckbox'] ?? 0,
+            'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
+            'has_drone_a1' => $validated['droneA1Checkbox'] ?? 0,
+            'has_drone_a2' => $validated['droneA2Checkbox'] ?? 0,
+            'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
+        ]);
+
+        $user->assignRole($validated['role']);
+
+        // TODO: New member event
+        return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
 
     /**

@@ -34,6 +34,7 @@
         </div>
       </li>
 
+      <!-- 
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Bestuur
@@ -44,7 +45,7 @@
           <a class="dropdown-item" href="">Contact</a>
         </div>
       </li>
-
+    -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Instellingen
