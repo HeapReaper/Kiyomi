@@ -16,6 +16,8 @@
   @include('panel::includes.head')
   <!-- Favicon -->
   <link rel="icon" href="/app_media/Kiyomi_logo.png" type="image/x-icon">
+  <livewire:styles />
+  @livewireStyles
 
   {{-- Vite CSS --}}
   {{-- {{ module_vite('build-admin', 'resources/assets/sass/app.scss') }} --}}
@@ -103,5 +105,6 @@
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+  <livewire:scripts />
+  @livewireScripts
 </body>

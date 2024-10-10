@@ -28,8 +28,8 @@
           Leden
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Overzicht</a>
-          <a class="dropdown-item" href="">Toevoegen</a>
+          <a class="dropdown-item" href="{{ route('users.index') }}">Overzicht</a>
+          <a class="dropdown-item" href="{{ route('users.create') }}">Toevoegen</a>
           <a class="dropdown-item" href="">Contact</a>
         </div>
       </li>
