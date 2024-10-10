@@ -1,7 +1,7 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand text-white" href="/">
-    <img src="/media/images/TRMC_LOGO_PNG.ico" width="30" height="30" class="d-inline-block align-top ms-2" alt="">
-    TRMC club manager
+    <img src="/app_media/Kiyomi_logo.png" width="30" height="30" class="d-inline-block align-top ms-2" alt="">
+    Kiyomi
   </a>
   <button class="navbar-toggler me-2" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -28,9 +28,9 @@
           Leden
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Leden overzicht</a>
-          <a class="dropdown-item" href="">Lid toevoegen</a>
-          <a class="dropdown-item" href="">Nieuwsbrief</a>
+          <a class="dropdown-item" href="">Overzicht</a>
+          <a class="dropdown-item" href="">Toevoegen</a>
+          <a class="dropdown-item" href="">Contact</a>
         </div>
       </li>
 
@@ -39,8 +39,19 @@
           Bestuur
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Alle bestuurleden accounts</a>
-          <a class="dropdown-item" href="">Voeg een bestuurslid toe</a>
+          <a class="dropdown-item" href="">Bestuurleden</a>
+          <a class="dropdown-item" href="">Toevoegen</a>
+          <a class="dropdown-item" href="">Contact</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Instellingen
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="">Algemeen</a>
+          <a class="dropdown-item" href="">Email</a>
         </div>
       </li>
 
@@ -49,13 +60,9 @@
           Systeem
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="">Instellingen</a>
-          <a class="dropdown-item" href="">Versies</a>
           <a class="dropdown-item" href="">Logs</a>
-          <a class="dropdown-item" href="">Fail2Ban</a>
         </div>
       </li>
-
     </ul>
 
     <ul class="navbar-nav ms-auto"> 

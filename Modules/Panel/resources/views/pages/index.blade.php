@@ -1,6 +1,6 @@
 @extends('panel::layouts.master')
 
-@section('title', 'Vluchten')
+@section('title', 'Paneel')
 
 @section('content')
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
