@@ -34,5 +34,20 @@ class RoleSeeder extends Seeder
 
         $user = User::find(1);
         $user->assignRole('management');
+
+        // Member
+        $role = Role::create(['name' => 'member']);
+
+        $permission = Permission::create(['name' => 'view member panel']);
+        $role->givePermissionTo($permission);
+        $permission->assignRole($role);
+
+        $permission = Permission::create(['name' => 'view own flights']);
+        $role->givePermissionTo($permission);
+        $permission->assignRole($role);
+
+        $permission = Permission::create(['name' => 'view own profile']);
+        $role->givePermissionTo($permission);
+        $permission->assignRole($role);
     }
 }
