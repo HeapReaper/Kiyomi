@@ -107,7 +107,7 @@
                           </td>
                           <!-- Open, edit, delete -->
                           <td style="width: 20%;" class="text-center">
-                            <a href="#" class="table-link text-warning">
+                            <a href="{{ route('users.show', $user->id) }}" class="table-link text-warning">
                               <span class="fa-stack" style="font-size: 1rem;">
                                 <i class="fa fa-square fa-stack-2x"></i>
                                 <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>

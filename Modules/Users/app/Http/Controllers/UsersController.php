@@ -82,7 +82,9 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        return view('users::pages.show');
+        return view('users::pages.show', [
+            'user' => User::find($id),
+        ]);
     }
 
     /**
