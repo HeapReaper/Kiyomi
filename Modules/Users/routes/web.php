@@ -22,4 +22,5 @@ Route::group([], function () {
 Route::group([], function () {
     Route::get('login', [AuthenticationController::class, 'index'])->name('login');
     Route::post('login-post', [AuthenticationController::class, 'signIn'])->name('login-post');
+    Route::get('logout', [AuthenticationController::class, 'signOut']);
 });

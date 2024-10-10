@@ -4,7 +4,8 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Users\Entities\User;
+use Modules\Users\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Auth;
 use Session;
 use Redirect;
@@ -23,25 +24,33 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * Signs in the user
+     * Signs in the user 
      *
      * @author AutiCodes
      * @param Request $request
      */
-    public function signIn(Request $request)
+    public function signIn(Request $request): RedirectResponse
     {
+
         $validated = $request->validate([
             'email' => ['required', 'string'],
             'password' => ['required', 'string'],
         ]);
 
-        if (!Auth::attempt(['email' => $validated['email'], 'password' => $validated['password']])) {
+        if (!Auth::attempt($validated)) {
             return redirect()
                         ->back()
                         ->with('error', 'Login incorrect!')
                         ->withInput();
         }
 
-        return 'signed in!';
+        return redirect()->route('panel.index');
+    }
+
+    public function signOut()
+    {
+        Auth::logout();
+
+        return redirect('/login');
     }
 }
