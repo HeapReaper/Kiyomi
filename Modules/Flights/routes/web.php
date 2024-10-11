@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Flights\Http\Controllers\FlightsController;
+use Modules\Flights\Http\Controllers\FlightsPanelController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,8 @@ use Modules\Flights\Http\Controllers\FlightsController;
 
 Route::group([], function () {
     Route::resource('flights', FlightsController::class)->names('flights');
+});
+
+Route::group(['middleware', 'auth'], function () {
+    Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
 });
