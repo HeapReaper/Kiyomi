@@ -35,8 +35,8 @@ class RoleSeeder extends Seeder
         $user = User::find(1);
         $user->assignRole('management');
 
-        // Member
-        $role = Role::create(['name' => 'member']);
+        // Junior member
+        $role = Role::create(['name' => 'junior_member']);
 
         $permission = Permission::create(['name' => 'view member panel']);
         $role->givePermissionTo($permission);
@@ -48,6 +48,48 @@ class RoleSeeder extends Seeder
 
         $permission = Permission::create(['name' => 'view own profile']);
         $role->givePermissionTo($permission);
+        $permission->assignRole($role);
+
+        // Aspirant member
+        $role = Role::create(['name' => 'aspirant_member']);
+
+        $role->givePermissionTo('view member panel');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own flights');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own profile');
+        $permission->assignRole($role);
+
+        // Member
+        $role = Role::create(['name' => 'member']);
+
+        $role->givePermissionTo('view member panel');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own flights');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own profile');
+        $permission->assignRole($role);
+
+        // Donor
+        $role = Role::create(['name' => 'donor']);
+
+        $role->givePermissionTo('view member panel');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own flights');
+        $permission->assignRole($role);
+
+        $role->givePermissionTo('view own profile');
+        $permission->assignRole($role);
+
+        // Non paid
+        $role = Role::create(['name' => 'not_paid']);
+
+        $role->givePermissionTo('view own profile');
         $permission->assignRole($role);
     }
 }

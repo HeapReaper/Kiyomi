@@ -15,8 +15,9 @@ use Modules\Users\Http\Controllers\AuthenticationController;
 |
 */
 
-Route::group([], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class)->names('users');
+    Route::get('users-remove/{id}', [UsersController::class, 'destroy']);
 });
 
 Route::group([], function () {

@@ -7,11 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
+use Modules\Users\Models\Role;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
     use HasFactory, HasRoles;
 
+    protected $table = 'users';
     protected $guard_name = 'web';
 
     /**
@@ -23,6 +26,20 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'birthdate',
+        'address',
+        'zip_code',
+        'city',
+        'mobile_phone',
+        'rdw_number',
+        'instruct',
+        'has_plane_brevet',
+        'has_helicopter_brevet',
+        'has_glider_brevet',
+        'has_drone_a1',
+        'has_drone_a2',
+        'has_drone_a3',
+        'in_memoriam',
     ];
 
     /**

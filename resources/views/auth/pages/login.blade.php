@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 		<!-- Page title -->
-    <title>{{ env('APP_NAME') }}</title>
+    <title>Inloggen</title>
 	  <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 	  <!-- tab icon -->
@@ -25,7 +25,7 @@
       @endif
       <!-- LOGIN -->
       <div class="container mt-5 bg-dark bg-opacity-75 rounded p-2" style="max-width: 400px;">
-        <!--<img src="/media/images/TRMC_LOGO.png" class="rounded mx-auto d-block" alt="" style="width: 150px;">-->
+        <img src="/app_media/Kiyomi_logo.png" class="rounded mx-auto d-block" alt="" style="width: 150px;">
         <h2 class="text-white text-center pt-3">Inloggen</h2>
 
         <form class="col-auto pt-4 pb-4 mw-50" action="/login-post" method="POST">
