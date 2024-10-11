@@ -11,31 +11,31 @@
 
           <div class="col mr-2">
             <div class="w-25 mb-4 me-4 float-end">
-                <select wire:model.live="role" class="form-control form-control-lg">
-                  <option selected value='all'>
-                    Alle rollen
-                  </option>
-                  <option value="junior_member">
-                    Jeugd lid
-                  </option>
-                  <option value="aspirant_member">
-                    Aspirant lid
-                  </option>
-                  <option value="member">
-                    Lid
-                  </option>
-                  <option value="management">
-                    Bestuur
-                  </option>
-                  <option value="donor">
-                    Donateur
-                  </option>
-                  <option value="not_paid">
-                    Niet betaald
-                  </option>
+              <select wire:model.live="role" class="form-control form-control-lg">
+                <option selected value='all'>
+                  Alle rollen
+                </option>
+                <option value="junior_member">
+                  Jeugd lid
+                </option>
+                <option value="aspirant_member">
+                  Aspirant lid
+                </option>
+                <option value="member">
+                  Lid
+                </option>
+                <option value="management">
+                  Bestuur
+                </option>
+                <option value="donor">
+                  Donateur
+                </option>
+                <option value="not_paid">
+                  Niet betaald
+                </option>
               </select>
             </div>
-            </div>
+          </div>
         </div>
         <td>
 
