@@ -13,10 +13,11 @@ class Flight extends Model
     /**
      * The attributes that are mass assignable.
      */
-    protected $fillable = [];
-
-    // protected static function newFactory(): FlightFactory
-    // {
-    //     // return FlightFactory::new();
-    // }
+    protected $fillable = [
+        'id',
+        'date_time',
+        'model_type',
+        'class',
+        'lipo_count',
+    ];
 }
