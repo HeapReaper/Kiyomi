@@ -77,7 +77,7 @@
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
             <label for="role" class="text-white font-weight-bold">Rol</label>
-            <select class="form-control" id="role" name="role" required>
+            <select class="form-control" id="role" name="role" required @if ($user->hasRole('super admin')) disabled @endif>
               <option value="junior_member" @if ($user->hasRole('junior_member')) selected @endif>
                 Jeugd lid
               </option>
@@ -95,6 +95,9 @@
               </option>
               <option value="not_paid" @if ($user->hasRole('not_paid')) selected @endif>
                 Niet betaald
+              </option>
+              <option disabled value="" @if ($user->hasRole('super admin')) selected @endif>
+                Super Admin
               </option>
             </select>
           </div> 

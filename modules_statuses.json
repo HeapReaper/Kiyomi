@@ -4,5 +4,6 @@
     "Contact": true,
     "Settings": true,
     "Logging": true,
-    "Panel": true
+    "Panel": true,
+    "Home": true
 }

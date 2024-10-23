@@ -4,6 +4,7 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Flights\Models\Flight;
 
 class FlightsPanelController extends Controller
 {
@@ -12,7 +13,12 @@ class FlightsPanelController extends Controller
      */
     public function index()
     {
-        return view('flights::index');
+        return view('flights::pages.flight_index', [
+            'flights' => Flight::orderBy('date_time', 'DESC')
+                                ->with('user')
+                                ->with('submittedModel')
+                                ->get()
+        ]);
     }
 
     /**
@@ -56,10 +62,26 @@ class FlightsPanelController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource and relationships from storage.
+     *
+     * @author AutiCodes
+     * @return Redirect
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $flight = Flight::findOrFail($id)
+                        ->with('submittedModel')
+                        ->with('user')
+                        ->first();
+
+        $flight->user()->detach($flight->user[0]->id);
+
+        foreach($flight->submittedModel as $model) {
+            $flight->submittedModel()->detach($model->id);
+        }
+
+        $flight->delete();
+
+        return redirect()->back()->with('success', 'Vlucht verwijderd!');
     }
 }

@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('submitted_models', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('flight_submitted_model', function (Blueprint $table) {
+            $table->id();
             $table->integer('model_type');
             $table->integer('class');
             $table->integer('lipo_count');

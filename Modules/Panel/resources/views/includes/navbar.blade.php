@@ -11,7 +11,7 @@
       <ul class="navbar-nav me-auto mb-0">
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
 
         <li class="nav-item dropdown">
@@ -19,7 +19,7 @@
             Vluchten
           </a>
           <ul class="dropdown-menu">
-            <a class="dropdown-item" href="">Overzicht</a>
+            <a class="dropdown-item" href="{{ route('flights-panel.index') }}">Overzicht</a>
             <a class="dropdown-item" href="">Rapportages</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
