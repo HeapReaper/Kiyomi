@@ -1,16 +1,16 @@
 <div>
 <div class="row">
     <div class="col-lg-12">
-      <div class="main-box no-header clearfix bg-dark bg-opacity-50">
+      <div class="main-box no-header clearfix bg-dark bg-opacity-50 rounded p-2">
         <div class="row">
           <div class="col ml-2">
-            <div class="w-25 float-start mb-4 ms-4">
+            <div class="float-start mb-4 ms-4 mt-2">
               <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06 " class="form-control rounded">
             </div>
           </div>
 
-          <div class="col mr-2">
-            <div class="w-25 mb-4 me-4 float-end">
+          <div class="col mr-2 mt-2">
+            <div class=" mb-4 me-4 float-end">
               <select wire:model.live="role" class="form-control form-control-lg">
                 <option selected value='all'>
                   Alle rollen
@@ -45,7 +45,7 @@
         </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-borderless table-striped table-dark user-list " id="MembersTable">
+            <table class="table table-borderless table-striped table-dark user-list rounded" id="MembersTable">
               <thead class="text-white">
                 <tr>
                   <th><span>Foto</span></th>
@@ -137,6 +137,7 @@
                   @endforeach
               </tbody>
             </table
+            {!! $users->links('pagination::bootstrap-5') !!}
           </div>
         </div>
       </div>

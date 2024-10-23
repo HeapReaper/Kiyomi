@@ -25,7 +25,7 @@ class ShowUsers extends Component
                                         ->orWhere('email', 'like', '%' . $this->search . '%')
                                         ->orWhere('mobile_phone', 'like', '%' . $this->search . '%');
                             })
-                            ->get()
+                            ->paginate(10)
         ]);
     }
 
