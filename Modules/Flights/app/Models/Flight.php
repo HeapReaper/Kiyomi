@@ -42,6 +42,6 @@ class Flight extends Model
      */
     public function submittedModel(): belongsToMany
     {
-        return $this->belongsToMany(SubmittedModel::class, 'flight_submitted_model');
+        return $this->belongsToMany(SubmittedModel::class, 'flight_model');
     }
 }

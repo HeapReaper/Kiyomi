@@ -4,6 +4,7 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Flights\Models\Flight;
 
 class FlightsPanelController extends Controller
 {
@@ -12,7 +13,12 @@ class FlightsPanelController extends Controller
      */
     public function index()
     {
-        return view('flights::index');
+        return view('flights::pages.flight_index', [
+            'flights' => Flight::orderBy('date_time', 'DESC')
+                                ->with('user')
+                                ->with('submittedModel')
+                                ->get()
+        ]);
     }
 
     /**
