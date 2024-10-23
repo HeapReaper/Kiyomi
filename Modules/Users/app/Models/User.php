@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Users\Models\Role;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Modules\Flights\Models\Flight;
 
 class User extends Authenticatable
 {
@@ -63,5 +64,16 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+
+    /**
+     * User to flight submit relationship
+     *
+     * @author AutiCodes
+     * @return BelongsToMany
+     */
+    public function flight(): belongsToMany
+    {
+        return $this->belongsToMany(Flight::class, 'flight_model');
     }
 }

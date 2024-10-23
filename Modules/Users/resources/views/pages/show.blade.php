@@ -92,6 +92,9 @@
               <option value="not_paid" @if ($user->hasRole('not_paid')) selected @endif>
                 Niet betaald
               </option>
+              <option value="" @if ($user->hasRole('super admin')) selected @endif>
+                Super Admin
+              </option>
             </select>
           </div> 
 

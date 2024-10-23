@@ -33,6 +33,9 @@
                 <option value="not_paid">
                   Niet betaald
                 </option>
+                <option value="super admin">
+                  Super Admin
+                </option>
               </select>
             </div>
           </div>
@@ -48,7 +51,7 @@
                   <th><span>Foto</span></th>
                   <th><span>Vol. naam</span></th>
                   <th><span>KNVvl</span></th>
-                  <th class="text-center"><span>Club status</span></th>
+                  <th class="text-center"><span>Rol</span></th>
                   <th><span>RDW</span></th>
                   <th><span>Telefoon</span></th>
                   <th><span>Email</span></th>
@@ -90,6 +93,9 @@
                           @case('not_paid')
                             <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
                             @break
+                          @case('super admin')
+                            <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
+                            @break
                         @endswitch
                       </td>
                       <!-- RDW -->
@@ -118,7 +124,9 @@
                             <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
                           </span>
                         </a>
-                        <a href="users-remove/{{ $user->id }}" class="table-link danger" onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');">
+                        <a href="users-remove/{{ $user->id }}" class="table-link danger" 
+                          onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
+                          >
                           <span class="fa-stack" style="font-size: 1rem;">
                             <i class="fa fa-square fa-stack-2x"></i>
                             <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>

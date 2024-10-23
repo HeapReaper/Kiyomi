@@ -32,9 +32,6 @@ class RoleSeeder extends Seeder
         $role->givePermissionTo($permission);
         $permission->assignRole($role);
 
-        $user = User::find(1);
-        $user->assignRole('management');
-
         // Junior member
         $role = Role::create(['name' => 'junior_member']);
 
@@ -91,5 +88,15 @@ class RoleSeeder extends Seeder
 
         $role->givePermissionTo('view own profile');
         $permission->assignRole($role);
+
+        // Developer
+        $role = Role::create(['name' => 'super admin']);
+
+        $permission = Permission::create(['name' => 'super admin']);
+        $role->givePermissionTo('super admin');
+        $permission->assignRole($role);
+
+        $user = User::find(1);
+        $user->assignRole('super admin');
     }
 }
