@@ -35,7 +35,7 @@
     <div class="container bg-dark bg-opacity-75 rounded">
       <h1 class="mt-4 text-white">Vluchten</h1>
       <div class="table-responsive">
-        <table class="table table-striped table-hover text-white ml-2 mr-2">
+        <table class="table table-striped text-white ml-2 mr-2">
           <thead>
             <tr>
               <th scope="col">ID</th>
@@ -70,23 +70,13 @@
 
   <style>
     body, html {
-    background-color: #2f3031;
-  }
-  .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-    background-color: #5c3838;
-  }
+      background-color: #2f3031;
+    }
 
-  .help_icon {
-    position: fixed;
-    bottom:0;
-    right: 0;
-    padding: 10px;
-  }
-
-  input[type="checkbox"] {
-    width: 1.2rem;
-    height: 1.2rem;
-    border-radius: 50%;
-  }
+    input[type="checkbox"] {
+      width: 1.2rem;
+      height: 1.2rem;
+      border-radius: 50%;
+    }
   </style>
-@stop
+@stopR
