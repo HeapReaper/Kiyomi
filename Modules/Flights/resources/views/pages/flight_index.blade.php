@@ -14,7 +14,10 @@
       <div class="row">
         <!-- Total flights -->
         <div class="col-sm text-center ml-2 mr-2 mt-2 bg-dark bg-opacity-75 rounded m-2">
-          <h3 class="text-white mt-2">Totaal:</h3>
+          <h3 class="text-white mt-2">Totaal:
+            <br>
+            {{ count($flights) }}
+          </h3>
           <h1 class="text-white"></h1>
         </div>
         <!-- This week flights -->
