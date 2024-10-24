@@ -19,6 +19,6 @@ Route::group([], function () {
     Route::resource('flights', FlightsController::class)->names('flights');
 });
 
-Route::group(['middleware', 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
 });
