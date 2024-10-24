@@ -9,7 +9,9 @@
       <div class="row mt-3 mb-4">
         <div class="col-sm  ml-2 mr-2 text-center text-white">
           <h3>Aantal ingeschreven</h3>
-          <h1>0</h1>
+          <h1>
+            {{ count($users) }}
+          </h1>
         </div>
 
         <div class="col-sm  ml-2 mr-2 text-center text-white">
