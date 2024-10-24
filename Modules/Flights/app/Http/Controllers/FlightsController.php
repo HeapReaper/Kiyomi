@@ -47,7 +47,6 @@ class FlightsController extends Controller
             'time' => ['required', 'max:6'],
             'model_type' => ['required'],
             'power_type_select' => ['integer'],
-            'lipo_count_select' => ['integer'],
             'rechapcha_custom' => ['integer', 'required'],
         ]);
 
@@ -67,31 +66,25 @@ class FlightsController extends Controller
             switch ($submittedModel) {
                 case ModelTypeEnum::PLANE->value:
                     $powerType = 'power_type_select_plane';
-                    $lipoCount = 'lipo_count_select_plane';
                     break;
                 case ModelTypeEnum::GLIDER->value:
                     $powerType = 'power_type_select_glider';
-                    $lipoCount = 'lipo_count_select_glider';
                     break;
                 case ModelTypeEnum::HELICOPTER->value:
                     $powerType = 'power_type_select_helicopter';
-                    $lipoCount = 'lipo_count_select_helicopter';
                     break;
                 case ModelTypeEnum::DRONE->value:
                     $powerType = 'power_type_select_drone';
-                    $lipoCount = 'lipo_count_select_drone';
                     break;
             }
 
             $validated = $request->validate([
                 $powerType => ['required', 'integer', 'max:24'],
-                $lipoCount => ['required', 'integer', 'max:8'],
             ]);
 
             $model = SubmittedModel::create([
                 'model_type' => $submittedModel,
                 'class' => $validated[$powerType],
-                'lipo_count' => $validated[$lipoCount],
             ]);
 
             $flight->submittedModel()->attach($model->id);

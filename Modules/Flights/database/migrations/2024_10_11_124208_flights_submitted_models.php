@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer('model_type');
             $table->integer('class');
-            $table->integer('lipo_count');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('flight_submitted_model');
     }
 };

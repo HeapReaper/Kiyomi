@@ -81,21 +81,6 @@
                 <option value=3>1200W-3000W</option>
               </select>
             </div>
-            <!-- LIPO COUNT -->
-            <div class="form-group">
-              <label for="lipo_count_select_plane" class="text-white font-weight-bold">Aantal te verwachten vluchten (aantal Lipo's)</label>
-              <select class="form-control" id="lipo_count_select_plane" name="lipo_count_select_plane">
-                <option disabled selected>Selecteer</option>
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-                <option value=6>6</option>
-                <option value=7>7</option>
-                <option value=8>8</option>
-              </select>
-            </div>
           </div>
 
           <!-- GLIDER -->
@@ -109,21 +94,6 @@
                 <option value=1>< 300W</option>
                 <option value=2>300W-1200W</option>
                 <option value=3>1200W-3000W</option>
-              </select>
-            </div>
-            <!-- LIPO COUNT -->
-            <div class="form-group">
-              <label for="lipo_count_select_glider" class="text-white font-weight-bold">Aantal te verwachten vluchten (aantal Lipo's)</label>
-              <select class="form-control" id="lipo_count_select_glider" name="lipo_count_select_glider">
-                <option disabled selected>Selecteer</option>
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-                <option value=6>6</option>
-                <option value=7>7</option>
-                <option value=8>8</option>
               </select>
             </div>
           </div>
@@ -141,21 +111,6 @@
                 <option value=3>1200W-3000W</option>
               </select>
             </div>
-            <!-- LIPO COUNT -->
-            <div class="form-group">
-              <label for="lipo_count_select_helicopter" class="text-white font-weight-bold">Aantal te verwachten vluchten (aantal Lipo's)</label>
-              <select class="form-control" id="lipo_count_select_helicopter" name="lipo_count_select_helicopter">
-                <option disabled selected>Selecteer</option>
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-                <option value=6>6</option>
-                <option value=7>7</option>
-                <option value=8>8</option>
-              </select>
-            </div>
           </div>
 
           <!-- DRONE -->
@@ -171,27 +126,12 @@
                 <option value=3>1200W-3000W</option>
               </select>
             </div>
-            <!-- LIPO COUNT -->
-            <div class="form-group">
-              <label for="lipo_count_select" class="text-white font-weight-bold">Aantal te verwachten vluchten (aantal Lipo's)</label>
-              <select class="form-control" id="lipo_count_select_drone" name="lipo_count_select_drone">
-                <option disabled selected>Selecteer</option>
-                <option value=1>1</option>
-                <option value=2>2</option>
-                <option value=3>3</option>
-                <option value=4>4</option>
-                <option value=5>5</option>
-                <option value=6>6</option>
-                <option value=7>7</option>
-                <option value=8>8</option>
-              </select>
-            </div>
           </div>
         </div>
 
         <!-- reCAPTCHA -->
         <div class="form-group">
-          <label for="text" class="Text-white font-weight-bold">Geheime vraag om te kijken of je geen robot bent</label>
+          <label for="text" class="Text-white font-weight-bold">Anti robot vraag</label>
           <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" required>
         </div>
 

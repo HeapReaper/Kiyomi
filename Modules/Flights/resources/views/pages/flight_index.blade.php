@@ -61,7 +61,6 @@
                       <p class="mt-0 mb-0">
                         Model {{ $loop->iteration }}: {{ Modules\Flights\Enums\ModelName::convertToName($model->model_type) }}.
                         klasse: {{ Modules\Flights\Enums\ModelPowerClassName::convertToName($model->class) }}.
-                        Aantal vluchten: {{ $model->lipo_count }}
                       </p>
                     @endforeach
                   <td class="text-white text-center">
