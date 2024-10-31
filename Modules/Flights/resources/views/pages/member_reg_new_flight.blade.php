@@ -13,130 +13,86 @@
           <h2 class="text-white text-center pt-3 pb-3">Registratie aanvang modelvliegen TRMC</h2>
 
           <div class="form-group">
-            <label for="name" class="text-white font-weight-bold">Naam modelvlieger:</label>
+            <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
             <select class="form-select" aria-label="Default select example" name="name">
               <option disabled selected>Selecteer een naam</option>
               @foreach ($users as $user)
                 <option value={{ $user->id }}>{{ $user->name }}</option>
               @endforeach
             </select>
-            <small id="name" class="form-text text-muted">Staat je naam er niet tussen? Contacteer dan het bestuur om je naam toe te voegen.</small>
           </div>
 
           <!-- DATE -->
-          <div class="form-group">
-            <label for="date" class="text-white font-weight-bold">Selecteer een datum:</label>
-            <input type="date" id="date" name="date" class="form-control" required onchange="requiredHideViewer(this)">
+          <div class="form-group mt-2">
+            <h5 class="text-white font-weight-bold">Datum:</h5>
+            <input type="date" id="date" name="date" class="form-control" value="{{ old('date') }}" required>
           </div>
+
+          <hr class="mt-3 mb-3">
 
           <!-- TIME -->
-          <div class="form-group mt-2">
-            <label for="time" class="text-white font-weight-bold">Selecteer een tijd:</label>
-            <input type="time" id="time" name="time" class="form-control" required onchange="requiredHideViewer(this)">
-          </div>
+          <div class="row">
+            <div class="col">
+              <!-- START TIME -->
+              <div class="form-group">
+                <h5 class="text-white font-weight-bold">Start tijd:</h5>
+                <input type="time" id="start_time" name="start_time" class="form-control" value="{{ old('start_time') }}" required>
+              </div>
+            </div>
 
-          <!-- WHAT MODELS -->
-          <div class="form-group mt-2">
-            <label for="time" class="text-white font-weight-bold">Met welke modellen wil je gaan vliegen?</label>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=1 id="CheckboxPlane" name="model_type[]" onclick="checkBoxes(this)">
-              <label class="form-check-label text-white font-weight-bold ml-1" for="CheckboxPlane">
-                Gemotoriseerd modelvliegtuig
-              </label>
-            </div>
-            <hr>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=2 id="CheckboxGlider" name="model_type[]" onclick="checkBoxes(this)">
-              <label class="form-check-label text-white font-weight-bold ml-2" for="CheckboxGlider">
-                Modelzweefvliegtuig
-              </label>
-            </div>
-            <hr>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=3 id="CheckBoxHelicopter" name="model_type[]" onclick="checkBoxes(this)">
-              <label class="form-check-label text-white font-weight-bold ml-2" for="CheckBoxHelicopter">
-                Helicopter
-              </label>
-            </div>
-            <hr>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=4 id="CheckboxDrone" name="model_type[]" onclick="checkBoxes(this)">
-              <label class="form-check-label text-white font-weight-bold ml-2" for="CheckboxDrone">
-                Drone
-              </label>
-            </div>
-            <hr>
-          </div>
-
-          <!-- PLANE -->
-          <div id="CheckboxPlane_div" style="display: none;" class="bg-dark rounded mb-2 mt-2">
-            <h3 class="text-white">Modelvliegtuig</h3>
-            <!-- POWER TYPE -->
-            <div class="form-group">
-              <label for="power_type_select_plane" class="text-white font-weight-bold">Onder welke klasse ga je vliegen?</label>
-              <select class="form-control" id="power_type_select_plane" name="power_type_select_plane">
-                <option disabled selected>Selecteer</option>
-                <option value=1>< 300W</option>
-                <option value=2>300W-1200W</option>
-                <option value=3>1200W-3000W</option>
-              </select>
+            <div class="col">
+              <!-- END TIME -->
+              <div class="form-group">
+                <h5 class="text-white font-weight-bold">Eind tijd:</h5>
+                <input type="time" id="end_time" name="end_time" class="form-control" value="{{ old('end_time') }}" required>
+              </div>
             </div>
           </div>
 
-          <!-- GLIDER -->
-          <div id="CheckboxGlider_div" style="display: none;" class="bg-dark mt-3 rounded">
-            <h3 class="text-white">Modelzweefvliegtuig</h3>
-            <!-- POWER TYPE -->
-            <div class="form-group">
-              <label for="power_type_select_glider" class="text-white font-weight-bold">Onder welke klasse ga je vliegen?</label>
-              <select class="form-control" id="power_type_select_glider" name="power_type_select_glider">
-                <option disabled selected>Selecteer</option>
-                <option value=1>< 300W</option>
-                <option value=2>300W-1200W</option>
-                <option value=3>1200W-3000W</option>
-              </select>
-            </div>
-          </div>
+          <hr class="mt-3 mb-3">
 
-          <!-- HELICOPTER -->
-          <div id="CheckBoxHelicopter_div" style="display: none;" class="bg-dark mt-3 rounded">
-            <h3 class="text-white">Helicopter</h3>
-            <!-- POWER TYPE -->
-            <div class="form-group">
-              <label for="power_type_select_helicopter" class="text-white font-weight-bold">Onder welke klasse ga je vliegen?</label>
-              <select class="form-control" id="power_type_select_helicopter" name="power_type_select_helicopter">
-                <option disabled selected>Selecteer</option>
-                <option value=1>< 300W</option>
-                <option value=2>300W-1200W</option>
-                <option value=3>1200W-3000W</option>
-              </select>
+          <div class="row">
+            <div class="col">
+              <!-- MODEL TYPE -->
+              <div class="form-group mt-2">
+                <h5 class="text-white font-weight-bold">Model type:</h5>
+                <select class="form-control" id="model_type" name="model_type">
+                  <option disabled selected>Selecteer</option>
+                  <option value=1>Motor vliegtuig</option>
+                  <option value=2>Zweef vliegtuig (zonder motor)</option>
+                  <option value=5>Motor zweefvliegtuig</option>
+                  <option value=3>Helikopter</option>
+                  <option value=4>Drone</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <!-- DRONE -->
-          <div id="CheckboxDrone_div" style="display: none;" class="bg-dark mt-3 rounded">
-            <h3 class="text-white">Drone</h3>
-            <!-- POWER TYPE -->
-            <div class="form-group">
-              <label for="power_type_select_drone" class="text-white font-weight-bold">Onder welke klasse ga je vliegen?</label>
-              <select class="form-control" id="power_type_select_drone" name="power_type_select_drone">
-                <option disabled selected>Selecteer</option>
-                <option value=1>< 300W</option>
-                <option value=2>300W-1200W</option>
-                <option value=3>1200W-3000W</option>
-              </select>
+            <div class="col">
+              <!-- POWER TYPE -->
+              <div class="form-group mt-2">
+                <h5 class="text-white font-weight-bold">Model vermogen:</h5>
+                <select class="form-control" id="power_type" name="power_type">
+                  <option disabled selected>Selecteer</option>
+                  <option value=4>0W</option>
+                  <option value=1>< 300W</option>
+                  <option value=2>300W-1200W</option>
+                  <option value=3>1200W-3000W</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
 
+        <hr class="mt-3 mb-3">
+
         <!-- reCAPTCHA -->
-        <div class="form-group">
-          <label for="text" class="Text-white font-weight-bold">Anti robot vraag</label>
-          <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" required>
+        <div class="form-group mt-2">
+          <h5 class="text-white font-weight-bold">Anti bot vraag:</h5>
+          <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" value="{{ old('rechapcha_custom') }}" required>
         </div>
 
         <!-- SEND FORM BUTTON -->
-        <button type="submit" class="btn btn-success font-weight-bold mt-3" data-toggle="modal" data-target="#exampleModalCenter">Verzenden</button>
+        <button type="submit" class="btn btn-success font-weight-bold mt-3">Verzenden</button>
       </form>
       </div>
 

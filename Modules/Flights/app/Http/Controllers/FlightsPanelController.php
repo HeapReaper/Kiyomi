@@ -10,11 +10,15 @@ class FlightsPanelController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @author AutiCodes
+     * @return View
      */
     public function index()
     {
         return view('flights::pages.flight_index', [
-            'flights' => Flight::orderBy('date_time', 'DESC')
+            'flights' => Flight::orderBy('date', 'DESC')
+                                ->orderBy('end_time', 'DESC')
                                 ->with('user')
                                 ->with('submittedModel')
                                 ->get()

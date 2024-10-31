@@ -8,4 +8,5 @@ enum ModelTypeEnum: int
     case GLIDER = 2;
     case HELICOPTER = 3;
     case DRONE = 4;
+    case MOTORGLIDER = 5;
 }

@@ -25,6 +25,9 @@ enum ModelName: string
             case 4:
                 return 'Drone';
                 break;
+            case 5:
+                return 'Motorzweefvliegtuig';
+                break;
         }
     }
 }

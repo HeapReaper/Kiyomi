@@ -19,7 +19,9 @@ class Flight extends Model
      */
     protected $fillable = [
         'id',
-        'date_time',
+        'date',
+        'start_time',
+        'end_time',
         'model_type',
         'class',
     ];

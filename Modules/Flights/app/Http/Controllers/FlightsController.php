@@ -44,51 +44,31 @@ class FlightsController extends Controller
         $validated = $request->validate([
             'name' => ['required', 'integer', 'max:25'],
             'date' => ['required', 'max:12'],
-            'time' => ['required', 'max:6'],
-            'model_type' => ['required'],
-            'power_type_select' => ['integer'],
+            'start_time' => ['required', 'max:6'],
+            'end_time' => ['required', 'max:6'],
+            'model_type' => ['required', 'integer', 'max:5'],
+            'power_type' => ['required', 'integer', 'max:4'],
             'rechapcha_custom' => ['integer', 'required'],
         ]);
-
-        $member = User::find($validated['name']);
 
         if (intval($validated['rechapcha_custom']) != 4) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $flight = Flight::create([
-            'date_time' => $validated['date'] . ' ' . $validated['time'],
+            'date' => $validated['date'],
+            'start_time' => $validated['start_time'],
+            'end_time' => $validated['end_time'],
         ]);
 
         $flight->user()->attach(intval($validated['name']));
 
-        foreach ($validated['model_type'] as $submittedModel) {
-            switch ($submittedModel) {
-                case ModelTypeEnum::PLANE->value:
-                    $powerType = 'power_type_select_plane';
-                    break;
-                case ModelTypeEnum::GLIDER->value:
-                    $powerType = 'power_type_select_glider';
-                    break;
-                case ModelTypeEnum::HELICOPTER->value:
-                    $powerType = 'power_type_select_helicopter';
-                    break;
-                case ModelTypeEnum::DRONE->value:
-                    $powerType = 'power_type_select_drone';
-                    break;
-            }
+        $model = SubmittedModel::create([
+            'model_type' => $validated['model_type'],
+            'class' => $validated['power_type'],
+        ]);
 
-            $validated = $request->validate([
-                $powerType => ['required', 'integer', 'max:24'],
-            ]);
-
-            $model = SubmittedModel::create([
-                'model_type' => $submittedModel,
-                'class' => $validated[$powerType],
-            ]);
-
-            $flight->submittedModel()->attach($model->id);
-        }
+        $flight->submittedModel()->attach($model->id);
 
         return redirect()->back()->with('success', 'Vlucht is aangemeld!');
     }

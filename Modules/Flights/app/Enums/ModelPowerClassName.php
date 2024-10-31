@@ -22,6 +22,9 @@ enum ModelPowerClassName
             case 3:
                 return '1200W-3000W';
                 break;
+            case 4:
+                return '0W';
+                break;
         }
     }
 }
