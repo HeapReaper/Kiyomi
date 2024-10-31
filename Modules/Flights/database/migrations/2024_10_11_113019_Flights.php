@@ -13,7 +13,9 @@ return new class extends Migration
     {
         Schema::create('flights', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->datetime('date_time');
+            $table->date('date');
+            $table->time('start_time');
+            $table->time('end_time');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('flights');
     }
 };

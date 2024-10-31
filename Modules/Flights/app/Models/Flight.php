@@ -14,13 +14,16 @@ class Flight extends Model
 
     /**
      * The attributes that are mass assignable.
+     *
+     * @author AutiCodes
      */
     protected $fillable = [
         'id',
-        'date_time',
+        'date',
+        'start_time',
+        'end_time',
         'model_type',
         'class',
-        'lipo_count',
     ];
 
     /**
