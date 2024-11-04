@@ -14,11 +14,12 @@ class FlightsReportController extends Controller
      * Display a listing of the resource.
      *
      * @author AutiCodes
+     * @return View
      */
     public function index()
     {
         return view('flights::pages.reports.index', [
-            'reports' => array_filter(Storage::allFiles('/reports'), function ($item) {
+            'reports' => array_filter(Storage::allFiles('reports'), function ($item) {
                             return strpos($item, '.pdf');
                         })
             ]);
@@ -53,12 +54,12 @@ class FlightsReportController extends Controller
                                 ->get();
 
             Pdf::view('flights::pages.reports.pdf_flight_report', [
-                    'flights' => $flights,
-                    'start_date' => date('d-m-y', strtotime($validated['start_date'])),
-                    'end_date' => date('d-m-y', strtotime($validated['end_date']))
+                        'flights' => $flights,
+                        'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
+                        'end_date' => date('d-m-Y', strtotime($validated['end_date']))
                     ])
                     ->disk('local')
-                    ->save('reports/vluchten_' . date('d-m-y', strtotime($validated['start_date'])) . '-' . date('d-m-y', strtotime($validated['end_date'])) . '.pdf');
+                    ->save('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])) . '-' . date('d-m-Y', strtotime($validated['end_date'])) . '.pdf');
 
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
 
@@ -105,7 +106,7 @@ class FlightsReportController extends Controller
      * @author AutiCodes
      * @return Redirect
      */
-    public function download($report)
+    public function download(String $report)
     {
         try {
             return Storage::disk('local')->download('/reports/'. $report);

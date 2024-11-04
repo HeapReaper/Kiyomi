@@ -24,16 +24,29 @@
         </form>
       </div>
 
-      <!-- Show manual generated flight-reports -->
+      <!-- Show generated flight reports -->
       <div class="col bg-dark bg-opacity-75 rounded p-2 m-2">
-        <h6 class="text-white">Handmatige rapportages</h6>
+        <h6 class="text-white">Gemaakte rapportages</h6>
         <div class="overflow-auto" style="max-height: 180px">
-          @foreach ($reports as $report)
-            <p class="text-white">{{ $report }}</p>
-          @endforeach
+          <table class="table text-white">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Naam</th>
+                <th scope="col">Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach ($reports as $report)
+                <tr>
+                  <th scope="row">{{ $loop->iteration }}</th>
+                  <td>{{ explode('/', $report)[1] }}</td>
+                  <td><a href="/flights-reports/download/{{ explode('/', $report)[1] }}"><img src="/app_media/download.png" style="max-width: 30px;"></a></td>
+                </tr>
+              @endforeach
+            </tbody>
+          </table>
         </div>
       </div>
-
-
   </div>
 @stop
