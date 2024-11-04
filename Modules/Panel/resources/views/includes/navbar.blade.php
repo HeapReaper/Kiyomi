@@ -20,7 +20,7 @@
           </a>
           <ul class="dropdown-menu">
             <a class="dropdown-item" href="{{ route('flights-panel.index') }}">Overzicht</a>
-            <a class="dropdown-item" href="">Rapportages</a>
+            <a class="dropdown-item" href="{{ route('flights-report.index') }}">Rapportages</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
