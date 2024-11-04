@@ -20,7 +20,8 @@
             <th scope="col">Datum</th>
             <th scope="col">Start tijd</th>
             <th scope="col">Eind tijd</th>
-            <th scope="col">Model informatie</th>
+            <th scope="col">Model</th>
+            <th scope="col">Vermogen</th>
             <th scope="col">Verwijder</th>
           </tr>
         </thead>
@@ -34,8 +35,11 @@
                 <td class="text-white">{{ $flight->end_time }}</td>
                 <td class="text-white">
                   <p class="mt-0 mb-0">
-                    <strong>Model:</strong> {{ Modules\Flights\Enums\ModelName::convertToName($flight->submittedModel[0]->model_type) }}.
-                    <strong>Vermogen:</strong> {{ Modules\Flights\Enums\ModelPowerClassName::convertToName($flight->submittedModel[0]->class) }}.
+                    {{ Modules\Flights\Enums\ModelName::convertToName($flight->submittedModel[0]->model_type) }}
+                  </p>
+                <td class="text-white">
+                  {{ Modules\Flights\Enums\ModelPowerClassName::convertToName($flight->submittedModel[0]->class) }}
+                </td>
                 <td class="text-white text-center">
                   <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST">
                     @csrf
