@@ -1,7 +1,7 @@
 {
     "Users": true,
     "Flights": true,
-    "Contact": true,
+    "Contact": false,
     "Settings": true,
     "Logging": true,
     "Panel": true,
