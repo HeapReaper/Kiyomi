@@ -24,7 +24,7 @@
           <h1>0</h1>
         </div>
       </div>
-        @livewire('show-users')
+        @livewire('users::show-and-search-users')
     </div>
   </div>
 

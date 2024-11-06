@@ -1,5 +1,5 @@
 <div>
-<div class="row">
+  <div class="row">
     <div class="col-lg-12">
       <div class="main-box no-header clearfix bg-dark bg-opacity-50 rounded p-2">
         <div class="row">

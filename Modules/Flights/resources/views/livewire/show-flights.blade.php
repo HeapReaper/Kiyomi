@@ -30,7 +30,7 @@
               <tr>
                 <th scope="row" class="text-white">{{ $flight->id }}</th>
                 <td class="text-white">{{ $flight->user[0]->name }}</td>
-                <td class="text-white">{{  $flight->date }}</td>
+                <td class="text-white">{{ $flight->date }}</td>
                 <td class="text-white">{{ $flight->start_time }}</td>
                 <td class="text-white">{{ $flight->end_time }}</td>
                 <td class="text-white">
