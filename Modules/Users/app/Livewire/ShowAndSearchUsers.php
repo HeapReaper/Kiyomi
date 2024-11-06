@@ -1,18 +1,18 @@
 <?php
 
-namespace App\Livewire;
+namespace Modules\Users\Livewire;
 
 use Livewire\Component;
 use Modules\Users\Models\User;
 
-class ShowUsers extends Component
+class ShowAndSearchUsers extends Component
 {
     public $search = '';
     public $role = '';
 
     public function render()
     {
-        return view('livewire.show-users', [
+        return view('users::livewire.show-and-search-users', [
             'users' => User::query()
                             ->when($this->role && $this->role == 'all', function ($query) {
                                 $query->with('roles');
