@@ -17,7 +17,7 @@ class ShowFlights extends Component
 
     public function render()
     {
-        return view('livewire.show-flights', [
+        return view('flights::livewire.show-flights', [
             'flights' => Flight::orderBy('date', 'DESC')
                                 ->orderBy('end_time', 'DESC')
                                 ->with('user')
