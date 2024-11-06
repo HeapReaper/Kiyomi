@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace Modules\Flights\Livewire;
 
 use Livewire\Component;
 use Modules\Flights\Models\Flight;

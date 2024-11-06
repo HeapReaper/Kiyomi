@@ -34,7 +34,7 @@
       <!-- End total cards -->
     </div>
 
-    @livewire('show-flights')
+    @livewire('flights::show-flights')
   </main>
 
   <style>
