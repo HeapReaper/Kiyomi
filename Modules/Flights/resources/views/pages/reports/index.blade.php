@@ -28,7 +28,7 @@
       <div class="col bg-dark bg-opacity-75 rounded p-2 m-2">
         <h6 class="text-white">Gemaakte rapportages</h6>
         <div class="overflow-auto" style="max-height: 180px">
-          <table class="table text-white">
+          <table class="table table-borderless table-striped table-dark text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>
