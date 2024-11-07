@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row mt-4">
       <!-- Manual make new report from specific dates -->
-      <div class="col-sm bg-dark bg-opacity-75 rounded p-2 m-2">
+      <div class="col-sm bg-dark bg-opacity-50 rounded p-2 m-2">
         <h6 class="text-white">Maak rapportage</h6>
         <form action="{{ route('flights-report.store') }}" method="POST">
           @csrf
@@ -25,7 +25,7 @@
       </div>
 
       <!-- Show generated flight reports -->
-      <div class="col bg-dark bg-opacity-75 rounded p-2 m-2">
+      <div class="col bg-dark bg-opacity-50 rounded p-2 m-2">
         <h6 class="text-white">Gemaakte rapportages</h6>
         <div class="overflow-auto" style="max-height: 180px">
           <table class="table table-borderless table-striped table-dark text-white">

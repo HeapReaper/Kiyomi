@@ -113,23 +113,12 @@
 
   <style>
     body, html {
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: 60%;
-      background-attachment: fixed;
-      background-color: #2f3031;
+      background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+      width: 100%;
+      height: 100%;
+      position: absolute;
     }
 
-    @media only screen and (max-width: 900px) {
-      body, html {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 100%;
-        background-attachment: fixed;
-
-        background-color: #2f3031;
-      }
-    }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <livewire:scripts />

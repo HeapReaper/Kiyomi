@@ -23,8 +23,9 @@
           {{ session('errors') }}
         </div>
       @endif
+
       <!-- LOGIN -->
-      <div class="container mt-5 bg-dark bg-opacity-50 rounded p-2" style="max-width: 400px;">
+      <div class="container mt-5 bg-dark bg-opacity-50 rounded p-2" style="max-width: 400px">
         <img src="/app_media/faticon.ico" class="rounded mx-auto d-block" alt="" style="width: 150px;">
         <h2 class="text-white text-center pt-3">Inloggen</h2>
 
@@ -39,18 +40,17 @@
             <input type="password" class="form-control mb-2" id="password" name="password" placeholder="Wachtwoord" required>
           </div>
 
-          <button type="submit" class="btn mb-4" style="background-color: #d10014; color: #FFFFFF;">Inloggen</button>
+          <button type="submit" class="btn" style="background-color: #d10014; color: #FFFFFF;">Inloggen</button>
         </form>
-
       </div>
-
-
 		</main>
 
     <style>
       body, html {
         background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
-        min-height: 100%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
       }
     </style>
 
@@ -58,7 +58,5 @@
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <!-- Google reCCHAPTA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	</body>
 </html>
