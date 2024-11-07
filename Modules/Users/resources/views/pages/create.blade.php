@@ -7,7 +7,7 @@
   <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.store') }}" method="POST">
     @csrf
 
-    <div class="row bg-dark rounded bg-opacity-75">
+    <div class="row bg-dark rounded bg-opacity-50">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
@@ -57,7 +57,7 @@
       </div>
     </div>
 
-    <div class="row bg-dark rounded bg-opacity-75 mt-2">
+    <div class="row bg-dark rounded bg-opacity-50 mt-2">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
@@ -133,7 +133,7 @@
       </div>
     </div>
 
-    <div class="row bg-dark rounded bg-opacity-75 mt-2">
+    <div class="row bg-dark rounded bg-opacity-50 mt-2">
       <div class="col-sm">
         <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
           <h4 class="font-weight-bold text-white mb-0">Drone certificaten</h4>
