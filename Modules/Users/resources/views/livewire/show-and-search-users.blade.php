@@ -45,7 +45,7 @@
         </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-borderless table-striped table-dark user-list rounded" id="MembersTable">
+            <table class="table table-stripe user-list rounded" id="MembersTable">
               <thead class="text-white">
                 <tr>
                   <th><span>Foto</span></th>
@@ -65,11 +65,11 @@
                         <img src="https://placehold.co/35x35" alt="" style="width: 35px" class="img-fluid ms-2">
                       </td>
                       <!-- Name -->
-                      <td>
+                      <td class="text-white">
                         {{ $user->name ?? 'Niet ingevuld' }}
                       </td>
                       <!-- KNVvl number -->
-                      <td>
+                      <td class="text-white">
                         {{ $user->knvvl ?? 'Niet ingevuld' }}
                       </td>
                       <!-- Club status -->
@@ -99,15 +99,15 @@
                         @endswitch
                       </td>
                       <!-- RDW -->
-                      <td>
+                      <td class="text-white">
                         {{ $user->rdw_number ?? 'Niet ingevuld' }}
                       </td>
                       <!-- Phone -->
-                      <td>
+                      <td class="text-white">
                         {{ $user->mobile_phone ?? 'Niet ingevuld' }}
                       </td>
                       <!-- Email -->
-                      <td>
+                      <td class="text-white">
                         {{ $user->email ?? 'Niet ingevuld' }}
                       </td>
                       <!-- Open, edit, delete -->
