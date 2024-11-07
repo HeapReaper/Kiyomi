@@ -5,7 +5,7 @@
 <main>
   @section('content')
     <div class="container mt-4 mb-4">
-      <form class="col-lg-6 offset-lg-3 p-4 bg-dark rounded bg-opacity-75 shadow " id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
+      <form class="col-lg-6 offset-lg-3 p-4 bg-dark rounded bg-opacity-50 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
         @csrf
         <div class="justify-content-center">
           <!-- TOP TEXT AND IMAGE -->
@@ -92,7 +92,7 @@
         </div>
 
         <!-- SEND FORM BUTTON -->
-        <button type="submit" class="btn btn-success font-weight-bold mt-3">Verzenden</button>
+        <button type="submit" class="btn font-weight-bold mt-3 text-dark" style="background-image: linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%);">Verzenden</button>
       </form>
       </div>
 
@@ -139,17 +139,6 @@
 		</main>
 
     <style>
-      body, html {
-        background-color: #2f3031;
-      }
-
-      .help_icon {
-          position: fixed;
-          bottom:0;
-          right: 0;
-          padding: 10px;
-      }
-
       input[type="checkbox"] {
         width: 1.2rem;
         height: 1.2rem;
@@ -166,16 +155,6 @@
     </style>
 
     <script>
-      function checkBoxes(e) {
-        if (e.checked) {
-          document.getElementById(e.id + '_div').style.display = "block";
-          document.getElementById('model_type_required').style.visibility = "hidden";
-        } else {
-          document.getElementById(e.id + '_div').style.display = "none";
-          document.getElementById('model_type_required').style.visibility = "visible";
-          }
-      }
-
       document.addEventListener('DOMContentLoaded', async () => {
         // Do nothing if browser doesn't support local storage
         if(typeof Storage === 'undefined') return;

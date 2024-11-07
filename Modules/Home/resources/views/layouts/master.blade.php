@@ -99,43 +99,17 @@
         </script>
       @endif
 
-      @include('home::includes.footer')
     </main>
 
     <style>
       body, html {
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 60%;
-        background-attachment: fixed;
-
-        background-color: #2f3031;
-      }    
-
-      @media only screen and (max-width: 900px) {
-        body, html {
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: 100%;
-          background-attachment: fixed;
-
-          background-color: #2f3031;
-        }
+        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+        width: 100%;
+        min-height: 100%;
+        position: absolute;
       }
     </style>
 
-    <script>
-      function requiredHideViewer(e) {
-        if(e.value != ''){
-          document.getElementById(e.id + '_required').style.visibility = "hidden";
-          return;
-        }	
-        document.getElementById(e.id + '_required').style.visibility = "visible";
-      }
-    </script>  
-
-    <!-- Google reCCHAPTA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
     {{-- Vite JS --}}
