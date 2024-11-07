@@ -1,16 +1,16 @@
 <div>
   <!-- Table last flights -->
-  <div class="container bg-dark bg-opacity-50 rounded">
+  <div class="container bg-dark bg-opacity-25 rounded">
     <div class="row">
       <div class="col ml-0">
         <div class="float-start mb-4 ms-0 mt-4">
-          <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, model" class="form-control rounded">
+          <input wire:model.live="search" type="text" id="name_search" placeholder="Naam" class="form-control rounded">
         </div>
       </div>
     </div>
 
     <div class="table-responsive">
-      <table class="table table-borderless table-striped table-dark user-list rounded text-white ml-2 mr-2">
+      <table class="table user-list rounded text-white ml-2 mr-2">
         <thead>
           <tr>
             <th scope="col">ID</th>

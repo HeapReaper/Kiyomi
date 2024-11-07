@@ -7,17 +7,17 @@
   <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.store') }}" method="POST">
     @csrf
 
-    <div class="row bg-dark rounded bg-opacity-50">
+    <div class="row bg-dark rounded bg-opacity-25">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="name" class="text-white font-weight-bold">Volledige naam</label>
+            <label for="name" class="text-white font-weight-bold"><strong>Volledige naam</strong></label>
             <input type="text" class="form-control" id="name" name="name" aria-describedby="fullname" placeholder="Voornaam achternaam" value="{{ old('name') }}" required>
             <!-- <small id="fullname" class="form-text text-muted"></small>-->
           </div>
 
           <div class="form-group">
-            <label for="birthdate"  class="text-white font-weight-bold">Geboortedatum</label>
+            <label for="birthdate"  class="text-white font-weight-bold"><strong>Geboortedatum</strong></label>
             <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="01-01-2024" value="{{ old('birthdate') }}" required>
           </div>
         </div>
@@ -26,17 +26,17 @@
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="address"  class="text-white font-weight-bold">Adres</label>
+            <label for="address"  class="text-white font-weight-bold"><strong>Adres</strong></label>
             <input type="text" class="form-control" id="address" name="address" placeholder="Straatnaam nummer" value="{{ old('address') }}" required>
           </div>
 
           <div class="form-group">
-            <label for="postcode"  class="text-white font-weight-bold">Postcode</label>
+            <label for="postcode"  class="text-white font-weight-bold"><strong>Postcode</strong></label>
             <input type="text" class="form-control" id="postcode" name="postcode" placeholder="1234AH (zonder spatie!)" value="{{ old('postcode') }}" required>
           </div>
 
           <div class="form-group">
-            <label for="city"  class="text-white font-weight-bold">Woonplaats</label>
+            <label for="city"  class="text-white font-weight-bold"><strong>Woonplaats</strong></label>
             <input type="text" class="form-control" id="city" name="city" placeholder="Woonplaats" value="{{ old('city') }}" required>
           </div>
         </div>
@@ -45,28 +45,28 @@
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="phone"  class="text-white font-weight-bold">Telefoon</label>
+            <label for="phone"  class="text-white font-weight-bold"><strong>Telefoon</strong></label>
             <input type="text" class="form-control" id="phone" name="phone" placeholder="0612343455 (nummer zonder streepje!)" value="{{ old('phone') }}" required>
           </div>
 
           <div class="form-group">
-            <label for="email" class="text-white font-weight-bold">E-mail</label>
+            <label for="email" class="text-white font-weight-bold"><strong>E-mail</strong></label>
             <input type="email" class="form-control" id="email" name="email" placeholder="mail@provider.nl" value="{{ old('email') }}" required>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="row bg-dark rounded bg-opacity-50 mt-2">
+    <div class="row bg-dark rounded bg-opacity-25 mt-2">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="rdw_number"  class="text-white font-weight-bold">RDW nummer</label>
+            <label for="rdw_number"  class="text-white font-weight-bold"><strong>RDW nummer</strong></label>
             <input type="text" class="form-control" id="rdw_number" name="rdw_number" placeholder="A34hjhdwqjkwqa" value="{{ old('rdw_number') }}">
           </div>
 
           <div class="form-group">
-            <label for="knvvl"  class="text-white font-weight-bold">KNVvl nummer</label>
+            <label for="knvvl"  class="text-white font-weight-bold"><strong>KNVvl nummer</strong></label>
             <input type="text" class="form-control" id="knvvl" name="knvvl" placeholder="1234567" value="{{ old('name') }}">
           </div>
         </div>
@@ -75,7 +75,7 @@
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="role" class="text-white font-weight-bold">Rol</label>
+            <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
             <select class="form-control" id="role" name="role" required>
               <option selected disabled>selecteer...</option>
               <option value="junior_member">Jeugd lid</option>
@@ -88,7 +88,7 @@
           </div> 
 
           <div class="form-group">
-            <label for="instruct" class="text-white font-weight-bold">Instructeur</label>
+            <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
             <select class="form-control" id="instruct" name="instruct" required>
               <option value=0 selected>Nee</option>
               <option value=1>Ja</option>
@@ -99,7 +99,7 @@
 
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
-          <h4 class="font-weight-bold text-white mb-0">Brevetten</h4>
+          <h4 class="font-weight-bold text-white mb-0"><strong>Brevetten</strong></h4>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value=1 id="PlaneCertCheckbox" name="PlaneCertCheckbox">
             <label class="form-check-label text-white" for="PlaneCertCheckbox">
@@ -121,7 +121,7 @@
             </label>
           </div>
 
-          <h4 class="font-weight-bold text-white mb-0 mt-2">Speciale status</h4>
+          <h4 class="font-weight-bold text-white mb-0 mt-2"><strong>Speciale status</strong></h4>
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value=1 id="honoraryMemberCheckbox" name="honoraryMemberCheckbox"> 
             <label class="form-check-label text-white" for="honoraryMemberCheckbox">
@@ -133,7 +133,7 @@
       </div>
     </div>
 
-    <div class="row bg-dark rounded bg-opacity-50 mt-2">
+    <div class="row bg-dark rounded bg-opacity-25 mt-2">
       <div class="col-sm">
         <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
           <h4 class="font-weight-bold text-white mb-0">Drone certificaten</h4>
@@ -160,10 +160,9 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-success mt-">Toevoegen</button>
+      <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Toevoegen</button>
 
     </div>
-
   </form>
 </div>
 @endsection

@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row mt-4">
       <!-- Manual make new report from specific dates -->
-      <div class="col-sm bg-dark bg-opacity-50 rounded p-2 m-2">
+      <div class="col-sm bg-dark bg-opacity-25 rounded p-2 m-2">
         <h6 class="text-white">Maak rapportage</h6>
         <form action="{{ route('flights-report.store') }}" method="POST">
           @csrf
@@ -18,17 +18,17 @@
               <label for="end_date" class="text-white">Eind datum</label>
               <input id="end_date" name="end_date" class="form-control" style="max-width: 50%;" type="date" />
 
-              <button type="submit" class="btn btn-success mt-2">Genereer</button>
+              <button type="submit" class="btn mt-2 text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Genereer</button>
             </div>
           </div>
         </form>
       </div>
 
       <!-- Show generated flight reports -->
-      <div class="col bg-dark bg-opacity-50 rounded p-2 m-2">
+      <div class="col bg-dark bg-opacity-25 rounded p-2 m-2">
         <h6 class="text-white">Gemaakte rapportages</h6>
         <div class="overflow-auto" style="max-height: 180px">
-          <table class="table table-borderless table-striped table-dark text-white">
+          <table class="table table-borderless rounded table-striped table-dark text-white">
             <thead>
               <tr>
                 <th scope="col">#</th>

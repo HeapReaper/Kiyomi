@@ -5,7 +5,7 @@
 <main>
   @section('content')
     <div class="container mt-4 mb-4">
-      <form class="col-lg-6 offset-lg-3 p-4 bg-dark rounded bg-opacity-50 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
+      <form class="col-lg-6 offset-lg-3 p-4 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
         @csrf
         <div class="justify-content-center">
           <!-- TOP TEXT AND IMAGE -->
@@ -92,7 +92,7 @@
         </div>
 
         <!-- SEND FORM BUTTON -->
-        <button type="submit" class="btn font-weight-bold mt-3 text-dark" style="background-image: linear-gradient(to right, #c1c161 0%, #c1c161 0%, #d4d4b1 100%);">Verzenden</button>
+        <button type="submit" class="btn font-weight-bold mt-3 text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Verzenden</button>
       </form>
       </div>
 
