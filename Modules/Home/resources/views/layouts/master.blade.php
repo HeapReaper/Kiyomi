@@ -19,8 +19,6 @@
     @include('home::includes.head')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 
-    <link rel="manifest" href="/manifest.json">
-
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
   </head>
@@ -117,7 +115,6 @@
 
       @media only screen and (max-width: 900px) {
         body, html {
-          background-image: url("/media/images/plane.png");
           background-repeat: no-repeat;
           background-position: center;
           background-size: 100%;
@@ -145,18 +142,4 @@
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}
   </body>
-  <script type="text/javascript">
-    // Initialize the service worker
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js', {
-            scope: '.'
-        }).then(function (registration) {
-            // Registration was successful
-            console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
-        }, function (err) {
-            // registration failed :(
-            console.log('Laravel PWA: ServiceWorker registration failed: ', err);
-        });
-    }
-</script>
 </html>
