@@ -10,7 +10,7 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table table-striped user-list rounded text-white ml-2 mr-2">
+      <table class="table user-list rounded text-white ml-2 mr-2">
         <thead>
           <tr>
             <th scope="col">ID</th>
