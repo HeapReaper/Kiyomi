@@ -4,6 +4,8 @@ namespace Modules\Panel\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Users\Models\User;
+use Modules\Flights\Models\Flight;
 
 class PanelController extends Controller
 {
