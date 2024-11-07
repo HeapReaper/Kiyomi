@@ -9,8 +9,8 @@
         @csrf
         <div class="justify-content-center">
           <!-- TOP TEXT AND IMAGE -->
-          <img src="/media/images/field.jpg" class="img-fluid rounded mt-3">
-          <h2 class="text-white text-center pt-3 pb-3">Registratie aanvang modelvliegen TRMC</h2>
+          <h2 class="text-white text-center pt-2 pb-2">Registratie aanvang modelvliegen TRMC</h2>
+          <img src="/app_media/field_and_members.jpg" class="img-fluid rounded mt-3 mb-3">
 
           <div class="form-group">
             <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
