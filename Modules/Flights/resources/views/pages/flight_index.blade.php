@@ -13,7 +13,7 @@
       <!-- Total cards -->
       <div class="row">
         <!-- Total flights -->
-        <div class="col-sm text-center mt-2 bg-dark bg-opacity-50 rounded m-2">
+        <div class="col-sm text-center mt-2 bg-dark bg-opacity-25 rounded m-2">
           <h3 class="text-white mt-2">Totaal:
             <br>
             {{ count($flights) }}
@@ -21,12 +21,12 @@
           <h1 class="text-white"></h1>
         </div>
         <!-- This week flights -->
-        <div class="col-sm text-center mt-2 bg-dark bg-opacity-50 rounded m-2">
+        <div class="col-sm text-center mt-2 bg-dark bg-opacity-25 rounded m-2">
           <h3 class="text-white mt-2">Deze week:</h3>
           <h1 class="text-white"></h1>
         </div>
         <!-- Today flights -->
-        <div class="col-sm text-center  mt-2 bg-dark bg-opacity-50 rounded m-2">
+        <div class="col-sm text-center  mt-2 bg-dark bg-opacity-25 rounded m-2">
           <h3 class="text-white mt-2">Vandaag:</h3>
           <h1 class="text-white"></h1>
         </div>

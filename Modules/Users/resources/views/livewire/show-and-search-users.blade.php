@@ -1,7 +1,7 @@
 <div>
   <div class="row">
     <div class="col-lg-12">
-      <div class="main-box no-header clearfix bg-dark bg-opacity-50 rounded p-2">
+      <div class="main-box no-header clearfix bg-dark bg-opacity-25 rounded p-2">
         <div class="row">
           <div class="col ml-2">
             <div class="float-start mb-4 ms-4 mt-2">

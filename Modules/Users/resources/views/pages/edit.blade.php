@@ -8,7 +8,7 @@
     @csrf
     @method('PUT')
 
-    <div class="row bg-dark rounded bg-opacity-50">
+    <div class="row bg-dark rounded bg-opacity-25">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
@@ -58,12 +58,12 @@
       </div>
     </div>
 
-    <div class="row bg-dark rounded bg-opacity-50 mt-2">
+    <div class="row bg-dark rounded bg-opacity-25 mt-2">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
           <div class="form-group">
-            <label for="rdw_number"  class="text-white font-weight-bold">RDW nummer</label>
-            <input type="text" class="form-control" id="rdw_number" name="rdw_number" placeholder="A34hjhdwqjkwqa" value="{{ $user->rdw_number }}">>
+            <label for="rdw_number" class="text-white font-weight-bold">RDW nummer</label>
+            <input type="text" class="form-control" id="rdw_number" name="rdw_number" placeholder="A34hjhdwqjkwqa" value="{{ $user->rdw_number }}">
           </div>
 
           <div class="form-group">
@@ -151,7 +151,7 @@
       </div>
     </div>
 
-      <div class="row bg-dark rounded bg-opacity-50 mt-2">
+      <div class="row bg-dark rounded bg-opacity-25 mt-2">
         <div class="col-sm">
           <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
             <h4 class="font-weight-bold text-white mb-0">Drone certificaten</h4>
