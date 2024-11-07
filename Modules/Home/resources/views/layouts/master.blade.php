@@ -104,7 +104,6 @@
 
     <style>
       body, html {
-        background-image: url("/media/images/plane.png");
         background-repeat: no-repeat;
         background-position: center;
         background-size: 60%;
