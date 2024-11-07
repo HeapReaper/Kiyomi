@@ -18,9 +18,9 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Vluchten
           </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('flights-panel.index') }}">Overzicht</a>
-            <a class="dropdown-item" href="{{ route('flights-report.index') }}">Rapportages</a>
+          <ul class="dropdown-menu  bg-dark bg-opacity-75">
+            <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
+            <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
@@ -29,10 +29,10 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Leden
           </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('users.index') }}">Overzicht</a>
-            <a class="dropdown-item" href="{{ route('users.create') }}">Toevoegen</a>
-            <a class="dropdown-item" href="">Contact</a>
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
+            <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
+            <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
+            <a class="dropdown-item text-white" href="">Contact</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
@@ -41,9 +41,9 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Instellingen
           </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="">Algemeen</a>
-            <a class="dropdown-item" href="">Email</a>
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
+            <a class="dropdown-item text-white" href="">Algemeen</a>
+            <a class="dropdown-item text-white" href="">Email</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
@@ -52,8 +52,8 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Systeem
           </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="">Logs</a>
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
+            <a class="dropdown-item text-white" href="">Logs</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
@@ -65,9 +65,9 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Welkom {{ Auth::user()->name }}!
           </a>
-          <ul class="dropdown-menu">
-            <a class="dropdown-item" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
-            <a class="dropdown-item" href="/logout">Uitloggen</a>
+          <ul class="dropdown-menu bg-dark bg-opacity-50">
+            <a class="dropdown-item text-white" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
+            <a class="dropdown-item text-white" href="/logout">Uitloggen</a>
           </ul>
         </li>
       </ul>
