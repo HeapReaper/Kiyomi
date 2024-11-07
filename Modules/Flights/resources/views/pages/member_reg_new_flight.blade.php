@@ -155,16 +155,6 @@
     </style>
 
     <script>
-      function checkBoxes(e) {
-        if (e.checked) {
-          document.getElementById(e.id + '_div').style.display = "block";
-          document.getElementById('model_type_required').style.visibility = "hidden";
-        } else {
-          document.getElementById(e.id + '_div').style.display = "none";
-          document.getElementById('model_type_required').style.visibility = "visible";
-          }
-      }
-
       document.addEventListener('DOMContentLoaded', async () => {
         // Do nothing if browser doesn't support local storage
         if(typeof Storage === 'undefined') return;
