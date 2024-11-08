@@ -5,14 +5,14 @@ namespace Modules\Users\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class ContactController extends Controller
+class UsersContactController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('users::index');
+        return view('users::pages.contact_index');
     }
 
     /**

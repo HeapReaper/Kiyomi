@@ -32,7 +32,7 @@
           <ul class="dropdown-menu bg-dark bg-opacity-75">
             <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
-            <a class="dropdown-item text-white" href="">Contact</a>
+            <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
