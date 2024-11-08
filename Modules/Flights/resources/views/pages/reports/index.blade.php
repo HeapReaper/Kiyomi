@@ -6,7 +6,7 @@
   <div class="container">
     <div class="row mt-4 m-2">
       <!-- Manual make new report from specific dates -->
-      <div class="col-sm bg-dark bg-opacity-25 rounded p-2">
+      <div class="col-sm bg-dark bg-opacity-25 rounded p-2 mt-2">
         <h6 class="text-white">Maak rapportage</h6>
         <form action="{{ route('flights-report.store') }}" method="POST">
           @csrf
