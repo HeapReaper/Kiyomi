@@ -18,7 +18,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Vluchten
           </a>
-          <ul class="dropdown-menu  bg-dark bg-opacity-75">
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
             <!--<li><hr class="dropdown-divider"></li>-->
@@ -37,6 +37,7 @@
           </ul>
         </li>
 
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Instellingen
@@ -44,7 +45,6 @@
           <ul class="dropdown-menu bg-dark bg-opacity-75">
             <a class="dropdown-item text-white" href="">Algemeen</a>
             <a class="dropdown-item text-white" href="">Email</a>
-            <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
 
@@ -54,10 +54,10 @@
           </a>
           <ul class="dropdown-menu bg-dark bg-opacity-75">
             <a class="dropdown-item text-white" href="">Logs</a>
-            <!--<li><hr class="dropdown-divider"></li>-->
+            <li><hr class="dropdown-divider"></li>
           </ul>
         </li>
-
+        -->
       </ul>
 
       <ul class="navbar-nav ms-auto"> 

@@ -4,9 +4,9 @@
 
 @section('content')
   <div class="container">
-    <div class="row mt-4">
+    <div class="row mt-4 m-2">
       <!-- Manual make new report from specific dates -->
-      <div class="col-sm bg-dark bg-opacity-25 rounded p-2 m-2">
+      <div class="col-sm bg-dark bg-opacity-25 rounded p-2 mt-2">
         <h6 class="text-white">Maak rapportage</h6>
         <form action="{{ route('flights-report.store') }}" method="POST">
           @csrf
@@ -25,7 +25,7 @@
       </div>
 
       <!-- Show generated flight reports -->
-      <div class="col bg-dark bg-opacity-25 rounded p-2 m-2">
+      <div class="col bg-dark bg-opacity-25 rounded p-2 mt-2">
         <h6 class="text-white">Gemaakte rapportages</h6>
         <div class="overflow-auto" style="max-height: 180px">
           <table class="table table-borderless rounded table-striped table-dark text-white">

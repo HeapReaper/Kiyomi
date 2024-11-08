@@ -3,7 +3,7 @@
 @section('title', $user->name)
 
 @section('content')	
-<div class="container-fluid col-lg-6 offset-lg-3 pt-4 pb-4">
+  <div class="container-fluid col-lg-6 offset-lg-3 pt-4 pb-4">
     <div class="row bg-dark rounded bg-opacity-25">
       <div class="col-sm">
         <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
@@ -176,5 +176,5 @@
       </div>
     </div>
   </form>
-</div>
+  </div>
 @endsection
