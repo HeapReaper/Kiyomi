@@ -4,8 +4,8 @@
 
 <main>
   @section('content')
-    <div class="container mt-4 mb-4">
-      <form class="col-lg-6 offset-lg-3 p-4 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
+    <div class="container mt-4 mb-4 ms-0 ">
+      <form class="col-lg-6 offset-lg-3 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
         @csrf
         <div class="justify-content-center">
           <!-- TOP TEXT AND IMAGE -->

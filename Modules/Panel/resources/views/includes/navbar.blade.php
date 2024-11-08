@@ -18,7 +18,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Vluchten
           </a>
-          <ul class="dropdown-menu  bg-dark bg-opacity-75">
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
             <!--<li><hr class="dropdown-divider"></li>-->
