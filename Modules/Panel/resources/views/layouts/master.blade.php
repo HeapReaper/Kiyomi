@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" >
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -97,11 +97,7 @@
     </script>
   @endif
 
-
-
   @yield('content')
-
-  @include('panel::includes.footer')
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -116,7 +112,7 @@
       background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
       width: 100%;
       height: 100%;
-      position: absolute;
+      background-attachment: fixed;
     }
 
   </style>

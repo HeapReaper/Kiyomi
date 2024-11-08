@@ -39,7 +39,6 @@
 
   <style>
     body, html {
-      background-color: #2f3031;
     }
 
     input[type="checkbox"] {

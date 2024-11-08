@@ -106,7 +106,7 @@
         background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
         width: 100%;
         min-height: 100%;
-        position: absolute;
+        background-attachment: fixed;
       }
     </style>
 
