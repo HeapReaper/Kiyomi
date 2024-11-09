@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Users\Models\User;
 use Carbon\Carbon;
+use Hash;
 
 class UsersController extends Controller
 {
@@ -47,7 +48,7 @@ class UsersController extends Controller
             'PlaneCertCheckbox' => ['nullable'],
             'HeliCertCheckbox' => ['nullable'],
             'gliderCertCheckbox' => ['nullable'],
-            'honoraryMemberCheckbox' => ['nullable'], 
+            'honoraryMemberCheckbox' => ['nullable'],
             'droneA1Checkbox' => ['nullable'],
             'droneA2Checkbox' => ['nullable'],
             'droneA3Checkbox' => ['nullable'],
@@ -123,11 +124,12 @@ class UsersController extends Controller
             'droneA1Checkbox' => ['nullable'],
             'droneA2Checkbox' => ['nullable'],
             'droneA3Checkbox' => ['nullable'],
+            'password' => ['nullable'],
         ]);
 
         $userOldData = User::find($id);
 
-        User::find($id)->update([
+        $user = User::find($id)->update([
             'name' => $validated['name'],
             'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),
             'address' => $validated['address'],
@@ -147,7 +149,12 @@ class UsersController extends Controller
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
 
+        // TODO: fix role validation
+        User::find($id)->update([
+            'password' => Hash::make($validated['password']),
+        ]);
 
+        // TODO: Change to $user
         User::find($id)->syncRoles([$validated['role']]);
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
