@@ -42,7 +42,7 @@ class FlightsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'integer', 'max:25'],
+            'name' => ['required', 'integer'],
             'date' => ['required', 'max:12'],
             'start_time' => ['required', 'max:6'],
             'end_time' => ['required', 'max:6'],
