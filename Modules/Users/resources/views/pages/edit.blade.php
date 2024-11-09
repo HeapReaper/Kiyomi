@@ -177,9 +177,29 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
-
       </div>
+
+      <div class="row bg-dark rounded bg-opacity-25 mt-2">
+        <h4 class="font-weight-bold mt-2 text-white mb-0">Toegang</h4>
+        @if (Auth()->user()->id == $user->id || Auth()->user()->roles()->get()[0]->name == "bestuur" || Auth()->user()->roles()->get()[0]->name == "super admin")
+          <div class="col-sm">
+            <div class="form-group">
+              <label for="password" class="text-white"><strong>Wachtwoord</strong></label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Wachtwoord...">
+            </div>
+          </div>
+        @endif
+        <div class="col">
+          <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2">
+            <a href="" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); padding: 4px; border-radius: 10px; color: white;">
+              Verstuur een wachtwoord email (WIP)
+            </a>
+          </div>
+        </div>
+
+        <button type="submit" class="btn text-white mt-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
+      </div>
+
     </div>
   </form>
 </div>

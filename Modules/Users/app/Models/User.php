@@ -10,6 +10,7 @@ use Spatie\Permission\Traits\HasRoles;
 use Modules\Users\Models\Role;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\Flights\Models\Flight;
+use Illuminate\Contracts\Auth\CanResetPassword;
 
 class User extends Authenticatable
 {
