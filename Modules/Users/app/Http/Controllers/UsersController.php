@@ -148,11 +148,14 @@ class UsersController extends Controller
             'has_drone_a2' => $validated['droneA2Checkbox'] ?? 0,
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
+        $user->save();
 
         // TODO: fix role validation
-        User::find($id)->update([
-            'password' => Hash::make($validated['password']),
-        ]);
+        if (array_key_exists('password', $validated)) {
+            User::find($id)->update([
+                'password' => Hash::make($validated['password']),
+            ]);
+        }
 
         // TODO: Change to $user
         User::find($id)->syncRoles([$validated['role']]);

@@ -34,6 +34,7 @@ class User extends Authenticatable
         'city',
         'mobile_phone',
         'rdw_number',
+        'knvvl',
         'instruct',
         'has_plane_brevet',
         'has_helicopter_brevet',
