@@ -62,7 +62,7 @@ class UsersController extends Controller
             'city' => $validated['city'],
             'mobile_phone' => $validated['phone'],
             'rdw_number' => $validated['rdw_number'],
-            'KNVvl' => $validated['knvvl'],
+            'knvvl' => $validated['knvvl'],
             'email' => $validated['email'],
             'instruct' => $validated['instruct'],
             'has_plane_brevet' => $validated['PlaneCertCheckbox'] ?? 0,
