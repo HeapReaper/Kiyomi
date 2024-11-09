@@ -18,6 +18,7 @@ use Modules\Flights\Http\Controllers\FlightsReportController;
 
 Route::group([], function () {
     Route::resource('flights', FlightsController::class)->names('flights');
+    Route::get('/aanmeld-formulier', [FlightsController::class, 'redirect']);
 });
 
 Route::group(['middleware' => 'auth'], function () {
