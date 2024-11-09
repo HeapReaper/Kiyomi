@@ -67,7 +67,7 @@
 
           <div class="form-group">
             <label for="knvvl"  class="text-white font-weight-bold"><strong>KNVvl nummer</strong></label>
-            <input type="text" class="form-control" id="knvvl" name="knvvl" placeholder="1234567" value="{{ old('name') }}">
+            <input type="text" class="form-control" id="knvvl" name="knvvl" placeholder="1234567" value="{{ old('knvvl') }}">
           </div>
         </div>
       </div>
