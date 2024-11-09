@@ -148,7 +148,6 @@ class UsersController extends Controller
             'has_drone_a2' => $validated['droneA2Checkbox'] ?? 0,
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
-        $user->save();
 
         // TODO: fix role validation
         if (array_key_exists('password', $validated)) {
