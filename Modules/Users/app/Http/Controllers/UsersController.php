@@ -56,11 +56,11 @@ class UsersController extends Controller
 
         $user = User::create([
             'name' => $validated['name'],
-            'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),	
+            'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),
             'address' => $validated['address'],
-            'postcode' => $validated['postcode'],
+            'zip_code' => $validated['postcode'],
             'city' => $validated['city'],
-            'phone' => $validated['phone'],
+            'mobile_phone' => $validated['phone'],
             'rdw_number' => $validated['rdw_number'],
             'KNVvl' => $validated['knvvl'],
             'email' => $validated['email'],
