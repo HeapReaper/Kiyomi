@@ -104,4 +104,11 @@ class FlightsController extends Controller
     {
         //
     }
+
+    /**
+     * Temp redirect
+     */
+    public function redirect() {
+        return redirect('/flights/create');
+    }
 }
