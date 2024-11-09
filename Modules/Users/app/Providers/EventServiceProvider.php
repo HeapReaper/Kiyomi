@@ -3,15 +3,22 @@
 namespace Modules\Users\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+use Modules\Users\Events\UsersContactWasSubmitted;
+use Modules\Users\Listeners\SendEmailToUsers;
 
 class EventServiceProvider extends ServiceProvider
 {
     /**
      * The event handler mappings for the application.
      *
+     * @author AutiCodes
      * @var array<string, array<int, string>>
      */
-    protected $listen = [];
+    protected $listen = [
+        UsersContactWasSubmitted::class => [
+            SendEmailToUsers::class,
+        ]
+    ];
 
     /**
      * Indicates if events should be discovered.
