@@ -15,7 +15,7 @@
 
           <div class="form-group">
             <label for="birthdate"  class="text-white font-weight-bold"><strong>Geboortedatum</strong></label>
-            <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="01-01-2024" required value="{{ $user->birthdate }}" disabled>
+            <input type="text" class="form-control" id="birthdate" name="birthdate" placeholder="01-01-2024" required value="{{ date('d-m-Y', strtotime($user->birthdate)) }}" disabled>
           </div>
         </div>
       </div>
