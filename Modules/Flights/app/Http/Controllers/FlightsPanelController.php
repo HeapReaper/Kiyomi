@@ -95,17 +95,16 @@ class FlightsPanelController extends Controller
 
     public function import()
     {
-        // Extract single flight submissions
-        foreach(explode(';', file_get_contents('flights.txt')) as $flight) {
+        foreach(file('flightsRefactored.txt') as $line) {
             // Extract indivudial data from submission
-            $exploded = explode('|', $flight);
+            $exploded = explode('|', $line);
 
             $name = $exploded[0];
             $date = $exploded[1];
             $start_time = $exploded[2];
             $end_time = $exploded[3];
             $model = $exploded[4];
-            $class = $exploded[5];
+            $class = trim(preg_replace('/\s\s+/', ' ', $exploded[5]));
 
             // Make flight
             $flight = Flight::create([
@@ -154,6 +153,7 @@ class FlightsPanelController extends Controller
             ]);
 
             $flight->submittedModel()->attach($model->id);
-        }
+         }
+
     }
 }
