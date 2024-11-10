@@ -25,5 +25,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
     Route::resource('flights-reports', FlightsReportController::class)->names('flights-report');
     Route::get('flights-reports/download/{report}', [FlightsReportController::class, 'download']);
-    Route::get('flights-reports/import', [FlightsPanelController::class, 'import']);
+    Route::get('flights-reports-import', [FlightsPanelController::class, 'import']);
 });
