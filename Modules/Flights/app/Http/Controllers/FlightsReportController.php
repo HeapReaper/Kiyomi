@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Modules\Flights\Models\Flight;
-use Spatie\LaravelPdf\Facades\Pdf;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class FlightsReportController extends Controller
 {
@@ -53,13 +53,13 @@ class FlightsReportController extends Controller
                                 ->with('submittedModel')
                                 ->get();
 
-            Pdf::view('flights::pages.reports.pdf_flight_report', [
+            $pdf = Pdf::loadView('flights::pages.reports.pdf_flight_report', [
                         'flights' => $flights,
                         'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
                         'end_date' => date('d-m-Y', strtotime($validated['end_date']))
-                    ])
-                    ->disk('local')
-                    ->save('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])) . '-' . date('d-m-Y', strtotime($validated['end_date'])) . '.pdf');
+                    ]);
+
+            Storage::disk('local')->put('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])) . '-' . date('d-m-Y', strtotime($validated['end_date'])) . '.pdf', $pdf->download()->getOriginalContent());
 
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
 
