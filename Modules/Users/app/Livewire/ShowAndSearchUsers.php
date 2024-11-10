@@ -25,6 +25,7 @@ class ShowAndSearchUsers extends Component
                                         ->orWhere('email', 'like', '%' . $this->search . '%')
                                         ->orWhere('mobile_phone', 'like', '%' . $this->search . '%');
                             })
+                            ->orderBy('name', 'DESC')
                             ->paginate(10)
         ]);
     }
