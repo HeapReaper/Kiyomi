@@ -25,7 +25,7 @@
       @endif
 
       <!-- LOGIN -->
-      <div class="container mt-5 bg-dark bg-opacity-25 rounded p-2" style="max-width: 400px">
+      <div class="container mt-5 bg-dark bg-opacity-25 rounded shadow-lg p-2" style="max-width: 400px">
         <img src="/app_media/faticon.ico" class="rounded mx-auto d-block" alt="" style="width: 150px;">
         <h2 class="text-white text-center pt-3">Inloggen</h2>
 
