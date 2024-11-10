@@ -3,7 +3,7 @@
 @section('title', 'Leden')
 
 @section('content')
-  <div class="container-fluid">
+  <div class="container">
     <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
     <div class="container bootstrap mt-4 pl-0">
       <div class="row mt-3 mb-4">
