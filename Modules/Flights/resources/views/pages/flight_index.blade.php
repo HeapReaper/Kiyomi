@@ -6,7 +6,7 @@
 
     <div class="m-2">
       <!-- Total container-->
-      <div class="container bg-dark bg-opacity-25 rounded p-2">
+      <div class="container bg-dark bg-opacity-25 rounded shadow-lg p-2">
         <!-- Total -->
         <h1 class="text-white mt-4">Vluchten overzicht</h1>
         <!-- Total cards -->

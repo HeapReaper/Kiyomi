@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="m-2">
-    <div class="container mt-4 p-2 bg-dark rounded bg-opacity-25">
+    <div class="container mt-4 p-2 bg-dark rounded shadow-lg bg-opacity-25">
       <h4 class="text-white">Voor wie is deze email?</h4>
       <form action="{{ route('contact.store') }}", method="POST">
         @csrf
