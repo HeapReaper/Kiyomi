@@ -113,20 +113,30 @@ class FlightsPanelController extends Controller
                 case 'Vliegtuig':
                     $model = 1;
                     break;
+                case 'Zweefvliegtuig':
+                    $model = 2;
+                    break;
+                case 'Helicopter':
+                    $model = 3;
+                    break;
+                case 'Drone':
+                    $model = 4;
                 default:
-                    $model = 69;
+                    $model = 1;
                     break;
             }
 
             switch($flight->submitted_models[0]->class) {
-                case "<300W":
+                case '<300W':
                     $class = 1;
                     break;
-                case "300W-1200W":
+                case '300W-1200W':
                     $class = 2;
                     break;
+                case '1200W-3000W':
+                    $class = 3;
                 default:
-                    $class = 69;
+                    $class = 1;
                     break;
             }
 
