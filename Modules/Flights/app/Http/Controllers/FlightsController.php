@@ -4,11 +4,9 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Modules\Users\Models\User;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\SubmittedModel;
-use Modules\Flights\Enums\ModelPowerClassEnum;
-use Modules\Flights\Enums\ModelTypeEnum;
+use Modules\Users\Models\User;
 
 class FlightsController extends Controller
 {
@@ -24,6 +22,7 @@ class FlightsController extends Controller
      * Show the form for creating a new resource.
      *
      * @author AutiCodes
+     *
      * @return View
      */
     public function create()
@@ -37,6 +36,7 @@ class FlightsController extends Controller
      * Store a newly created resource in storage.
      *
      * @author AutiCodes
+     *
      * @return redirect
      */
     public function store(Request $request)
@@ -108,7 +108,8 @@ class FlightsController extends Controller
     /**
      * Temp redirect
      */
-    public function redirect() {
+    public function redirect()
+    {
         return redirect('/flights/create');
     }
 }

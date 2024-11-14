@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use Modules\Flights\Http\Controllers\FlightsController;
 use Modules\Flights\Http\Controllers\FlightsPanelController;
 use Modules\Flights\Http\Controllers\FlightsReportController;
-use Modules\Flights\Http\Controllers\ImportController;
 
 /*
 |--------------------------------------------------------------------------

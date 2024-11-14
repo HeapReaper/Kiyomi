@@ -8,7 +8,6 @@ enum ModelName: string
      * Convert model integer to name
      *
      * @author AutiCodes
-     * @return string
      */
     public static function convertToName(int $modelId): string
     {

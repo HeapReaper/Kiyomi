@@ -5,10 +5,6 @@ namespace Modules\Flights\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Flights\Models\Flight;
-use Modules\Flights\Models\SubmittedModel;
-use Modules\Flights\Enums\ModelPowerClassEnum;
-use Modules\Flights\Enums\ModelTypeEnum;
-use Modules\Users\Models\User;
 use Storage;
 
 class FlightsPanelController extends Controller
@@ -17,16 +13,17 @@ class FlightsPanelController extends Controller
      * Display a listing of the resource.
      *
      * @author AutiCodes
+     *
      * @return View
      */
     public function index()
     {
         return view('flights::pages.flight_index', [
             'flights' => Flight::orderBy('date', 'DESC')
-                                ->orderBy('end_time', 'DESC')
-                                ->with('user')
-                                ->with('submittedModel')
-                                ->get()
+                ->orderBy('end_time', 'DESC')
+                ->with('user')
+                ->with('submittedModel')
+                ->get(),
         ]);
     }
 
@@ -74,18 +71,19 @@ class FlightsPanelController extends Controller
      * Remove the specified resource and relationships from storage.
      *
      * @author AutiCodes
+     *
      * @return Redirect
      */
     public function destroy(int $id)
     {
         $flight = Flight::findOrFail($id)
-                        ->with('submittedModel')
-                        ->with('user')
-                        ->first();
+            ->with('submittedModel')
+            ->with('user')
+            ->first();
 
         $flight->user()->detach($flight->user[0]->id);
 
-        foreach($flight->submittedModel as $model) {
+        foreach ($flight->submittedModel as $model) {
             $flight->submittedModel()->detach($model->id);
         }
 

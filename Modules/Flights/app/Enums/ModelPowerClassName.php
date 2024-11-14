@@ -8,11 +8,10 @@ enum ModelPowerClassName
      * Convert power class number to word
      *
      * @author AutiCodes
-     * @return string
      */
     public static function convertToName(int $powerClassId): string
     {
-        switch($powerClassId) {
+        switch ($powerClassId) {
             case 1:
                 return '<300W';
                 break;

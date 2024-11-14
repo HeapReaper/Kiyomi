@@ -2,9 +2,8 @@
 
 namespace Modules\Flights\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Flights\Models\SubmittedModel;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Modules\Users\Models\User;
 
@@ -30,7 +29,6 @@ class Flight extends Model
      * Submitted flight to user relationship
      *
      * @author AutiCodes
-     * @return BelongsToMany
      */
     public function user(): belongsToMany
     {
@@ -41,7 +39,6 @@ class Flight extends Model
      * Submitted flight to submitted models relationship
      *
      * @author AutiCodes
-     * @return BelongsToMany
      */
     public function submittedModel(): belongsToMany
     {

@@ -18,12 +18,12 @@ class ShowAndSearchFlights extends Component
     {
         return view('flights::livewire.show-and-search-flights', [
             'flights' => Flight::with('user', 'submittedModel')
-                        ->whereHas('user', function ($query) {
-                            $query->where('name', 'like', '%'.$this->search.'%');
-                        })
-                        ->orderBy('date', 'DESC')
-                        ->orderBy('end_time', 'DESC')
-                        ->paginate(10)
+                ->whereHas('user', function ($query) {
+                    $query->where('name', 'like', '%'.$this->search.'%');
+                })
+                ->orderBy('date', 'DESC')
+                ->orderBy('end_time', 'DESC')
+                ->paginate(10),
         ]);
     }
 }

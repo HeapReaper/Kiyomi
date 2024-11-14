@@ -3,10 +3,10 @@
 namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use Modules\Users\Models\User;
 use Carbon\Carbon;
 use Hash;
+use Illuminate\Http\Request;
+use Modules\Users\Models\User;
 
 class UsersController extends Controller
 {
@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function index()
     {
         return view('users::pages.index', [
-            'users' => User::all()
+            'users' => User::all(),
         ]);
     }
 

@@ -12,12 +12,13 @@ class EventServiceProvider extends ServiceProvider
      * The event handler mappings for the application.
      *
      * @author AutiCodes
+     *
      * @var array<string, array<int, string>>
      */
     protected $listen = [
         UsersContactWasSubmitted::class => [
             SendEmailToUsers::class,
-        ]
+        ],
     ];
 
     /**
