@@ -3,7 +3,7 @@
 @section('title', $user->name)
 
 @section('content')
-  <div class="m-2">
+  <div class="m-3">
     <div class="container-fluid col-lg-6 offset-lg-3 pt-4 pb-4">
       <div class="row bg-dark rounded bg-opacity-25">
         <div class="col-sm">
