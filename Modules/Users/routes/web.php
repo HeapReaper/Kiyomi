@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Users\Http\Controllers\UsersController;
-use Modules\Users\Http\Controllers\UsersContactController;
 use Modules\Users\Http\Controllers\AuthenticationController;
+use Modules\Users\Http\Controllers\UsersContactController;
+use Modules\Users\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------

@@ -7,6 +7,7 @@ class refactorDate
     public static function refactorDate(string $date): string
     {
         $date = new DateTime($date);
+
         return $date->format('d-m-Y');
     }
 }
@@ -14,5 +15,6 @@ class refactorDate
  * Refactores date to d-m-y
  *
  * @author AutiCodes
+ *
  * @return string
  */

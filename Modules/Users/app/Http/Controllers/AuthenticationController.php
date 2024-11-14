@@ -3,12 +3,10 @@
 namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Modules\Users\Models\User;
-use Illuminate\Http\RedirectResponse;
-use Auth;
-use Session;
-use Redirect;
 
 class AuthenticationController extends Controller
 {
@@ -16,6 +14,7 @@ class AuthenticationController extends Controller
      * Shows the login page
      *
      * @author AutiCodes
+     *
      * @return View
      */
     public function index()
@@ -24,10 +23,9 @@ class AuthenticationController extends Controller
     }
 
     /**
-     * Signs in the user 
+     * Signs in the user
      *
      * @author AutiCodes
-     * @param Request $request
      */
     public function signIn(Request $request): RedirectResponse
     {
@@ -37,11 +35,11 @@ class AuthenticationController extends Controller
             'password' => ['required', 'string'],
         ]);
 
-        if (!Auth::attempt($validated)) {
+        if (! Auth::attempt($validated)) {
             return redirect()
-                        ->back()
-                        ->with('error', 'Login incorrect!')
-                        ->withInput();
+                ->back()
+                ->with('error', 'Login incorrect!')
+                ->withInput();
         }
 
         return redirect()->route('panel.index');

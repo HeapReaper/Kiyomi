@@ -2,21 +2,18 @@
 
 namespace Modules\Users\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Spatie\Permission\Traits\HasRoles;
-use Modules\Users\Models\Role;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\Flights\Models\Flight;
-use Illuminate\Contracts\Auth\CanResetPassword;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
     use HasFactory, HasRoles;
 
     protected $table = 'users';
+
     protected $guard_name = 'web';
 
     /**
@@ -72,7 +69,6 @@ class User extends Authenticatable
      * User to flight submit relationship
      *
      * @author AutiCodes
-     * @return BelongsToMany
      */
     public function flight(): belongsToMany
     {

@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
-use Modules\Users\Models\User;
 use Hash;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use Spatie\Permission\Models\role;
+use Modules\Users\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
