@@ -24,24 +24,26 @@
         </div>
       @endif
 
-      <!-- LOGIN -->
-      <div class="container mt-5 bg-dark bg-opacity-25 rounded shadow-lg p-2" style="max-width: 400px">
-        <img src="/app_media/faticon.ico" class="rounded mx-auto d-block" alt="" style="width: 150px;">
-        <h2 class="text-white text-center pt-3">Inloggen</h2>
+      <div class="m-2">
+        <!-- LOGIN -->
+        <div class="container mt-5 bg-dark bg-opacity-25 rounded shadow-lg p-2" style="max-width: 400px">
+          <img src="/app_media/faticon.ico" class="rounded mx-auto d-block" alt="" style="width: 150px;">
+          <h2 class="text-white text-center pt-3">Inloggen</h2>
 
-        <form class="col-auto pt-4 pb-4 mw-50" action="/login-post" method="POST">
-          @csrf
-          <div class="form-group">
-            <label for="email" class="text-white"><strong>Email</strong></label>
-            <input type="text" class="form-control" id="email" name="email" aria-describedby="email" placeholder="" required>
-          </div>
-          <div class="form-group mt-2">
-            <label for="password" class="text-white"><strong>Wachtwoord</strong></label>
-            <input type="password" class="form-control mb-2" id="password" name="password" placeholder="Wachtwoord" required>
-          </div>
+          <form class="col-auto pt-4 pb-4 mw-50" action="/login-post" method="POST">
+            @csrf
+            <div class="form-group">
+              <label for="email" class="text-white"><strong>Email</strong></label>
+              <input type="text" class="form-control" id="email" name="email" aria-describedby="email" placeholder="" required>
+            </div>
+            <div class="form-group mt-2">
+              <label for="password" class="text-white"><strong>Wachtwoord</strong></label>
+              <input type="password" class="form-control mb-2" id="password" name="password" placeholder="Wachtwoord" required>
+            </div>
 
-          <button type="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Inloggen</button>
-        </form>
+            <button type="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Inloggen</button>
+          </form>
+        </div>
       </div>
 		</main>
 
