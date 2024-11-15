@@ -98,7 +98,6 @@
           toast.show()
         </script>
       @endif
-
     </main>
 
     <style>
