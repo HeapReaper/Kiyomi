@@ -144,6 +144,12 @@
     </div>
   </div>
   <style>
+    .pagination .page-link {
+      background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+      color: white;
+      border: none;
+      margin: 4px;
+    }
   </style>
 </div>
 
