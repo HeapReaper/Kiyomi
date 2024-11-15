@@ -23,7 +23,7 @@ class ShowAndSearchFlights extends Component
                 })
                 ->orderBy('date', 'DESC')
                 ->orderBy('end_time', 'DESC')
-                ->paginate(10),
+                ->paginate(20),
         ]);
     }
 }
