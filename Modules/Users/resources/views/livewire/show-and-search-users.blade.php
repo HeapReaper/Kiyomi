@@ -115,13 +115,13 @@
                         <a href="{{ route('users.show', $user->id) }}" class="table-link text-warning">
                           <span class="fa-stack" style="font-size: 1rem;">
                             <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-search-plus fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
                           </span>
                         </a>
                         <a href="{{ route('users.edit', $user->id) }}" class="table-link text-info">
-                          <span class="fa-stack" style="font-size: 1rem;">	
+                          <span class="fa-stack" style="font-size: 1rem;">
                             <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-pencil fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
                           </span>
                         </a>
                         <a href="users-remove/{{ $user->id }}" class="table-link danger" 
@@ -129,7 +129,7 @@
                           >
                           <span class="fa-stack" style="font-size: 1rem;">
                             <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                            <i class="fa fa-trash-o fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
                           </span>
                         </a>
                       </td>
