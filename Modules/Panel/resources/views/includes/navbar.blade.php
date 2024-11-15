@@ -74,3 +74,9 @@
     </div>
   </div>
 </nav>
+
+<style>
+  .nav > li > a:hover{
+      background-color: beige;
+  }
+</style>
