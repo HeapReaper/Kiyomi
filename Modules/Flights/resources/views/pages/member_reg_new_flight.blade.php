@@ -140,6 +140,15 @@
           return formattedTime;
         }
 
+        document.onload = changeCurrentDateOnDateInput();
+
+        function changeCurrentDateOnDateInput() {
+          console.log('Updated current date');
+
+          const now = new Date();
+          document.getElementById('date').value = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate();
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
           // Do nothing if browser doesn't support local storage
           if(typeof Storage === 'undefined') return;
@@ -148,6 +157,9 @@
           const user = localStorage.getItem('name_id');
           // If not, do nothing
           if(!user) return;
+
+          const button = document.querySelector("date");
+          button.setAttribute("value", "11/11/2024");
 
           document.getElementById('name').value = user;
         });
@@ -161,7 +173,7 @@
         function changeEndTime() {
           console.log('Changed end time!')
 
-          document.getElementById('end_time').value = getCurrentTimeInNetherlands();
+          document.getElementById('end_time').set = getCurrentTimeInNetherlands();
         }
       </script>
   </div>
