@@ -173,7 +173,7 @@
         function changeEndTime() {
           console.log('Changed end time!')
 
-          document.getElementById('end_time').set = getCurrentTimeInNetherlands();
+          document.getElementById('end_time').value = getCurrentTimeInNetherlands();
         }
       </script>
   </div>
