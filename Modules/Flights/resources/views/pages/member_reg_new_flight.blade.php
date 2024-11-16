@@ -38,6 +38,10 @@
                 <div class="form-group p-2">
                   <h5 class="text-white font-weight-bold">Start tijd:</h5>
                   <input type="time" id="start_time" name="start_time" class="form-control" value="{{ old('start_time') }}" required>
+
+                  <button type="button" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);" onclick="changeStartTime()">
+                    Start vlucht
+                  </button>
                 </div>
               </div>
 
@@ -46,8 +50,13 @@
                 <div class="form-group p-2">
                   <h5 class="text-white font-weight-bold">Eind tijd:</h5>
                   <input type="time" id="end_time" name="end_time" class="form-control" value="{{ old('end_time') }}" required>
+
+                  <button type="button" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);" onclick="changeEndTime()">
+                    Einde vlucht
+                  </button>
                 </div>
               </div>
+
             </div>
 
             <hr class="mt-3 mb-3">
@@ -115,6 +124,31 @@
       </style>
 
       <script>
+        function getCurrentTimeInNetherlands() {
+          const now = new Date();
+          const amsterdamTimeZone = 'Europe/Amsterdam';
+          const amsterdamTime = new Date(now.toLocaleString('en-US', { timeZone: amsterdamTimeZone }));
+
+          const options = {
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: false,
+          };
+
+          const formattedTime = amsterdamTime.toLocaleString('nl-NL', options);
+
+          return formattedTime;
+        }
+
+        document.onload = changeCurrentDateOnDateInput();
+
+        function changeCurrentDateOnDateInput() {
+          console.log('Updated current date');
+
+          const now = new Date();
+          document.getElementById('date').value = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate();
+        }
+
         document.addEventListener('DOMContentLoaded', async () => {
           // Do nothing if browser doesn't support local storage
           if(typeof Storage === 'undefined') return;
@@ -124,8 +158,23 @@
           // If not, do nothing
           if(!user) return;
 
+          const button = document.querySelector("date");
+          button.setAttribute("value", "11/11/2024");
+
           document.getElementById('name').value = user;
         });
+
+        function changeStartTime() {
+          console.log('Changed start time!');
+
+          document.getElementById('start_time').value = getCurrentTimeInNetherlands();
+        }
+
+        function changeEndTime() {
+          console.log('Changed end time!')
+
+          document.getElementById('end_time').value = getCurrentTimeInNetherlands();
+        }
       </script>
   </div>
 @stop
