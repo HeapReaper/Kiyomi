@@ -28,7 +28,7 @@ class FlightsController extends Controller
     public function create()
     {
         return view('flights::pages.member_reg_new_flight', [
-            'users' => User::orderBy('name', 'DESC')->get(),
+            'users' => User::orderBy('name', 'ASC')->get(),
         ]);
     }
 

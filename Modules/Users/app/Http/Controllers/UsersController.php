@@ -16,7 +16,7 @@ class UsersController extends Controller
     public function index()
     {
         return view('users::pages.index', [
-            'users' => User::all(),
+            'users' => User::orderBy('name', 'ASC')->get(),
         ]);
     }
 
