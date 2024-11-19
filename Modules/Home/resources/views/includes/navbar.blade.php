@@ -18,6 +18,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link text-white" href="">Aanmelden als nieuw lid</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link text-white" href="{{ route('panel.index') }}">Login</a>
         </li>
 
