@@ -141,8 +141,8 @@
         function changeCurrentDateOnDateInput() {
           console.log('Updated current date');
 
-          const now = new Date();
-          document.getElementById('date').value = now.getFullYear() + '-' + now.getMonth() + '-' + now.getDate();
+          const now = new Date()
+          document.getElementById('date').value = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
