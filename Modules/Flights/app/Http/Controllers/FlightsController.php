@@ -42,7 +42,7 @@ class FlightsController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['required', 'integer'],
+            'name' => ['required', 'string'],
             'date' => ['required', 'max:12'],
             'start_time' => ['required', 'max:6'],
             'end_time' => ['required', 'max:6'],
@@ -55,13 +55,19 @@ class FlightsController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        $user = User::where('name', 'like', '%' . $validated['name'] . '%')->first();
+
+        if (!$user) {
+            return redirect()->back()->with('error', 'Ik kon je naam niet vinden, heb je hem goed getypt?')->withInput();
+        }
+
         $flight = Flight::create([
             'date' => $validated['date'],
             'start_time' => $validated['start_time'],
             'end_time' => $validated['end_time'],
         ]);
 
-        $flight->user()->attach(intval($validated['name']));
+        $flight->user()->attach($user->id);
 
         $model = SubmittedModel::create([
             'model_type' => $validated['model_type'],
