@@ -6,21 +6,17 @@
   @section('content')
     <div class="m-2">
       <div class="container mt-2 p-2">
-        <form class="col-lg-6 offset-lg-3 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST">
+        <form class="col-lg-6 offset-lg-3 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST" onsubmit="setName()">
           @csrf
           <div class="justify-content-center">
             <!-- TOP TEXT AND IMAGE -->
             <h2 class="text-white text-center pt-2 ">Registratie aanvang modelvliegen TRMC</h2>
             <img src="/app_media/field_and_members.jpg" class="img-fluid rounded p-2">
 
-            <div class="form-group p-2">
+            <div class="form-group m-2">
               <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
-              <select class="form-select" aria-label="Default select example" name="name">
-                <option disabled selected>Selecteer een naam</option>
-                @foreach ($users as $user)
-                  <option value={{ $user->id }}>{{ $user->name }}</option>
-                @endforeach
-              </select>
+              <input class="form-control" type="text" name="name" id="name" placeholder="Volledige naam" value="{{ old('name') }}" onload="getName()">
+              <small id="emailHelp" class="form-text text-white">Na de 1e keer succesvol invullen wordt je naam automatisch ingevuld.</small>
             </div>
 
             <!-- DATE -->
@@ -175,6 +171,16 @@
 
           document.getElementById('end_time').value = getCurrentTimeInNetherlands();
         }
+
+        function setName(e) {
+            console.log('putted name in local storage');
+            localStorage.setItem('name', document.getElementById('name').value);
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+          console.log('got name from local storage');
+          document.getElementById('name').value = localStorage.getItem('name');
+        });
       </script>
   </div>
 @stop
