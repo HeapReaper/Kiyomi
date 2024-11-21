@@ -13,14 +13,10 @@
             <h2 class="text-white text-center pt-2 ">Registratie aanvang modelvliegen TRMC</h2>
             <img src="/app_media/field_and_members.jpg" class="img-fluid rounded p-2">
 
-            <div class="form-group p-2">
+            <div class="form-group m-2">
               <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
-              <select class="form-select" aria-label="Default select example" name="name">
-                <option disabled selected>Selecteer een naam</option>
-                @foreach ($users as $user)
-                  <option value={{ $user->id }}>{{ $user->name }}</option>
-                @endforeach
-              </select>
+              <input class="form-control" type="text" name="name" placeholder="Volledige naam" value="{{ old('name') }}">
+              <small id="emailHelp" class="form-text text-white">Na de 1e keer succesvol invullen wordt je naam automatisch in gevuld.</small>
             </div>
 
             <!-- DATE -->
