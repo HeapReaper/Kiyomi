@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-dark bg-opacity-50">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="/">
-      <img src="/app_media/trmc.png" width="30" height="30" class="d-inline-block align-top ms-2" alt="">
+      <img src="/app_media/faticon.ico" width="30" height="30" class="d-inline-block align-top ms-2" alt="">
       TRMC
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
