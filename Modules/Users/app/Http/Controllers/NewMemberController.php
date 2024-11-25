@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Modules\Users\Models\User;
 use Carbon\Carbon;
+use Modules\Users\Emails\SendNewMemberEmail;
+use Mail;
+use App\Helpers\Settings;
 
 class NewMemberController extends Controller
 {
@@ -73,6 +76,8 @@ class NewMemberController extends Controller
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Er ging iets mis! '); 
         }
+
+        Mail::to(Settings::get('email_new_members'))->send(new SendNewMemberEmail($validated['name']));
 
         return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
     }
