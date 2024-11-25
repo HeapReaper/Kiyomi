@@ -11,12 +11,14 @@ class SendNewMemberEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $name;
+
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(string $name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -24,6 +26,6 @@ class SendNewMemberEmail extends Mailable
      */
     public function build(): self
     {
-        return $this->view('view.name');
+        return $this->view('users::mail.new_member_email', [$this->name]);
     }
 }
