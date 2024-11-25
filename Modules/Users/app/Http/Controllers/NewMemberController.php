@@ -49,7 +49,12 @@ class NewMemberController extends Controller
             'PlaneCertCheckbox' => ['int', 'nullable'],
             'HeliCertCheckbox' => ['int', 'nullable'],
             'gliderCertCheckbox' => ['int', 'nullable'],
+            'anti_bot' => ['int', 'required'],
         ]);
+
+        if ($validated['anti_bot'] != 4) {
+            return redirect()->back()->with('error', 'Ik gok dat je een bot bent!');
+        }
 
         try {
             $user = User::create([
@@ -74,7 +79,7 @@ class NewMemberController extends Controller
 
             $user->assignRole(6);
         } catch (Exception $e) {
-            return redirect()->back()->with('error', 'Er ging iets mis! '); 
+            return redirect()->back()->with('error', 'Er ging iets mis! ' . $e-getMessage());
         }
 
         Mail::to(Settings::get('email_new_members'))->send(new SendNewMemberEmail($validated['name']));

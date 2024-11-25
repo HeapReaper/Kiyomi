@@ -125,7 +125,15 @@
               </div>
             </div>
           </div>
+
+          <div class="form-group mb-2">
+            <label for="anti_bot"  class="text-white font-weight-bold"><strong>Anti bot (vereist)</strong></label>
+            <input type="text" class="form-control" id="anti_bot" name="anti_bot" placeholder="Wat is 2 + 2?" value="{{ old('anti_bot') }}" required>
+          </div>
+
+
         </div>
+
 
         <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
           <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Verstuur</button>
