@@ -18,7 +18,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="">Aanmelden als nieuw lid</a>
+          <a class="nav-link text-white" href="{{ route('new_member.create') }}">Aanmelden als nieuw lid</a>
         </li>
 
         <li class="nav-item">
