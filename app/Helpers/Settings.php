@@ -8,14 +8,16 @@ class Settings
 {
     public static function get(string $name): string
     {
+        if (!Setting::where('name', $name)->exists()) {
+            return '';
+        }
+
         return Setting::where('name', $name)->first()->value;
     }
 
     public static function insertOrUpdate(string $name, string $value)
     {
-        $setting = Setting::where('name', $name)->first();
-
-        if (!$setting) {
+        if (!Setting::where('name', $name)->exists()) {
             Setting::create([
                 'name' => $name,
                 'value' => $value,
@@ -24,7 +26,8 @@ class Settings
             return;
         }
 
-        $setting->value = $value;
-        $setting->save();
+        Setting::where('name', $name)->update([
+            'value' => $value,
+        ]);
     }
 }
