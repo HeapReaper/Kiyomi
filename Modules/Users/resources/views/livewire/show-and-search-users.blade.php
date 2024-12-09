@@ -106,6 +106,7 @@
                       <td class="text-white">
                         {{ $user->mobile_phone ?? 'Niet ingevuld' }}
                       </td>
+
                       <!-- Email -->
                       <td class="text-white">
                         {{ $user->email ?? 'Niet ingevuld' }}
