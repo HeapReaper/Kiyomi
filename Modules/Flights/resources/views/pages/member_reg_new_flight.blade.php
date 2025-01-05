@@ -104,24 +104,6 @@
       </main>
 
       <style>
-        .form-group {
-            position: relative;
-        }
-
-        .form-group input[type="time"] {
-            padding-right: 40px; /* ruimte voor het icoon */
-        }
-
-        .form-group::after {
-            content: '\1F550'; /* Unicode voor een klok-icoon */
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            pointer-events: none; /* Zorg ervoor dat het icoon niet klikbaar is */
-            font-size: 1.2rem;
-        }
-
         input[type="checkbox"] {
           width: 1.2rem;
           height: 1.2rem;
