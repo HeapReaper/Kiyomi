@@ -4,12 +4,14 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Flights\Charts\TestChart;
 
 class FlightsStatisticsController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.statistics');
+		$chart = new TestChart();
+		return view('flights::pages.statistics', compact('chart'));
     }
 
     public function create()
