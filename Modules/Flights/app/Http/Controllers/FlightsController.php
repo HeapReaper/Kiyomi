@@ -10,35 +10,18 @@ use Modules\Users\Models\User;
 
 class FlightsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return view('flights::pages.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @author AutiCodes
-     *
-     * @return View
-     */
+	
     public function create()
     {
         return view('flights::pages.member_reg_new_flight', [
             'users' => User::orderBy('name', 'ASC')->get(),
         ]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @author AutiCodes
-     *
-     * @return redirect
-     */
+	
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -78,42 +61,27 @@ class FlightsController extends Controller
 
         return redirect()->back()->with('success', 'Vlucht is aangemeld!');
     }
-
-    /**
-     * Show the specified resource.
-     */
+	
     public function show($id)
     {
         return view('flights::show');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+	
     public function edit($id)
     {
         return view('flights::edit');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+	
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         //
     }
-
-    /**
-     * Temp redirect
-     */
+	
     public function redirect()
     {
         return redirect('/flights/create');
