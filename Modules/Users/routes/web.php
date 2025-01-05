@@ -5,6 +5,7 @@ use Modules\Users\Http\Controllers\AuthenticationController;
 use Modules\Users\Http\Controllers\UsersContactController;
 use Modules\Users\Http\Controllers\UsersController;
 use Modules\Users\Http\Controllers\NewMemberController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,13 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('contact', UsersContactController::class)->names('contact');
 });
 
-Route::group([], function () {
-    Route::get('login', [AuthenticationController::class, 'index'])->name('login');
-    Route::post('login-post', [AuthenticationController::class, 'signIn'])->name('login-post');
-    Route::get('logout', [AuthenticationController::class, 'signOut']);
-    Route::resource('member', NewMemberController::class)->names('new_member');
-});
+Route::get('/login', function () {
+	return view('users::pages.signin');
+})->name('login');
+
+Route::get('/logout', function () {
+	Auth::logout();
+	return redirect()->route('login');
+})->name('logout');
+
+Route::resource('member', NewMemberController::class)->names('new_member');
