@@ -9,7 +9,7 @@ class FlightsStatisticsController extends Controller
 {
     public function index()
     {
-        return view('flights::index');
+        return view('flights::pages.statistics');
     }
 
     public function create()
