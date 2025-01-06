@@ -10,13 +10,6 @@ use Modules\Flights\Models\Flight;
 
 class FlightsReportController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @author AutiCodes
-     *
-     * @return View
-     */
     public function index()
     {
         return view('flights::pages.reports.index', [
@@ -25,20 +18,12 @@ class FlightsReportController extends Controller
             }),
         ]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
+	
     public function create()
     {
         return view('flights::create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @author AutiCodes
-     */
+	
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -68,46 +53,27 @@ class FlightsReportController extends Controller
             return redirect()->back()->with('error', $error);
         }
     }
-
-    /**
-     * Show the specified resource.
-     */
+	
     public function show($id)
     {
         return view('flights::show');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+	
     public function edit($id)
     {
         return view('flights::edit');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+	
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         //
     }
-
-    /**
-     * Downloads flight report
-     *
-     * @author AutiCodes
-     *
-     * @return Redirect
-     */
+	
     public function download(string $report)
     {
         try {

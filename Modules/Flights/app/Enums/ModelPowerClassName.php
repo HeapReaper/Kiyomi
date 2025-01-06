@@ -4,11 +4,6 @@ namespace Modules\Flights\Enums;
 
 enum ModelPowerClassName
 {
-    /**
-     * Convert power class number to word
-     *
-     * @author AutiCodes
-     */
     public static function convertToName(int $powerClassId): string
     {
         switch ($powerClassId) {

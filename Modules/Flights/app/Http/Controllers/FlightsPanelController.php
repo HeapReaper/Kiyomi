@@ -9,13 +9,6 @@ use Storage;
 
 class FlightsPanelController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @author AutiCodes
-     *
-     * @return View
-     */
     public function index()
     {
         return view('flights::pages.flight_index', [
@@ -27,53 +20,31 @@ class FlightsPanelController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('flights::create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
+	
     public function store(Request $request)
     {
         //
     }
-
-    /**
-     * Show the specified resource.
-     */
+	
     public function show($id)
     {
         return view('flights::show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         return view('flights::edit');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+	
     public function update(Request $request, $id)
     {
         //
     }
-
-    /**
-     * Remove the specified resource and relationships from storage.
-     *
-     * @author AutiCodes
-     *
-     * @return Redirect
-     */
+	
     public function destroy(int $id)
     {
         $flight = Flight::findOrFail($id)

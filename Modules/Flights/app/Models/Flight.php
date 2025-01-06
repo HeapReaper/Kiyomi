@@ -9,13 +9,6 @@ use Modules\Users\Models\User;
 
 class Flight extends Model
 {
-    use HasFactory;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @author AutiCodes
-     */
     protected $fillable = [
         'id',
         'date',
@@ -24,22 +17,12 @@ class Flight extends Model
         'model_type',
         'class',
     ];
-
-    /**
-     * Submitted flight to user relationship
-     *
-     * @author AutiCodes
-     */
+	
     public function user(): belongsToMany
     {
         return $this->belongsToMany(User::class, 'flight_user');
     }
-
-    /**
-     * Submitted flight to submitted models relationship
-     *
-     * @author AutiCodes
-     */
+	
     public function submittedModel(): belongsToMany
     {
         return $this->belongsToMany(SubmittedModel::class, 'flight_model');

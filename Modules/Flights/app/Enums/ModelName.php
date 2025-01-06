@@ -4,11 +4,6 @@ namespace Modules\Flights\Enums;
 
 enum ModelName: string
 {
-    /**
-     * Convert model integer to name
-     *
-     * @author AutiCodes
-     */
     public static function convertToName(int $modelId): string
     {
         switch ($modelId) {

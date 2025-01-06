@@ -4,17 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Flights\Http\Controllers\FlightsController;
 use Modules\Flights\Http\Controllers\FlightsPanelController;
 use Modules\Flights\Http\Controllers\FlightsReportController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Modules\Flights\Http\Controllers\FlightsStatisticsController;
 
 Route::group([], function () {
     Route::resource('flights', FlightsController::class)->names('flights');
@@ -25,4 +15,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
     Route::resource('flights-reports', FlightsReportController::class)->names('flights-report');
     Route::get('flights-reports/download/{report}', [FlightsReportController::class, 'download']);
+	Route::resource('flights-statistics', FlightsStatisticsController::class)->names('flights-statistics');
 });
