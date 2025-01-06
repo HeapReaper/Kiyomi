@@ -1,5 +1,5 @@
 <div>
-  <div class="mb-3 mt-3">
+  <div class="container mb-3 mt-3">
     <select class="form-select" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
       <option value="2024">2024</option>
       <option value="2025">2025</option>
@@ -20,6 +20,14 @@
       :line-chart-model="$topTenPilots"
    />
   </div>
+
+  <div class="container mt-3">
+    <livewire:livewire-column-chart
+      key="{{ $modelFlightsCount->reactiveKey() }}"
+      :column-chart-model="$modelFlightsCount"
+    />
+  </div>
+
   @livewireStyles
   @livewireScripts
   @livewireChartsScripts

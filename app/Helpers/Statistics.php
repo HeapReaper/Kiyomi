@@ -5,6 +5,7 @@ namespace App\Helpers;
 use Modules\Flights\Models\Flight;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\createChart;
+use Modules\Flights\Enums\ModelName;
 
 class Statistics
 {
@@ -84,5 +85,22 @@ class Statistics
 		}
 		
 		return $topTen;
+	}
+	
+	static function getModelFlightsCount(int $year): array
+	{
+		$result = DB::table('flight_submitted_model')
+			->select('model_type', DB::raw('count(*) as total_flights'))
+			->whereYear('created_at', $year)
+			->groupBy('model_type')
+			->get();
+			
+		$modelFlights = [];
+		
+		foreach ($result as $flight) {
+			$modelFlights[ModelName::convertToName($flight->model_type)] = $flight->total_flights;
+		}
+		
+		return $modelFlights;
 	}
 }
