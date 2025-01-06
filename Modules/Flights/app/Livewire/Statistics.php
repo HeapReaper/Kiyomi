@@ -36,14 +36,20 @@ class Statistics extends Component
 			true
 		);
 		
-//		$modelFlightsCount = createChart::createColumnChart(
-//			"Aantal vluchten per model",
-//
-//		);
+		$modelFlightsCount = createChart::createColumnChart(
+			"Aantal vluchten per model",
+			StatisticsHelper::getModelFlightsCount($this->selectYear),
+			false,
+			false
+		);
 		
 		return view('flights::livewire.statistics', [
 			'flightsThisYearCount' => $flightsThisYearCount,
 			'topTenPilots' => $TopTenPilots,
+			'modelFlightsCount' => $modelFlightsCount,
+			'yearsFlown' => StatisticsHelper::getYearsFlown(),
+			'totalFlightsCount' => StatisticsHelper::getTotalFlightsCount($this->selectYear),
+			'memberCount' => StatisticsHelper::getTotalMembersCount()
 		]);
     }
 }

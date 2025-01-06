@@ -5,6 +5,8 @@ namespace App\Helpers;
 use Modules\Flights\Models\Flight;
 use Illuminate\Support\Facades\DB;
 use App\Helpers\createChart;
+use Modules\Flights\Enums\ModelName;
+use Modules\Users\Models\User;
 
 class Statistics
 {
@@ -84,5 +86,48 @@ class Statistics
 		}
 		
 		return $topTen;
+	}
+	
+	static function getModelFlightsCount(int $year): array
+	{
+		$result = DB::table('flight_submitted_model')
+			->select('model_type', DB::raw('count(*) as total_flights'))
+			->whereYear('created_at', $year)
+			->groupBy('model_type')
+			->get();
+			
+		$modelFlights = [];
+		
+		foreach ($result as $flight) {
+			$modelFlights[ModelName::convertToName($flight->model_type)] = $flight->total_flights;
+		}
+		
+		return $modelFlights;
+	}
+	
+	static function getYearsFlown(): array
+	{
+		$result = DB::table('flights')
+			->select(DB::raw('YEAR(date) as year'))
+			->groupBy('year')
+			->orderByDesc('year')
+			->get();
+		
+		$years = [];
+		foreach ($result as $year) {
+			$years[] = $year->year;
+		}
+		
+		return array_reverse($years);
+	}
+	
+	static function getTotalFlightsCount(int $year): int
+	{
+		return Flight::whereBetween('date', [$year . '-01-01', $year . '-12-31'])->count();
+	}
+	
+	static function getTotalMembersCount(): int
+	{
+		return User::all()->count();
 	}
 }
