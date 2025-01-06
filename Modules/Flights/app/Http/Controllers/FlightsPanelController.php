@@ -11,13 +11,7 @@ class FlightsPanelController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.flight_index', [
-            'flights' => Flight::orderBy('date', 'DESC')
-                ->orderBy('end_time', 'DESC')
-                ->with('user')
-                ->with('submittedModel')
-                ->get(),
-        ]);
+        return view('flights::pages.flight_index');
     }
 
     public function create()
