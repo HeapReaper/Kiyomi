@@ -48,8 +48,7 @@ class FlightsReportController extends Controller
             Storage::disk('local')->put('reports/vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
 
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
-
-        } catch (Exceptions $error) {
+        } catch (\Exception $error) {
             return redirect()->back()->with('error', $error);
         }
     }
@@ -78,7 +77,7 @@ class FlightsReportController extends Controller
     {
         try {
             return Storage::disk('local')->download('/reports/'.$report);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             abort(404);
         }
     }
