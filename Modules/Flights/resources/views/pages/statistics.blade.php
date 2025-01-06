@@ -4,9 +4,7 @@
 
 @section('content')
   <div class="m-2">
-
-      @livewire('flights::statistics')
-
+    @livewire('flights::statistics')
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
