@@ -10,8 +10,7 @@ return new class extends Migration
     {
         Schema::create('flight_reports', function (Blueprint $table) {
 			$table->id();
-			$table->string('name');
-			$table->string('description');
+			$table->string('made_by');
 			$table->date('date');
 			$table->string('file');
 			$table->timestamps();

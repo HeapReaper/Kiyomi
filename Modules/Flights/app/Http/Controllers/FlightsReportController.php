@@ -5,8 +5,11 @@ namespace Modules\Flights\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Modules\Flights\Models\Flight;
+use Modules\Flights\Models\FlightReport;
+use Modules\Users\Models\User;
 
 class FlightsReportController extends Controller
 {
@@ -44,11 +47,16 @@ class FlightsReportController extends Controller
                 'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
                 'end_date' => date('d-m-Y', strtotime($validated['end_date'])),
             ]);
-
-            Storage::disk('local')->put('reports/vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
-
+			
+			FlightReport::create([
+				'made_by' => (User::find(Auth::user()->id)->name),
+				'date' => date('Y-m-d'),
+				'file' => 'vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
+			]);
+			
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
         } catch (\Exception $error) {
+			dd($error);
             return redirect()->back()->with('error', $error);
         }
     }

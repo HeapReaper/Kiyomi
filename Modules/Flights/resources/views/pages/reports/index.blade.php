@@ -5,7 +5,6 @@
 @section('content')
   <div class="container">
     <div class="row mt-4 m-2 bg-dark bg-opacity-25 shadow-lg rounded">
-      <!-- Manual make new report from specific dates -->
       <div class="col-sm  p-2 mt-2">
         <h6 class="text-white">Maak rapportage</h6>
         <form action="{{ route('flights-report.store') }}" method="POST">
@@ -24,29 +23,9 @@
         </form>
       </div>
 
-      <!-- Show generated flight reports -->
       <div class="col p-2 mt-2">
         <h6 class="text-white">Gemaakte rapportages</h6>
-        <div class="overflow-auto" style="max-height: 180px">
-          <table class="table rounded text-white">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Naam</th>
-                <th scope="col">Download</th>
-              </tr>
-            </thead>
-            <tbody>
-              @foreach ($reports as $report)
-                <tr>
-                  <th scope="row">{{ $loop->iteration }}</th>
-                  <td>{{ explode('/', $report)[1] }}</td>
-                  <td><a href="/flights-reports/download/{{ explode('/', $report)[1] }}"><img src="/app_media/download.png" style="max-width: 30px;"></a></td>
-                </tr>
-              @endforeach
-            </tbody>
-          </table>
-        </div>
+        @livewire('flights::show-flight-reports')
       </div>
   </div>
 @stop
