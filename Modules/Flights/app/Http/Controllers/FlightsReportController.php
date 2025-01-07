@@ -15,11 +15,7 @@ class FlightsReportController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.reports.index', [
-            'reports' => array_filter(Storage::allFiles('reports'), function ($item) {
-                return strpos($item, '.pdf');
-            }),
-        ]);
+        return view('flights::pages.reports.index');
     }
 	
     public function create()
@@ -34,6 +30,7 @@ class FlightsReportController extends Controller
             'end_date' => ['date', 'required'],
         ]);
 
+		// TODO: Split up try catch
         try {
             $flights = Flight::whereBetween('date', [$validated['start_date'], $validated['end_date']])
                 ->orderBy('date', 'DESC')
@@ -54,9 +51,10 @@ class FlightsReportController extends Controller
 				'file' => 'vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
 			]);
 			
+			Storage::disk('local')->put('reports/vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
+			
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
         } catch (\Exception $error) {
-			dd($error);
             return redirect()->back()->with('error', $error);
         }
     }
