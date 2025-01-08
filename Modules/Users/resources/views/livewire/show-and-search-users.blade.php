@@ -11,7 +11,8 @@
 
           <div class="col mr-2 mt-2">
             <div class=" mb-4 me-4 float-end">
-              <select wire:model.live="role" class="form-control form-control-lg">
+
+              <select wire:model.live="role" class="form-control form-control-lg selector_custom">
                 <option selected value='all'>
                   Alle rollen
                 </option>

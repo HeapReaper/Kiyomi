@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col ml-0">
         <div class="float-start mb-4 ms-0 mt-4">
-          <input wire:model.live="search" type="text" id="name_search" placeholder="Naam" class="form-control rounded">
+          <input wire:model.live="search" type="text" id="name_search" name="name_search" placeholder="Zoek op naam" class="form-control rounded">
         </div>
       </div>
     </div>
@@ -64,6 +64,7 @@
         border: none;
         margin: 4px;
       }
+
     </style>
   </div>
 </div>

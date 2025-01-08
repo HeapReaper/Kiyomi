@@ -1,6 +1,6 @@
 <div>
   <div class="container mb-3 mt-3">
-    <select class="form-select" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
+    <select class="form-select-custom" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
       @foreach ($yearsFlown as $year)
        <option value="{{ $year  }}">{{ $year }}</option>
       @endforeach
@@ -42,6 +42,22 @@
       :column-chart-model="$modelFlightsCount"
     />
   </div>
+
+  <style>
+    .form-select-custom {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+  .form-select-custom option {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: #333 !important;
+    padding: 5px !important;
+  }
+  </style>
 
   @livewireStyles
   @livewireScripts
