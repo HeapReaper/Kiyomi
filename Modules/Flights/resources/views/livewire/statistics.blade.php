@@ -9,12 +9,12 @@
 
   <div class="container mt-3">
     <div class="row">
-      <div class="col-md-6 text-center">
+      <div class="col-md-6 text-center text-white">
         <h2>Vluchten:</h2>
         <h2>{{ $totalFlightsCount }}</h2>
       </div>
 
-      <div class="col-md-6 text-center">
+      <div class="col-md-6 text-center text-white">
         <h2>Leden:</h2>
         <h2>{{ $memberCount }}</h2>
       </div>
