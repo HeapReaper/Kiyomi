@@ -44,21 +44,22 @@
           position: absolute;
         }
 
-        #email, #password {
+        .form-control {
           background-color: rgba(255, 255, 255, 0.1) !important;
           border: 1px solid rgba(255, 255, 255, 0.2) !important;
           border-radius: 5px !important;
           padding: 10px !important;
           color: white !important;
           font-size: 14px !important;
+          -webkit-appearance: listbox !important;
         }
-
-        #email, #password {
+    
+        .form-control::placeholder {
           color: white !important;
         }
-
-        #email, #password {
-            color: transparent !important;
+    
+        .form-control:focus {
+            color: white !important;
         }
       </style>
 

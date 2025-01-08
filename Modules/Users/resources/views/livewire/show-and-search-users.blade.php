@@ -126,12 +126,12 @@
                             <i class="fa fa-pencil fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
                           </span>
                         </a>
-                        <a href="users-remove/{{ $user->id }}" class="table-link danger" 
+                        <a href="users-remove/{{ $user->id }}" class="table-link text-info"
                           onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
                           >
                           <span class="fa-stack" style="font-size: 1rem;">
                             <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-trash-o fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
+                            <i class="fa fa-trash fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
                           </span>
                         </a>
                       </td>
@@ -145,12 +145,84 @@
       </div>
     </div>
   </div>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
   <style>
+      .table-link.danger {
+      color: inherit; /* Ensures it inherits color from the parent or doesn't apply link color */
+      text-decoration: none; /* Removes the underline */
+    }
+    
+    .table-link.danger:hover {
+      color: inherit; /* Keeps the same styling on hover */
+    }
+    
+    /* For the gradient background inside the icon */
+    .fa-trash-o {
+      background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+      -webkit-background-clip: text; /* Ensures gradient is applied to the text */
+      -webkit-text-fill-color: transparent; /* Makes text visible only through the gradient */
+      border-radius: 4px;
+    }
+    
+    
     .pagination .page-link {
       background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
       color: white;
       border: none;
       margin: 4px;
+    }
+    
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 5px !important;
+      padding: 10px !important;
+      color: white !important;
+      font-size: 14px !important;
+      -webkit-appearance: listbox !important;
+    }
+
+    .form-control::placeholder {
+      color: white !important;
+    }
+
+    .form-control:focus {
+        color: white !important;
+    }
+
+    .form-control option {
+        color: #000000;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+    }
+
+    .form-control option:hover {
+        background-color: #d53131 !important;
+        color: white !important;
+    }
+
+    .form-control:after {
+      position: absolute !important;
+      content: "" !important;
+      top: 14px !important;
+      right: 10px !important;
+      width: 0 !important;
+      height: 0 !important;
+      border: 6px solid !important;
+      border-color: #fff !important;
+    }
+
+    .form-control:focus::placeholder {
+        color: transparent !important;
+    }
+
+    .form-check-input:checked {
+        background-color: green;
+        border-color: #2b5c93;
     }
   </style>
 </div>
