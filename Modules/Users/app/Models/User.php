@@ -11,16 +11,11 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasFactory, HasRoles;
+	
+	protected $table = 'users';
 
-    protected $table = 'users';
-
-    protected $guard_name = 'web';
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array <int, string>
-     */
+    protected string $guard_name = 'web';
+	
     protected $fillable = [
         'name',
         'email',
@@ -41,22 +36,12 @@ class User extends Authenticatable
         'has_drone_a3',
         'in_memoriam',
     ];
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
+	
     protected $hidden = [
         'password',
         'remember_token',
     ];
-
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+	
     protected function casts(): array
     {
         return [
@@ -64,12 +49,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    /**
-     * User to flight submit relationship
-     *
-     * @author AutiCodes
-     */
+	
     public function flight(): belongsToMany
     {
         return $this->belongsToMany(Flight::class, 'flight_model');

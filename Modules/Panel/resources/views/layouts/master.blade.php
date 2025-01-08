@@ -75,6 +75,29 @@
       @endif
 
       <!-- Success -->
+      @if(session('success'))
+        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
+              <strong class="me-auto">Success!</strong>
+              <small>Een paar seconden geleden</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              {{ session('success') }}
+            </div>
+          </div>
+        </div>
+
+        <script>
+          const toastLiveExample = document.getElementById('liveToast')
+          const toast = new bootstrap.Toast(toastLiveExample)
+          toast.show()
+        </script>
+      @endif
+
+      <!-- Success -->
       @if (session()->has('success'))
         <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
@@ -114,7 +137,6 @@
           height: 100%;
           background-attachment: fixed;
         }
-
       </style>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <livewire:scripts />
