@@ -137,6 +137,23 @@
           height: 100%;
           background-attachment: fixed;
         }
+
+        #name_search {
+          background-color: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 5px;
+          padding: 10px;
+          color: white;
+          font-size: 14px;
+        }
+
+        #name_search::placeholder {
+          color: white;
+        }
+
+        #name_search:focus::placeholder {
+            color: transparent;
+        }
       </style>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <livewire:scripts />

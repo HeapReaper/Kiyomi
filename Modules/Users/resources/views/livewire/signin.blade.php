@@ -22,16 +22,13 @@
             <form wire:submit.prevent="submit" class="col-auto pt-4 pb-4 mw-50">
               @error('credentials') <span class="text-danger">{{ $message }}</span> @enderror
               @csrf
-              <div class="form-group">
-                <label for="email" class="text-white"><strong>Email</strong></label>
-                <input type="text" class="form-control" id="email" wire:model="email" aria-describedby="email" placeholder="">
-                @error('email') <span class="text-danger">{{ $message }}</span> @enderror
-              </div>
-              <div class="form-group mt-2">
-                <label for="password" class="text-white"><strong>Wachtwoord</strong></label>
-                <input type="password" class="form-control mb-2" id="password" wire:model="password" placeholder="">
-                @error('password') <span class="text-danger">{{ $message }}</span> @enderror
-              </div>
+              <label for="email" class="text-white"><strong>Email</strong></label>
+              <input type="text" class="form-control mt-2" id="email" name="email" wire:model="email" aria-describedby="email" placeholder="">
+              @error('email') <span class="text-danger">{{ $message }}</span> @enderror
+
+              <label for="password" class="text-white"><strong>Wachtwoord</strong></label>
+              <input type="password" class="form-control mb-2" id="password" name="password" wire:model="password" placeholder="">
+              @error('password') <span class="text-danger">{{ $message }}</span> @enderror
 
               <button type="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Inloggen</button>
             </form>
@@ -45,6 +42,24 @@
           width: 100%;
           height: 100%;
           position: absolute;
+        }
+
+        .form-control {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-radius: 5px !important;
+          padding: 10px !important;
+          color: white !important;
+          font-size: 14px !important;
+          -webkit-appearance: listbox !important;
+        }
+    
+        .form-control::placeholder {
+          color: white !important;
+        }
+    
+        .form-control:focus {
+            color: white !important;
         }
       </style>
 
