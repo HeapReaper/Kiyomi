@@ -11,6 +11,8 @@ return new class extends Migration
         Schema::create('flight_reports', function (Blueprint $table) {
 			$table->id();
 			$table->string('made_by');
+			$table->date('report_start_date');
+			$table->date('report_end_date');
 			$table->date('date');
 			$table->string('file');
 			$table->timestamps();

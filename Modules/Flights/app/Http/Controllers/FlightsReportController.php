@@ -48,10 +48,12 @@ class FlightsReportController extends Controller
 			FlightReport::create([
 				'made_by' => (User::find(Auth::user()->id)->name),
 				'date' => date('Y-m-d'),
-				'file' => 'vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
+				'report_start_date' => $validated['start_date'],
+				'report_end_date' => $validated['end_date'],
+				'file' => 'vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
 			]);
 			
-			Storage::disk('local')->put('reports/vluchten_'.date('d-m-Y', strtotime($validated['start_date'])).'-'.date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
+			Storage::disk('local')->put('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
 			
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
         } catch (\Exception $error) {
@@ -82,9 +84,10 @@ class FlightsReportController extends Controller
     public function download(string $report)
     {
         try {
-            return Storage::disk('local')->download('/reports/'.$report);
+			session()->flash('success', 'Downloaden voltooid!');
+			return Storage::disk('local')->download('/reports/'.$report);
         } catch (\Exception $e) {
-            abort(404);
+            abort(404, 'Bestand niet gevonden');
         }
     }
 }

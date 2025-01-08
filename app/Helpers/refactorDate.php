@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use DateTime;
+
 class refactorDate
 {
     public static function refactorDate(string $date): string
@@ -11,10 +13,3 @@ class refactorDate
         return $date->format('d-m-Y');
     }
 }
-/**
- * Refactores date to d-m-y
- *
- * @author AutiCodes
- *
- * @return string
- */
