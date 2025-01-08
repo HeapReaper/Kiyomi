@@ -12,14 +12,12 @@ class Statistics
 {
 	static function getFlightCountEachMonth(int $year)
 	{
-		$results = DB::select("
-			SELECT MONTH(date) AS month, COUNT(*) AS flight_count
-		   	FROM flights
-		   	WHERE YEAR(date) = ?
-		   	GROUP BY MONTH(date)
-			ORDER BY month",
-			[$year]
-		);
+		$results = DB::table('flights')
+			->select(DB::raw('MONTH(date) AS month, COUNT(*) AS flight_count'))
+			->whereYear('date', $year)
+			->groupBy(DB::raw('MONTH(date)'))
+			->orderBy(DB::raw('MONTH(date)'))
+			->get();
 		
 		$monthNames = [
 			1 => 'Januari',

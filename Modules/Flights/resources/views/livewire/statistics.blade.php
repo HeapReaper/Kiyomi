@@ -1,9 +1,13 @@
 <div>
   <div class="container mb-3 mt-3">
     <select class="form-select" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
-      @foreach ($yearsFlown as $year)
-       <option value="{{ $year  }}">{{ $year }}</option>
-      @endforeach
+      @for ($year = 2024; $year < 2029; $year++)
+        @if ($year == Date('Y'))
+          <option selected value="{{ $year }}">{{ $year }}</option>
+        @else
+          <option value="{{ $year }}">{{ $year }}</option>
+        @endif
+      @endfor
     </select>
   </div>
 
