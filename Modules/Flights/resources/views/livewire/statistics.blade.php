@@ -1,6 +1,6 @@
 <div>
   <div class="container mb-3 mt-3">
-    <select class="form-select-custom" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
+    <select class="form-select" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
       @foreach ($yearsFlown as $year)
        <option value="{{ $year  }}">{{ $year }}</option>
       @endforeach
@@ -44,19 +44,55 @@
   </div>
 
   <style>
-    .form-select-custom {
-      background-color: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 5px;
-      padding: 10px;
-      font-size: 14px;
+    .form-select {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 5px !important;
+      padding: 10px !important;
+      color: white !important;
+      font-size: 14px !important;
     }
 
-  .form-select-custom option {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    color: #333 !important;
-    padding: 5px !important;
-  }
+    .form-select::placeholder {
+      color: white !important;
+    }
+
+    .form-select:focus {
+        color: white !important;
+    }
+
+    .form-select option {
+        color: #000000;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+    }
+
+    .form-control option:hover {
+        background-color: #d53131 !important;
+        color: white !important;
+    }
+
+    .form-select:after {
+      position: absolute !important;
+      content: "" !important;
+      top: 14px !important;
+      right: 10px !important;
+      width: 0 !important;
+      height: 0 !important;
+      border: 6px solid !important;
+      border-color: #fff !important;
+    }
+
+    .form-select:focus::placeholder {
+        color: transparent !important;
+    }
+
+    .form-select-input:checked {
+        background-color: green;
+        border-color: #2b5c93;
+    }
   </style>
 
   @livewireStyles
