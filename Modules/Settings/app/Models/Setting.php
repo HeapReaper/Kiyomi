@@ -10,17 +10,9 @@ class Setting extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     */
     protected $fillable = [
         'id',
         'name',
         'value',
     ];
-
-    // protected static function newFactory(): SettingFactory
-    // {
-    //     // return SettingFactory::new();
-    // }
 }
