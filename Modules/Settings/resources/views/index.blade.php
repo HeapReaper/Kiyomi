@@ -21,8 +21,12 @@
         @foreach($roles as $role)
           @if ($role->name !== 'super admin')
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=1 id="{{ $role->name }}" name="id="{{ $role->id }}"">
-              <label class="form-check-label text-white" for="{{ $role->name }}">
+              <input class="form-check-input" type="checkbox" value=1 id="role_{{ $role->name }}_allowed_sign_in" name="role_{{ $role->name }}_allowed_sign_in"
+              @if (\App\Helpers\Settings::get('role_' . $role->name . '_allowed_sign_in') == 1)
+                checked
+              @endif
+              >
+              <label class="form-check-label text-white" for="role_{{ $role->name }}_allowed_sign_in">
                 {{ $role->name }}
               </label>
             </div>
@@ -35,4 +39,58 @@
       </button>
     </form>
   </div>
+  
+  <style>
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 5px !important;
+      padding: 10px !important;
+      color: white !important;
+      font-size: 14px !important;
+      -webkit-appearance: listbox !important;
+    }
+
+    .form-control::placeholder {
+      color: white !important;
+    }
+
+    .form-control:focus {
+      color: white !important;
+    }
+
+    .form-control option {
+      color: #000000;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+      cursor: pointer;
+    }
+
+    .form-control option:hover {
+      background-color: #d53131 !important;
+      color: white !important;
+    }
+
+    .form-control:after {
+      position: absolute !important;
+      content: "" !important;
+      top: 14px !important;
+      right: 10px !important;
+      width: 0 !important;
+      height: 0 !important;
+      border: 6px solid !important;
+      border-color: #fff !important;
+    }
+
+    .form-control:focus::placeholder {
+        color: transparent !important;
+    }
+
+    .form-check-input:checked {
+        background-color: green;
+        border-color: #2b5c93;
+    }
+  </style>
+  
 @endsection
