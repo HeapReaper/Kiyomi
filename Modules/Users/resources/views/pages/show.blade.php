@@ -175,8 +175,25 @@
             </div>
           </div>
         </div>
+      
+       <div class="row bg-dark rounded bg-opacity-25 mt-2">
+        <div class="col-sm">
+          <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
+            <h4 class="font-weight-bold text-white mb-1">Betalingen</h4>
+            
+            <div class="row">
+              <div class="col">
+                <h5>Betalingen</h5>
+              </div>
+              
+              <div class="col">
+                <h5>Openstaande betalingen</h5>
+              </div>
+            </div>
+        </div>
       </div>
-    </form>
+      
+      </div>
     </div>
   </div>
 @endsection
