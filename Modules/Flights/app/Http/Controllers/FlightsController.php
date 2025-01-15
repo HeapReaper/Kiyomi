@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\SubmittedModel;
 use Modules\Users\Models\User;
+use Illuminate\Support\Facades\Cache;
 
 class FlightsController extends Controller
 {
@@ -58,7 +59,9 @@ class FlightsController extends Controller
         ]);
 
         $flight->submittedModel()->attach($model->id);
-
+		
+    	Cache::tags(['flights_search'])->flush();
+		
         return redirect()->back()->with('success', 'Vlucht is aangemeld!');
     }
 	
