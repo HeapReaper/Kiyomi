@@ -9,33 +9,16 @@ use Modules\Users\Models\User;
 
 class UsersContactController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @author AutiCodes
-     *
-     * @return View
-     */
     public function index()
     {
         return view('users::pages.contact_index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
+	
     public function create()
     {
         return view('users::create');
     }
-
-    /**
-     * Store a newly created resource in storage and sends email
-     *
-     * @author AutiCodes
-     *
-     * @return RedirectResponse
-     */
+	
     public function store(Request $request)
     {
         // TODO: Better validation
@@ -67,34 +50,22 @@ class UsersContactController extends Controller
 
         return redirect()->back()->with('success', 'Email is verstuurd!');
     }
-
-    /**
-     * Show the specified resource.
-     */
+	
     public function show($id)
     {
         return view('users::show');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
+	
     public function edit($id)
     {
         return view('users::edit');
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
+	
     public function update(Request $request, $id)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
+	
     public function destroy($id)
     {
         //
