@@ -8,7 +8,8 @@
     <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST">
       @csrf
       @method('PUT')
-
+      
+      @livewireStyles
       <div class="row bg-dark rounded bg-opacity-25 shadow-lg">
         <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
@@ -197,15 +198,18 @@
               </a>
             </div>
           </div>
-
           <button type="submit" class="btn text-white mt-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
         </div>
-
-      </div>
     </form>
+    
+    <div class="">
+      <div class="container-fluid">
+        <livewire:users::check-t-o-t-p />
+      </div>
+    </div>
   </div>
 </div>
-  
+    @livewireScripts
     <style>
     .form-control {
       background-color: rgba(255, 255, 255, 0.1) !important;
