@@ -201,12 +201,6 @@
           <button type="submit" class="btn text-white mt-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
         </div>
     </form>
-    
-    <div class="">
-      <div class="container-fluid">
-        <livewire:users::check-t-o-t-p />
-      </div>
-    </div>
   </div>
 </div>
     @livewireScripts
