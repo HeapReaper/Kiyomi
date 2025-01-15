@@ -3,5 +3,17 @@
 @section('title', 'Financieel')
 
 @section('content')
-  hi
+  <!-- Income / expenses summary -->
+    <!-- Total Contributions Received -->
+    <!-- Contributions by Period -->
+    <!-- Outstanding Payments -->
+    <!-- Payment Sources -->
+  
+  <!-- Recent transactions -->
+  
+  
+  <!-- Alerts and Notifications -->`
+    <!-- Overdue Payments -->
+    <!-- Upcoming recurring expenses -->
+  
 @endsection
