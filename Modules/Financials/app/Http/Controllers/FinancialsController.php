@@ -12,7 +12,7 @@ class FinancialsController extends Controller
      */
     public function index()
     {
-        return view('financials::index');
+        return view('financials::financials.index');
     }
 
     /**

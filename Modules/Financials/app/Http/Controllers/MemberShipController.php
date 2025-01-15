@@ -12,7 +12,7 @@ class MemberShipController extends Controller
      */
     public function index()
     {
-        return view('financials::index');
+        return view('financials::membership.index');
     }
 
     /**
