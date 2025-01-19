@@ -38,6 +38,19 @@
           </ul>
         </li>
 
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Financieel
+          </a>
+          <ul class="dropdown-menu bg-dark bg-opacity-75">
+            <a class="dropdown-item text-white" href="{{ route('financials.index') }}">Overzicht</a>
+            <a class="dropdown-item text-white" href="{{ route('member-ships.index') }}">Lidmaatschapskosten</a>
+            <a class="dropdown-item text-white" href="{{ route('payments.index') }}">Betalingen</a>
+            <a class="dropdown-item text-white" href="{{ route('recurring-payments.index') }}">Terugkerende betalingen</a>
+            <!--<li><hr class="dropdown-divider"></li>-->
+          </ul>
+        </li>
+        
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('settings.index') }}">Instellingen</a>
         </li>
