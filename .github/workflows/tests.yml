@@ -3,8 +3,11 @@ name: Tests
 on:
   push:
     branches:
-      - main
+      - master
       - '*.x'
+  pull_request:
+  schedule:
+    - cron: '0 0 * * *'
 
 permissions:
   contents: read
@@ -41,4 +44,4 @@ jobs:
         run: php artisan key:generate
 
       - name: Execute tests
-        run: php artisan test
+        run: vendor/bin/phpunit
