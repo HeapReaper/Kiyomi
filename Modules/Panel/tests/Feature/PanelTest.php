@@ -1,11 +1,10 @@
 <?php
 
-namespace Tests\Feature;
+namespace Modules\Panel\Tests\Feature;
 
-// use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class PanelTest extends TestCase
 {
     /**
      * A basic test example.
