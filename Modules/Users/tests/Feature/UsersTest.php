@@ -10,6 +10,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UsersTest extends TestCase
 {
+	use RefreshDatabase;
+	
 	public function setUp(): void
 	{
 		parent::setUp();
