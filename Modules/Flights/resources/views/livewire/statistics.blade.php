@@ -70,20 +70,20 @@
     }
 
     .form-select:focus {
-        color: white !important;
+      color: white !important;
     }
 
     .form-select option {
-        color: #000000;
-        padding: 8px 16px;
-        border: 1px solid transparent;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-        cursor: pointer;
+      color: #000000;
+      padding: 8px 16px;
+      border: 1px solid transparent;
+      border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+      cursor: pointer;
     }
 
     .form-control option:hover {
-        background-color: #d53131 !important;
-        color: white !important;
+      background-color: #d53131 !important;
+      color: white !important;
     }
 
     .form-select:after {
@@ -98,12 +98,12 @@
     }
 
     .form-select:focus::placeholder {
-        color: transparent !important;
+      color: transparent !important;
     }
 
     .form-select-input:checked {
-        background-color: green;
-        border-color: #2b5c93;
+      background-color: green;
+      border-color: #2b5c93;
     }
     
     #preloader {
