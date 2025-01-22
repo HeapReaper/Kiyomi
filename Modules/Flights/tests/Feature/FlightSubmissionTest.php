@@ -27,6 +27,11 @@ class FlightSubmissionTest extends TestCase
 		]);
 	}
 
+	public function test_flight_submit_form_can_be_viewed(): void
+	{
+		($this->get('/flights/create'))->assertStatus(200);
+	}
+	
     public function test_members_can_submit_an_flight(): void
     {
        	$this->post(route('flights.store'), [
