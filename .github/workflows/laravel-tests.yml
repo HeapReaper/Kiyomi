@@ -45,10 +45,7 @@ jobs:
 
       - name: Run tests
         env:
-          DB_CONNECTION: mysql
-          DB_HOST: 127.0.0.1
-          DB_PORT: 3306
-          DB_DATABASE: test_db
-          DB_USERNAME: root
-          DB_PASSWORD: root
-        run: php artisan test
+          APP_ENV: testing
+          DB_CONNECTION: sqlite
+          DB_DATABASE: ":memory:"
+        run: vendor/bin/phpunit --configuration phpunit.xml
