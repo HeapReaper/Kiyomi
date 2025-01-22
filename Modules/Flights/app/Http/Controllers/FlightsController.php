@@ -36,7 +36,7 @@ class FlightsController extends Controller
         ]);
 
         if (intval($validated['rechapcha_custom']) != 4) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return redirect()->back()->withErrors($validated)->withInput();
         }
 
         $user = User::where('name', 'like', '%' . $validated['name'] . '%')->first();
@@ -60,7 +60,7 @@ class FlightsController extends Controller
 
         $flight->submittedModel()->attach($model->id);
 		
-    	Cache::tags(['flights_search'])->flush();
+//    	Cache::tags(['flights_search'])->flush();
 		
         return redirect()->back()->with('success', 'Vlucht is aangemeld!');
     }
