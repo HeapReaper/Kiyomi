@@ -28,6 +28,13 @@ jobs:
           php artisan key:generate
           php artisan migrate --force
 
+      - name: Debug test files
+        run: |
+          echo "Listing Feature Tests:"
+          ls -R modules/*/Tests/Feature
+          echo "Listing Unit Tests:"
+          ls -R modules/*/Tests/Unit
+
       - name: Run tests
         env:
           APP_ENV: testing
