@@ -23,6 +23,10 @@
             <div class="form-group mt-2 p-2">
               <h5 class="text-white font-weight-bold">Datum:</h5>
               <input type="date" id="date" name="date" class="form-control" value="{{ old('date') }}" required>
+              
+              <button type="button" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);">
+                Vandaag
+              </button>
             </div>
 
             <hr class="mt-3 mb-3">
@@ -155,8 +159,6 @@
         border-color: #2b5c93;
     }
   </style>
-
-
       <style>
         input[type="checkbox"] {
           width: 1.2rem;
@@ -200,20 +202,17 @@
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-          // Do nothing if browser doesn't support local storage
+          // document.getElementById('date').value = '2024-11-11';
+          document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
+
           if(typeof Storage === 'undefined') return;
 
-          // Check if user has a name_id in local storage
           const user = localStorage.getItem('name_id');
-          // If not, do nothing
-          if(!user) return;
-
-          const button = document.querySelector("date");
-          button.setAttribute("value", "11/11/2024");
-
-          document.getElementById('name').value = user;
+          if(user) {
+            document.getElementById('name').value = user;
+          }
         });
-
+        
         function changeStartTime() {
           console.log('Changed start time!');
 
