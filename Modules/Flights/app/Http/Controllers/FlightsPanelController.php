@@ -41,10 +41,11 @@ class FlightsPanelController extends Controller
 	
     public function destroy(int $id)
     {
-        $flight = Flight::findOrFail($id)
-            ->with('submittedModel')
-            ->with('user')
-            ->first();
+		$flight = Flight::with(['submittedModel', 'user'])->where('id', $id)->first();
+		
+	    if (!$flight) {
+	        return redirect()->back()->with('error', 'Vlucht niet gevonden!');
+	    }
 
         $flight->user()->detach($flight->user[0]->id);
 
