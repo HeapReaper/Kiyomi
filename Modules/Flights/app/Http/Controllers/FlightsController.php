@@ -7,13 +7,14 @@ use Illuminate\Http\Request;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\SubmittedModel;
 use Modules\Users\Models\User;
-use Illuminate\Support\Facades\Cache;
 
 class FlightsController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.index');
+        return view('flights::pages.member_reg_new_flight', [
+            'users' => User::orderBy('name', 'ASC')->get(),
+        ]);
     }
 	
     public function create()

@@ -8,6 +8,7 @@ use Modules\Flights\Http\Controllers\FlightsStatisticsController;
 
 Route::group([], function () {
     Route::resource('flights', FlightsController::class)->names('flights');
+	Route::get('/flights', [FlightsController::class, 'index']);
     Route::get('/aanmeld-formulier', [FlightsController::class, 'redirect']);
 });
 
