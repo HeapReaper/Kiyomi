@@ -15,8 +15,11 @@ A Laravel based application to manage flights, members, send newsletters and man
 * Generate flight reports
 * Show members and filter by firstname, last name, phone or role
 * Add new members
-* Contact members (with filters for specific member types)
+* Newsletter sending (with filters for specific member types)
 * Settings page
+
+# Features in development or to be added
+* Club finances
 
 ## Tech stack
 * Laravel
