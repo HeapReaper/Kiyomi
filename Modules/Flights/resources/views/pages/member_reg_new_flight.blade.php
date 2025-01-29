@@ -96,7 +96,7 @@
           <hr class="mt-3 mb-3">
 
           <!-- reCAPTCHA -->
-          <div class="form-group mt-2 p-2">
+          <div class="form-group mt-2 p-2" id="rechapcha" name="rechapcha" hidden>
             <h5 class="text-white font-weight-bold">Anti bot vraag:</h5>
             <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" value="{{ old('rechapcha_custom') }}" required>
           </div>
@@ -175,6 +175,12 @@
         }
       </style>
 
+      @if (session()->has('success'))
+        <script>
+          localStorage.setItem('validatedUser', '4');
+        </script>
+      @endif
+
       <script>
         function getCurrentTimeInNetherlands() {
           const now = new Date();
@@ -233,7 +239,17 @@
         document.addEventListener('DOMContentLoaded', async () => {
           console.log('got name from local storage');
           document.getElementById('name').value = localStorage.getItem('name');
+          
+          if (localStorage.getItem('validatedUser')) {
+            
+            document.getElementById('rechapcha_custom').value = Number(localStorage.getItem('validatedUser'));
+            document.getElementById('rechapcha').hidden = true;
+            
+          } else {
+            document.getElementById('rechapcha').hidden = false;
+          }
         });
+        
       </script>
   </div>
 @stop
