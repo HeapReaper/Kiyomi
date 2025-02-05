@@ -4,9 +4,12 @@ namespace Modules\Users\Livewire;
 
 use Livewire\Component;
 use Modules\Users\Models\User;
+use Livewire\WithPagination;
 
 class ShowAndSearchUsers extends Component
 {
+	use WithPagination;
+	
     public $search = '';
 
     public $role = '';
