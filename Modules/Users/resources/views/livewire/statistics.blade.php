@@ -58,7 +58,7 @@
 					Totaal:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  0
+				  {{ $roleCounts['total'] ?? 0 }}
 				</h2>
 			</div>
 		</div>

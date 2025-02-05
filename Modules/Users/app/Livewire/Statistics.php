@@ -21,6 +21,8 @@ class Statistics extends Component
 			}
 		}
 		
+		$roleCounts['total'] = count($users);
+		
         return view('users::livewire.statistics', compact('roleCounts'));
     }
 }
