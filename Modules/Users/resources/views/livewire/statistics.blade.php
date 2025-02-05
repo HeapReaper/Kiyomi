@@ -13,7 +13,7 @@
 					Junior:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+				  {{ $roleCounts['junior'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Aspirant members -->
@@ -22,7 +22,7 @@
 					Aspirant:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+					{{ $roleCounts['aspirant'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Members -->
@@ -31,7 +31,7 @@
 					Leden:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+					{{ $roleCounts['member'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Management -->
@@ -40,7 +40,7 @@
 					Bestuur:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+					{{ $roleCounts['management'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Donors -->
@@ -49,7 +49,7 @@
 					Donateurs:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+					{{ $roleCounts['donor'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Total -->
@@ -58,7 +58,7 @@
 					Totaal:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  69
+				  0
 				</h2>
 			</div>
 		</div>
