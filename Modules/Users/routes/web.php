@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\Users\Http\Controllers\UsersContactController;
 use Modules\Users\Http\Controllers\UsersController;
 use Modules\Users\Http\Controllers\NewMemberController;
+use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
@@ -16,6 +17,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class)->names('users');
     Route::get('users-remove/{id}', [UsersController::class, 'destroy']);
     Route::resource('contact', UsersContactController::class)->names('contact');
+	Route::resource('users-statistics', UsersStatisticsController::class)->names('users-statistics');
 });
 
 Route::get('/login', function () {
