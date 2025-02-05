@@ -13,7 +13,7 @@
 					Junior:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-				  {{ $roleCounts['junior'] ?? 0 }}
+				  {{ $roleCounts['junior_member'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Aspirant members -->
@@ -22,7 +22,7 @@
 					Aspirant:
 				</h2>
 				<h2 class="text-white font-weight-bold">
-					{{ $roleCounts['aspirant'] ?? 0 }}
+					{{ $roleCounts['aspirant_member'] ?? 0 }}
 				</h2>
 			</div>
 			<!-- Members -->
