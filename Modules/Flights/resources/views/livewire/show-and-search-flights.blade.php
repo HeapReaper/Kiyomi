@@ -20,7 +20,7 @@
             <th scope="col">Eind tijd</th>
             <th scope="col">Model</th>
             <th scope="col">Vermogen</th>
-            <th scope="col">Verwijder</th>
+            <th scope="col">Bewerk, verwijder</th>
           </tr>
         </thead>
           <tbody>
@@ -54,17 +54,7 @@
           @endforeach
         </tbody>
       </table>
-      {{ $flights->links() }}
+      {{ $flights->links('pagination::bootstrap-5') }}
     </div>
-
-    <style>
-      .pagination .page-link {
-        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
-        color: white;
-        border: none;
-        margin: 4px;
-      }
-
-    </style>
   </div>
 </div>
