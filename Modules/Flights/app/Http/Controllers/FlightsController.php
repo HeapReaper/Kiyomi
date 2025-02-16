@@ -12,9 +12,8 @@ class FlightsController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.member_reg_new_flight', [
-            'users' => User::orderBy('name', 'ASC')->get(),
-        ])->header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
+        return view('flights::pages.member_reg_new_flight')
+            ->header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
     }
 
     public function create()
