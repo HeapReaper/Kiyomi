@@ -23,7 +23,7 @@
             <div class="form-group mt-2 p-2">
               <h5 class="text-white font-weight-bold">Datum:</h5>
               <input type="date" id="date" name="date" class="form-control" value="{{ old('date') }}" required>
-              
+
               <button type="button" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);">
                 Vandaag
               </button>
@@ -201,14 +201,11 @@
         document.onload = changeCurrentDateOnDateInput();
 
         function changeCurrentDateOnDateInput() {
-          console.log('Updated current date');
-
           const now = new Date()
           document.getElementById('date').value = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-          // document.getElementById('date').value = '2024-11-11';
           document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
 
           if(typeof Storage === 'undefined') return;
@@ -218,38 +215,30 @@
             document.getElementById('name').value = user;
           }
         });
-        
-        function changeStartTime() {
-          console.log('Changed start time!');
 
+        function changeStartTime() {
           document.getElementById('start_time').value = getCurrentTimeInNetherlands();
         }
 
         function changeEndTime() {
-          console.log('Changed end time!')
-
           document.getElementById('end_time').value = getCurrentTimeInNetherlands();
         }
 
         function setName(e) {
-            console.log('putted name in local storage');
             localStorage.setItem('name', document.getElementById('name').value);
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
-          console.log('got name from local storage');
           document.getElementById('name').value = localStorage.getItem('name');
-          
+
           if (localStorage.getItem('validatedUser')) {
-            
             document.getElementById('rechapcha_custom').value = Number(localStorage.getItem('validatedUser'));
             document.getElementById('rechapcha').hidden = true;
-            
           } else {
             document.getElementById('rechapcha').hidden = false;
           }
         });
-        
+
       </script>
   </div>
 @stop

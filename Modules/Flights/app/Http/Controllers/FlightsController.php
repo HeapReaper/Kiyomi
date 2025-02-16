@@ -14,16 +14,16 @@ class FlightsController extends Controller
     {
         return view('flights::pages.member_reg_new_flight', [
             'users' => User::orderBy('name', 'ASC')->get(),
-        ]);
+        ])->header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
     }
-	
+
     public function create()
     {
         return view('flights::pages.member_reg_new_flight', [
             'users' => User::orderBy('name', 'ASC')->get(),
         ]);
     }
-	
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -60,22 +60,22 @@ class FlightsController extends Controller
         ]);
 
         $flight->submittedModel()->attach($model->id);
-		
+
 //    	Cache::tags(['flights_search'])->flush();
-		
+
         return redirect()->back()->with('success', 'Vlucht is aangemeld!');
     }
-	
+
     public function show($id)
     {
         return view('flights::show');
     }
-	
+
     public function edit($id)
     {
         return view('flights::edit');
     }
-	
+
     public function update(Request $request, $id)
     {
         //
@@ -85,7 +85,7 @@ class FlightsController extends Controller
     {
         //
     }
-	
+
     public function redirect()
     {
         return redirect('/flights/create');
