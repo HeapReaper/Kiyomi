@@ -40,7 +40,7 @@
                 </td>
                 <!-- Edit, delete -->
                 <td style="" class="text-center">
-                  <div style="display: flex;">  <form action="{{ route('flights.edit', $flight->id) }}" method="GET" style="margin-right: 10px;"> @csrf
+                  <div style="display: flex;">  <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;"> @csrf
                       <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
                         <span class="fa-stack" style="font-size: 1rem;">
                           <i class="fa fa-square fa-stack-2x"></i>
