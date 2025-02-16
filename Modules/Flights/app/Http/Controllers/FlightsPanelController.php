@@ -18,12 +18,12 @@ class FlightsPanelController extends Controller
     {
         return view('flights::create');
     }
-	
+
     public function store(Request $request)
     {
         //
     }
-	
+
     public function show($id)
     {
         return view('flights::show');
@@ -31,18 +31,18 @@ class FlightsPanelController extends Controller
 
     public function edit($id)
     {
-        return view('flights::edit');
+        return view('flights::pages.flight_edit');
     }
-	
+
     public function update(Request $request, $id)
     {
         //
     }
-	
+
     public function destroy(int $id)
     {
 		$flight = Flight::with(['submittedModel', 'user'])->where('id', $id)->first();
-		
+
 	    if (!$flight) {
 	        return redirect()->back()->with('error', 'Vlucht niet gevonden!');
 	    }

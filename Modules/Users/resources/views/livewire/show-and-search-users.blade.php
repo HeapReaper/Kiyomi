@@ -145,35 +145,34 @@
       </div>
     </div>
   </div>
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
       .table-link.danger {
-      color: inherit; /* Ensures it inherits color from the parent or doesn't apply link color */
-      text-decoration: none; /* Removes the underline */
+      color: inherit;
+      text-decoration: none;
     }
-    
+
     .table-link.danger:hover {
-      color: inherit; /* Keeps the same styling on hover */
+      color: inherit;
     }
-    
-    /* For the gradient background inside the icon */
+
     .fa-trash-o {
       background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
-      -webkit-background-clip: text; /* Ensures gradient is applied to the text */
-      -webkit-text-fill-color: transparent; /* Makes text visible only through the gradient */
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       border-radius: 4px;
     }
-    
-    
+
+
     .pagination .page-link {
       background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
       color: white;
       border: none;
       margin: 4px;
     }
-    
+
     .form-control {
       background-color: rgba(255, 255, 255, 0.1) !important;
       border: 1px solid rgba(255, 255, 255, 0.2) !important;
