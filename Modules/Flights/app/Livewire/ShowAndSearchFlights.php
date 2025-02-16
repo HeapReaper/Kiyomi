@@ -17,16 +17,16 @@ class ShowAndSearchFlights extends Component
 
     public function render()
     {
-		$flights = Flight::with('user', 'submittedModel')
-                ->whereHas('user', function ($query) {
-                    $query->where('name', 'like', '%' . $this->search . '%');
-                })
-                ->orderBy('date', 'DESC')
-                ->orderBy('end_time', 'DESC')
-                ->paginate(20);
-		
+        $flights = Flight::with('user', 'submittedModel')
+                    ->whereHas('user', function ($query) {
+                        $query->where('name', 'like', '%' . $this->search . '%');
+                    })
+                    ->orderBy('date', 'DESC')
+                    ->orderBy('end_time', 'DESC')
+                    ->paginate(20);
+
         return view('flights::livewire.show-and-search-flights', [
-			'flights' => $flights,
-		]);
+            'flights' => $flights,
+        ]);
     }
 }

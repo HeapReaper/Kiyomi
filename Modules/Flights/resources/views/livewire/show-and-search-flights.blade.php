@@ -7,6 +7,11 @@
           <input wire:model.live="search" type="text" id="name_search" name="name_search" placeholder="Zoek op naam" class="form-control rounded">
         </div>
       </div>
+
+      <div class="col">
+        <div class="float-end mb-4 ms-0 mt-4">
+        </div>
+      </div>
     </div>
 
     <div class="table-responsive">
