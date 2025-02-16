@@ -72,7 +72,7 @@ class FlightsController extends Controller
 
     public function edit($id)
     {
-        return 'hi';
+      return view('flights::edit');
     }
 
     public function update(Request $request, $id)
