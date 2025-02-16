@@ -11,7 +11,7 @@
           <div class="justify-content-center">
             <!-- TOP TEXT AND IMAGE -->
             <h2 class="text-white text-center pt-2 ">Registratie aanvang modelvliegen TRMC</h2>
-            <img src="/app_media/field_and_members.jpg" class="img-fluid rounded p-2">
+              <img src="/app_media/field_and_members.jpg" class="img-fluid p-2" style="border-radius: 1.25rem;">
 
             <div class="form-group m-2">
               <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
