@@ -30,8 +30,8 @@
           <tr>
             <th scope="row">{{ $loop->iteration }}</th>
             <td>{{ date('d-m-Y', strtotime($flight->date)) }}</td>
-            <td>{{ $flight->start_time }}</td>
-            <td>{{ $flight->end_time }}</td>
+            <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $flight->start_time)->format('H:i') }}</td>
+            <td>{{ \Carbon\Carbon::createFromFormat('H:i:s', $flight->end_time)->format('H:i') }}</td>
             <td>
               {{ Modules\Flights\Enums\ModelName::convertToName($flight->submittedModel[0]->model_type) }}
             </td>

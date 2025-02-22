@@ -34,8 +34,8 @@
                 <th scope="row" class="text-white">{{ $flight->id }}</th>
                 <td class="text-white">{{ $flight->user[0]->name }}</td>
                 <td class="text-white">{{ date('d-m-Y', strtotime($flight->date)) }}</td>
-                <td class="text-white">{{ $flight->start_time }}</td>
-                <td class="text-white">{{ $flight->end_time }}</td>
+                <td class="text-white">{{ \Carbon\Carbon::createFromFormat('H:i:s', $flight->start_time)->format('H:i') }}</td>
+                <td class="text-white">{{ \Carbon\Carbon::createFromFormat('H:i:s', $flight->end_time)->format('H:i') }}</td>
                 <td class="text-white">
                   <p class="mt-0 mb-0">
                     {{ Modules\Flights\Enums\ModelName::convertToName($flight->submittedModel[0]->model_type) }}
