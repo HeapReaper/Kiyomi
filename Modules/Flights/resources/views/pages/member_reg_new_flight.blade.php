@@ -104,8 +104,9 @@
           <!-- SEND FORM BUTTON -->
           <button type="submit" class="btn font-weight-bold mt-3 m-2 text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Verzenden</button>
         </form>
-        </div>
-      </main>
+      </div>
+    </div>
+</main>
 
   <style>
     .form-control {
