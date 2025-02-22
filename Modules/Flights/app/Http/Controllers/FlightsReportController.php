@@ -76,18 +76,27 @@ class FlightsReportController extends Controller
         //
     }
 
-    public function destroy($id)
+    public function destroy(int $id)
     {
-        //
+        $flightReport = FlightReport::find($id);
+
+        if (!$flightReport) {
+            return redirect()->back()->with('error', 'Flight report niet gevonden.');
+        }
+
+        Storage::disk('local')->delete('/reports/' . $flightReport->file);
+        $flightReport->delete();
+
+        return redirect()->back()->with('success', 'Rapport is verwijderd.');
     }
 	
     public function download(string $report)
     {
         try {
 			session()->flash('success', 'Downloaden voltooid!');
-			return Storage::disk('local')->download('/reports/'.$report);
+			return Storage::disk('local')->download('/reports/' . $report);
         } catch (\Exception $e) {
-            abort(404, 'Bestand niet gevonden');
+            return redirect()->back()->with('error', 'Flight rapport niet gevonden.');
         }
     }
 }
