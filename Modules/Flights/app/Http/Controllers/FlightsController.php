@@ -12,7 +12,8 @@ class FlightsController extends Controller
 {
     public function index()
     {
-        return view('flights::pages.member_reg_new_flight')
+        return response()
+            ->view('flights::pages.member_reg_new_flight')
             ->header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0');
     }
 
