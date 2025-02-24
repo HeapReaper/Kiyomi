@@ -35,7 +35,6 @@
             <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
             <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
             <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
-            <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
 
@@ -48,7 +47,6 @@
             <a class="dropdown-item text-white" href="">Lidmaatschapskosten</a>
             <a class="dropdown-item text-white" href="">Betalingen</a>
             <a class="dropdown-item text-white" href="">Terugkerende betalingen</a>
-            <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
         
