@@ -68,11 +68,11 @@
                   <h5 class="text-white font-weight-bold">Model type:</h5>
                   <select class="form-control" id="model_type" name="model_type">
                     <option disabled selected>Selecteer</option>
-                    <option value=1>Motor vliegtuig</option>
-                    <option value=2>Zweef vliegtuig (zonder motor)</option>
-                    <option value=5>Motor zweefvliegtuig</option>
-                    <option value=3>Helikopter</option>
-                    <option value=4>Drone</option>
+                    <option value=1 {{ old('model_type') == 1 ? 'selected' : '' }}>Motor vliegtuig</option>
+                    <option value=2 {{ old('model_type') == 2 ? 'selected' : '' }}>Zweef vliegtuig (zonder motor)</option>
+                    <option value=5 {{ old('model_type') == 5 ? 'selected' : '' }}>Motor zweefvliegtuig</option>
+                    <option value=3 {{ old('model_type') == 3 ? 'selected' : '' }}>Helikopter</option>
+                    <option value=4 {{ old('model_type') == 4 ? 'selected' : '' }}>Drone</option>
                   </select>
                 </div>
               </div>
@@ -83,10 +83,10 @@
                   <h5 class="text-white font-weight-bold">Model vermogen:</h5>
                   <select class="form-control" id="power_type" name="power_type">
                     <option disabled selected>Selecteer</option>
-                    <option value=4>0W</option>
-                    <option value=1>< 300W</option>
-                    <option value=2>300W-1200W</option>
-                    <option value=3>1200W-3000W</option>
+                    <option value=4 {{ old('power_type') == 4 ? 'selected' : '' }}>0W</option>
+                    <option value=1 {{ old('power_type') == 1 ? 'selected' : '' }}>< 300W</option>
+                    <option value=2 {{ old('power_type') == 2 ? 'selected' : '' }}>300W-1200W</option>
+                    <option value=3 {{ old('power_type') == 3 ? 'selected' : '' }}>1200W-3000W</option>
                   </select>
                 </div>
               </div>
