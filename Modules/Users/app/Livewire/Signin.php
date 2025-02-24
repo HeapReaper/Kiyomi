@@ -20,7 +20,7 @@ class Signin extends Component
 			return $this->addError('credentials', 'Email of wachtwoord is niet juist.');
 		}
 		
-		return redirect()->route('panel.index');
+		return redirect()->route('flights-panel.index');
 	}
 	
     public function render()
