@@ -11,6 +11,8 @@
 
       @livewireStyles
       <div class="row bg-dark rounded bg-opacity-25 shadow-lg">
+        <h2 class="text-white font-weight-bold">Lid bewerken</h2>
+
         <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">

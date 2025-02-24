@@ -5,6 +5,7 @@
 @section('content')
   <div class="container">
     <div class="row mt-4 m-2 bg-dark bg-opacity-25 shadow-lg rounded">
+      <h2 class="text-white font-weight-bold">Vlucht rapportages</h2>
       <div class="col-sm p-2 mt-2">
         <h4 class="text-white">Maak rapportage</h4>
         <form action="{{ route('flights-report.store') }}" method="POST">
