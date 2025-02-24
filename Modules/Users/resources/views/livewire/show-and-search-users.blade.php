@@ -107,12 +107,16 @@
                       </td>
                       <!-- Phone -->
                       <td class="text-white">
-                        {{ $user->mobile_phone ?? 'Niet ingevuld' }}
+                        <a href="tel:{{ $user->mobile_phone }}" class="text-white">
+                          {{ $user->mobile_phone ?? 'Niet ingevuld' }}
+                        </a>
                       </td>
 
                       <!-- Email -->
                       <td class="text-white">
-                        {{ $user->email ?? 'Niet ingevuld' }}
+                        <a href="mailto:{{ $user->email }}" class="text-white">
+                          {{ $user->email ?? 'Niet ingevuld' }}
+                        </a>
                       </td>
                       <!-- Open, edit, delete -->
                       <td style="width: 20%;" class="text-center">
