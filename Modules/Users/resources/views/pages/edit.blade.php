@@ -193,13 +193,6 @@
               </div>
             </div>
           @endif
-          <div class="col">
-            <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2">
-              <a href="" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); padding: 4px; border-radius: 10px; color: white;">
-                Verstuur een wachtwoord email (WIP)
-              </a>
-            </div>
-          </div>
           <button type="submit" class="btn text-white mt-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
         </div>
     </form>
