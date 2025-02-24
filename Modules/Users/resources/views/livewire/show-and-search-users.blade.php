@@ -53,7 +53,7 @@
                 <tr>
                   <th><span>Foto</span></th>
                   <th><span>Vol. naam</span></th>
-                  <th><span>KNVvl</span></th>
+                  <th><span>KNVvL</span></th>
                   <th class="text-center"><span>Rol</span></th>
                   <th><span>RDW</span></th>
                   <th><span>Telefoon</span></th>
