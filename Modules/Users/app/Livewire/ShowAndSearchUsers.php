@@ -27,7 +27,9 @@ class ShowAndSearchUsers extends Component
                 ->where(function ($query) {
                     $query->where('name', 'like', '%'.$this->search.'%')
                         ->orWhere('email', 'like', '%'.$this->search.'%')
-                        ->orWhere('mobile_phone', 'like', '%'.$this->search.'%');
+                        ->orWhere('mobile_phone', 'like', '%'.$this->search.'%')
+                        ->orWhere('knvvl', 'like', '%'.$this->search.'%')
+                        ->orWhere('rdw_number', 'like', '%'.$this->search.'%');
                 })
                 ->orderBy('name', 'ASC')
                 ->paginate(20),
