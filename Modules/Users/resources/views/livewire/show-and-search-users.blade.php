@@ -2,10 +2,12 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="main-box no-header clearfix bg-dark bg-opacity-25 rounded shadow-lg p-2">
+        <h2 class="text-white font-weight-bold">Leden</h2>
+
         <div class="row">
           <div class="col ml-2">
             <div class="float-start mb-4 ms-4 mt-2">
-              <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06 " class="form-control rounded">
+              <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06, KNVvL, RDW nummer" class="form-control rounded">
             </div>
           </div>
 
@@ -51,7 +53,7 @@
                 <tr>
                   <th><span>Foto</span></th>
                   <th><span>Vol. naam</span></th>
-                  <th><span>KNVvl</span></th>
+                  <th><span>KNVvL</span></th>
                   <th class="text-center"><span>Rol</span></th>
                   <th><span>RDW</span></th>
                   <th><span>Telefoon</span></th>

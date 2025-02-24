@@ -3,7 +3,7 @@
 @section('title', $user->name)
 
 @section('content')
-<div class="m-3">
+<div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
     <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST">
       @csrf
@@ -17,7 +17,7 @@
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="name" class="text-white font-weight-bold"><strong>Volledige naam</strong></label>
-              <input type="text" class="form-control" id="name" name="name" aria-describedby="fullname" placeholder="Voornaam achternaam" required value="{{ $user->name }}">
+              <input type="text" class="form-control" id="name" name="name" aria-describedby="fullname" required value="{{ $user->name }}">
               <!-- <small id="fullname" class="form-text text-muted"></small>-->
             </div>
 
@@ -67,12 +67,12 @@
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="rdw_number" class="text-white font-weight-bold"><strong>RDW nummer</strong></label>
-              <input type="text" class="form-control" id="rdw_number" name="rdw_number" placeholder="A34hjhdwqjkwqa" value="{{ $user->rdw_number }}">
+              <input type="text" class="form-control" id="rdw_number" name="rdw_number" value="{{ $user->rdw_number }}">
             </div>
 
             <div class="form-group">
               <label for="knvvl"  class="text-white font-weight-bold"><strong>KNVvl nummer</strong></label>
-              <input type="text" class="form-control" id="knvvl" name="knvvl" placeholder="1234567" value="{{ $user->KNVvl }}">
+              <input type="text" class="form-control" id="knvvl" name="knvvl" value="{{ $user->KNVvl }}">
             </div>
           </div>
         </div>
@@ -193,13 +193,6 @@
               </div>
             </div>
           @endif
-          <div class="col">
-            <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2">
-              <a href="" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); padding: 4px; border-radius: 10px; color: white;">
-                Verstuur een wachtwoord email (WIP)
-              </a>
-            </div>
-          </div>
           <button type="submit" class="btn text-white mt-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Update</button>
         </div>
     </form>
