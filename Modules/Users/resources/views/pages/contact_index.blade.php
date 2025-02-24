@@ -5,8 +5,10 @@
 @section('content')
   <div class="m-2">
     <div class="container mt-4 p-2 bg-dark rounded shadow-lg bg-opacity-25">
-      <h4 class="text-white">Voor wie is deze email?</h4>
-      <form action="{{ route('contact.store') }}", method="POST">
+      <h2 class="text-white font-weight-bold">Leden contact</h2>
+
+      <h5 class="text-white">Voor wie is deze email?</h5>
+      <form action="{{ route('contact.store') }}" method="POST">
         @csrf
         <div class="form-check m-1">
           <input class="form-check-input" type="checkbox" value="junior_member" id="junior_members" name="send_to[]" style="width: 20px; height: 20px">
