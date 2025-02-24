@@ -3,7 +3,7 @@
 @section('title', $user->name)
 
 @section('content')
-  <div class="m-3">
+  <div class="ms-3 me-3 mt-0">
     <div class="container-fluid col-lg-6 offset-lg-3 pt-4 pb-4">
       <div class="row bg-dark rounded bg-opacity-25">
         <h2 class="text-white font-weight-bold">Lid weergeven</h2>
