@@ -2,6 +2,8 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="main-box no-header clearfix bg-dark bg-opacity-25 rounded shadow-lg p-2">
+        <h2 class="text-white font-weight-bold">Leden</h2>
+
         <div class="row">
           <div class="col ml-2">
             <div class="float-start mb-4 ms-4 mt-2">
