@@ -7,7 +7,7 @@
         <div class="row">
           <div class="col ml-2">
             <div class="float-start mb-4 ms-4 mt-2">
-              <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06 " class="form-control rounded">
+              <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06, KNVvL, RDW nummer" class="form-control rounded">
             </div>
           </div>
 
