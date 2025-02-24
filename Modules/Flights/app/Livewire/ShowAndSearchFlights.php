@@ -5,22 +5,35 @@ namespace Modules\Flights\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\Flights\Models\Flight;
-use Illuminate\Support\Facades\Cache;
 
 class ShowAndSearchFlights extends Component
 {
     use WithPagination;
 
-    protected $paginationTheme = 'bootstrap';
+    public string $search = '';
+    public string $selectYear = '';
+    protected array $queryString = [
+        'selectYear' => ['except' => ''],
+        'search' => ['except' => ''],
+    ];
 
-    public $search = '';
+    public function mount(): void
+    {
+        $this->selectYear = $this->selectYear ?: date('Y');
+    }
 
-    public function render()
+    public function updateSelectYear(): void
+    {
+        $this->resetPage();
+    }
+
+    public function render(): \Illuminate\Contracts\View\View
     {
         $flights = Flight::with('user', 'submittedModel')
                     ->whereHas('user', function ($query) {
                         $query->where('name', 'like', '%' . $this->search . '%');
                     })
+                    ->whereYear('date', $this->selectYear)
                     ->orderBy('date', 'DESC')
                     ->orderBy('end_time', 'DESC')
                     ->paginate(20);

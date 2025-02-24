@@ -26,7 +26,7 @@ class ShowFlightReports extends Component
     {
         $flightReports = FlightReport::whereYear('date', $this->selectYear)
             ->orderBy('date', 'desc')
-            ->paginate(1);
+            ->paginate(5);
 
         return view('flights::livewire.show-flight-reports', [
 			'flightReports' => $flightReports,
