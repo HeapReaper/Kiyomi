@@ -5,7 +5,6 @@ namespace Modules\Flights\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Modules\Flights\Models\Flight;
-use Illuminate\Support\Facades\Cache;
 
 class ShowAndSearchFlights extends Component
 {
@@ -13,10 +12,14 @@ class ShowAndSearchFlights extends Component
 
     public string $search = '';
     public string $selectYear = '';
+    protected array $queryString = [
+        'selectYear' => ['except' => ''],
+        'search' => ['except' => ''],
+    ];
 
     public function mount(): void
     {
-        $this->selectYear = date('Y');
+        $this->selectYear = $this->selectYear ?: date('Y');
     }
 
     public function updateSelectYear(): void
