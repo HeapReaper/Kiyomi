@@ -94,11 +94,9 @@
 </nav>
 
 <style>
-  .nav > li > a:hover{
-      background-color: beige;
-  }
+    .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(0,0,0,0.2);
+    }
 </style>
 
-<script>
-
-</script>
+<script></script>
