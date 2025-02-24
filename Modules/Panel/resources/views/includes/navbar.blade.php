@@ -18,7 +18,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Vluchten
           </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-75">
+          <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('flights-statistics.index') }}">Statistieken</a>
             <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
@@ -30,7 +30,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Leden
           </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-75">
+          <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
             <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
@@ -43,7 +43,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Financieel
           </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-75">
+          <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="">Overzicht</a>
             <a class="dropdown-item text-white" href="">Lidmaatschapskosten</a>
             <a class="dropdown-item text-white" href="">Betalingen</a>
@@ -55,27 +55,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{{ route('settings.index') }}">Instellingen</a>
         </li>
-        <!--
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Instellingen
-          </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-75">
-            <a class="dropdown-item text-white" href="">Algemeen</a>
-            <a class="dropdown-item text-white" href="">Email</a>
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Systeem
-          </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-75">
-            <a class="dropdown-item text-white" href="">Logs</a>
-            <li><hr class="dropdown-divider"></li>
-          </ul>
-        </li>
-        -->
       </ul>
 
       <ul class="navbar-nav ms-auto"> 
@@ -83,7 +62,7 @@
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Welkom {{ Auth::user()->name }}!
           </a>
-          <ul class="dropdown-menu bg-dark bg-opacity-50">
+          <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
             <a class="dropdown-item text-white" href="/logout">Uitloggen</a>
           </ul>
@@ -94,9 +73,7 @@
 </nav>
 
 <style>
-    .dropdown-menu .dropdown-item:hover {
-        background-color: rgba(0,0,0,0.2);
-    }
+  .dropdown-menu .dropdown-item:hover {
+      background-color: rgba(0,0,0,0.2);
+  }
 </style>
-
-<script></script>
