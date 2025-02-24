@@ -14,12 +14,23 @@ class ShowAndSearchFlights extends Component
     public string $search = '';
     public string $selectYear = '';
 
+    public function mount(): void
+    {
+        $this->selectYear = date('Y');
+    }
+
+    public function updateSelectYear(): void
+    {
+        $this->resetPage();
+    }
+
     public function render(): \Illuminate\Contracts\View\View
     {
         $flights = Flight::with('user', 'submittedModel')
                     ->whereHas('user', function ($query) {
                         $query->where('name', 'like', '%' . $this->search . '%');
                     })
+                    ->whereYear('date', $this->selectYear)
                     ->orderBy('date', 'DESC')
                     ->orderBy('end_time', 'DESC')
                     ->paginate(20);
