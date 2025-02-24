@@ -13,9 +13,9 @@
       <input type="text" hidden id="hidden_flight_date" value="{{ \Carbon\Carbon::parse($flight->date )->format('d-m-Y') }}">
 
       <div class="bg-dark rounded bg-opacity-25 shadow-lg p-2">
-        <div class="row">
-          <h2 class="text-white font-weight-bold">Bewerk vlucht, ID: {{ $flight->id }}</h2>
+        <h2 class="text-white font-weight-bold">Bewerk vlucht</h2>
 
+        <div class="row">
           <div class="col-sm">
             <div class="mt-2 mb-2">
               <div class="form-group">

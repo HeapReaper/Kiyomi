@@ -1,6 +1,8 @@
 <div class="m-2 mb-3">
   <!-- Table last flights -->
   <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
+    <h2 class="text-white font-weight-bold">Vluchten</h2>
+
     <div class="row">
       <div class="col ml-0">
         <div class="float-start mb-4 ms-0 mt-4">
