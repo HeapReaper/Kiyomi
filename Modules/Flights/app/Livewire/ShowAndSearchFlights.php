@@ -11,9 +11,10 @@ class ShowAndSearchFlights extends Component
 {
     use WithPagination;
 
-    public $search = '';
+    public string $search = '';
+    public string $selectYear = '';
 
-    public function render()
+    public function render(): \Illuminate\Contracts\View\View
     {
         $flights = Flight::with('user', 'submittedModel')
                     ->whereHas('user', function ($query) {
