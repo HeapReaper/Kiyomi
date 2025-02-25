@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-class getLogs
+class logs
 {
     public static function laravel(): array
     {
