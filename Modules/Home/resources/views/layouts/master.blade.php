@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
+
     <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
 
     {{-- Vite CSS --}}
@@ -34,7 +36,7 @@
         <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-              <img src="/app_media/Kiyomi_logo.png" class="rounded me-2" alt="..." style="max-width: 35px">
+              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
               <strong class="me-auto">Fout!</strong>
               <small>Een paar seconden geleden</small>
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -48,9 +50,7 @@
         </div>
 
         <script>
-            const toastLiveExample = document.getElementById('liveToast')
-            const toast = new bootstrap.Toast(toastLiveExample)
-            toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -58,7 +58,7 @@
         <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-              <img src="/app_media/Kiyomi_logo.png" class="rounded me-2" alt="..." style="max-width: 35px">
+              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
               <strong class="me-auto">Fout!</strong>
               <small>Een paar seconden geleden</small>
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -70,9 +70,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -81,7 +79,7 @@
         <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
-              <img src="/app_media/Kiyomi_logo.png" class="rounded me-2" alt="..." style="max-width: 35px">
+              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
               <strong class="me-auto">Success!</strong>
               <small>Een paar seconden geleden</small>
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
@@ -93,9 +91,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
     </main>
@@ -110,7 +106,6 @@
       }
     </style>
 
-    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
 
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}

@@ -25,6 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
 
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-admin', 'resources/assets/sass/app.scss') }} --}}
@@ -53,9 +54,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -75,9 +74,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -98,9 +95,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -121,9 +116,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -233,7 +226,6 @@
         }
       </style>
 
-      <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
       <livewire:scripts />
       @livewireScripts
     </main>
