@@ -49,9 +49,15 @@
             <a class="dropdown-item text-white" href="">Terugkerende betalingen</a>
           </ul>
         </li>
-        
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{ route('settings.index') }}">Instellingen</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Systeem
+          </a>
+          <ul class="dropdown-menu bg-dark">
+            <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
+            <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
+          </ul>
         </li>
       </ul>
 
