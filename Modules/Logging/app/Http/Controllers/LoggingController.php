@@ -9,7 +9,7 @@ class LoggingController extends Controller
 {
     public function index()
     {
-        return view('logging::index');
+        return view('logging::pages.index');
     }
 	
     public function create()
