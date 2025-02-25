@@ -20,7 +20,13 @@ class PasswordResetController extends Controller
 
     public function forgotPasswordPost(Request $request)
     {
-        $request->validate(['email' => 'required|email']);
+        $validated = $request->validate([
+            'email' => 'required|email',
+        ]);
+
+        $user = User::with('roles')
+            ->where('email', $validated['email'])
+            ->first();
 
         $status = Password::sendResetLink(
             $request->only('email')
