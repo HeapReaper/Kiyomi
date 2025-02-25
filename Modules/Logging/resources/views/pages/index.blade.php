@@ -17,9 +17,14 @@
       </li>
     </ul>
 
-    <div class="tab-content mt-2" id="tab-content">
+    <div class="tab-content bg-dark rounded mt-2 mb-1 p-2" id="tab-content">
       <div class="tab-pane fade show active" id="laravel-logs" role="tabpanel" aria-labelledby="laravel-logs">
-        1
+        @foreach(\App\Helpers\getLogs::laravel() as $logEntry)
+          @if ($loop->index > 50)
+            @break
+          @endif
+          <code>{{ $logEntry }}<br></code>
+        @endforeach
       </div>
       <div class="tab-pane fade" id="user-errors" role="tabpanel" aria-labelledby="user-errors">
         2
@@ -47,6 +52,5 @@
         background-color: rgba(0,0,0,0.0) !important;
         color: white !important;
     }
-
   </style>
 @endsection
