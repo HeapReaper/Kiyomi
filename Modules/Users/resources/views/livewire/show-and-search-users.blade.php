@@ -43,12 +43,9 @@
             </div>
           </div>
         </div>
-        <td>
-
-        </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-custom-dark user-list" id="MembersTable">
+            <table class="table table-custom-dark user-list ml-2 mr-2" >
               <thead class="text-white">
                 <tr>
                   <th class="text-white"><span>ID</span></th>
