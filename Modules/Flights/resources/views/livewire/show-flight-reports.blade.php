@@ -29,20 +29,38 @@
       <tbody >
         @foreach ($flightReports as $report)
           <tr>
-            <th class="text-white" scope="row">{{ $report->file }}</th>
-            <td class="text-white">{{ App\Helpers\refactorDate::refactorDate($report->report_start_date) }}</td>
-            <td class="text-white">{{ App\Helpers\refactorDate::refactorDate($report->report_end_date) }}</td>
-            <td class="text-white">{{ $report->made_by }}</td>
-            <td class="text-white">{{ $report->created_at->format('d-m-Y') }}</td>
+            <th class="text-white" scope="row">
+              {{ $report->file }}
+            </th>
             <td class="text-white">
-              <a href="flights-reports/download/{{ $report->file }}">
-                <x-heroicon-o-arrow-down-tray style="width: 27px;" stroke="white" />
-              </a>
-              <a href="flights-reports/destroy/{{ $report->id }}"
-                 onclick="return confirm('Weet je zeker dat je deze vlucht rapportage wilt verwijderen?')"
-              >
-                <x-heroicon-o-trash stroke="white" style="width: 27px;" />
-              </a>
+              {{ App\Helpers\refactorDate::refactorDate($report->report_start_date) }}
+            </td>
+            <td class="text-white">
+              {{ App\Helpers\refactorDate::refactorDate($report->report_end_date) }}
+            </td>
+            <td class="text-white">
+              {{ $report->made_by }}</td>
+            <td class="text-white">
+              {{ $report->created_at->format('d-m-Y') }}
+            </td>
+            <td class="text-white">
+              <div style="display: flex;">
+                <form action="flights-reports/download/{{ $report->file }}" method="GET" style="margin-right: 10px;">
+                  @csrf
+                  <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                    <x-heroicon-o-arrow-down-tray stroke="white" style="width: 27px;" />
+                  </button>
+                </form>
+
+                <form action="flights-reports/destroy/{{ $report->id }}" method="GET" id="delete-form-{{ $report->id }}">
+                  @csrf
+                  <button type="submit" class="table-link text-info"
+                    onclick="return confirm('Weet je zeker dat je deze vlucht rapport wilt verwijderen?');"
+                    style="border: none; background: none; padding: 0; cursor: pointer;">
+                    <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                  </button>
+                </form>
+              </div>
             </td>
           </tr>
         @endforeach

@@ -34,7 +34,7 @@
             <th scope="col" class="text-white">Eind tijd</th>
             <th scope="col" class="text-white">Model</th>
             <th scope="col" class="text-white">Vermogen</th>
-            <th scope="col" class="text-white">Bewerk, verwijder</th>
+            <th scope="col" class="text-white">Opties</th>
           </tr>
         </thead>
           <tbody>
@@ -64,12 +64,11 @@
                 </td>
                 <!-- Edit, delete -->
                 <td style="" class="text-center">
-                  <div style="display: flex;">  <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;"> @csrf
+                  <div style="display: flex;">
+                    <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
+                      @csrf
                       <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
-                        <span class="fa-stack" style="font-size: 1rem;">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-pencil fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                        </span>
+                        <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
                       </button>
                     </form>
 
@@ -77,10 +76,7 @@
                       @csrf
                       @method('DELETE')
                       <button type="submit" class="table-link text-info" onclick="return confirm('Weet je zeker dat je deze vlucht wilt verwijderen?');" style="border: none; background: none; padding: 0; cursor: pointer;">
-                        <span class="fa-stack" style="font-size: 1rem;">
-                          <i class="fa fa-square fa-stack-2x"></i>
-                          <i class="fa fa-trash fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                        </span>
+                        <x-heroicon-o-trash stroke="white" style="width: 27px;" />
                       </button>
                     </form>
                   </div>

@@ -6,13 +6,13 @@
 
         <div class="row">
           <div class="col ml-2">
-            <div class="float-start mb-4 ms-4 mt-2">
+            <div class="float-start mb-4 ms-0 mt-2">
               <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06, KNVvL, RDW nummer" class="form-control rounded">
             </div>
           </div>
 
           <div class="col mr-2 mt-2">
-            <div class=" mb-4 me-4 float-end">
+            <div class=" mb-4 me-0 float-end">
 
               <select wire:model.live="role" class="form-control form-control-lg selector_custom">
                 <option selected value='all'>
@@ -58,7 +58,7 @@
                   <th class="text-white"><span>RDW</span></th>
                   <th class="text-white"><span>Telefoon</span></th>
                   <th class="text-white"><span>Email</span></th>
-                  <th class="text-white">Open, bewerk, verwijder</th>
+                  <th class="text-white">Opties</th>
                 </tr>
               </thead>
               <tbody>
@@ -120,26 +120,30 @@
                       </td>
                       <!-- Open, edit, delete -->
                       <td style="width: 20%;" class="text-center">
-                        <a href="{{ route('users.show', $user->id) }}" class="table-link text-warning">
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-search-plus fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
-                        <a href="{{ route('users.edit', $user->id) }}" class="table-link text-info">
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-pencil fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
-                        <a href="users-remove/{{ $user->id }}" class="table-link text-info"
-                          onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
-                          >
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-trash fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
+                        <div style="display: flex;">
+                          <form action="{{ route('users.show', $user->id) }}" method="GET" style="margin-right: 10px;">
+                            @csrf
+                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-magnifying-glass-plus stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+
+                          <form action="{{ route('users.edit', $user->id) }}" method="GET" style="margin-right: 10px;">
+                            @csrf
+                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+
+                          <form action="users-remove/{{ $user->id }}" method="GET" id="delete-form-{{ $user->id }}">
+                            @csrf
+                            <button type="submit" class="table-link text-info"
+                                    onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
+                                    style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+                        </div>
                       </td>
                     </tr>
                   @endforeach
