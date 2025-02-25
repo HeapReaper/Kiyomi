@@ -35,13 +35,13 @@
             <td>{{ $report->made_by }}</td>
             <td>{{ $report->created_at->format('d-m-Y') }}</td>
             <td>
-              <a href="flights-reports/download/{{ $report->file }}" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
-                Download
+              <a href="flights-reports/download/{{ $report->file }}">
+                <x-heroicon-o-arrow-down-tray style="width: 27px;" stroke="white" />
               </a>
-              <a href="flights-reports/destroy/{{ $report->id }}" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)"
+              <a href="flights-reports/destroy/{{ $report->id }}"
                  onclick="return confirm('Weet je zeker dat je deze vlucht rapportage wilt verwijderen?')"
               >
-                Verwijder
+                <x-heroicon-o-trash stroke="white" style="width: 27px;" />
               </a>
             </td>
           </tr>
