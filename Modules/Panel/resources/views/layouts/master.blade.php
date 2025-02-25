@@ -21,6 +21,9 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-admin', 'resources/assets/sass/app.scss') }} --}}
   </head>
@@ -138,6 +141,7 @@
           width: 100%;
           height: 100%;
           background-attachment: fixed;
+          font-family: 'Open Sans', sans-serif;
         }
 
         #name_search {
@@ -156,8 +160,7 @@
         #name_search:focus::placeholder {
             color: transparent;
         }
-      </style>
-      <style>
+
         .form-control {
           background-color: rgba(255, 255, 255, 0.1) !important;
           border: 1px solid rgba(255, 255, 255, 0.2) !important;
