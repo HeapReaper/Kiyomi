@@ -27,7 +27,12 @@
         @endforeach
       </div>
       <div class="tab-pane fade" id="user-errors" role="tabpanel" aria-labelledby="user-errors">
-        2
+        @foreach(\App\Helpers\getLogs::userError() as $logEntry)
+          @if ($loop->index > 50)
+            @break
+          @endif
+          <code>{{ $logEntry }}<br></code>
+        @endforeach
       </div>
     </div>
   </div>
