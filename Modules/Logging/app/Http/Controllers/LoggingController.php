@@ -4,6 +4,7 @@ namespace Modules\Logging\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Helpers\logs;
 
 class LoggingController extends Controller
 {
@@ -40,5 +41,11 @@ class LoggingController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function purge(): \Illuminate\Http\RedirectResponse
+    {
+        Logs::purgeLogs();
+        return redirect()->back();
     }
 }
