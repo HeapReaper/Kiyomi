@@ -51,7 +51,7 @@
             <table class="table table-custom-dark user-list rounded" id="MembersTable">
               <thead class="text-white">
                 <tr>
-                  <th class="text-white"><span>Foto</span></th>
+                  <th class="text-white"><span>ID</span></th>
                   <th class="text-white"><span>Vol. naam</span></th>
                   <th class="text-white"><span>KNVvL</span></th>
                   <th class="text-center text-white"><span>Rol</span></th>
@@ -64,16 +64,16 @@
               <tbody>
                   @foreach ($users as $user)
                     <tr>
-                      <td>
-                        <img src="https://placehold.co/35x35" alt="" style="width: 35px" class="img-fluid ms-2">
+                      <td class="text-white">
+                        {{ $user->id }}
                       </td>
                       <!-- Name -->
                       <td class="text-white">
-                        {{ $user->name ?? 'Niet ingevuld' }}
+                        {{ $user->name ?? 'Leeg' }}
                       </td>
                       <!-- KNVvl number -->
                       <td class="text-white">
-                        {{ $user->knvvl ?? 'Niet ingevuld' }}
+                        {{ $user->knvvl ?? 'Leeg' }}
                       </td>
                       <!-- Club status -->
                       <td class="text-center">
@@ -103,19 +103,19 @@
                       </td>
                       <!-- RDW -->
                       <td class="text-white">
-                        {{ $user->rdw_number ?? 'Niet ingevuld' }}
+                        {{ $user->rdw_number ?? 'Leeg' }}
                       </td>
                       <!-- Phone -->
                       <td class="text-white">
                         <a href="tel:{{ $user->mobile_phone }}" class="text-white">
-                          {{ $user->mobile_phone ?? 'Niet ingevuld' }}
+                          {{ $user->mobile_phone ?? 'Leeg' }}
                         </a>
                       </td>
 
                       <!-- Email -->
                       <td class="text-white">
                         <a href="mailto:{{ $user->email }}" class="text-white">
-                          {{ $user->email ?? 'Niet ingevuld' }}
+                          {{ $user->email ?? 'Leeg' }}
                         </a>
                       </td>
                       <!-- Open, edit, delete -->
