@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
+    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
+
     <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
 
     {{-- Vite CSS --}}
@@ -48,9 +50,7 @@
         </div>
 
         <script>
-            const toastLiveExample = document.getElementById('liveToast')
-            const toast = new bootstrap.Toast(toastLiveExample)
-            toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -70,9 +70,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
 
@@ -93,9 +91,7 @@
         </div>
 
         <script>
-          const toastLiveExample = document.getElementById('liveToast')
-          const toast = new bootstrap.Toast(toastLiveExample)
-          toast.show()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
         </script>
       @endif
     </main>
@@ -110,7 +106,6 @@
       }
     </style>
 
-    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
 
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}
