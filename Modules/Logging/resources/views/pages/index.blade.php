@@ -1,7 +1,52 @@
 @extends('panel::layouts.master')
 
 @section('content')
-  <h1>Hello World</h1>
+  <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-4 p-2">
+    <h2 class="text-white">Logs</h2>
 
-  <p>Module: {!! config('logging.name') !!}</p>
+    <ul class="nav nav-tabs" id="log-tabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs" type="button" role="tab" aria-controls="home" aria-selected="true">
+          Laravel logs
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="user-error-tab" data-bs-toggle="tab" data-bs-target="#user-errors" type="button" role="tab" aria-controls="profile" aria-selected="false">
+          Gebruiker fout log
+        </button>
+      </li>
+    </ul>
+
+    <div class="tab-content mt-2" id="tab-content">
+      <div class="tab-pane fade show active" id="laravel-logs" role="tabpanel" aria-labelledby="laravel-logs">
+        1
+      </div>
+      <div class="tab-pane fade" id="user-errors" role="tabpanel" aria-labelledby="user-errors">
+        2
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .nav-tabs {
+        border-bottom: none !important;
+    }
+
+    .nav-tabs .nav-link {
+        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
+        color: white !important;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav-tabs .nav-item {
+        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
+        color: white !important;
+    }
+
+    .nav-tabs .nav-link.active {
+        background-color: rgba(0,0,0,0.0) !important;
+        color: white !important;
+    }
+
+  </style>
 @endsection
