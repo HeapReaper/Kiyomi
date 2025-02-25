@@ -6,13 +6,13 @@
 
         <div class="row">
           <div class="col ml-2">
-            <div class="float-start mb-4 ms-4 mt-2">
+            <div class="float-start mb-4 ms-0 mt-2">
               <input wire:model.live="search" type="text" id="name_search" placeholder="Naam, email, 06, KNVvL, RDW nummer" class="form-control rounded">
             </div>
           </div>
 
           <div class="col mr-2 mt-2">
-            <div class=" mb-4 me-4 float-end">
+            <div class=" mb-4 me-0 float-end">
 
               <select wire:model.live="role" class="form-control form-control-lg selector_custom">
                 <option selected value='all'>
@@ -43,37 +43,34 @@
             </div>
           </div>
         </div>
-        <td>
-
-        </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-stripe user-list rounded" id="MembersTable">
+            <table class="table table-custom-dark user-list ml-2 mr-2" >
               <thead class="text-white">
                 <tr>
-                  <th><span>Foto</span></th>
-                  <th><span>Vol. naam</span></th>
-                  <th><span>KNVvL</span></th>
-                  <th class="text-center"><span>Rol</span></th>
-                  <th><span>RDW</span></th>
-                  <th><span>Telefoon</span></th>
-                  <th><span>Email</span></th>
-                  <th>Open, bewerk, verwijder</th>
+                  <th class="text-white"><span>ID</span></th>
+                  <th class="text-white"><span>Vol. naam</span></th>
+                  <th class="text-white"><span>KNVvL</span></th>
+                  <th class="text-center text-white"><span>Rol</span></th>
+                  <th class="text-white"><span>RDW</span></th>
+                  <th class="text-white"><span>Telefoon</span></th>
+                  <th class="text-white"><span>Email</span></th>
+                  <th class="text-white">Opties</th>
                 </tr>
               </thead>
               <tbody>
                   @foreach ($users as $user)
                     <tr>
-                      <td>
-                        <img src="https://placehold.co/35x35" alt="" style="width: 35px" class="img-fluid ms-2">
+                      <td class="text-white">
+                        {{ $user->id }}
                       </td>
                       <!-- Name -->
                       <td class="text-white">
-                        {{ $user->name ?? 'Niet ingevuld' }}
+                        {{ $user->name ?? 'Leeg' }}
                       </td>
                       <!-- KNVvl number -->
                       <td class="text-white">
-                        {{ $user->knvvl ?? 'Niet ingevuld' }}
+                        {{ $user->knvvl ?? 'Leeg' }}
                       </td>
                       <!-- Club status -->
                       <td class="text-center">
@@ -103,43 +100,47 @@
                       </td>
                       <!-- RDW -->
                       <td class="text-white">
-                        {{ $user->rdw_number ?? 'Niet ingevuld' }}
+                        {{ $user->rdw_number ?? 'Leeg' }}
                       </td>
                       <!-- Phone -->
                       <td class="text-white">
                         <a href="tel:{{ $user->mobile_phone }}" class="text-white">
-                          {{ $user->mobile_phone ?? 'Niet ingevuld' }}
+                          {{ $user->mobile_phone ?? 'Leeg' }}
                         </a>
                       </td>
 
                       <!-- Email -->
                       <td class="text-white">
                         <a href="mailto:{{ $user->email }}" class="text-white">
-                          {{ $user->email ?? 'Niet ingevuld' }}
+                          {{ $user->email ?? 'Leeg' }}
                         </a>
                       </td>
                       <!-- Open, edit, delete -->
                       <td style="width: 20%;" class="text-center">
-                        <a href="{{ route('users.show', $user->id) }}" class="table-link text-warning">
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-search-plus fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
-                        <a href="{{ route('users.edit', $user->id) }}" class="table-link text-info">
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-pencil fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
-                        <a href="users-remove/{{ $user->id }}" class="table-link text-info"
-                          onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
-                          >
-                          <span class="fa-stack" style="font-size: 1rem;">
-                            <i class="fa fa-square fa-stack-2x"></i>
-                            <i class="fa fa-trash fa-stack-1x fa-inverse" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%); border-radius: 4px;"></i>
-                          </span>
-                        </a>
+                        <div style="display: flex;">
+                          <form action="{{ route('users.show', $user->id) }}" method="GET" style="margin-right: 10px;">
+                            @csrf
+                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-magnifying-glass-plus stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+
+                          <form action="{{ route('users.edit', $user->id) }}" method="GET" style="margin-right: 10px;">
+                            @csrf
+                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+
+                          <form action="users-remove/{{ $user->id }}" method="GET" id="delete-form-{{ $user->id }}">
+                            @csrf
+                            <button type="submit" class="table-link text-info"
+                                    onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
+                                    style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                            </button>
+                          </form>
+                        </div>
                       </td>
                     </tr>
                   @endforeach
