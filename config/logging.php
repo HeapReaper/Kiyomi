@@ -127,7 +127,7 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
-        'user_error_log' => [
+        'user_error' => [
             'driver' => 'single',
             'path' => storage_path('logs/user_error.log'),
             'level' => 'info',

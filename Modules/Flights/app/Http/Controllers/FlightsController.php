@@ -4,6 +4,7 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\SubmittedModel;
 use Modules\Users\Models\User;
@@ -37,12 +38,14 @@ class FlightsController extends Controller
         ]);
 
         if (intval($validated['rechapcha_custom']) != 4) {
+            Log::channel('user_error')->info('Vlucht aanmelden - Verkeerde Recaptha - Naam: ' . $validated['name'] . ' - Code: ' . $validated['rechapcha_custom']);
             return redirect()->back()->withErrors($validated)->withInput();
         }
 
         $user = User::where('name', 'like', '%' . $validated['name'] . '%')->first();
 
         if (!$user) {
+            Log::channel('user_error')->info('Vlucht aanmelden - Naam niet gevonden - ' . $validated['name']);
             return redirect()->back()->with('error', 'Ik kon je naam niet vinden, heb je hem goed getypt?')->withInput();
         }
 
