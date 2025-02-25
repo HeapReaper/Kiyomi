@@ -48,7 +48,7 @@
         </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-custom-dark user-list rounded" id="MembersTable">
+            <table class="table table-custom-dark user-list" id="MembersTable">
               <thead class="text-white">
                 <tr>
                   <th class="text-white"><span>ID</span></th>
