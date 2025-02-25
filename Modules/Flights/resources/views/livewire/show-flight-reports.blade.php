@@ -15,26 +15,26 @@
   </div>
 
   <div class="">
-    <table class="table rounded text-white">
+    <table class="table table-custom-dark text-white">
       <thead>
         <tr>
-          <th scope="col">Bestand naam</th>
-          <th scope="col">Rapport start datum</th>
-          <th scope="col">Rapport eind datum</th>
-          <th scope="col">Gemaakt door</th>
-          <th scope="col">Gemaakt op</th>
-          <th scope="col">Opties</th>
+          <th class="text-white" scope="col">Bestand naam</th>
+          <th class="text-white" scope="col">Rapport start datum</th>
+          <th class="text-white" scope="col">Rapport eind datum</th>
+          <th class="text-white" scope="col">Gemaakt door</th>
+          <th class="text-white" scope="col">Gemaakt op</th>
+          <th class="text-white" scope="col">Opties</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody >
         @foreach ($flightReports as $report)
           <tr>
-            <th scope="row" style="">{{ $report->file }}</th>
-            <td>{{ App\Helpers\refactorDate::refactorDate($report->report_start_date) }}</td>
-            <td>{{ App\Helpers\refactorDate::refactorDate($report->report_end_date) }}</td>
-            <td>{{ $report->made_by }}</td>
-            <td>{{ $report->created_at->format('d-m-Y') }}</td>
-            <td>
+            <th class="text-white" scope="row">{{ $report->file }}</th>
+            <td class="text-white">{{ App\Helpers\refactorDate::refactorDate($report->report_start_date) }}</td>
+            <td class="text-white">{{ App\Helpers\refactorDate::refactorDate($report->report_end_date) }}</td>
+            <td class="text-white">{{ $report->made_by }}</td>
+            <td class="text-white">{{ $report->created_at->format('d-m-Y') }}</td>
+            <td class="text-white">
               <a href="flights-reports/download/{{ $report->file }}">
                 <x-heroicon-o-arrow-down-tray style="width: 27px;" stroke="white" />
               </a>

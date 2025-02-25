@@ -48,17 +48,17 @@
         </td>
         <div class="main-box-body clearfix">
           <div class="table-responsive">
-            <table class="table table-stripe user-list rounded" id="MembersTable">
+            <table class="table table-custom-dark user-list rounded" id="MembersTable">
               <thead class="text-white">
                 <tr>
-                  <th><span>Foto</span></th>
-                  <th><span>Vol. naam</span></th>
-                  <th><span>KNVvL</span></th>
-                  <th class="text-center"><span>Rol</span></th>
-                  <th><span>RDW</span></th>
-                  <th><span>Telefoon</span></th>
-                  <th><span>Email</span></th>
-                  <th>Open, bewerk, verwijder</th>
+                  <th class="text-white"><span>Foto</span></th>
+                  <th class="text-white"><span>Vol. naam</span></th>
+                  <th class="text-white"><span>KNVvL</span></th>
+                  <th class="text-center text-white"><span>Rol</span></th>
+                  <th class="text-white"><span>RDW</span></th>
+                  <th class="text-white"><span>Telefoon</span></th>
+                  <th class="text-white"><span>Email</span></th>
+                  <th class="text-white">Open, bewerk, verwijder</th>
                 </tr>
               </thead>
               <tbody>

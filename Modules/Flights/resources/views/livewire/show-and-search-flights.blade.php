@@ -24,17 +24,17 @@
     </div>
 
     <div class="table-responsive">
-      <table class="table user-list rounded text-white ml-2 mr-2">
+      <table class="table table-custom-dark user-list ml-2 mr-2" >
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Naam</th>
-            <th scope="col">Datum</th>
-            <th scope="col">Start tijd</th>
-            <th scope="col">Eind tijd</th>
-            <th scope="col">Model</th>
-            <th scope="col">Vermogen</th>
-            <th scope="col">Bewerk, verwijder</th>
+            <th scope="col" class="text-white">ID</th>
+            <th scope="col" class="text-white">Naam</th>
+            <th scope="col" class="text-white">Datum</th>
+            <th scope="col" class="text-white">Start tijd</th>
+            <th scope="col" class="text-white">Eind tijd</th>
+            <th scope="col" class="text-white">Model</th>
+            <th scope="col" class="text-white">Vermogen</th>
+            <th scope="col" class="text-white">Bewerk, verwijder</th>
           </tr>
         </thead>
           <tbody>

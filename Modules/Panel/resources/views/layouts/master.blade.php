@@ -208,6 +208,29 @@
           background-color: green;
           border-color: #2b5c93;
         }
+
+        .table-custom-dark {
+            background-color: transparent;
+            color: white;
+        }
+
+        .table-custom-dark th,
+        .table-custom-dark td {
+            background-color: transparent;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .table-custom-dark thead th {
+            border-bottom-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .table-custom-dark tbody tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        .table-custom-dark a {
+            color: white;
+        }
       </style>
 
       <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
