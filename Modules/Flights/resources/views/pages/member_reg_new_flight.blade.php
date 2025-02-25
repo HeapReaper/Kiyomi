@@ -16,7 +16,7 @@
             <div class="form-group m-2">
               <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
               <input class="form-control" type="text" name="name" id="name" placeholder="Volledige naam" value="{{ old('name') }}" onload="getName()">
-              <small id="emailHelp" class="form-text text-white">Na de 1e keer succesvol invullen wordt je naam automatisch ingevuld.</small>
+              <small id="nameHelp" class="form-text text-white">Na de 1e keer succesvol invullen wordt je naam automatisch ingevuld.</small>
             </div>
 
             <!-- DATE -->
@@ -231,6 +231,10 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
           document.getElementById('name').value = localStorage.getItem('name');
+
+          if (localStorage.getItem('name')) {
+              document.getElementById('nameHelp').hidden = true;
+          }
 
           if (localStorage.getItem('validatedUser')) {
             document.getElementById('rechapcha_custom').value = Number(localStorage.getItem('validatedUser'));
