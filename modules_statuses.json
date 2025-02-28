@@ -6,5 +6,6 @@
     "Logging": true,
     "Panel": true,
     "Home": true,
-    "Financials": true
+    "Financials": true,
+    "Mail": true
 }
