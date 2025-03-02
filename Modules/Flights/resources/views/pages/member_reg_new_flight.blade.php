@@ -66,7 +66,7 @@
                 <!-- MODEL TYPE -->
                 <div class="form-group mt-2 p-2">
                   <h5 class="text-white font-weight-bold">Model type:</h5>
-                  <select class="form-control" id="model_type" name="model_type">
+                  <select class="form-control" id="model_type" name="model_type" required>
                     <option disabled selected>Selecteer</option>
                     <option value=1 {{ old('model_type') == 1 ? 'selected' : '' }}>Motor vliegtuig</option>
                     <option value=2 {{ old('model_type') == 2 ? 'selected' : '' }}>Zweef vliegtuig (zonder motor)</option>
@@ -81,7 +81,7 @@
                 <!-- POWER TYPE -->
                 <div class="form-group mt-2 p-2">
                   <h5 class="text-white font-weight-bold">Model vermogen:</h5>
-                  <select class="form-control" id="power_type" name="power_type">
+                  <select class="form-control" id="power_type" name="power_type" required>
                     <option disabled selected>Selecteer</option>
                     <option value=4 {{ old('power_type') == 4 ? 'selected' : '' }}>0W</option>
                     <option value=1 {{ old('power_type') == 1 ? 'selected' : '' }}>< 300W</option>
@@ -244,6 +244,19 @@
           }
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            const modelTypeSelect = document.getElementById('model_type');
+            const powerTypeSelect = document.getElementById('power_type');
+            const zeroWOption = powerTypeSelect.querySelector('option[value="4"]');
+
+            modelTypeSelect.addEventListener('change', function () {
+              if (modelTypeSelect.value === '2') {
+                  zeroWOption.hidden = false;
+              } else {
+                  zeroWOption.hidden = true;
+              }
+            });
+        });
       </script>
   </div>
 @stop
