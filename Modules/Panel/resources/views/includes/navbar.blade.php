@@ -35,6 +35,7 @@
             <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
             <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
             <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
+            <a class="dropdown-item text-white" href="">Exporteer</a>
           </ul>
         </li>
 
