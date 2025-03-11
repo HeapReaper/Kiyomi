@@ -16,11 +16,6 @@
     <h3>
       Leden export
     </h3>
-    <p>
-      Lid rollen in deze export:<br>
-      @foreach($included_roles as $role)
-        {{ $role }}<br>
-      @endforeach
     <hr>
 
     <table class="table table-striped table-bordered" style="width: 100%;">
@@ -82,12 +77,16 @@
   </body>
 
   <style>
-      table td, table th {
-          font-size: 8pt;
-          padding: 4px;
-      }
-      table td {
-          word-wrap: break-word;
-      }
+    table td, table th {
+      font-size: 8pt;
+      padding: 4px;
+      border: 1px solid #dee2e6;
+    }
+    table td {
+      word-wrap: break-word;
+    }
+    table {
+      border-collapse: collapse;
+    }
   </style>
 </html>
