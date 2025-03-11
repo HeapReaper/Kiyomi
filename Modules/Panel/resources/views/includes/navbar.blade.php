@@ -39,6 +39,7 @@
           </ul>
         </li>
 
+        <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Financieel
@@ -50,6 +51,7 @@
             <a class="dropdown-item text-white" href="">Terugkerende betalingen</a>
           </ul>
         </li>
+        -->
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -58,7 +60,9 @@
           <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
             <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
+            <!--
             <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
+            -->
           </ul>
         </li>
       </ul>

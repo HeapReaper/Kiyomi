@@ -14,7 +14,6 @@ class UsersExportController extends Controller
 {
     public function index()
     {
-
         return view('users::pages.users_export');
     }
 
@@ -35,8 +34,9 @@ class UsersExportController extends Controller
             })->get();
 
             $pdf = PDF::loadView('users::pages.users_export_pdf', [
-                'users' => $users,
-            ]);
+                'users'          => $users,
+                'included_roles' => $validated['include_members'],
+            ])->setPaper('a4', 'landscape');
 
             Storage::disk('local')->put('user_exports/leden_export_' . date('d-m-Y', ) . '.pdf', $pdf->download()->getOriginalContent());
 
@@ -84,7 +84,6 @@ class UsersExportController extends Controller
     public function download(string $filename)
     {
         try {
-            session()->flash('success', 'Downloaden voltooid!');
             return Storage::disk('local')->download('/user_exports/' . $filename);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Leden export niet gevonden.');
