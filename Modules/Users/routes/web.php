@@ -15,6 +15,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('contact', UsersContactController::class)->names('contact');
 	  Route::resource('users-statistics', UsersStatisticsController::class)->names('users-statistics');
     Route::resource('users-export', UsersExportController::class)->names('users-export');
+    Route::get('users-export/download/{export}', [UsersExportController::class, 'download']);
+    Route::get('users-export/destroy/{id}', [UsersExportController::class, 'destroy']);
 });
 
 Route::get('/login', function () {
