@@ -51,8 +51,16 @@
               <strong>Niet betaalden</strong>
             </label>
           </div>
-          <button type="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Exporteer</button>
+          <button type="submit" id="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Exporteer</button>
         </form>
+
+        <!-- LOADER -->
+        <div id="loader" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1050; justify-content: center; align-items: center;">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only"></span>
+          </div>
+        </div>
+
       </div>
 
       <!-- TABLE -->
@@ -94,7 +102,7 @@
                 </td>
 
                 <td class="text-white">
-                  {{ $export->made_on }}
+                {{ App\Helpers\refactorDate::refactorDate($export->made_on) }}
                 <td class="text-white">
                   {{ $export->made_by }}
                 </td>
@@ -126,4 +134,17 @@
       </div>
     </div>
   </div>
+
+
+  <script>
+      document.getElementById('submit').addEventListener('click', () => {
+          const loader = document.getElementById('loader');
+
+          loader.style.display = 'flex'
+
+          setTimeout(() => {
+              loader.style.display = 'none';
+          }, 3000);
+      });
+  </script>
 </div>
