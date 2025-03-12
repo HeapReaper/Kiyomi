@@ -4,7 +4,7 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Modules\Users\Models\User;
 
 class UsersContactController extends Controller
