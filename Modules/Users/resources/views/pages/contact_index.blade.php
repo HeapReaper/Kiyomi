@@ -52,6 +52,13 @@
           </label>
         </div>
 
+        <div class="form-check m-1">
+          <input class="form-check-input" type="checkbox" value="to_yourself" id="to_yourself" name="send_to[]" style="width: 20px; height: 20px">
+          <label class="form-check-label text-white" for="to_yourself">
+            <strong>Naar jezelf</strong>
+          </label>
+        </div>
+
         <div class="form-group m-1">
           <h4 class="text-white mt-2">Onderwerp</h4>
           <input type="text" class="form-control" id="subject" name="subject" aria-describedby="subject" placeholder="Onderwerp...">
