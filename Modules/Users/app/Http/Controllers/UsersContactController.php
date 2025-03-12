@@ -3,6 +3,7 @@
 namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Modules\Users\Models\User;
@@ -27,7 +28,6 @@ class UsersContactController extends Controller
             'content' => ['required', 'string'],
         ]);
 
-
         if (count($validated['send_to']) == 1 && $validated['send_to'][0] == 'to_yourself' ) {
             $usersToSend = User::where('id', auth()->id())->get();
         } else {
@@ -40,7 +40,7 @@ class UsersContactController extends Controller
         // What's cringe?
         $usersEmails = [];
         foreach ($usersToSend as $user) {
-            array_push($usersEmails, "$user->email");
+            $usersEmails[] = "$user->email";
         }
 
         try {
@@ -53,8 +53,7 @@ class UsersContactController extends Controller
             return redirect()->back()->with('error', 'Er ging iets mis! Error: '.$e->getMessage());
         }
 
-        return redirect()->back()->with('success', 'Email is verstuurd!');
-    }
+        return redirect('/contact')->with('success', 'Email is verstuurd!');    }
 	
     public function show($id)
     {
