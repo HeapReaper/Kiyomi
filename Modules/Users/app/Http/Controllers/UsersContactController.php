@@ -40,7 +40,7 @@ class UsersContactController extends Controller
         // What's cringe?
         $usersEmails = [];
         foreach ($usersToSend as $user) {
-            $usersEmails[] = "$user->email";
+            $usersEmails[] = $user->email;
         }
 
         try {
@@ -53,7 +53,8 @@ class UsersContactController extends Controller
             return redirect()->back()->with('error', 'Er ging iets mis! Error: '.$e->getMessage());
         }
 
-        return redirect('/contact')->with('success', 'Email is verstuurd!');    }
+        return redirect('/contact')->with('success', 'Email is verstuurd!');
+    }
 	
     public function show($id)
     {
