@@ -4,7 +4,7 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Modules\Users\Models\User;
 
 class UsersContactController extends Controller
@@ -21,18 +21,23 @@ class UsersContactController extends Controller
 	
     public function store(Request $request)
     {
-        // TODO: Better validation
         $validated = $request->validate([
-            'send_to' => ['required'],
-            'subject' => ['required'],
-            'content' => ['required'],
+            'send_to' => ['required', 'array'],
+            'subject' => ['required', 'string', 'max:255'],
+            'content' => ['required', 'string'],
         ]);
 
-        $usersToSend = User::with('roles')->whereHas('roles', function ($query) use ($validated) {
-            $query->whereIn('name', $validated['send_to']);
-        })->get();
+
+        if (count($validated['send_to']) == 1 && $validated['send_to'][0] == 'to_yourself' ) {
+            $usersToSend = User::where('id', auth()->id())->get();
+        } else {
+            $usersToSend = User::with('roles')->whereHas('roles', function ($query) use ($validated) {
+                $query->whereIn('name', $validated['send_to']);
+            })->get();
+        }
 
         // TODO, sthis is cringe..
+        // What's cringe?
         $usersEmails = [];
         foreach ($usersToSend as $user) {
             array_push($usersEmails, "$user->email");
