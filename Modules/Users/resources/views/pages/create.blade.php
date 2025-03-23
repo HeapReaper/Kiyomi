@@ -78,19 +78,6 @@
           <div class="col-sm">
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
               <div class="form-group">
-                <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
-                <select class="form-control" id="role" name="role" required>
-                  <option selected disabled>selecteer...</option>
-                  <option value="junior_member">Jeugd lid</option>
-                  <option value="aspirant_member">Aspirant lid</option>
-                  <option value="member">Lid</option>
-                  <option value="management">Bestuur</option>
-                  <option value="donor">Donateur</option>
-                  <option value="not_paid">Niet betaald</option>
-                </select>
-              </div>
-
-              <div class="form-group">
                 <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
                 <select class="form-control" id="instruct" name="instruct" required>
                   <option value=0 selected>Nee</option>
@@ -102,7 +89,52 @@
 
           <div class="col-sm">
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
-              <h4 class="font-weight-bold text-white mb-0"><strong>Brevetten</strong></h4>
+              <div class="form-group">
+                <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="junior_member" id="junior_member" name="roles[]">
+                  <label class="form-check-label text-white" for="junior_member">
+                    Junior lid
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="aspirant_member" id="aspirant_member" name="roles[]">
+                  <label class="form-check-label text-white" for="aspirant_member">
+                    Aspirant lid
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="member" id="member" name="roles[]">
+                  <label class="form-check-label text-white" for="member">
+                    Lid
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="management" id="management" name="roles[]">
+                  <label class="form-check-label text-white" for="management">
+                    Bestuur
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="donor" id="donor" name="roles[]">
+                  <label class="form-check-label text-white" for="donor">
+                    Donateur
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
+          <div class="col">
+            <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
+              <div class="text-white font-weight-bold"><strong>Brevetten</strong></div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value=1 id="PlaneCertCheckbox" name="PlaneCertCheckbox">
                 <label class="form-check-label text-white" for="PlaneCertCheckbox">
@@ -123,23 +155,12 @@
                   Zweefvliegtuig
                 </label>
               </div>
-
-              <h4 class="font-weight-bold text-white mb-0 mt-2"><strong>Speciale status</strong></h4>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="honoraryMemberCheckbox" name="honoraryMemberCheckbox">
-                <label class="form-check-label text-white" for="honoraryMemberCheckbox">
-                  Erelid
-                </label>
-              </div>
-
             </div>
           </div>
-        </div>
 
-        <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
-          <div class="col-sm">
+          <div class="col">
             <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
-              <h4 class="font-weight-bold text-white mb-0">Drone certificaten</h4>
+              <div class="text-white font-weight-bold"><strong>Drone</strong></div>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value=1 id="droneA1Checkbox" name="droneA1Checkbox">
                 <label class="form-check-label text-white" for="droneA1Checkbox">
@@ -158,6 +179,18 @@
                 <input class="form-check-input" type="checkbox" value=1 id="droneA3Checkbox" name="droneA3Checkbox">
                 <label class="form-check-label text-white" for="droneA3Checkbox">
                   A3
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm">
+            <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
+              <div class="text-white font-weight-bold"><strong>Status</strong></div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value=1 id="honoraryMemberCheckbox" name="honoraryMemberCheckbox">
+                <label class="form-check-label text-white" for="honoraryMemberCheckbox">
+                  Erelid
                 </label>
               </div>
             </div>
