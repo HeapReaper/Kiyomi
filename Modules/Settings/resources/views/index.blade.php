@@ -3,7 +3,7 @@
 @section('title', 'Instellingen')
 
 @section('content')
-  <div class="container" style="max-width: 30%;">
+  <div class="container">
     <form action="{{ route('settings.store') }}" class="bg-dark bg-opacity-25 m-3 p-3 rounded" method="POST">
       @csrf
 
