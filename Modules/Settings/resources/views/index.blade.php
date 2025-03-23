@@ -12,6 +12,16 @@
         <label for="email_new_members" class="form-label text-white">Email adres voor nieuwe leden melding</label>
         <input type="email" class="form-control" name="email_new_members" id="email_new_members" aria-describedby="email_new_members" value="{{ \App\Helpers\Settings::get('email_new_members') }}">
       </div>
+
+      <style>
+          .form-control:focus {
+              border-color: #000000;
+              box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+          }
+          input[type="checkbox"]:focus {
+              box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+          }
+      </style>
       
       <hr style="color: white;">
       
