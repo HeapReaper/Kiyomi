@@ -224,6 +224,14 @@
         .table-custom-dark a {
             color: white;
         }
+
+        .form-control:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+        }
+        input[type="checkbox"]:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+        }
       </style>
 
       <livewire:scripts />
