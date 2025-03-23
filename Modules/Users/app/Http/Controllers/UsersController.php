@@ -32,7 +32,7 @@ class UsersController extends Controller
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'role' => ['required', 'string'],
+            'roles' => ['required'],
             'instruct' => ['required', 'integer', 'max:1'],
             'PlaneCertCheckbox' => ['nullable'],
             'HeliCertCheckbox' => ['nullable'],
@@ -63,9 +63,8 @@ class UsersController extends Controller
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
 
-        $user->assignRole($validated['role']);
+        $user->syncRoles($validated['roles']);
 
-        // TODO: New member event
         return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
 	
