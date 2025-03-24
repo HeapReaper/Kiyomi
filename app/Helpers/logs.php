@@ -14,6 +14,11 @@ class logs
         return array_reverse(file(storage_path('logs/user_error.log')));
     }
 
+    public static function access(): array
+    {
+        return array_reverse(file(storage_path('logs/access.log')));
+    }
+
     public static function purgeLogs(): void
     {
         file_put_contents(storage_path('logs/laravel.log'), '');
