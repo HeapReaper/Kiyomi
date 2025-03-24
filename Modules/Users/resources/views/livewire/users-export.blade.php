@@ -58,18 +58,14 @@
       <!-- TABLE -->
       <div class="col">
         <!-- Filters -->
-        <div class="row">
-          <div class="col mr-2 mt-2">
-            <div class="mb-4 float-start">
-              <select wire:model="selectYear" wire:change="updateSelectYear"  class="form-control form-control-lg selector_custom">
-                @foreach(range(2023, date('Y') + 7) as $year)
-                  <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
-                    {{ $year }}
-                  </option>
-                @endforeach
-              </select>
-            </div>
-          </div>
+        <div class="mb-4 float-start">
+          <select wire:model.live="selectYear" class="form-control form-control-lg selector_custom">
+            @foreach(range(2023, date('Y') + 7) as $year)
+              <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
+                {{ $year }}
+              </option>
+            @endforeach
+          </select>
         </div>
 
         <div class="">
