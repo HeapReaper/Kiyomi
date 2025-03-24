@@ -13,13 +13,19 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
-                Laravel logs
+                Applicatie
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="user-error-tab" data-bs-toggle="tab" data-bs-target="#user-errors" type="button"
                       role="tab" aria-controls="profile" aria-selected="false">
-                Gebruiker fout log
+                Gebruikers fouten
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access" type="button"
+                      role="tab" aria-controls="profile" aria-selected="false">
+                Toegang
               </button>
             </li>
           </ul>
@@ -51,6 +57,17 @@
       </div>
       <div class="tab-pane fade" id="user-errors" role="tabpanel" aria-labelledby="user-errors">
         @foreach(\App\Helpers\logs::userError() as $logEntry)
+          @if ($loop->index > 50)
+            @break
+          @endif
+          <code>
+            {{ $logEntry }}
+            <br>
+          </code>
+        @endforeach
+      </div>
+      <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access">
+        @foreach(\App\Helpers\logs::access() as $logEntry)
           @if ($loop->index > 50)
             @break
           @endif
