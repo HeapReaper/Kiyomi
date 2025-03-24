@@ -104,6 +104,30 @@
         background-attachment: fixed;
         font-family: 'Open Sans', sans-serif;
       }
+
+      .form-control:focus {
+          border-color: #000000;
+          box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+      }
+      input[type="checkbox"]:focus {
+          box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+      }
+
+      .form-control::placeholder {
+          color: white !important;
+      }
+
+      .form-control:focus {
+          color: white !important;
+      }
+
+      .form-control option {
+          color: #ffffff;
+          padding: 8px 16px;
+          border: 1px solid transparent;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          cursor: pointer;
+      }
     </style>
 
 
