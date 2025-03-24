@@ -47,14 +47,14 @@
               <div style="display: flex;">
                 <form action="flights-reports/download/{{ $report->file }}" method="GET" style="margin-right: 10px;">
                   @csrf
-                  <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                  <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                     <x-heroicon-o-arrow-down-tray stroke="white" style="width: 27px;" />
                   </button>
                 </form>
 
                 <form action="flights-reports/destroy/{{ $report->id }}" method="GET" id="delete-form-{{ $report->id }}">
                   @csrf
-                  <button type="submit" class="table-link text-info"
+                  <button type="submit" class="table-link text-info image-hover-resize-10"
                     onclick="return confirm('Weet je zeker dat je deze vlucht rapport wilt verwijderen?');"
                     style="border: none; background: none; padding: 0; cursor: pointer;">
                     <x-heroicon-o-trash stroke="white" style="width: 27px;" />
