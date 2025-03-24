@@ -74,29 +74,31 @@
                       </td>
                       <!-- Club status -->
                       <td class="text-center">
-                        @switch($user->getRoleNames()[0])
-                          @case('junior_member')
-                            <span class="badge badge-pill bg-success" style="font-size: 1rem;">Jeugd lid</span>
-                            @break
-                          @case('aspirant_member')
-                            <span class="badge badge-pill bg-info" style="font-size: 1rem;">Aspirant lid</span>
-                            @break
-                          @case('member')
-                            <span class="badge badge-pill bg-primary" style="font-size: 1rem;">Lid</span>
-                            @break
-                          @case('management')
-                            <span class="badge badge-pill bg-warning" style="font-size: 1rem;">Bestuur</span>
-                            @break
-                          @case('donor')
-                            <span class="badge badge-pill bg-secondary" style="font-size: 1rem;">Donateur</span>
-                            @break
-                          @case('not_paid')
-                            <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
-                            @break
-                          @case('super admin')
-                            <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
-                            @break
-                        @endswitch
+                        @foreach($user->getRoleNames() as $role)
+                          @switch($role)
+                            @case('junior_member')
+                              <span class="badge badge-pill bg-success" style="font-size: 1rem;">Jeugd lid</span>
+                              @break
+                            @case('aspirant_member')
+                              <span class="badge badge-pill bg-info" style="font-size: 1rem;">Aspirant lid</span>
+                              @break
+                            @case('member')
+                              <span class="badge badge-pill bg-primary" style="font-size: 1rem;">Lid</span>
+                              @break
+                            @case('management')
+                              <span class="badge badge-pill bg-warning" style="font-size: 1rem;">Bestuur</span>
+                              @break
+                            @case('donor')
+                              <span class="badge badge-pill bg-secondary" style="font-size: 1rem;">Donateur</span>
+                              @break
+                            @case('not_paid')
+                              <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
+                              @break
+                            @case('super admin')
+                              <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
+                              @break
+                          @endswitch
+                        @endforeach
                       </td>
                       <!-- RDW -->
                       <td class="text-white">
