@@ -275,6 +275,10 @@
         .dropdown-menu.show {
             opacity: 1;
         }
+
+        .badge {
+            width: 100px;
+        }
       </style>
 
       <livewire:scripts />
