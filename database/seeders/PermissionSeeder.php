@@ -2,24 +2,15 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Modules\Users\Models\User;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
-class UserRoleSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     public function run(): void
     {
-        // Roles creation
-        $managementRole = Role::create(['name' => 'management']);
-        $juniorRole = Role::create(['name' => 'junior_member']);
-        $aspirantRole = Role::create(['name' => 'aspirant_member']);
-        $memberRole = Role::create(['name' => 'member']);
-        $donorRole = Role::create(['name' => 'donor']);
-        $notPaidRole = Role::create(['name' => 'not_paid']);
-        $superAdminRole = Role::create(['name' => 'super admin']);
-
         // Flights permissions
         $flightsViewPermission = Permission::create(['name' => 'view flights']);
         $flightsEditPermission = Permission::create(['name' => 'edit flights']);
@@ -57,10 +48,9 @@ class UserRoleSeeder extends Seeder
         $systemCreatePermission = Permission::create(['name' => 'create system']);
         $systemDeletePermission = Permission::create(['name' => 'delete system']);
 
-        // Wildcard permission
         // Assigning permissions to roles
         // Management
-        $managementRole->givePermissionTo([
+        (Role::findByName('management'))->givePermissionTo([
             $flightsViewPermission,
             $flightsEditPermission,
             $flightsDeletePermission,
