@@ -13,7 +13,7 @@
     <meta name="author" content="{{ $author ?? '' }}">
 
     <!-- Favicon -->
-    <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
+    <link rel="icon" href="app_media/faticon.ico" type="image/x-icon">
     <livewire:styles />
     @livewireStyles
 
@@ -275,7 +275,6 @@
         .dropdown-menu.show {
             opacity: 1;
         }
-
       </style>
 
       <livewire:scripts />
