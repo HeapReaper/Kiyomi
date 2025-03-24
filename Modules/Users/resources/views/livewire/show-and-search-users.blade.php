@@ -122,21 +122,21 @@
                         <div style="display: flex;">
                           <form action="{{ route('users.show', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-magnifying-glass-plus stroke="white" style="width: 27px;" />
                             </button>
                           </form>
 
                           <form action="{{ route('users.edit', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
                             </button>
                           </form>
 
                           <form action="users-remove/{{ $user->id }}" method="GET" id="delete-form-{{ $user->id }}">
                             @csrf
-                            <button type="submit" class="table-link text-info"
+                            <button type="submit" class="table-link text-info image-hover-resize-10"
                                     onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
                                     style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-trash stroke="white" style="width: 27px;" />
