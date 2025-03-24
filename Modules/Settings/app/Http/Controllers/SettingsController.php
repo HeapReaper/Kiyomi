@@ -14,10 +14,8 @@ class SettingsController extends Controller
     {
         return view('settings::index', [
             'settings' => Setting::all(),
-			'roles' => Role::all(),
         ]);
     }
-	
     public function create()
     {
         return view('settings::create');
@@ -27,21 +25,11 @@ class SettingsController extends Controller
     {
         $validated = $request->validate([
             'email_new_members' => ['email', 'nullable'],
-            'role_management_allowed_sign_in' => ['int', 'nullable'],
-            'role_junior_member_allowed_sign_in' => ['int', 'nullable'],
-            'role_aspirant_member_allowed_sign_in' => ['int', 'nullable'],
-            'role_member_allowed_sign_in' => ['int', 'nullable'],
-            'role_donor_allowed_sign_in' => ['int', 'nullable'],
-            'role_not_paid_allowed_sign_in' => ['int', 'nullable'],
+            'roles' => ['required', 'array', 'min:1'],
         ]);
 
         Settings::insertOrUpdate('email_new_members', $validated['email_new_members'] ?? 0);
-        Settings::insertOrUpdate('role_management_allowed_sign_in', $validated['role_management_allowed_sign_in'] ?? 0);
-        Settings::insertOrUpdate('role_junior_member_allowed_sign_in', $validated['role_junior_member_allowed_sign_in'] ?? 0);
-        Settings::insertOrUpdate('role_aspirant_member_allowed_sign_in', $validated['role_aspirant_member_allowed_sign_in'] ?? 0);
-        Settings::insertOrUpdate('role_member_allowed_sign_in', $validated['role_member_allowed_sign_in'] ?? 0);
-        Settings::insertOrUpdate('role_donor_allowed_sign_in', $validated['role_donor_allowed_sign_in'] ?? 0);
-        Settings::insertOrUpdate('role_not_paid_allowed_sign_in', $validated['role_not_paid_allowed_sign_in'] ?? 0);
+        Settings::insertOrUpdate('roles_allowed_sign_in', implode(',', $validated['roles'] ?? []));
 
         return redirect()->back()->with('success', 'Instellingen opgeslagen!');
     }
