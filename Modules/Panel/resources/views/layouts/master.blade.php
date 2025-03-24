@@ -170,7 +170,7 @@
         }
 
         .form-control option {
-          color: #000000;
+          color: #ffffff;
           padding: 8px 16px;
           border: 1px solid transparent;
           border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
