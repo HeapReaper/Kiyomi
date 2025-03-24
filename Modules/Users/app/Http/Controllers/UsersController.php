@@ -94,19 +94,17 @@ class UsersController extends Controller
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'role' => ['required', 'string'],
+            'roles' => ['required'],
             'instruct' => ['required', 'integer', 'max:1'],
             'PlaneCertCheckbox' => ['nullable'],
             'HeliCertCheckbox' => ['nullable'],
             'gliderCertCheckbox' => ['nullable'],
-            'honoraryMemberCheckbox' => ['nullable'] ?? 0,
+            'honoraryMemberCheckbox' => ['nullable'],
             'droneA1Checkbox' => ['nullable'],
             'droneA2Checkbox' => ['nullable'],
             'droneA3Checkbox' => ['nullable'],
             'password' => ['nullable'],
         ]);
-
-        $userOldData = User::find($id);
 
         $user = User::find($id)->update([
             'name' => $validated['name'],
@@ -128,15 +126,7 @@ class UsersController extends Controller
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
 
-        // TODO: fix role validation
-        if (array_key_exists('password', $validated)) {
-            User::find($id)->update([
-                'password' => Hash::make($validated['password']),
-            ]);
-        }
-
-        // TODO: Change to $user
-        User::find($id)->syncRoles([$validated['role']]);
+        User::find($id)->syncRoles([$validated['roles']]);
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }
