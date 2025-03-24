@@ -58,18 +58,14 @@
       <!-- TABLE -->
       <div class="col">
         <!-- Filters -->
-        <div class="row">
-          <div class="col mr-2 mt-2">
-            <div class="mb-4 float-start">
-              <select wire:model="selectYear" wire:change="updateSelectYear"  class="form-control form-control-lg selector_custom">
-                @foreach(range(2023, date('Y') + 7) as $year)
-                  <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
-                    {{ $year }}
-                  </option>
-                @endforeach
-              </select>
-            </div>
-          </div>
+        <div class="mb-4 float-start">
+          <select wire:model.live="selectYear" class="form-control form-control-lg selector_custom">
+            @foreach(range(2023, date('Y') + 7) as $year)
+              <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
+                {{ $year }}
+              </option>
+            @endforeach
+          </select>
         </div>
 
         <div class="">
@@ -102,14 +98,14 @@
                   <div style="display: flex;">
                     <form action="users-export/download/{{ $export->file_name }}" method="GET" style="margin-right: 10px;">
                       @csrf
-                      <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                      <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                         <x-heroicon-o-arrow-down-tray stroke="white" style="width: 27px;" />
                       </button>
                     </form>
 
                     <form action="users-export/destroy/{{ $export->id }}" method="GET" id="delete-form-1">
                       @csrf
-                      <button type="submit" class="table-link text-info"
+                      <button type="submit" class="table-link text-info image-hover-resize-10"
                               onclick="return confirm('Weet je zeker dat je deze vlucht rapport wilt verwijderen?');"
                               style="border: none; background: none; padding: 0; cursor: pointer;">
                         <x-heroicon-o-trash stroke="white" style="width: 27px;" />

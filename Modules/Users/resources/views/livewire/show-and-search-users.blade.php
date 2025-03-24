@@ -74,29 +74,31 @@
                       </td>
                       <!-- Club status -->
                       <td class="text-center">
-                        @switch($user->getRoleNames()[0])
-                          @case('junior_member')
-                            <span class="badge badge-pill bg-success" style="font-size: 1rem;">Jeugd lid</span>
-                            @break
-                          @case('aspirant_member')
-                            <span class="badge badge-pill bg-info" style="font-size: 1rem;">Aspirant lid</span>
-                            @break
-                          @case('member')
-                            <span class="badge badge-pill bg-primary" style="font-size: 1rem;">Lid</span>
-                            @break
-                          @case('management')
-                            <span class="badge badge-pill bg-warning" style="font-size: 1rem;">Bestuur</span>
-                            @break
-                          @case('donor')
-                            <span class="badge badge-pill bg-secondary" style="font-size: 1rem;">Donateur</span>
-                            @break
-                          @case('not_paid')
-                            <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
-                            @break
-                          @case('super admin')
-                            <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
-                            @break
-                        @endswitch
+                        @foreach($user->getRoleNames() as $role)
+                          @switch($role)
+                            @case('junior_member')
+                              <span class="badge badge-pill bg-success" style="font-size: 1rem;">Jeugd lid</span>
+                              @break
+                            @case('aspirant_member')
+                              <span class="badge badge-pill bg-info" style="font-size: 1rem;">Aspirant lid</span>
+                              @break
+                            @case('member')
+                              <span class="badge badge-pill bg-primary" style="font-size: 1rem;">Lid</span>
+                              @break
+                            @case('management')
+                              <span class="badge badge-pill bg-warning" style="font-size: 1rem;">Bestuur</span>
+                              @break
+                            @case('donor')
+                              <span class="badge badge-pill bg-secondary" style="font-size: 1rem;">Donateur</span>
+                              @break
+                            @case('not_paid')
+                              <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
+                              @break
+                            @case('super admin')
+                              <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
+                              @break
+                          @endswitch
+                        @endforeach
                       </td>
                       <!-- RDW -->
                       <td class="text-white">
@@ -120,21 +122,21 @@
                         <div style="display: flex;">
                           <form action="{{ route('users.show', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-magnifying-glass-plus stroke="white" style="width: 27px;" />
                             </button>
                           </form>
 
                           <form action="{{ route('users.edit', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
                             </button>
                           </form>
 
                           <form action="users-remove/{{ $user->id }}" method="GET" id="delete-form-{{ $user->id }}">
                             @csrf
-                            <button type="submit" class="table-link text-info"
+                            <button type="submit" class="table-link text-info image-hover-resize-10"
                                     onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
                                     style="border: none; background: none; padding: 0; cursor: pointer;">
                               <x-heroicon-o-trash stroke="white" style="width: 27px;" />

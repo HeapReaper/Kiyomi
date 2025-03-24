@@ -10,10 +10,22 @@ class UsersExport extends Component
 {
     use WithPagination;
 
+    public string $selectYear;
+
+    public function mount(): void
+    {
+        $this->selectYear = date('Y');
+    }
+
     public function render()
     {
         return view('users::livewire.users-export', [
-          'usersExport' => UserExport::all()
+          'usersExport' => UserExport::query()
+              ->when($this->selectYear, function ($query) {
+                  $query->whereYear('created_at', $this->selectYear);
+              })
+              ->orderBy('created_at', 'desc')
+              ->paginate(10)
         ]);
     }
 }

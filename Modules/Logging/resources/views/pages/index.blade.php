@@ -28,7 +28,7 @@
       <div class="col">
         <div class="float-end">
           <a href="logs-purge" onclick="return confirm('Weet je zeker dat je de logs wilt wissen?')">
-            <x-heroicon-o-trash stroke="white" style="width: 27px;"/>
+            <x-heroicon-o-trash class="image-hover-resize-10" stroke="white" style="width: 27px;"/>
           </a>
           <script>
           </script>

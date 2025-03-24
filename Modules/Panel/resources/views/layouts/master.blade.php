@@ -13,7 +13,7 @@
     <meta name="author" content="{{ $author ?? '' }}">
 
     <!-- Favicon -->
-    <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
+    <link rel="icon" href="app_media/faticon.ico" type="image/x-icon">
     <livewire:styles />
     @livewireStyles
 
@@ -170,7 +170,7 @@
         }
 
         .form-control option {
-          color: #000000;
+          color: #ffffff;
           padding: 8px 16px;
           border: 1px solid transparent;
           border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -223,6 +223,61 @@
 
         .table-custom-dark a {
             color: white;
+        }
+
+        .form-control:focus {
+            border-color: #000000;
+            box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+        }
+        input[type="checkbox"]:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+        }
+
+        .image-hover-resize-10-shadow {
+            transition: transform 0.3s ease;
+        }
+
+        .image-hover-resize-10-shadow:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.2);
+        }
+
+        .image-hover-resize-10 {
+            transition: transform 0.3s ease;
+        }
+
+        .image-hover-resize-10:hover {
+            transform: scale(1.2);
+        }
+
+        .dropdown-toggle::after {
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .dropdown-toggle.show::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            opacity: 0;
+            transition: opacity 0.1s ease-in-out;
+            display: block;
+        }
+
+        .dropdown-menu.show {
+            opacity: 1;
+        }
+
+        .badge {
+            width: 100px;
         }
       </style>
 
