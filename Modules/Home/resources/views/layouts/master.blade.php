@@ -105,6 +105,16 @@
         font-family: 'Open Sans', sans-serif;
       }
 
+      .form-control {
+          background-color: rgba(255, 255, 255, 0.1) !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          border-radius: 5px !important;
+          padding: 10px !important;
+          color: white !important;
+          font-size: 14px !important;
+          -webkit-appearance: listbox !important;
+      }
+
       .form-control:focus {
           border-color: #000000;
           box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
