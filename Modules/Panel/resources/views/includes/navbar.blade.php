@@ -53,21 +53,23 @@
         </li>
         -->
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Systeem
-          </a>
-          <ul class="dropdown-menu bg-dark">
-            <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
-            <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
-            <!--
-            <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
-            -->
-          </ul>
-        </li>
+        @can('view system')
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Systeem
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
+              <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
+              <!--
+              <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
+              -->
+            </ul>
+          </li>
+        @endcan
       </ul>
 
-      <ul class="navbar-nav ms-auto"> 
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Welkom {{ Auth::user()->name }}!

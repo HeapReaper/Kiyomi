@@ -10,19 +10,22 @@ use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class PasswordResetController extends Controller
 {
-    public function forgotPassword(Request $request): \Illuminate\Contracts\View\View
+    public function forgotPassword(): \Illuminate\Contracts\View\View
     {
         return view('users::pages.forgot-password');
     }
 
-    public function forgotPasswordPost(Request $request)
+    public function forgotPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
     {
         $validated = $request->validate([
             'email' => 'required|email',
         ]);
+
+        Log::channel('access')->info('Password reset requested on email: ' . $validated['email']);
 
         $user = User::with('roles')
             ->where('email', $validated['email'])
@@ -42,7 +45,7 @@ class PasswordResetController extends Controller
         return view('users::pages.reset-password', ['token' => $token]);
     }
 
-    public function resetPasswordPost(Request $request)
+    public function resetPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
     {
         $request->validate([
             'token' => 'required',

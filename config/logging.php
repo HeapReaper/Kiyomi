@@ -132,5 +132,10 @@ return [
             'path' => storage_path('logs/user_error.log'),
             'level' => 'info',
         ],
+        'access' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/access.log'),
+            'level' => 'info',
+        ],
     ],
 ];

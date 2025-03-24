@@ -8,6 +8,7 @@ use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Modules\Users\Http\Controllers\PasswordResetController;
 use Modules\Users\Http\Controllers\UsersExportController;
 use Illuminate\Support\Facades\Auth;
+use Modules\Users\Livewire\Signin;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class)->names('users');
@@ -19,9 +20,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('users-export/destroy/{id}', [UsersExportController::class, 'destroy']);
 });
 
-Route::get('/login', function () {
-	return view('users::pages.signin');
-})->name('login');
+Route::middleware('throttle:5,1')->get('/login', Signin::class)->name('login');
 
 Route::get('/logout', function () {
 	Auth::logout();

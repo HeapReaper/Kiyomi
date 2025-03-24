@@ -11,6 +11,7 @@
     <meta name="description" content="{{ $description ?? '' }}">
     <meta name="keywords" content="{{ $keywords ?? '' }}">
     <meta name="author" content="{{ $author ?? '' }}">
+    <link rel="icon" type="image/x-icon" href="/app_media/faticon.ico">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

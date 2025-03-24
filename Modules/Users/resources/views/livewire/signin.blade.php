@@ -87,6 +87,8 @@
     
         .form-control:focus {
             color: white !important;
+            border-color: #000000;
+            box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
         }
       </style>
 

@@ -18,20 +18,48 @@
       <div class="mt-2 mb-2">
         <h3 class="text-white">Leden login</h3>
         <label for="email_new_members" class="form-label text-white">Wie mag inloggen op deze website?</label>
-        @foreach($roles as $role)
-          @if ($role->name !== 'super admin')
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value=1 id="role_{{ $role->name }}_allowed_sign_in" name="role_{{ $role->name }}_allowed_sign_in"
-              @if (\App\Helpers\Settings::get('role_' . $role->name . '_allowed_sign_in') == 1)
-                checked
-              @endif
-              >
-              <label class="form-check-label text-white" for="role_{{ $role->name }}_allowed_sign_in">
-                {{ $role->name }}
-              </label>
-            </div>
-          @endif
-        @endforeach
+        <div class="form-group">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="junior_member" id="junior_member" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'junior_member') === true)>
+            <label class="form-check-label text-white" for="junior_member">
+              Junior lid
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="aspirant_member" id="aspirant_member" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'aspirant_member') === true)>
+            <label class="form-check-label text-white" for="aspirant_member">
+              Aspirant lid
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="member" id="member" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'member') === true)>
+            <label class="form-check-label text-white" for="member">
+              Lid
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="management" id="management" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'management') === true)>
+            <label class="form-check-label text-white" for="management">
+              Bestuur
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="donor" id="donor" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'donor') === true)>
+            <label class="form-check-label text-white" for="donor">
+              Donateur
+            </label>
+          </div>
+        </div>
+
       </div>
 
       <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">

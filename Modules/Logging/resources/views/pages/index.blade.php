@@ -13,13 +13,19 @@
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs"
                       type="button" role="tab" aria-controls="home" aria-selected="true">
-                Laravel logs
+                Applicatie
               </button>
             </li>
             <li class="nav-item" role="presentation">
               <button class="nav-link" id="user-error-tab" data-bs-toggle="tab" data-bs-target="#user-errors" type="button"
                       role="tab" aria-controls="profile" aria-selected="false">
-                Gebruiker fout log
+                Gebruikers fouten
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access" type="button"
+                      role="tab" aria-controls="profile" aria-selected="false">
+                Toegang
               </button>
             </li>
           </ul>
@@ -60,31 +66,17 @@
           </code>
         @endforeach
       </div>
+      <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access">
+        @foreach(\App\Helpers\logs::access() as $logEntry)
+          @if ($loop->index > 50)
+            @break
+          @endif
+          <code>
+            {{ $logEntry }}
+            <br>
+          </code>
+        @endforeach
+      </div>
     </div>
   </div>
-
-  <style>
-      .nav-tabs {
-          border-bottom: none !important;
-      }
-
-      .nav-tabs .nav-link {
-          background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
-          color: white !important;
-          transition: all 0.3s ease-in-out;
-          border-radius: 3px;
-      }
-
-      .nav-tabs .nav-item {
-          background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
-          color: white !important;
-          border-radius: 3px;
-      }
-
-      .nav-tabs .nav-link.active {
-          background-color: rgba(0, 0, 0, 0.0) !important;
-          color: white !important;
-          border-radius: 3px;
-      }
-  </style>
 @endsection
