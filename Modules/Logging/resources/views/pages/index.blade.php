@@ -79,29 +79,4 @@
       </div>
     </div>
   </div>
-
-  <style>
-      .nav-tabs {
-          border-bottom: none !important;
-      }
-
-      .nav-tabs .nav-link {
-          background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
-          color: white !important;
-          transition: all 0.3s ease-in-out;
-          border-radius: 3px;
-      }
-
-      .nav-tabs .nav-item {
-          background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%) !important;
-          color: white !important;
-          border-radius: 3px;
-      }
-
-      .nav-tabs .nav-link.active {
-          background-color: rgba(0, 0, 0, 0.0) !important;
-          color: white !important;
-          border-radius: 3px;
-      }
-  </style>
 @endsection
