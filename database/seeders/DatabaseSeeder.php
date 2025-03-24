@@ -9,9 +9,6 @@ use Modules\Users\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $user = User::create([
