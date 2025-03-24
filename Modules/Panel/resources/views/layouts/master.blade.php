@@ -232,6 +232,23 @@
         input[type="checkbox"]:focus {
             box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
         }
+
+        .image-hover-resize-10-shadow {
+            transition: transform 0.3s ease;
+        }
+
+        .image-hover-resize-10-shadow:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: scale(1.2);
+        }
+
+        .image-hover-resize-10 {
+            transition: transform 0.3s ease;
+        }
+
+        .image-hover-resize-10:hover {
+            transform: scale(1.2);
+        }
       </style>
 
       <livewire:scripts />

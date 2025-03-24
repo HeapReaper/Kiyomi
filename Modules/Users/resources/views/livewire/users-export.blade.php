@@ -98,14 +98,14 @@
                   <div style="display: flex;">
                     <form action="users-export/download/{{ $export->file_name }}" method="GET" style="margin-right: 10px;">
                       @csrf
-                      <button type="submit" class="table-link text-info" style="border: none; background: none; padding: 0; cursor: pointer;">
+                      <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
                         <x-heroicon-o-arrow-down-tray stroke="white" style="width: 27px;" />
                       </button>
                     </form>
 
                     <form action="users-export/destroy/{{ $export->id }}" method="GET" id="delete-form-1">
                       @csrf
-                      <button type="submit" class="table-link text-info"
+                      <button type="submit" class="table-link text-info image-hover-resize-10"
                               onclick="return confirm('Weet je zeker dat je deze vlucht rapport wilt verwijderen?');"
                               style="border: none; background: none; padding: 0; cursor: pointer;">
                         <x-heroicon-o-trash stroke="white" style="width: 27px;" />
