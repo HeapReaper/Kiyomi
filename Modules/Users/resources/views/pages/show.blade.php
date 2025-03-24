@@ -91,7 +91,7 @@
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="junior_member" id="junior_member" name="roles[]" disabled
-                        @checked($user->hasRole('junior_member') === true)>
+                  @checked($user->hasRole('junior_member') === true)>
                 <label class="form-check-label text-white" for="junior_member">
                   Junior lid
                 </label>
@@ -99,8 +99,7 @@
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="aspirant_member" id="aspirant_member" name="roles[]" disabled
-                        @checked($user->hasRole('aspirant_member') === true)>
-
+                  @checked($user->hasRole('aspirant_member') === true)>
                 <label class="form-check-label text-white" for="aspirant_member">
                   Aspirant lid
                 </label>
@@ -108,7 +107,7 @@
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="member" id="member" name="roles[]" disabled
-                        @checked($user->hasRole('member') === true)>
+                  @checked($user->hasRole('member') === true)>
                 <label class="form-check-label text-white" for="member">
                   Lid
                 </label>
@@ -116,7 +115,7 @@
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="management" id="management" name="roles[]" disabled
-                        @checked($user->hasRole('management') === true)>
+                  @checked($user->hasRole('management') === true)>
                 <label class="form-check-label text-white" for="management">
                   Bestuur
                 </label>
@@ -124,7 +123,7 @@
 
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="donor" id="donor" name="roles[]" disabled
-                        @checked($user->hasRole('donor') === true)>
+                  @checked($user->hasRole('donor') === true)>
                 <label class="form-check-label text-white" for="donor">
                   Donateur
                 </label>
@@ -140,7 +139,7 @@
             <div class="text-white font-weight-bold"><strong>Brevetten</strong></div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="PlaneCertCheckbox" name="PlaneCertCheckbox" disabled
-                      @checked($user->has_plane_brevet === 1)>
+                @checked($user->has_plane_brevet === 1)>
               <label class="form-check-label text-white" for="PlaneCertCheckbox">
                 Motorvliegtuig
               </label>
@@ -148,7 +147,7 @@
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="HeliCertCheckbox" name="HeliCertCheckbox" disabled
-                      @checked($user->has_helicopter_brevet === 1)>
+                @checked($user->has_helicopter_brevet === 1)>
               <label class="form-check-label text-white" for="HeliCertCheckbox">
                 Helicopter
               </label>
@@ -156,7 +155,7 @@
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="gliderCertCheckbox" name="gliderCertCheckbox" disabled
-                      @checked($user->has_glider_brevet === 1)>
+                @checked($user->has_glider_brevet === 1)>
               <label class="form-check-label text-white" for="gliderCertCheckbox">
                 Zweefvliegtuig
               </label>
@@ -169,7 +168,7 @@
             <div class="text-white font-weight-bold"><strong>Drone</strong></div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="droneA1Checkbox" name="droneA1Checkbox" disabled
-                      @checked($user->has_drone_a1 === 1)>
+                @checked($user->has_drone_a1 === 1)>
               <label class="form-check-label text-white" for="droneA1Checkbox">
                 A1
               </label>
@@ -177,7 +176,7 @@
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="droneA2Checkbox" name="droneA2Checkbox" disabled
-                      @checked($user->has_drone_a2 === 1)>
+                @checked($user->has_drone_a2 === 1)>
               <label class="form-check-label text-white" for="droneA2Checkbox">
                 A2
               </label>
@@ -185,7 +184,7 @@
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="droneA3Checkbox" name="droneA3Checkbox" disabled
-                      @checked($user->has_drone_a3 === 1)>
+                @checked($user->has_drone_a3 === 1)>
               <label class="form-check-label text-white" for="droneA3Checkbox">
                 A3
               </label>
@@ -198,15 +197,13 @@
             <div class="text-white font-weight-bold"><strong>Status</strong></div>
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value=1 id="honoraryMemberCheckbox" name="honoraryMemberCheckbox" disabled
-                      @checked($user->in_memoriam === 1)>
+                @checked($user->in_memoriam === 1)>
               <label class="form-check-label text-white" for="honoraryMemberCheckbox">
                 Erelid
               </label>
             </div>
           </div>
         </div>
-
-
     </div>
   </div>
 @endsection
