@@ -79,5 +79,35 @@ class PermissionSeeder extends Seeder
             $systemCreatePermission,
             $systemDeletePermission,
         ]);
+
+        (Role::findByName('webmaster'))->givePermissionTo([
+            $flightsViewPermission,
+            $flightsEditPermission,
+            $flightsDeletePermission,
+            $flightsViewStatisticsPermission,
+            $flightsViewFlightReportsPermission,
+            $flightsCreateFlightsReportsPermission,
+            $flightsDeleteFlightsReportsPermission,
+            $flightsDownloadFlighsReportsPermission,
+            $membersViewPermission,
+            $membersCreatePermission,
+            $membersEditPermission,
+            $membersDeletePermission,
+            $membersViewStatisticsPermission,
+            $membersViewContactPermission,
+            $membersCreateContactPermission,
+            $membersViewExportPermission,
+            $membersCreateExportPermission,
+            $membersDeleteExportPermission,
+            $membersDownloadExportPermission,
+            $financeViewPermission,
+            $financeDownloadPermission,
+            $financeCreatePermissions,
+            $settingsViewPermission,
+            $settingsEditPermission,
+            $systemViewPermission,
+            $systemCreatePermission,
+            $systemDeletePermission,
+        ]);
     }
 }
