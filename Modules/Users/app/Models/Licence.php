@@ -3,19 +3,19 @@
 namespace Modules\Users\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Licence extends Model
 {
-    protected $table = 'licenses';
+    protected $table = 'licences';
 
     protected $fillable = [
         'id',
-        'rc_motorplane',
-        'rc_helicopter',
-        'rc_glider',
-        'rc_multicopter',
-        'drone_a1',
-        'drone_a2',
-        'drone_a3',
+        'name',
     ];
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class);
+    }
 }
