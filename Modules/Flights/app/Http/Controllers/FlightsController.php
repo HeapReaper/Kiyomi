@@ -42,12 +42,7 @@ class FlightsController extends Controller
             return redirect()->back()->withErrors($validated)->withInput();
         }
 
-
-        if (env('DB_CONNECTION') === 'sqlite') {
-            $user = User::where('name', 'like', '%' . $validated['name'] . '%')->first();
-        } else {
-            $user = User::whereRaw("SOUNDEX(name) = SOUNDEX(?)", [$validated['name']])->first();
-        }
+        $user = User::whereRaw("SOUNDEX(name) = SOUNDEX(?)", [$validated['name']])->first();
 
         if (!$user) {
             Log::channel('user_error')->info('Vlucht aanmelden - Naam niet gevonden - ' . $validated['name']);

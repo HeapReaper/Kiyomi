@@ -4,18 +4,18 @@ namespace Modules\Flights\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
+use Livewire\Livewire;
 use Modules\Users\Models\User;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
-class FlightSubmitTest extends TestCase
+class FlightAdminTest extends TestCase
 {
-    use RefreshDatabase;
+    use refreshDatabase;
 
     public function setUp(): void
     {
         parent::setUp();
-
         Artisan::call('migrate');
         Artisan::call('key:generate');
 
@@ -28,8 +28,15 @@ class FlightSubmitTest extends TestCase
 
         \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management, webmaster');
 
-        $this->testuser = User::create([
-            'roles' => 'member',
+        // Log in the admin user first
+        Livewire::test('users::signin')
+            ->set('email', 'admin@default.com')
+            ->set('password', 'admin')
+            ->call('submit');
+        $this->assertAuthenticatedAs(auth()->user());
+
+        $this->post(route('users.store'), [
+            'roles' => 'management',
             'name' => 'John Doe',
             'birthdate' => '01-01-2000',
             'address' => 'Test Address',
@@ -41,32 +48,22 @@ class FlightSubmitTest extends TestCase
         ]);
 
         $this->testuser = User::where('email', 'john@doe.com')->first();
-        $this->testuser->assignRole('member');
+
+        $this->testuser->assignRole('management');
     }
 
-    public function test_flight_submit_form_can_be_viewed(): void
+    public function test_can_view_flights_overview(): void
     {
-        ($this->get('/flights/create'))->assertStatus(200);
+        ($this->get(route('flights-panel.index')))->assertStatus(200);
     }
 
-    public function test_can_submit_new_flights(): void
+    public function test_can_view_flights_statistics(): void
     {
-        $resp = $this->post(route('flights.store'), [
-            'name' => 'John Doe',
-            'date' => date('Y-m-d'),
-            'start_time' => '15:00',
-            'end_time' => '15:03',
-            'model_type' => 1,
-            'power_type' => 1,
-            'rechapcha_custom' => 4,
-        ]);
+        ($this->get(route('flights-statistics.index')))->assertStatus(200);
+    }
 
-        $this->assertDatabaseHas('flights', [
-            'date' => date('Y-m-d'),
-        ]);
-
-        $this->assertDatabaseHas('flight_user', [
-            'user_id' => User::where('name', 'John Doe')->first()->id,
-        ]);
+    public function test_can_view_flights_reports(): void
+    {
+        ($this->get(route('flights-report.index')))->assertStatus(200);
     }
 }

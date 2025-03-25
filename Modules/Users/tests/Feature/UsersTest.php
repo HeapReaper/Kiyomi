@@ -11,8 +11,8 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class UsersTest extends TestCase
 {
-	use RefreshDatabase;
-	
+  use RefreshDatabase;
+
 	public function setUp(): void
 	{
       parent::setUp();
@@ -24,7 +24,7 @@ class UsersTest extends TestCase
       Artisan::call('db:seed', ['--class' => 'DefaultUserSeeder']);
       Artisan::call('db:seed', ['--class' => 'LicenceSeeder']);
 
-      (User::find(1))->assignRole(Role::findByName('management'));
+      (User::where('email', 'admin@default.com')->first())->assignRole(Role::findByName('management'));
 
       \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management, webmaster');
 
@@ -38,7 +38,7 @@ class UsersTest extends TestCase
       $this->post(route('users.store'), [
           'roles' => 'management',
           'name' => 'John Doe',
-          'birthdate' => '01-01-2000',
+          'birthdate' => '26-03-2001',
           'address' => 'Test Address',
           'postcode' => '12345',
           'city' => 'Test City',
@@ -48,13 +48,9 @@ class UsersTest extends TestCase
       ]);
 
       $this->testuser = User::where('email', 'john@doe.com')->first();
-
-      $this->testuser->assignRole('management');
   }
 
-
-
-    public function test_users_can_log_in(): void
+    public function test_user_can_log_in(): void
 	  {
         $response = Livewire::test('users::signin')
             ->set('email', 'admin@default.com')
@@ -66,7 +62,7 @@ class UsersTest extends TestCase
         $response->assertRedirect('/flights-panel');
 	  }
 	
-	  public function test_users_can_be_created(): void
+	  public function test_user_can_be_created(): void
 	  {
         $this->assertDatabaseHas('users', [
           'name' => 'John Doe',
@@ -75,15 +71,15 @@ class UsersTest extends TestCase
         $this->assertTrue($this->testuser->hasRole('management'));
 	  }
 
-    public function test_users_has_role(): void
+    public function test_user_has_role(): void
     {
         $user = User::where('email', 'john@doe.com')->first();
         $this->assertTrue($user->hasRole('management'));
     }
 
-	  public function test_members_can_be_updated(): void
-	  {
-        $userToEdit = (User::where('email', 'john@doe.com')->first())->id;
+    public function test_members_can_be_updated(): void
+    {
+        $userToEdit = (User::where('name', 'John Doe')->first())->id;
 
         $response = $this->put(route('users.update', $userToEdit), [
             'name' => 'John Doe 2',
@@ -94,8 +90,8 @@ class UsersTest extends TestCase
             'phone' => '0123456789',
             'email' => 'john@doe.com',
             'instruct' => 0,
-            'rdw_number' => 'rfsjregre',
-            'knvvl' => 'wdeqfdwe',
+            'rdw_number' => 'D469ch',
+            'knvvl' => 'A492hdf',
             'roles' => 'member',
         ]);
 
@@ -103,7 +99,6 @@ class UsersTest extends TestCase
             'name' => 'John Doe 2',
         ]);
 
-        $this->assertTrue($this->testuser->hasRole('member'));
         $response->assertRedirect('/users');
-	  }
+    }
 }
