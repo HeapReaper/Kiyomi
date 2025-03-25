@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('license_user', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('pilot_licence_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('licence_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }

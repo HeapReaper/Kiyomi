@@ -10,13 +10,7 @@ return new class extends Migration
     {
         Schema::create('licences', function (Blueprint $table) {
             $table->id();
-            $table->boolean('rc_motorplane');
-            $table->boolean('rc_helicopter');
-            $table->boolean('rc_glider');
-            $table->boolean('rc_multicopter');
-            $table->boolean('drone_a1');
-            $table->boolean('drone_a2');
-            $table->boolean('drone_a3');
+            $table->string('name');
             $table->timestamps();
         });
     }
