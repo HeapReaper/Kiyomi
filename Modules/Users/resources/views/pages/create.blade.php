@@ -136,28 +136,31 @@
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
               <div class="text-white font-weight-bold"><strong>Brevetten</strong></div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="PlaneCertCheckbox" name="PlaneCertCheckbox">
+                <input class="form-check-input" type="checkbox" value="RC motorplane" id="PlaneCertCheckbox" name="licences[]"
+                >
                 <label class="form-check-label text-white" for="PlaneCertCheckbox">
                   Motorvliegtuig
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="HeliCertCheckbox" name="HeliCertCheckbox">
+                <input class="form-check-input" type="checkbox" value="RC helicopter" id="HeliCertCheckbox" name="licences[]"
+                >
                 <label class="form-check-label text-white" for="HeliCertCheckbox">
                   Helicopter
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="gliderCertCheckbox" name="gliderCertCheckbox">
+                <input class="form-check-input" type="checkbox" value="RC glider" id="gliderCertCheckbox" name="licences[]"
+                >
                 <label class="form-check-label text-white" for="gliderCertCheckbox">
                   Zweefvliegtuig
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="multicopterCertCheckbox" name="multicopterCertCheckbox">
+                <input class="form-check-input" type="checkbox" value="RC multicopter" id="multicopterCertCheckbox" name="licences[]">
                 <label class="form-check-label text-white" for="multicopterCertCheckbox">
                   Multicopter
                 </label>
@@ -169,42 +172,31 @@
             <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
               <div class="text-white font-weight-bold"><strong>Drone</strong></div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="droneA1Checkbox" name="droneA1Checkbox">
+                <input class="form-check-input" type="checkbox" value="Drone A1" id="droneA1Checkbox" name="licences[]"
+                >
                 <label class="form-check-label text-white" for="droneA1Checkbox">
                   A1
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="droneA2Checkbox" name="droneA2Checkbox">
+                <input class="form-check-input" type="checkbox" value="Drone A2" id="droneA2Checkbox" name="licences[]"
+                >
                 <label class="form-check-label text-white" for="droneA2Checkbox">
                   A2
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="droneA3Checkbox" name="droneA3Checkbox">
+                <input class="form-check-input" type="checkbox" value="Drone A3" id="droneA3Checkbox" name="licences[]"
+                       )>
                 <label class="form-check-label text-white" for="droneA3Checkbox">
                   A3
                 </label>
               </div>
             </div>
-          </div>
-
-          <div class="col-sm">
-            <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
-              <div class="text-white font-weight-bold"><strong>Status</strong></div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value=1 id="honoraryMemberCheckbox" name="honoraryMemberCheckbox">
-                <label class="form-check-label text-white" for="honoraryMemberCheckbox">
-                  Erelid
-                </label>
-              </div>
-            </div>
-          </div>
 
           <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Toevoegen</button>
-
         </div>
       </form>
     </div>
