@@ -17,6 +17,6 @@ class RoleSeeder extends Seeder
         Role::create(['name' => 'member']);
         Role::create(['name' => 'donor']);
         Role::create(['name' => 'not_paid']);
-        Role::create(['name' => 'super admin']);
+        Role::create(['name' => 'webmaster']);
     }
 }

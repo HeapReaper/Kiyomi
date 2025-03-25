@@ -58,6 +58,14 @@
               Donateur
             </label>
           </div>
+
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]"
+              @checked(str_contains(\App\Helpers\Settings::get('roles_allowed_sign_in'), 'webmaster') === true)>
+            <label class="form-check-label text-white" for="webmaster">
+              Webmaster
+            </label>
+          </div>
         </div>
 
       </div>
