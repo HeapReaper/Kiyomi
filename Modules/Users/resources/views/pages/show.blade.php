@@ -160,6 +160,14 @@
                 Zweefvliegtuig
               </label>
             </div>
+
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value=1 id="multicopterCertCheckbox" name="multicopterCertCheckbox"
+              >
+              <label class="form-check-label text-white" for="multicopterCertCheckbox">
+                Multicopter
+              </label>
+            </div>
           </div>
         </div>
 
