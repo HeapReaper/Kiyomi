@@ -51,7 +51,9 @@ class UsersTest extends TestCase
 
       $this->testuser->assignRole('management');
   }
-	
+
+
+
     public function test_users_can_log_in(): void
 	  {
         $response = Livewire::test('users::signin')
@@ -64,44 +66,44 @@ class UsersTest extends TestCase
         $response->assertRedirect('/flights-panel');
 	  }
 	
-	public function test_users_can_be_created(): void
-	{
-      $this->assertDatabaseHas('users', [
-        'name' => 'John Doe',
-      ]);
+	  public function test_users_can_be_created(): void
+	  {
+        $this->assertDatabaseHas('users', [
+          'name' => 'John Doe',
+        ]);
 
-      $this->assertTrue($this->testuser->hasRole('management'));
-	}
+        $this->assertTrue($this->testuser->hasRole('management'));
+	  }
 
-  public function test_users_has_role(): void
-  {
-      $user = User::where('email', 'john@doe.com')->first();
-      $this->assertTrue($user->hasRole('management'));
-  }
+    public function test_users_has_role(): void
+    {
+        $user = User::where('email', 'john@doe.com')->first();
+        $this->assertTrue($user->hasRole('management'));
+    }
 
-	public function test_members_can_be_updated(): void
-	{
-		  $userToEdit = (User::where('email', 'john@doe.com')->first())->id;
+	  public function test_members_can_be_updated(): void
+	  {
+        $userToEdit = (User::where('email', 'john@doe.com')->first())->id;
 
-		  $response = $this->put(route('users.update', $userToEdit), [
-          'name' => 'John Doe 2',
-          'birthdate' => '01-01-2000',
-          'address' => 'Test Address',
-          'postcode' => '1234AA',
-          'city' => 'Test City',
-          'phone' => '0123456789',
-          'email' => 'john@doe.com',
-          'instruct' => 0,
-          'rdw_number' => 'rfsjregre',
-          'knvvl' => 'wdeqfdwe',
-          'roles' => 'member',
-		  ]);
+        $response = $this->put(route('users.update', $userToEdit), [
+            'name' => 'John Doe 2',
+            'birthdate' => '01-01-2000',
+            'address' => 'Test Address',
+            'postcode' => '1234AA',
+            'city' => 'Test City',
+            'phone' => '0123456789',
+            'email' => 'john@doe.com',
+            'instruct' => 0,
+            'rdw_number' => 'rfsjregre',
+            'knvvl' => 'wdeqfdwe',
+            'roles' => 'member',
+        ]);
 
-		  $this->assertDatabaseHas('users', [
-			  'name' => 'John Doe 2',
-		  ]);
+        $this->assertDatabaseHas('users', [
+            'name' => 'John Doe 2',
+        ]);
 
-      $this->assertTrue($this->testuser->hasRole('member'));
-		  $response->assertRedirect('/users');
-	}
+        $this->assertTrue($this->testuser->hasRole('member'));
+        $response->assertRedirect('/users');
+	  }
 }
