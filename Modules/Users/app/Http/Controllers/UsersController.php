@@ -7,6 +7,7 @@ use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request;
 use Modules\Users\Models\User;
+use Modules\Users\Models\Licence;
 
 class UsersController extends Controller
 {
@@ -96,17 +97,13 @@ class UsersController extends Controller
             'email' => ['required', 'string', 'email', 'max:255'],
             'roles' => ['required'],
             'instruct' => ['required', 'integer', 'max:1'],
-            'PlaneCertCheckbox' => ['nullable'],
-            'HeliCertCheckbox' => ['nullable'],
-            'gliderCertCheckbox' => ['nullable'],
-            'honoraryMemberCheckbox' => ['nullable'],
-            'droneA1Checkbox' => ['nullable'],
-            'droneA2Checkbox' => ['nullable'],
-            'droneA3Checkbox' => ['nullable'],
+            'licences' => ['nullable'],
             'password' => ['nullable'],
         ]);
 
-        $user = User::find($id)->update([
+        $user = User::find($id);
+
+        $user->update([
             'name' => $validated['name'],
             'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),
             'address' => $validated['address'],
@@ -117,16 +114,13 @@ class UsersController extends Controller
             'knvvl' => $validated['knvvl'],
             'email' => $validated['email'],
             'instruct' => $validated['instruct'],
-            'has_plane_brevet' => $validated['PlaneCertCheckbox'] ?? 0,
-            'has_helicopter_brevet' => $validated['HeliCertCheckbox'] ?? 0,
-            'has_glider_brevet' => $validated['gliderCertCheckbox'] ?? 0,
             'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
-            'has_drone_a1' => $validated['droneA1Checkbox'] ?? 0,
-            'has_drone_a2' => $validated['droneA2Checkbox'] ?? 0,
-            'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
 
-        User::find($id)->syncRoles([$validated['roles']]);
+        $user->syncRoles([$validated['roles']]);
+
+        $licenceIds = Licence::whereIn('name', $validated['licences'])->pluck('id')->toArray();
+        $user->licences()->sync($licenceIds);
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }

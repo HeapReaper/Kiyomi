@@ -29,7 +29,7 @@ class UsersExportController extends Controller
         ]);
 
         try {
-            $users = User::with('roles')->whereHas('roles', function ($query) use ($validated) {
+            $users = User::with('roles')->with('licences')->whereHas('roles', function ($query) use ($validated) {
                 $query->whereIn('name', $validated['include_members']);
             })->get();
 

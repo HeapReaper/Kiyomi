@@ -51,23 +51,62 @@
             <td>{{ $user->rdw_number }}</td>
             <td>{{ $user->knvvl }}</td>
             <td>
-              @if ($user->hasRole('junior_member')) Jeugd lid @endif
-              @if ($user->hasRole('aspirant_member')) Aspirant lid @endif
-              @if ($user->hasRole('member')) Lid @endif
-              @if ($user->hasRole('management')) Bestuur @endif
-              @if ($user->hasRole('donor')) Donateur @endif
-              @if ($user->hasRole('not_paid')) Niet betaald @endif
+              @foreach($user->roles as $role)
+                  @switch($role)
+                    @case('junior_member')
+                      Jeugd lid
+                      @break
+                    @case('aspirant_member')
+                      Aspirant lid<br>
+                      @break
+                    @case('member')
+                      Lid<br>
+                      @break
+                    @case('management')
+                      Bestuur<br>
+                      @break
+                    @case('donor')
+                      Donateur<br>
+                      @break
+                    @case('not_paid')
+                      Niet betaald
+                      @break
+                  @endswitch
+              @endforeach
             </td>
             <td>{{ $user->instruct === 0 ? 'Nee' : 'Ja' }}</td>
             <td>
-              @if ($user->has_plane_brevet === 1) Motorvliegtuig<br> @endif
-              @if ($user->has_helicopter_brevet === 1) Helikopter<br> @endif
-              @if ($user->has_glider_brevet === 1) Zweefvliegtuig @endif
+              @foreach($user->licences as $licence)
+                @switch($licence->name)
+                  @case('RC motorplane')
+                    Motorvliegtuig<br>
+                    @break
+                  @case('RC helicopter')
+                    Helikopter<br>
+                    @break
+                  @case('RC glider')
+                    Zweefvliegtuig<br>
+                    @break
+                  @case('RC multicopter')
+                    Multicopter
+                    @break
+                @endswitch
+              @endforeach
             </td>
             <td>
-              @if ($user->has_drone_a1 === 1) A1<br> @endif
-              @if ($user->has_drone_a2 === 1) A2<br> @endif
-              @if ($user->has_drone_a3 === 1) A3 @endif
+              @foreach($user->licences as $licence)
+                @switch($licence->name)
+                  @case('Drone A1')
+                    A1<br>
+                    @break
+                  @case('Drone A2')
+                    A2<br>
+                    @break
+                  @case('Drone A3')
+                    A3
+                    @break
+                @endswitch
+              @endforeach
             </td>
           </tr>
         @endforeach
