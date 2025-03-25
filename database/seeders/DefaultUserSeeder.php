@@ -13,8 +13,8 @@ class DefaultUserSeeder extends Seeder
 {
     public function run(): void
     {
-        // Allow role to sign in
-        \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management');
+        // Allow roles to sign in
+        \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management, webmaster');
 
         $user = User::create([
             'name' => 'Default user',
@@ -23,6 +23,6 @@ class DefaultUserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $user->assignRole(Role::findByName('management'));
+        $user->assignRole(Role::findByName('webmaster'));
     }
 }
