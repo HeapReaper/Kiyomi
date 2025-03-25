@@ -47,22 +47,27 @@ A Laravel based application to manage flights, members, send newsletters and man
 6) Put in the EMAIL credentials in `.env`.
 
 ### Commands to be run
-1) Generate `APP_KEY`
 
-```
-php artisan key:generate
-```
-2) Run composer install
+1) Run composer install: `composer install`
+2) Generate `APP_KEY` `php artisan key:generate`
+3) Migrate the database: `php artisan migrate`
 
+4) Seed the database:
 ```
-composer install
+php artisan db:seed --class=RoleSeeder
+php artisan db:seed --class=PermissionSeeder
+php artisan db:seed --class=DefaultUserSeeder 
+php artisan db:seed --class=LicenceSeeder       
 ```
+5) Login into `https://<domain>/login`
+6) Login with: Email: `admin@default.com`. Password: `admin`
+7) Change the credentials!
 
 ## Help
 
 If encountering any problems:
 
-1) Make sure that `APP_DEBUG` in `.env` is set to `true` so you can see the error
+1) Make sure that `APP_DEBUG` in `.env` is set to `true` so you can see the error.
 2) If that is still not working, feel free to create an issue here.
 
 ## Authors
