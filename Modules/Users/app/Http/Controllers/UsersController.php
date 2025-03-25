@@ -119,8 +119,10 @@ class UsersController extends Controller
 
         $user->syncRoles([$validated['roles']]);
 
-        $licenceIds = Licence::whereIn('name', $validated['licences'])->pluck('id')->toArray();
-        $user->licences()->sync($licenceIds);
+        if (isset($validated['licences'])) {
+            $licenceIds = Licence::whereIn('name', $validated['licences'])->pluck('id')->toArray();
+            $user->licences()->sync($licenceIds);
+        }
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }
