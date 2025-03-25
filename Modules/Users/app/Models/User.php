@@ -3,12 +3,13 @@
 namespace Modules\Users\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Modules\Flights\Models\Flight;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\CanResetPassword;
+use Modules\Users\Models\Licence;
 
 class User extends Authenticatable
 {
@@ -30,12 +31,6 @@ class User extends Authenticatable
         'rdw_number',
         'knvvl',
         'instruct',
-        'has_plane_brevet',
-        'has_helicopter_brevet',
-        'has_glider_brevet',
-        'has_drone_a1',
-        'has_drone_a2',
-        'has_drone_a3',
         'in_memoriam',
     ];
 	
@@ -55,5 +50,10 @@ class User extends Authenticatable
     public function flight(): belongsToMany
     {
         return $this->belongsToMany(Flight::class, 'flight_model');
+    }
+
+    public function pilotLicence(): BelongsTo
+    {
+        return $this->belongsTo(Licence::class);
     }
 }
