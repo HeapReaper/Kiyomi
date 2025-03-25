@@ -2,11 +2,13 @@
 
 namespace Modules\Home\Tests\Feature;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class HomeTest extends TestCase
 {
+    use RefreshDatabase;
     public function setUp(): void
     {
         parent::setUp();

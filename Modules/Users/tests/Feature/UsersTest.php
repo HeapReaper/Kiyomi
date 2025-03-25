@@ -2,21 +2,21 @@
 
 namespace Modules\Users\Tests\Feature;
 
+use Hoa\Math\Visitor\Arithmetic;
 use Illuminate\Support\Facades\Artisan;
 use Modules\Users\Models\User;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 use Livewire\Livewire;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class UsersTest extends TestCase
 {
-  use RefreshDatabase;
-
 	public function setUp(): void
 	{
       parent::setUp();
-      Artisan::call('migrate');
+      Artisan::call('migrate:fresh');
       Artisan::call('key:generate');
 
 		  Artisan::call('db:seed', ['--class' => 'RoleSeeder']);

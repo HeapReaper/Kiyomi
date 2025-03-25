@@ -24,7 +24,7 @@ class FlightAdminTest extends TestCase
         Artisan::call('db:seed', ['--class' => 'DefaultUserSeeder']);
         Artisan::call('db:seed', ['--class' => 'LicenceSeeder']);
 
-        (User::find(1))->assignRole(Role::findByName('management'));
+        (User::where('email', 'admin@default.com')->first())->assignRole(Role::findByName('management'));
 
         \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management, webmaster');
 
@@ -38,7 +38,7 @@ class FlightAdminTest extends TestCase
         $this->post(route('users.store'), [
             'roles' => 'management',
             'name' => 'John Doe',
-            'birthdate' => '01-01-2000',
+            'birthdate' => '26-03-2001',
             'address' => 'Test Address',
             'postcode' => '12345',
             'city' => 'Test City',
@@ -48,8 +48,6 @@ class FlightAdminTest extends TestCase
         ]);
 
         $this->testuser = User::where('email', 'john@doe.com')->first();
-
-        $this->testuser->assignRole('management');
     }
 
     public function test_can_view_flights_overview(): void
