@@ -23,12 +23,6 @@ return new class extends Migration
             $table->integer('knvvl')->nullable();
             $table->string('rdw_number')->nullable();
             $table->integer('instruct')->nullable();
-            $table->integer('has_plane_brevet')->nullable();
-            $table->integer('has_helicopter_brevet')->nullable();
-            $table->integer('has_glider_brevet')->nullable();
-            $table->integer('has_drone_a1')->nullable();
-            $table->integer('has_drone_a2')->nullable();
-            $table->integer('has_drone_a3')->nullable();
             $table->integer('in_memoriam')->nullable();
             // End club data
             $table->string('name');
