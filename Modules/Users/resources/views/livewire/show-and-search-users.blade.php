@@ -36,8 +36,8 @@
                 <option value="not_paid">
                   Niet betaald
                 </option>
-                <option value="super admin">
-                  Super Admin
+                <option value="webmaster">
+                  Webmaster
                 </option>
               </select>
             </div>
@@ -94,8 +94,8 @@
                             @case('not_paid')
                               <span class="badge badge-pill bg-danger" style="font-size: 1rem;">Nog niet betaald</span>
                               @break
-                            @case('super admin')
-                              <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;">Super Admin</span>
+                            @case('webmaster')
+                              <span class="badge badge-pill" style="font-size: 1rem; background-color: #9F0707;"><small>Webmaster</small></span>
                               @break
                           @endswitch
                         @endforeach

@@ -128,6 +128,13 @@
                   Donateur
                 </label>
               </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]" disabled
+                        @checked($user->hasRole('webmaster') === true)>
+                <label class="form-check-label text-white" for="webmaster">
+                  Donateur
+                </label>
+              </div>
             </div>
           </div>
         </div>
