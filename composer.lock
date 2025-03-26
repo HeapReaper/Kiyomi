@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "474be4028e21851ba57dfc600b79b114",
+    "content-hash": "357f542e91e79c62358c7839b8a1fbfd",
     "packages": [
         {
             "name": "asantibanez/livewire-charts",
@@ -2961,20 +2961,20 @@
         },
         {
             "name": "mhmiton/laravel-modules-livewire",
-            "version": "v3.0.0",
+            "version": "v5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mhmiton/laravel-modules-livewire.git",
-                "reference": "8e33fda90fec07207f28ca48d4bc453146ae5e93"
+                "reference": "21c095499c2d44b10f86196b0aa1f22275983249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mhmiton/laravel-modules-livewire/zipball/8e33fda90fec07207f28ca48d4bc453146ae5e93",
-                "reference": "8e33fda90fec07207f28ca48d4bc453146ae5e93",
+                "url": "https://api.github.com/repos/mhmiton/laravel-modules-livewire/zipball/21c095499c2d44b10f86196b0aa1f22275983249",
+                "reference": "21c095499c2d44b10f86196b0aa1f22275983249",
                 "shasum": ""
             },
             "require": {
-                "laravel/framework": "^10.0|^11.0",
+                "laravel/framework": "^10.0|^11.0|^12.0",
                 "livewire/livewire": "^3.0",
                 "nwidart/laravel-modules": ">=11.0",
                 "php": ">=8.1"
@@ -3019,9 +3019,9 @@
             ],
             "support": {
                 "issues": "https://github.com/mhmiton/laravel-modules-livewire/issues",
-                "source": "https://github.com/mhmiton/laravel-modules-livewire/tree/v3.0.0"
+                "source": "https://github.com/mhmiton/laravel-modules-livewire/tree/v5.1.0"
             },
-            "time": "2024-03-24T00:11:35+00:00"
+            "time": "2025-03-07T00:09:23+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -10033,12 +10033,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.2"
     },
-    "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
 }
