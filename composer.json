@@ -18,7 +18,7 @@
         "livewire/livewire": "^3.5",
         "mhmiton/laravel-modules-livewire": "^3.0",
         "nwidart/laravel-modules": "^11.1",
-        "predis/predis": "2.0",
+        "predis/predis": "2.3.0",
         "sentry/sentry-laravel": "^4.10",
         "spatie/laravel-permission": "^6.9"
     },
