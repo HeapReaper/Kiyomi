@@ -23,6 +23,7 @@
 
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
+    @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/Resources/assets/css/app.scss'])
   </head>
 
   <body>
