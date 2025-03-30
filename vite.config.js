@@ -9,8 +9,8 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
 
-                'Modules/**/Resources/assets/js/app.js',
-                'Modules/**/Resources/assets/css/app.css',
+                'Modules/**/resources/assets/js/app.js',
+                'Modules/**/resources/assets/css/app.css',
             ],
             server: {
                 origin: 'http://127.0.0.1:5173',
