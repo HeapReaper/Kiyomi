@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <form class="mt-4">
+  <form class="mt-4" method="POST" action="{{ route('loginPost') }}">
     @if (Auth::check())
       <div class="row">
         <div class="col d-flex justify-content-center align-items-center">
@@ -44,7 +44,8 @@
       </div>
 
     @else
-      <form>
+        @csrf
+        @method('POST')
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label text-black">Email</label>
           <input type="email" class="form-control" id="email" name="email" placeholder="Email..." aria-describedby="">
@@ -58,8 +59,6 @@
         <button type="submit" class="btn fw-bold button-subtle-animation" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
         <br>
         <small class="text-dark">Wachtwoord vergeten? <a href="{{ route('password.request') }}">Klik hier</a></small>
-      </form>
     @endif
   </form>
-
 </div>
