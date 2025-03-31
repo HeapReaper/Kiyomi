@@ -23,10 +23,23 @@
 
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
-    @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/Resources/assets/css/app.scss'])
+    @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/resources/assets/css/app.css'])
   </head>
 
   <body>
+    <!-- Header image -->
+    <div class="position-relative">
+      <img src="app_media/header-img.jpg" class="img-fluid w-100 header-img" alt="Overlay Image">
+      <div class="position-absolute start-50 translate-middle text-white text-center header-text" style="top: 25%">
+        <h1 class="fw-bold display-6">
+          Twentse Radio Modelvlieg Club
+        </h1>
+        <p class="mt-3">
+          Een prachtige hobby – Modelvliegen.
+        </p>
+      </div>
+    </div>
+
     @include('home::includes.navbar')
 
     <main>
@@ -138,6 +151,29 @@
           border: 1px solid transparent;
           border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
           cursor: pointer;
+      }
+
+      .header-img {
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .header-text  {
+          margin-top: 20px;
+          top: 50%;
+          width: 90%;
+        }
+
+        .header-img {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-text {
+          top: 55%;
+          font-size: 16px;
+        }
       }
     </style>
 
