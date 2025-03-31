@@ -18,7 +18,7 @@
       <label for="password_confirmation" class="text-dark">Wachtwoord bevestiging</label>
       <input type="password" class="form-control mt-2" id="password_confirmation" name="password_confirmation" aria-describedby="email" placeholder="">
 
-      <button type="submit" class="btn text-white fw-bold mt-2" style="background-color: var(--primary-style-color);">Reset</button>
+      <button type="submit" class="btn text-white fw-bold mt-2 button-subtle-animation" style="background-color: var(--primary-style-color);">Reset</button>
     </form>
   </div>
 
