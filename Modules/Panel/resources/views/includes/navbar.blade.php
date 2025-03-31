@@ -21,23 +21,27 @@
           <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
             <a class="dropdown-item text-white" href="{{ route('flights-statistics.index') }}">Statistieken</a>
-            <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
+            @if (Auth::user()->hasRole(['management', 'webmaster']))
+              <a class="dropdown-item text-white" href="{{ route('flights-report.index') }}">Rapportages</a>
+            @endif
             <!--<li><hr class="dropdown-divider"></li>-->
           </ul>
         </li>
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Leden
-          </a>
-          <ul class="dropdown-menu bg-dark">
-            <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
-            <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
-            <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
-            <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
-            <a class="dropdown-item text-white" href="{{ route('users-export.index') }}">Exporteer</a>
-          </ul>
-        </li>
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Leden
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
+              <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
+              <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
+              <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
+              <a class="dropdown-item text-white" href="{{ route('users-export.index') }}">Exporteer</a>
+            </ul>
+          </li>
+        @endif
 
         <!--
         <li class="nav-item dropdown">
@@ -53,19 +57,21 @@
         </li>
         -->
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Systeem
-          </a>
-          <ul class="dropdown-menu bg-dark">
-            <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
-            <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
-            <!--
-            <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
-            -->
-          </ul>
-        </li>
-      </ul>
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Systeem
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
+              <a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a>
+              <!--
+              <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
+              -->
+            </ul>
+          </li>
+        </ul>
+       @endif
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
