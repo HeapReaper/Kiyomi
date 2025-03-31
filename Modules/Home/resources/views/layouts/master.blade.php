@@ -55,6 +55,7 @@
           <div class="me-2">
             @include('home::includes.sidebar-search')
             @include('home::includes.sidebar-login')
+            @include('home::includes.sidebar-clubs')
           </div>
         </div>
       </div>

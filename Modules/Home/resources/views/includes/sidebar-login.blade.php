@@ -1,6 +1,6 @@
 <div class="mt-4">
-  <div class="login-header">
-    <div class="login-title fw-bold">
+  <div class="sidebar-header">
+    <div class="sidebar-title fw-bold">
       Inloggen
     </div>
   </div>
@@ -17,16 +17,15 @@
     </div>
 
     <button type="submit" class="btn fw-bold" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
-
   </form>
 
   <style>
-    .login-header {
+    .sidebar-header {
       padding: 10px;
       position: relative;
     }
 
-    .login-title {
+    .sidebar-title {
       background-color: #d80414;
       color: white;
       padding: 8px 30px;
