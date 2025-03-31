@@ -32,7 +32,7 @@
           </div>
 
           <div class="mt-4 mb-3">
-            <a href="#" class="sidebar-links">
+            <a href="/logout" class="sidebar-links">
               Uitloggen
             </a>
           </div>
@@ -40,17 +40,19 @@
       </div>
 
     @else
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label text-black">Email</label>
-        <input type="email" class="form-control" id="email" name="email" placeholder="Email..." aria-describedby="">
-      </div>
+      <form>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label text-black">Email</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email..." aria-describedby="">
+        </div>
 
-      <div class="mb-3">
-        <label for="password" class="form-label">Wachtwoord</label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="Wachtwoord...">
-      </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Wachtwoord</label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Wachtwoord...">
+        </div>
 
-      <button type="submit" class="btn fw-bold button-subtle-animation" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
+        <button type="submit" class="btn fw-bold button-subtle-animation" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
+      </form>
     @endif
   </form>
 
