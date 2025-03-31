@@ -15,12 +15,12 @@ class UsersController extends Controller
     {
         return view('users::pages.index');
     }
-	
+
     public function create()
     {
         return view('users::pages.create');
     }
-	
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -68,21 +68,21 @@ class UsersController extends Controller
 
         return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
-	
+
     public function show($id)
     {
         return view('users::pages.show', [
             'user' => User::find($id),
         ]);
     }
-	
+
     public function edit($id)
     {
         return view('users::pages.edit', [
             'user' => User::find($id),
         ]);
     }
-	
+
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -95,6 +95,7 @@ class UsersController extends Controller
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
+            'profile_picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:2048'],
             'roles' => ['required'],
             'instruct' => ['required', 'integer', 'max:1'],
             'licences' => ['nullable'],
@@ -102,6 +103,16 @@ class UsersController extends Controller
         ]);
 
         $user = User::find($id);
+
+        if ($request->hasFile('profile_picture')) {
+            $file = $request->file('profile_picture');
+
+            $user->update([
+                'profile_picture' => time() . '.' . $file->getClientOriginalExtension(),
+            ]);
+
+            $file->storeAs('uploads', time() . '.' . $file->getClientOriginalExtension(), 'public');
+        }
 
         $user->update([
             'name' => $validated['name'],
@@ -126,7 +137,7 @@ class UsersController extends Controller
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }
-	
+
     public function destroy($id)
     {
         User::find($id)->delete();
