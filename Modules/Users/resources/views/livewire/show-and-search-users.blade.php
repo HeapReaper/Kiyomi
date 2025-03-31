@@ -49,6 +49,7 @@
               <thead class="text-white">
                 <tr>
                   <th class="text-white"><span>ID</span></th>
+                  <th class="text-white"><span>Foto</span></th>
                   <th class="text-white"><span>Vol. naam</span></th>
                   <th class="text-white"><span>KNVvL</span></th>
                   <th class="text-center text-white"><span>Rol</span></th>
@@ -63,6 +64,13 @@
                     <tr>
                       <td class="text-white">
                         {{ $user->id }}
+                      </td>
+                      <td>
+                        @if ($user->profile_picture)
+                          <img src="{{ asset('storage/uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
+                        @else
+                          <img src="https://placehold.co/80x80" class="rounded-circle">
+                        @endif
                       </td>
                       <!-- Name -->
                       <td class="text-white">
