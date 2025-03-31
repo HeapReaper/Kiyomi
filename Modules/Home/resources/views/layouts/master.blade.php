@@ -56,6 +56,7 @@
             @include('home::includes.sidebar-search')
             @include('home::includes.sidebar-login')
             @include('home::includes.sidebar-clubs')
+            @include('home::includes.sidebar-vacations')
           </div>
         </div>
       </div>
@@ -183,6 +184,21 @@
 
       .navbar {
         background-color: #d80414 !important;
+      }
+
+      .sidebar-header {
+        padding: 10px;
+        position: relative;
+      }
+
+      .sidebar-title {
+        background-color: #d80414;
+        color: white;
+        padding: 8px 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%); /** angle shape **/
       }
     </style>
 
