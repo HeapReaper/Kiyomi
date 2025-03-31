@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col d-flex justify-content-center align-items-center">
           <div class="mt-4 mb-3">
-            <img src="https://placehold.co/40x40" class="rounded">
+            <img src="https://placehold.co/80x80" class="rounded-circle">
           </div>
         </div>
 
