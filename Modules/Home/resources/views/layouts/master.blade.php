@@ -50,7 +50,11 @@
         </div>
 
         <div class="col-4">
+          <div class="me-2">
+            @include('home::includes.sidebar-search')
 
+            @include('home::includes.sidebar-login')
+          </div>
         </div>
       </div>
 
@@ -128,30 +132,20 @@
         font-family: 'Open Sans', sans-serif;
       }
 
-      .form-control {
-          background-color: rgba(255, 255, 255, 0.1) !important;
-          border: 1px solid rgba(255, 255, 255, 0.2) !important;
-          border-radius: 5px !important;
-          padding: 10px !important;
-          color: white !important;
-          font-size: 14px !important;
-          -webkit-appearance: listbox !important;
+      .form-control:focus {
+        border: solid #d80414 !important;
+        outline: none;
+        box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
-      .form-control:focus {
-          border-color: #000000;
-          box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+      .form-control:hover {
+        border: solid #d80414 !important;
+        outline: none;
+        box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
+
       input[type="checkbox"]:focus {
           box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
-      }
-
-      .form-control::placeholder {
-          color: white !important;
-      }
-
-      .form-control:focus {
-          color: white !important;
       }
 
       .form-control option {
