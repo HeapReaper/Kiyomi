@@ -29,7 +29,7 @@
   <body>
     <!-- Header image -->
     <div class="position-relative">
-      <img src="app_media/header-img.jpg" class="img-fluid w-100 header-img" alt="Overlay Image">
+      <img src="/app_media/header-img.jpg" class="img-fluid w-100 header-img" alt="Overlay Image">
       <div class="position-absolute start-50 translate-middle text-white text-center header-text" style="top: 25%">
         <h1 class="fw-bold display-6">
           Twentse Radio Modelvlieg Club
