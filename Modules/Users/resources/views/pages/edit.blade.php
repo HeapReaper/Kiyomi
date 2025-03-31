@@ -5,7 +5,7 @@
 @section('content')
 <div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
-    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST">
+    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 
@@ -226,9 +226,25 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
+        <!-- Current profile picture -->
+        <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
+          @if ($user->profile_picture)
+            <img src="{{ asset('storage/uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
+          @endif
+        </div>
+
+        <!-- New profile picture -->
+        <div class="col">
+          <div class="mb-3">
+            <label for="profile_picture" class="form-label text-white">Upload nieuwe profiel foto</label>
+            <input class="form-control" type="file" id="profile_picture" name="profile_picture">
+          </div>
+        </div>
 
         <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
-
       </div>
     </form>
   </div>

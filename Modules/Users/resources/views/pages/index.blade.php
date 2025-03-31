@@ -6,11 +6,4 @@
   <div class="container mt-2">
     @livewire('users::show-and-search-users')
   </div>
-
-  <style>
-    body{
-        background:#eee;
-    }
-
-  </style>
 @endsection

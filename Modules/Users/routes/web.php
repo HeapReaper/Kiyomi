@@ -7,25 +7,23 @@ use Modules\Users\Http\Controllers\NewMemberController;
 use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Modules\Users\Http\Controllers\PasswordResetController;
 use Modules\Users\Http\Controllers\UsersExportController;
+use Modules\Users\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Modules\Users\Livewire\Signin;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'role:management,webmaster']], function () {
     Route::resource('users', UsersController::class)->names('users');
     Route::get('users-remove/{id}', [UsersController::class, 'destroy']);
     Route::resource('contact', UsersContactController::class)->names('contact');
-	  Route::resource('users-statistics', UsersStatisticsController::class)->names('users-statistics');
+    Route::resource('users-statistics', UsersStatisticsController::class)->names('users-statistics');
     Route::resource('users-export', UsersExportController::class)->names('users-export');
     Route::get('users-export/download/{export}', [UsersExportController::class, 'download']);
     Route::get('users-export/destroy/{id}', [UsersExportController::class, 'destroy']);
 });
 
 Route::middleware('throttle:5,1')->get('/login', Signin::class)->name('login');
-
-Route::get('/logout', function () {
-	Auth::logout();
-	return redirect()->route('login');
-})->name('logout');
+Route::middleware('throttle:5,1')->post('/login', [LoginController::class, 'loginPost'])->name('loginPost');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::resource('member', NewMemberController::class)->names('new_member');
 

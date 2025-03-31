@@ -13,11 +13,11 @@ use Modules\Users\Models\Licence;
 class User extends Authenticatable
 {
     use HasFactory, HasRoles, Notifiable, \Illuminate\Auth\Passwords\CanResetPassword;
-	
+
 	protected $table = 'users';
 
     protected string $guard_name = 'web';
-	
+
     protected $fillable = [
         'name',
         'email',
@@ -31,13 +31,14 @@ class User extends Authenticatable
         'knvvl',
         'instruct',
         'in_memoriam',
+        'profile_picture',
     ];
-	
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
-	
+
     protected function casts(): array
     {
         return [
@@ -45,7 +46,7 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-	
+
     public function flight(): belongsToMany
     {
         return $this->belongsToMany(Flight::class, 'flight_model');
