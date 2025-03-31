@@ -67,7 +67,7 @@ class PasswordResetController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-            ? redirect()->route('/')->with('success', 'Wachtwoord reset is voltooid! Log nu in met je nieuwe wachtwoord.')
+            ? redirect('/')->with('success', 'Wachtwoord reset is voltooid! Log nu in met je nieuwe wachtwoord.')
             : back()->withErrors(['email' => [__($status)]]);
     }
 }

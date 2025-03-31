@@ -11,7 +11,7 @@ use Modules\Users\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Modules\Users\Livewire\Signin;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => ['auth', 'role:management,webmaster']], function () {
     Route::resource('users', UsersController::class)->names('users');
     Route::get('users-remove/{id}', [UsersController::class, 'destroy']);
     Route::resource('contact', UsersContactController::class)->names('contact');
