@@ -9,8 +9,29 @@ export default defineConfig({
                 'resources/css/app.css',
                 'resources/js/app.js',
 
-                'Modules/**/resources/assets/js/app.js',
-                'Modules/**/resources/assets/css/app.css',
+                'Modules/Financials/resources/assets/js/app.js',
+                'Modules/Financials/resources/assets/css/app.css',
+
+                'Modules/Flights/resources/assets/js/app.js',
+                'Modules/Flights/resources/assets/css/app.css',
+
+                'Modules/Home/resources/assets/js/app.js',
+                'Modules/Home/resources/assets/css/app.css',
+
+                'Modules/Logging/resources/assets/js/app.js',
+                'Modules/Logging/resources/assets/css/app.css',
+
+                'Modules/Mail/resources/assets/js/app.js',
+                'Modules/Mail/resources/assets/css/app.css',
+
+                'Modules/Panel/resources/assets/js/app.js',
+                'Modules/Panel/resources/assets/css/app.css',
+
+                'Modules/Settings/resources/assets/js/app.js',
+                'Modules/Settings/resources/assets/css/app.css',
+
+                'Modules/Users/resources/assets/js/app.js',
+                'Modules/Users/resources/assets/css/app.css',
             ],
             server: {
                 origin: 'http://127.0.0.1:5173',
