@@ -10,7 +10,7 @@
   </div>
 
   <form class="mt-4">
-    @if (auth())
+    @if (Auth::check())
       <div class="row">
         <div class="col d-flex justify-content-center align-items-center">
           <div class="mt-4 mb-3">
