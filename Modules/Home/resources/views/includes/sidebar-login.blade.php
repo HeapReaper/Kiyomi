@@ -14,7 +14,11 @@
       <div class="row">
         <div class="col d-flex justify-content-center align-items-center">
           <div class="mt-4 mb-3">
-            <img src="https://placehold.co/80x80" class="rounded-circle">
+            @if (Auth::user()->profile_picture)
+              <img src="{{ asset('storage/uploads/' . Auth::user()->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
+            @else
+              <img src="https://placehold.co/80x80" class="rounded-circle">
+            @endif
           </div>
         </div>
 
