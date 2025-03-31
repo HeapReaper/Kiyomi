@@ -161,6 +161,14 @@
         transform: translateX(5px);
       }
 
+      .button-subtle-animation {
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .button-subtle-animation:hover {
+        transform: scale(1.05);
+      }
+
       footer {
         background-color: var(--primary-style-color);
         padding: 0 !important;

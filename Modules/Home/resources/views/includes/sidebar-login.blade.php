@@ -16,7 +16,7 @@
       <input type="password" class="form-control" id="password" name="password" placeholder="Wachtwoord...">
     </div>
 
-    <button type="submit" class="btn fw-bold" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
+    <button type="submit" class="btn fw-bold button-subtle-animation" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
   </form>
 
 </div>

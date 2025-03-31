@@ -20,7 +20,7 @@
         <h5 class="text-dark">Datum:</h5>
         <input type="date" id="date" name="date" class="form-control" value="{{ old('date') }}" required>
 
-        <button type="button" class="btn text-white mt-2 fw-bold"" style="background-color: #d80414;">
+        <button type="button" class="btn text-white mt-2 fw-bold button-subtle-animation" style="background-color: #d80414;">
           Vandaag
         </button>
       </div>
@@ -35,7 +35,7 @@
             <h5 class="text-dark">Start tijd:</h5>
             <input type="time" id="start_time" name="start_time" class="form-control" value="{{ old('start_time') }}" required>
 
-            <button type="button" class="btn text-white mt-2 fw-bold"" style="background-color: #d80414;" onclick="changeStartTime()">
+            <button type="button" class="btn text-white mt-2 fw-bold button-subtle-animation" style="background-color: #d80414;" onclick="changeStartTime()">
               Start vlucht
             </button>
           </div>
@@ -47,7 +47,7 @@
             <h5 class="text-dark">Eind tijd:</h5>
             <input type="time" id="end_time" name="end_time" class="form-control" value="{{ old('end_time') }}" required>
 
-            <button type="button" class="btn text-white mt-2 fw-bold"" style="background-color: #d80414;" onclick="changeEndTime()">
+            <button type="button" class="btn text-white mt-2 fw-bold button-subtle-animation" style="background-color: #d80414;" onclick="changeEndTime()">
               Einde vlucht
             </button>
           </div>
@@ -92,12 +92,12 @@
 
     <!-- reCAPTCHA -->
     <div class="form-group mt-2 p-2" id="rechapcha" name="rechapcha" hidden>
-      <h5 class="text-dark>Anti bot vraag:</h5>
+      <h5 class="text-dark">Anti bot vraag:</h5>
       <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" value="{{ old('rechapcha_custom') }}" required>
     </div>
 
     <!-- SEND FORM BUTTON -->
-    <button type="submit" class="btn mt-3 m-2 text-white fw-bold" style="background-color: #d80414;">Verzenden</button>
+    <button type="submit" class="btn mt-2 m-2 text-white fw-bold button-subtle-animation" style="background-color: #d80414;">Verzenden</button>
   </form>
 
     @if (session()->has('success'))
