@@ -83,14 +83,12 @@
       }
 
       .form-control:focus {
-        border: solid #d80414 !important;
-        outline: none;
+        outline: 2px solid #d80414;
         box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
       .form-control:hover {
-        border: solid #d80414 !important;
-        outline: none;
+        outline: 2px solid #d80414;
         box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
