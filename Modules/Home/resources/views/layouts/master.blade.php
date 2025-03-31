@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
-    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
 
     <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
 
@@ -175,7 +175,37 @@
         margin: 0 !important;
       }
 
+      .dropdown-menu .dropdown-item:hover {
+        background-color: rgba(0,0,0,0.2);
+      }
 
+      .dropdown-toggle::after {
+        display: inline-block;
+        margin-left: 0.255em;
+        vertical-align: 0.255em;
+        content: "";
+        border-top: 0.3em solid;
+        border-right: 0.3em solid transparent;
+        border-bottom: 0;
+        border-left: 0.3em solid transparent;
+        transition: transform 0.6s ease-in-out;
+      }
+
+      .dropdown-toggle.show::after {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-menu {
+        opacity: 0;
+        transition: opacity 0.1s ease-in-out;
+        display: block;
+        pointer-events: none; /* Initially disabled */
+      }
+
+      .dropdown-menu.show {
+        opacity: 1;
+        pointer-events: auto; /* Enabled when shown */
+      }
     </style>
 
     {{-- Vite JS --}}
