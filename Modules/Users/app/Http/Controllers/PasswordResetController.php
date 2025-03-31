@@ -16,7 +16,7 @@ class PasswordResetController extends Controller
 {
     public function forgotPassword(): \Illuminate\Contracts\View\View
     {
-        return view('users::pages.forgot-password');
+        return view('users::pages.auth.forgot-password');
     }
 
     public function forgotPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
@@ -42,7 +42,7 @@ class PasswordResetController extends Controller
 
     public function resetPassword(string $token): \Illuminate\Contracts\View\View
     {
-        return view('users::pages.reset-password', ['token' => $token]);
+        return view('users::pages.auth.reset-password', ['token' => $token]);
     }
 
     public function resetPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
