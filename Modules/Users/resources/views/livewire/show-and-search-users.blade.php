@@ -67,7 +67,7 @@
                       </td>
                       <td>
                         @if ($user->profile_picture)
-                          <img src="{{ asset('storage/uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
+                          <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
                         @else
                           <img src="https://placehold.co/80x80" class="rounded-circle">
                         @endif

@@ -1,4 +1,4 @@
-@extends('errors.layout')
+@extends('home::layouts.master')
 
 @section('title', '192')
 
