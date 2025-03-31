@@ -74,6 +74,10 @@
     @include('home::includes.footer')
 
     <style>
+      :root {
+        --primary-style-color: #d80414;
+      }
+
       body, html {
         background-color: white;
         width: 100%;
@@ -83,12 +87,12 @@
       }
 
       .form-control:focus {
-        outline: 2px solid #d80414;
+        outline: 2px solid var(--primary-style-color);
         box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
       .form-control:hover {
-        outline: 2px solid #d80414;
+        outline: 2px solid var(--primary-style-color);
         box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
@@ -128,7 +132,7 @@
       }
 
       .navbar {
-        background-color: #d80414 !important;
+        background-color: var(--primary-style-color) !important;
       }
 
       .sidebar-header {
@@ -137,7 +141,7 @@
       }
 
       .sidebar-title {
-        background-color: #d80414;
+        background-color: var(--primary-style-color);
         color: white;
         padding: 8px 30px;
         position: absolute;
@@ -147,7 +151,7 @@
       }
 
       footer {
-        background-color: #d80414;
+        background-color: var(--primary-style-color);
         padding: 0 !important;
         margin: 0 !important;
       }
