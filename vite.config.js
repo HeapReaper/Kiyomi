@@ -1,6 +1,17 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 import path from 'path';
+import fs from 'fs';
+
+const modulePath = path.resolve(__dirname, 'Modules');
+const modules = fs.existsSync(modulePath)
+    ? fs.readdirSync(modulePath).filter(dir => fs.statSync(path.join(modulePath, dir)).isDirectory())
+    : [];
+
+const moduleAssets = modules.flatMap(module => [
+    `Modules/${module}/resources/assets/js/app.js`,
+    `Modules/${module}/resources/assets/css/app.css`,
+]);
 
 export default defineConfig({
     plugins: [
@@ -8,30 +19,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
-
-                'Modules/Financials/resources/assets/js/app.js',
-                'Modules/Financials/resources/assets/css/app.css',
-
-                'Modules/Flights/resources/assets/js/app.js',
-                'Modules/Flights/resources/assets/css/app.css',
-
-                'Modules/Home/resources/assets/js/app.js',
-                'Modules/Home/resources/assets/css/app.css',
-
-                'Modules/Logging/resources/assets/js/app.js',
-                'Modules/Logging/resources/assets/css/app.css',
-
-                'Modules/Mail/resources/assets/js/app.js',
-                'Modules/Mail/resources/assets/css/app.css',
-
-                'Modules/Panel/resources/assets/js/app.js',
-                'Modules/Panel/resources/assets/css/app.css',
-
-                'Modules/Settings/resources/assets/js/app.js',
-                'Modules/Settings/resources/assets/css/app.css',
-
-                'Modules/Users/resources/assets/js/app.js',
-                'Modules/Users/resources/assets/css/app.css',
+                ...moduleAssets,
             ],
             server: {
                 origin: 'http://127.0.0.1:5173',
