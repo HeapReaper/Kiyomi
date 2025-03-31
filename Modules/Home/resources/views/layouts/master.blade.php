@@ -150,11 +150,24 @@
         clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%); /** angle shape **/
       }
 
+      .sidebar-links {
+        color: black;
+        text-decoration: underline var(--primary-style-color);
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .sidebar-links:hover {
+        transform: translateX(5px);
+      }
+
       footer {
         background-color: var(--primary-style-color);
         padding: 0 !important;
         margin: 0 !important;
       }
+
+
     </style>
 
     {{-- Vite JS --}}

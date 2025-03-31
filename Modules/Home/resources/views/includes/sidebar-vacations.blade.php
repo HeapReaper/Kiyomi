@@ -6,25 +6,25 @@
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Hanninkhof
     </a>
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Hotel Gratz
     </a>
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Hotel Sayonara
     </a>
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Pension Hatzis
     </a>
   </div>

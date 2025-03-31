@@ -6,13 +6,13 @@
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Privacy verklaring
     </a>
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       Vlucht aanmelden
     </a>
   </div>

@@ -6,7 +6,7 @@
   </div>
 
   <div class="mt-4 mb-3">
-    <a href="#">
+    <a href="#" class="sidebar-links">
       KNVvL Afd. Modelvliegsport
     </a>
   </div>
