@@ -43,7 +43,16 @@
     @include('home::includes.navbar')
 
     <main>
-      @yield('content')
+
+      <div class="row">
+        <div class="col-8">
+          @yield('content')
+        </div>
+
+        <div class="col-4">
+
+        </div>
+      </div>
 
       <!-- Errors -->
       @if ($errors->any())
@@ -112,7 +121,7 @@
 
     <style>
       body, html {
-        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+        background-color: white;
         width: 100%;
         min-height: 100%;
         background-attachment: fixed;
@@ -174,6 +183,10 @@
           top: 55%;
           font-size: 16px;
         }
+      }
+
+      .navbar {
+        background-color: #d80414 !important;
       }
     </style>
 
