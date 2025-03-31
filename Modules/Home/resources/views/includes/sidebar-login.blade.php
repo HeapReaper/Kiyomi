@@ -56,6 +56,8 @@
         </div>
 
         <button type="submit" class="btn fw-bold button-subtle-animation" style="background-color: #d80414; color: white; width: 100px;">Log in</button>
+        <br>
+        <small class="text-dark">Wachtwoord vergeten? <a href="{{ route('password.request') }}">Klik hier</a></small>
       </form>
     @endif
   </form>
