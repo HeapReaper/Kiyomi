@@ -57,6 +57,9 @@
             @include('home::includes.sidebar-login')
             @include('home::includes.sidebar-clubs')
             @include('home::includes.sidebar-vacations')
+            @include('home::includes.sidebar-organisations')
+            @include('home::includes.sidebar-social-media')
+            @include('home::includes.sidebar-trmc')
           </div>
         </div>
       </div>
