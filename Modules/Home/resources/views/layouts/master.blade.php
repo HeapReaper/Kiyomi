@@ -23,113 +23,81 @@
 
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
-    @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/Resources/assets/css/app.scss'])
+    @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/resources/assets/css/app.css'])
   </head>
 
   <body>
+    <!-- Header image -->
+    <div class="position-relative">
+      <img src="/app_media/header-img.jpg" class="img-fluid w-100 header-img" alt="Overlay Image">
+      <div class="position-absolute start-50 translate-middle text-white text-center header-text" style="top: 25%">
+        <h1 class="fw-bold display-6">
+          Twentse Radio Modelvlieg Club
+        </h1>
+        <p class="mt-3">
+          Een prachtige hobby – Modelvliegen.
+        </p>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
     @include('home::includes.navbar')
 
-    <main>
-      @yield('content')
-
-      <!-- Errors -->
-      @if ($errors->any())
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
-          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
-              <strong class="me-auto">Fout!</strong>
-              <small>Een paar seconden geleden</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-              @endforeach
-            </div>
+    <!-- PAGE CONTENT -->
+    <main class="m-2">
+      <div class="row mt-3">
+        <!-- MAIN TEXT -->
+        <div class="col-12 col-md-8">
+          <div class="ms-2">
+            @yield('content')
           </div>
         </div>
 
-        <script>
-          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
-        </script>
-      @endif
-
-      @if (session()->has('error'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
-          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
-              <strong class="me-auto">Fout!</strong>
-              <small>Een paar seconden geleden</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              {{ session('error') }}
-            </div>
+        <!-- SIDE BAR -->
+        <div class="col-12 col-md-4">
+          <div class="me-2">
+            @include('home::includes.sidebar-search')
+            @include('home::includes.sidebar-login')
+            @include('home::includes.sidebar-clubs')
+            @include('home::includes.sidebar-vacations')
+            @include('home::includes.sidebar-organisations')
+            @include('home::includes.sidebar-social-media')
+            @include('home::includes.sidebar-trmc')
           </div>
         </div>
+      </div>
 
-        <script>
-          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
-        </script>
-      @endif
-
-      <!-- Success -->
-      @if (session()->has('success'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
-          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
-              <strong class="me-auto">Success!</strong>
-              <small>Een paar seconden geleden</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              {{ session('success') }}
-            </div>
-          </div>
-        </div>
-
-        <script>
-          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
-        </script>
-      @endif
+      <!-- NOTIFICATIONS -->
+      @include('home::includes.notifications')
     </main>
+    <!-- FOOTER -->
+    @include('home::includes.footer')
 
     <style>
+      :root {
+        --primary-style-color: #d80414;
+      }
+
       body, html {
-        background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);
+        background-color: white;
         width: 100%;
         min-height: 100%;
         background-attachment: fixed;
         font-family: 'Open Sans', sans-serif;
       }
 
-      .form-control {
-          background-color: rgba(255, 255, 255, 0.1) !important;
-          border: 1px solid rgba(255, 255, 255, 0.2) !important;
-          border-radius: 5px !important;
-          padding: 10px !important;
-          color: white !important;
-          font-size: 14px !important;
-          -webkit-appearance: listbox !important;
+      .form-control:focus {
+        outline: 2px solid var(--primary-style-color);
+        box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
 
-      .form-control:focus {
-          border-color: #000000;
-          box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+      .form-control:hover {
+        outline: 2px solid var(--primary-style-color);
+        box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
       }
+
       input[type="checkbox"]:focus {
           box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
-      }
-
-      .form-control::placeholder {
-          color: white !important;
-      }
-
-      .form-control:focus {
-          color: white !important;
       }
 
       .form-control option {
@@ -139,8 +107,76 @@
           border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
           cursor: pointer;
       }
-    </style>
 
+      .header-img {
+        object-fit: cover;
+      }
+
+      @media (max-width: 768px) {
+        .header-text  {
+          margin-top: 20px;
+          top: 50%;
+          width: 90%;
+        }
+
+        .header-img {
+          height: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-text {
+          top: 55%;
+          font-size: 16px;
+        }
+      }
+
+      .navbar {
+        background-color: var(--primary-style-color) !important;
+      }
+
+      .sidebar-header {
+        padding: 10px;
+        position: relative;
+      }
+
+      .sidebar-title {
+        background-color: var(--primary-style-color);
+        color: white;
+        padding: 4px 40px 4px 4px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%); /** angle shape **/
+      }
+
+      .sidebar-links {
+        color: black;
+        text-decoration: underline var(--primary-style-color);
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      .sidebar-links:hover {
+        transform: translateX(5px);
+      }
+
+      .button-subtle-animation {
+        transition: transform 0.2s ease-in-out;
+      }
+
+      .button-subtle-animation:hover {
+        transform: scale(1.05);
+      }
+
+      footer {
+        background-color: var(--primary-style-color);
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+
+
+    </style>
 
     {{-- Vite JS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}
