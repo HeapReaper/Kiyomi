@@ -143,7 +143,7 @@
       .sidebar-title {
         background-color: var(--primary-style-color);
         color: white;
-        padding: 8px 30px;
+        padding: 4px 40px 4px 4px;
         position: absolute;
         top: 0;
         left: 0;
