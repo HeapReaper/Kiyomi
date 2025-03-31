@@ -1,4 +1,4 @@
-<div class="mt-3">
+<div class="mt-5">
   <form class="form-inline">
     <div class="input-group">
       <input class="form-control text-black sidebar-search" type="search" placeholder="Zoeken..." aria-label="Search">
