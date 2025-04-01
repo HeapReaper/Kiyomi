@@ -15,7 +15,7 @@
       <th scope="col" class="text-white">Titel</th>
       <th scope="col" class="text-white">Slug</th>
       <th scope="col" class="text-white">Author</th>
-      <th scope="col" class="text-white">Datum</th>
+      <th scope="col" class="text-white">Datum en tijd</th>
       <th scope="col" class="text-white">Gepubliceerd</th>
       <th scope="col" class="text-white">Categorieën</th>
       <th scope="col" class="text-white">Opties</th>
@@ -29,8 +29,9 @@
         <th scope="row" class="text-white">{{ $article->title }}</th>
         <th scope="row" class="text-white">{{ $article->slug }}</th>
         <td class="text-white">{{ $article->author->name }}</td>
-        <th scope="row" class="text-white">{{ $article->created_at }}</th>
-
+        <th scope="row" class="text-white">
+          {{ \Carbon\Carbon::parse($article->created_at)->format('d-m-Y H:i:s') }}
+        </th>
         <th scope="row" class="text-white">{{ $article->published === true ? 'Ja' : 'Nee' }}</th>
         <th scope="row" class="text-white">
           @foreach($article->categories as $category)
