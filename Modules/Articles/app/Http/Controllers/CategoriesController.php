@@ -4,6 +4,7 @@ namespace Modules\Articles\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
 
 class CategoriesController extends Controller

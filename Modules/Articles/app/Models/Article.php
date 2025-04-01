@@ -14,12 +14,16 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+       'published' => 'boolean',
+    ];
+
     protected $fillable = [
         'title',
         'slug',
         'content',
         'metadata',
-        'published_at',
+        'published',
         'created_at',
         'deleted_at',
     ];

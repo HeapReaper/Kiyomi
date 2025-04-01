@@ -50,7 +50,7 @@
           <p class="text-white fw-bold">Publicatie</p>
 
           <div class="form-check form-switch">
-            <input class="form-check-input" value=true type="checkbox" id="publication" name="publication">
+            <input class="form-check-input" value=1 type="checkbox" id="publication" name="publication">
             <label class="form-check-label text-white" for="publication">Publicatie</label>
           </div>
         </div>
