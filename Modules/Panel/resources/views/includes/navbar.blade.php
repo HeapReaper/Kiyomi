@@ -59,6 +59,18 @@
           </li>
         @endif
 
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/> Weergave
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="">Thema</a>
+              <a class="dropdown-item text-white" href="">Menu</a>
+            </ul>
+          </li>
+        @endif
+
         <!--
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -72,6 +84,7 @@
           </ul>
         </li>
         -->
+
 
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
