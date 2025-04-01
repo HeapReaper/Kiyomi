@@ -4,7 +4,7 @@
 
 @section('content')
   <div class="container mt-4 bg-dark rounded bg-opacity-25 shadow-lg">
-    <table class="table table-custom-dark user-list ml-2 mr-2" >
+    <table class="table table-custom-dark user-list ml-2 mr-2">
       <thead>
         <tr>
           <th scope="col" class="text-white">#</th>
@@ -56,5 +56,6 @@
         @endforeach
       </tbody>
     </table>
+    <br>
   </div>
 @stop

@@ -11,13 +11,15 @@
       <ul class="navbar-nav me-auto mb-0">
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/">Home</a>
+          <a class="nav-link active d-flex align-items-center" aria-current="page" href="/">
+            <x-heroicon-s-home class="me-1" style="width: 22px;"/> Home
+          </a>
         </li>
 
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Artikelen
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-newspaper class="me-1" style="width: 22px;"/> Artikelen
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
@@ -29,8 +31,8 @@
         @endif
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Vluchten
+          <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <x-lucide-plane class="text-gray-500 me-1" style="width: 22px;" /> Vluchten
           </a>
           <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>
@@ -44,8 +46,8 @@
 
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Leden
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-user class="me-1" style="width: 22px;"/> Leden
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
@@ -73,8 +75,8 @@
 
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Systeem
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-cog-6-tooth class="me-1" style="width: 22px;"/> Systeem
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a>
@@ -89,8 +91,8 @@
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Welkom {{ Auth::user()->name }}!
+          <a class="nav-link dropdown-toggle text-white d-flex align-items-center"" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <x-heroicon-s-user-circle class="me-1" style="width: 22px;"/> Welkom {{ Auth::user()->name }}!
           </a>
           <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
