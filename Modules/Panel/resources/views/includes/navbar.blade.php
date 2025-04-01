@@ -20,9 +20,9 @@
               Artikelen
             </a>
             <ul class="dropdown-menu bg-dark">
-              <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Nieuw artikel</a>
-              <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Alle artikelen</a>
-              <a class="dropdown-item text-white" href="{{ route('flights-statistics.index') }}">Categorieën</a>
+              <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
+              <a class="dropdown-item text-white" href="{{ route('articles.index') }}">Alle artikelen</a>
+              <a class="dropdown-item text-white" href="{{ route('categories.index') }}">Categorieën</a>
               <!--<li><hr class="dropdown-divider"></li>-->
             </ul>
           </li>

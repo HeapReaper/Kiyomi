@@ -1,6 +1,6 @@
 @extends('panel::layouts.master')
 
-@section('title', 'Nieuw artikelen')
+@section('title', 'Categorie bewerken')
 
 @section('content')
 @stop
