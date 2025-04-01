@@ -3,6 +3,7 @@
 namespace Modules\Articles\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use DOMDocument;
 use Illuminate\Http\Request;
 use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
@@ -35,10 +36,21 @@ class ArticlesController extends Controller
         ]);
 
         try {
+            $dom = new DOMDocument();
+            @$dom->loadHTML($validated['content']);
+            $images = $dom->getElementsByTagName('img');
+
+            if ($images->length > 0) {
+                $imageSrc = $images->item(0)->getAttribute('src');
+            } else {
+                $imageSrc = null;
+            }
+
             $article = Article::create([
                 'title' => $validated['title'],
                 'slug' => Str::slug($validated['title']),
                 'content' => $validated['content'],
+                'image' => $imageSrc,
                 'published' => isset($validated['publication']),
             ]);
 

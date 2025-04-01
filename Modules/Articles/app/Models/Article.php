@@ -22,6 +22,7 @@ class Article extends Model
         'title',
         'slug',
         'content',
+        'image',
         'metadata',
         'published',
         'created_at',

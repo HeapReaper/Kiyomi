@@ -30,7 +30,7 @@
         <th scope="row" class="text-white">{{ $article->id }}</th>
         <th scope="row" class="text-white">{{ $article->title }}</th>
         <th scope="row" class="text-white">{{ $article->slug }}</th>
-        <th scope="row" class="text-white" >{{ $article->author->name }}</th>
+        <th scope="row" class="text-white">{{ $article->author->name }}</th>
         <th scope="row" class="text-white">
           {{ \Carbon\Carbon::parse($article->created_at)->format('d-m-Y H:i:s') }}
         </th>
@@ -64,4 +64,6 @@
     @endforeach
     </tbody>
   </table>
+
+  {!! $articles->links('pagination::bootstrap-5') !!}
 </div>

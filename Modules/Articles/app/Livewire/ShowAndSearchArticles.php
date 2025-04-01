@@ -11,7 +11,6 @@ class ShowAndSearchArticles extends Component
 
     public function render()
     {
-        // Article::with('categories', 'author')->orderBy('created_at', 'desc')->get()
         return view('articles::livewire.show-and-search-articles', [
             'articles' => Article::query()
                 ->where(function ($query) {
@@ -21,7 +20,8 @@ class ShowAndSearchArticles extends Component
                             $query->where('name', 'like', '%' . $this->articleSearch . '%');
                         });
                 })
-                ->get()
+                ->orderBy('created_at', 'desc')
+                ->paginate(10)
         ]);
     }
 }
