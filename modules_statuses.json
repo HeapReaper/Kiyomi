@@ -8,5 +8,6 @@
     "Home": true,
     "Financials": true,
     "Mail": true,
-    "Articles": true
+    "Articles": true,
+    "SiteView": true
 }
