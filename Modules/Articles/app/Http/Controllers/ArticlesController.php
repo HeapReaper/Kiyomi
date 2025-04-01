@@ -3,6 +3,7 @@
 namespace Modules\Articles\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use DOMDocument;
 use Illuminate\Http\Request;
 use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
@@ -12,14 +13,14 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('articles::pages.index', [
+        return view('articles::articles.index', [
             'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
         ]);
     }
 
     public function create()
     {
-        return view('articles::pages.create', [
+        return view('articles::articles.create', [
             'categories' => Category::all(),
         ]);
     }
@@ -35,10 +36,21 @@ class ArticlesController extends Controller
         ]);
 
         try {
+            $dom = new DOMDocument();
+            @$dom->loadHTML($validated['content']);
+            $images = $dom->getElementsByTagName('img');
+
+            if ($images->length > 0) {
+                $imageSrc = $images->item(0)->getAttribute('src');
+            } else {
+                $imageSrc = null;
+            }
+
             $article = Article::create([
                 'title' => $validated['title'],
                 'slug' => Str::slug($validated['title']),
                 'content' => $validated['content'],
+                'image' => $imageSrc,
                 'published' => isset($validated['publication']),
             ]);
 
@@ -59,7 +71,7 @@ class ArticlesController extends Controller
 
     public function edit(int $id)
     {
-        return view('articles::pages.edit', [
+        return view('articles::articles.edit', [
             'article' => Article::with('categories', 'author')->findOrFail($id),
             'categories' => Category::all(),
         ]);
