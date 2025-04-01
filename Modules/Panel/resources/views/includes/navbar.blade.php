@@ -65,7 +65,7 @@
               <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/> Weergave
             </a>
             <ul class="dropdown-menu bg-dark">
-              <a class="dropdown-item text-white" href="">Thema</a>
+              <a class="dropdown-item text-white" href="{{ route('theme.index') }}">Thema</a>
               <a class="dropdown-item text-white" href="/navigation">Menu</a>
             </ul>
           </li>
