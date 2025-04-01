@@ -9,12 +9,12 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('articles::index');
+        return view('articles::pages.index');
     }
 
     public function create()
     {
-        return view('articles::create');
+        return view('articles::pages.create');
     }
 
     public function store(Request $request)
@@ -29,7 +29,7 @@ class ArticlesController extends Controller
 
     public function edit($id)
     {
-        return view('articles::edit');
+        return view('articles::pages.edit');
     }
 
     public function update(Request $request, $id)
