@@ -4,12 +4,16 @@ namespace Modules\SiteView\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Modules\SiteView\Models\NavigationItem;
+use Modules\Articles\Models\Article;
 
 class NavigationController extends Controller
 {
     public function index()
     {
-        return view('siteview::index');
+        return view('siteview::navigation.index', [
+            'articles' => Article::all()
+        ]);
     }
 
     public function create()

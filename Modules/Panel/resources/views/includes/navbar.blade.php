@@ -66,7 +66,7 @@
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="">Thema</a>
-              <a class="dropdown-item text-white" href="">Menu</a>
+              <a class="dropdown-item text-white" href="/navigation">Menu</a>
             </ul>
           </li>
         @endif

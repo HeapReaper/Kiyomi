@@ -10,15 +10,8 @@ class NavigationItem extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'url',
-        'position',
-        'parent_id',
-    ];
+    protected $table = 'navbar_items';
 
-    public function children(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(NavigationItem::class, 'parent_id');
-    }
+    protected $fillable = [
+    ];
 }
