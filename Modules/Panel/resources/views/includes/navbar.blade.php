@@ -14,6 +14,20 @@
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
 
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Artikelen
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
+              <a class="dropdown-item text-white" href="{{ route('articles.index') }}">Alle artikelen</a>
+              <a class="dropdown-item text-white" href="{{ route('categories.index') }}">Categorieën</a>
+              <!--<li><hr class="dropdown-divider"></li>-->
+            </ul>
+          </li>
+        @endif
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Vluchten
