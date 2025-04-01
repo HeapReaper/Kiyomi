@@ -4,18 +4,14 @@ namespace Modules\Articles\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+// use Modules\Articles\Database\Factories\CategoryFactory;
 
-class Article extends Model
+class Category extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'title',
+        'name',
         'slug',
-        'content',
-        'metadata',
-        'published_at',
         'created_at',
-        'deleted_at',
     ];
 }
