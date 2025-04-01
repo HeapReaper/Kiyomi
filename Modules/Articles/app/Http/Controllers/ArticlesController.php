@@ -12,14 +12,14 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('articles::pages.index', [
+        return view('articles::articles.index', [
             'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
         ]);
     }
 
     public function create()
     {
-        return view('articles::pages.create', [
+        return view('articles::articles.create', [
             'categories' => Category::all(),
         ]);
     }
@@ -59,7 +59,7 @@ class ArticlesController extends Controller
 
     public function edit(int $id)
     {
-        return view('articles::pages.edit', [
+        return view('articles::articles.edit', [
             'article' => Article::with('categories', 'author')->findOrFail($id),
             'categories' => Category::all(),
         ]);

@@ -11,7 +11,7 @@ class CategoriesController extends Controller
 {
     public function index()
     {
-        return view('articles::pages.categories.index', [
+        return view('articles::categories.index', [
             'categories' => Category::orderBy('name', 'asc')->get()
         ]);
     }
