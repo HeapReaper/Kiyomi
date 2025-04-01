@@ -32,7 +32,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <x-lucide-plane class="text-gray-500 me-1" style="width: 22px;" /> Vluchten
+            <x-lucide-plane class="text-gray-500 me-1" style="width: 22px; fill: white;" /> Vluchten
           </a>
           <ul class="dropdown-menu bg-dark">
             <a class="dropdown-item text-white" href="{{ route('flights-panel.index') }}">Overzicht</a>

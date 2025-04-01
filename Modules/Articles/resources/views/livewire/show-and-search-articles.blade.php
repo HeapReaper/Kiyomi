@@ -1,4 +1,6 @@
 <div>
+  <h4 class="text-white">Alle artikelen</h4>
+
   <!-- FILTERS -->
   <div class="row">
     <div class="col ml-2">
@@ -28,7 +30,7 @@
         <th scope="row" class="text-white">{{ $article->id }}</th>
         <th scope="row" class="text-white">{{ $article->title }}</th>
         <th scope="row" class="text-white">{{ $article->slug }}</th>
-        <td class="text-white">{{ $article->author->name }}</td>
+        <th scope="row" class="text-white" >{{ $article->author->name }}</th>
         <th scope="row" class="text-white">
           {{ \Carbon\Carbon::parse($article->created_at)->format('d-m-Y H:i:s') }}
         </th>
