@@ -66,7 +66,7 @@
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('theme.index') }}">Thema</a>
-              <a class="dropdown-item text-white" href="/navigation">Menu</a>
+              <a class="dropdown-item text-white" href="{{ route('menu.index') }}">Menu</a>
             </ul>
           </li>
         @endif
