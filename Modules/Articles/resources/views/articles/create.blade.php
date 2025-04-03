@@ -9,7 +9,7 @@
     <form method="POST" action="{{ route('articles.store') }}">
     <div class="row">
       @csrf
-      <div class="col-9 me-3 bg-dark rounded bg-opacity-25 shadow-lg">
+      <div class="col-lg-9 me-3 bg-dark rounded bg-opacity-25 shadow-lg">
         <div class="mt-3 mb-3">
           <div class="mt-3 mb-3 ">
             <label for="title" class="form-label text-white">Titel</label>
@@ -33,7 +33,7 @@
         <button type="submit" class="btn text-white m-1 mb-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
       </div>
 
-      <div class="col-2 ms-3 bg-dark rounded bg-opacity-25 shadow-lg">
+      <div class="col-lg-2 ms-3 bg-dark rounded bg-opacity-25 shadow-lg">
         <div class="mt-3 mb-3">
           <p class="text-white fw-bold">Categorieën</p>
           @foreach($categories as $category)

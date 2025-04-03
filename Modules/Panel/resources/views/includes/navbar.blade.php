@@ -66,7 +66,7 @@
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('theme.index') }}">Thema</a>
-              <a class="dropdown-item text-white" href="/navigation">Menu</a>
+              <a class="dropdown-item text-white" href="{{ route('menu.index') }}">Menu</a>
             </ul>
           </li>
         @endif
@@ -119,6 +119,17 @@
 
 <style>
   .dropdown-menu .dropdown-item:hover {
-      background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  .dropdown-menu {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    display: none;
+  }
+
+  .dropdown.show .dropdown-menu{
+    display: block;
   }
 </style>
