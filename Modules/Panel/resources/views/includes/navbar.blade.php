@@ -119,6 +119,17 @@
 
 <style>
   .dropdown-menu .dropdown-item:hover {
-      background-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.2);
+  }
+
+  .dropdown-menu {
+    position: absolute !important;
+    top: 100%;
+    left: 0;
+    display: none;
+  }
+
+  .dropdown.show .dropdown-menu{
+    display: block;
   }
 </style>
