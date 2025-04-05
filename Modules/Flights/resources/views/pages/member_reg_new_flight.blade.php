@@ -3,7 +3,7 @@
 @section('title', 'Vlucht aanmelden')
 
 @section('content')
-  <form class="" id="plane_submittion" action="{{ route('flights.store') }}" method="POST" onsubmit="setName()">
+  <form class="" id="plane_submittion" action="{{ route('flights.store') }}" method="POST" onsubmit="onFormSubmit(event)">
     @csrf
     <h2 class="text-dark text-center pt-2 fw-bold"">Registratie aanvang modelvliegen TRMC</h2>
       <img src="/app_media/field_and_members.jpg" class="img-fluid p-2" style="border-radius: 1.25rem;">
@@ -141,8 +141,13 @@
         document.getElementById('end_time').value = getCurrentTimeInNetherlands();
       }
 
-      function setName(e) {
-          localStorage.setItem('name', document.getElementById('name').value);
+      function onFormSubmit(event) {
+        if (document.getElementById('start_time').value === document.getElementById('end_time').value) {
+          alert('Je kan de start en eindtijd niet hetzelfde hebben!');
+          event.preventDefault()
+        }
+
+        localStorage.setItem('name', document.getElementById('name').value);
       }
 
       document.addEventListener('DOMContentLoaded', async () => {
