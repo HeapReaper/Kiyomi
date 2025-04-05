@@ -11,7 +11,7 @@
 
       <div class="form-group m-2">
         <h5 class="text-dark">Naam modelvlieger:</h5>
-        <input class="form-control" type="text" name="name" id="name" placeholder="Volledige naam" value="{{ old('name') }}" onload="getName()">
+        <input class="form-control" type="text" name="name" id="name" placeholder="Volledige naam" value="{{ old('name') }}" onload="getName()" required>
         <small id="nameHelp" class="form-text text-dark">Na de 1e keer succesvol invullen wordt je naam automatisch ingevuld.</small>
       </div>
 
