@@ -34,7 +34,9 @@
             <th scope="col" class="text-white">Eind tijd</th>
             <th scope="col" class="text-white">Model</th>
             <th scope="col" class="text-white">Vermogen</th>
-            <th scope="col" class="text-white">Opties</th>
+            @if (Auth::user()->hasRole(['management', 'webmaster']))
+              <th scope="col" class="text-white">Opties</th>
+            @endif
           </tr>
         </thead>
           <tbody>
@@ -62,25 +64,27 @@
                 <td class="text-white">
                   {{ Modules\Flights\Enums\ModelPowerClassName::convertToName($flight->submittedModel[0]->class) }}
                 </td>
-                <!-- Edit, delete -->
-                <td style="" class="text-center">
-                  <div style="display: flex;">
-                    <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
-                      @csrf
-                      <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
-                        <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
-                      </button>
-                    </form>
+                @if (Auth::user()->hasRole(['management', 'webmaster']))
+                  <!-- Edit, delete -->
+                  <td style="" class="text-center">
+                    <div style="display: flex;">
+                      <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
+                        @csrf
+                        <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
+                          <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
+                        </button>
+                      </form>
 
-                    <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST" id="delete-form-{{ $flight->id }}">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class="table-link text-info image-hover-resize-10" onclick="return confirm('Weet je zeker dat je deze vlucht wilt verwijderen?');" style="border: none; background: none; padding: 0; cursor: pointer;">
-                        <x-heroicon-o-trash stroke="white" style="width: 27px;" />
-                      </button>
-                    </form>
-                  </div>
-                </td>
+                      <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST" id="delete-form-{{ $flight->id }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="table-link text-info image-hover-resize-10" onclick="return confirm('Weet je zeker dat je deze vlucht wilt verwijderen?');" style="border: none; background: none; padding: 0; cursor: pointer;">
+                          <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                        </button>
+                      </form>
+                    </div>
+                  </td>
+                @endif
               </tr>
           @endforeach
         </tbody>
