@@ -108,7 +108,7 @@
             <x-heroicon-s-user-circle class="me-1" style="width: 22px;"/> Welkom {{ Auth::user()->name }}!
           </a>
           <ul class="dropdown-menu bg-dark">
-            <a class="dropdown-item text-white" href="{{ route('users.edit', auth()->user()->id) }}">Profiel</a>
+            <a class="dropdown-item text-white" href="{{ route('profile.edit', auth()->user()->id) }}">Profiel</a>
             <a class="dropdown-item text-white" href="/logout">Uitloggen</a>
           </ul>
         </li>

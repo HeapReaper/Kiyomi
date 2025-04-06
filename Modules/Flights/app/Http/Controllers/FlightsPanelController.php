@@ -4,6 +4,7 @@ namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\SubmittedModel;
 use Modules\Users\Models\User;
@@ -32,6 +33,9 @@ class FlightsPanelController extends Controller
 
     public function edit(int $id)
     {
+        if (!Auth::user()->hasRole(['management', 'webmaster'])) {
+            abort(403);
+        }
         return view('flights::pages.flight_edit', [
             'users' => User::orderBy('name', 'ASC')->get(),
             'flight' => Flight::with(['submittedModel', 'user'])
@@ -42,6 +46,10 @@ class FlightsPanelController extends Controller
 
     public function update(Request $request, int $id)
     {
+        if (!Auth::user()->hasRole(['management', 'webmaster'])) {
+            abort(403);
+        }
+
         $validated = $request->validate([
             'user_id' => ['required'],
             'date' => ['required'],
@@ -79,6 +87,10 @@ class FlightsPanelController extends Controller
 
     public function destroy(int $id)
     {
+        if (!Auth::user()->hasRole(['management', 'webmaster'])) {
+            abort(403);
+        }
+
 		$flight = Flight::with(['submittedModel', 'user'])->where('id', $id)->first();
 
 	    if (!$flight) {
