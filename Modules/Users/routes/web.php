@@ -21,6 +21,11 @@ Route::group(['middleware' => ['auth', 'role:management,webmaster']], function (
     Route::get('users-export/destroy/{id}', [UsersExportController::class, 'destroy']);
 });
 
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('profile/edit/{id}', [UsersController::class, 'edit'])->name('profile.edit');
+    Route::put('profile/update/{id}', [UsersController::class, 'update'])->name('profile.update');
+});
+
 Route::middleware('throttle:5,1')->get('/login', Signin::class)->name('login');
 Route::middleware('throttle:5,1')->post('/login', [AuthenticationController::class, 'loginPost'])->name('loginPost');
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
