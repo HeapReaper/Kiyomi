@@ -143,8 +143,8 @@
 
       function onFormSubmit(event) {
         if (document.getElementById('start_time').value === document.getElementById('end_time').value) {
-          alert('Je kan de start en eindtijd niet hetzelfde hebben!');
-          event.preventDefault()
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show();
+          event.preventDefault();
         }
 
         if (document.getElementById('start_time').value > document.getElementById('end_time').value) {
