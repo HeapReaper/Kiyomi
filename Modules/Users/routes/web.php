@@ -8,7 +8,6 @@ use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Modules\Users\Http\Controllers\PasswordResetController;
 use Modules\Users\Http\Controllers\UsersExportController;
 use Modules\Users\Http\Controllers\AuthenticationController;
-use Illuminate\Support\Facades\Auth;
 use Modules\Users\Livewire\Signin;
 
 Route::group(['middleware' => ['auth', 'role:management,webmaster']], function () {
@@ -26,13 +25,18 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('profile/update/{id}', [UsersController::class, 'update'])->name('profile.update');
 });
 
-Route::middleware('throttle:5,1')->get('/login', Signin::class)->name('login');
-Route::middleware('throttle:5,1')->post('/login', [AuthenticationController::class, 'loginPost'])->name('loginPost');
+Route::group(['middleware' => 'throttle:5,1'], function () {
+    Route::get('/login', Signin::class)->name('login');
+    Route::post('/login', [AuthenticationController::class, 'loginPost'])->name('loginPost');
+});
+
 Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout');
 
 Route::resource('member', NewMemberController::class)->names('new_member');
 
-Route::get('/forgot-password', [PasswordResetController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
-Route::post('/forgot-password', [PasswordResetController::class, 'forgotPasswordPost'])->middleware('guest')->name('password.email');
-Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
-Route::post('/reset-password', [PasswordResetController::class, 'resetPasswordPost'])->middleware('guest')->name('password.update');
+Route::group(['middleware' => 'throttle:5,1'], function () {
+    Route::get('/forgot-password', [PasswordResetController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
+    Route::post('/forgot-password', [PasswordResetController::class, 'forgotPasswordPost'])->middleware('guest')->name('password.email');
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
+    Route::post('/reset-password', [PasswordResetController::class, 'resetPasswordPost'])->middleware('guest')->name('password.update');
+});

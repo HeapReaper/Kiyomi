@@ -143,12 +143,17 @@
 
       function onFormSubmit(event) {
         if (document.getElementById('start_time').value === document.getElementById('end_time').value) {
-          alert('Je kan de start en eindtijd niet hetzelfde hebben!');
-          event.preventDefault()
+          document.getElementById('toastBodyError').textContent = 'Start tijd en eind tijd mag niet hetzelfde zijn!';
+          (new bootstrap.Toast(document.getElementById('liveToastError'))).show();
+
+          event.preventDefault();
+
         }
 
         if (document.getElementById('start_time').value > document.getElementById('end_time').value) {
-          alert('De start tijd kan niet later zijn dan de eind tijd!');
+          document.getElementById('toastBodyError').textContent = 'Start tijd mag niet later zijn dan de eind tijd!!';
+          (new bootstrap.Toast(document.getElementById('liveToastError'))).show();
+
           event.preventDefault();
         }
         localStorage.setItem('name', document.getElementById('name').value);

@@ -5,7 +5,7 @@
 @section('content')
 <div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
-    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="/profile/update/{{ $user->id }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 
