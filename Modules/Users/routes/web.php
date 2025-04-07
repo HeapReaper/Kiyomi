@@ -8,7 +8,6 @@ use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Modules\Users\Http\Controllers\PasswordResetController;
 use Modules\Users\Http\Controllers\UsersExportController;
 use Modules\Users\Http\Controllers\AuthenticationController;
-use Illuminate\Support\Facades\Auth;
 use Modules\Users\Livewire\Signin;
 
 Route::group(['middleware' => ['auth', 'role:management,webmaster']], function () {
