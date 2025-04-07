@@ -30,7 +30,7 @@
           </div>
 
           <div class="mt-4 mb-3">
-            <a href="{{ route('users.edit', Auth::user()->id) }}" class="sidebar-links">
+            <a href="{{ route('profile.edit', Auth::user()->id) }}" class="sidebar-links">
               Profiel
             </a>
           </div>
