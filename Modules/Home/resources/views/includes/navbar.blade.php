@@ -22,7 +22,9 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('panel.index') }}">Login</a>
+            <a class="nav-link text-white" href="{{ route('panel.index') }}">
+              {{ Auth::check() ? 'Dashboard' : 'login' }}
+            </a>
         </li>
 
       </ul>
