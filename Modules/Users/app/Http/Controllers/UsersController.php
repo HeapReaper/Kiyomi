@@ -148,7 +148,11 @@ class UsersController extends Controller
             $user->licences()->sync($licenceIds);
         }
 
-        return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
+        if (str_contains($request->headers->get('referer'), 'profile')) {
+            return redirect(route('profile.edit', $user->id))->with('success', 'Je profiel is aangepast!!');
+        }
+
+        return redirect(route('users.index'))->with('success', 'Gebruiker is aangepast!');
     }
 
     public function destroy($id)
