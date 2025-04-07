@@ -7,7 +7,7 @@
       <small>Een paar seconden geleden</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body" id="toastBodyErrors">
       @foreach ($errors->all() as $error)
         <li>{{ $error }}</li>
       @endforeach
@@ -30,7 +30,7 @@
       <small>Een paar seconden geleden</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body" id="toastBodyError">
       {{ session('error') }}
     </div>
   </div>
@@ -51,7 +51,7 @@
       <small>Een paar seconden geleden</small>
       <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
-    <div class="toast-body">
+    <div class="toast-body" id="toastBodySuccess">
       {{ session('success') }}
     </div>
   </div>
