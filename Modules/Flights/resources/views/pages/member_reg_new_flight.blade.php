@@ -147,6 +147,10 @@
           event.preventDefault()
         }
 
+        if (document.getElementById('start_time').value > document.getElementById('end_time').value) {
+          alert('De start tijd kan niet later zijn dan de eind tijd!');
+          event.preventDefault();
+        }
         localStorage.setItem('name', document.getElementById('name').value);
       }
 
