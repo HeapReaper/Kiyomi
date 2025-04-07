@@ -20,7 +20,9 @@
             <input type="text" class="form-control" id="slug" name="slug" placeholder="Slug...">
           </div>
 
-          <button type="submit" class="btn text-white mb-3" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
+          <div class="mb-3">
+            <x-buttons.save />
+          </div>
         </form>
       </div>
 

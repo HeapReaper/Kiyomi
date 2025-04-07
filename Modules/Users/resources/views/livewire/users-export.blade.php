@@ -51,7 +51,9 @@
               <strong>Niet betaalden</strong>
             </label>
           </div>
-          <button type="submit" id="submit" class="btn text-white mt-2" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Exporteer</button>
+          <div class="mt-4">
+            <x-buttons.export />
+          </div>
         </form>
       </div>
 
