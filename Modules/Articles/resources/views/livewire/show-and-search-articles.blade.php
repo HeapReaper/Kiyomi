@@ -45,19 +45,13 @@
             <div style="display: flex;">
               <form action="{{ route('articles.edit', $article->id) }}" method="GET" style="margin-right: 10px;">
                 @csrf
-                <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
-                  <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
-                </button>
+                <x-buttons.edit />
               </form>
 
               <form action="{{ route('articles.destroy', $article->id) }}" method="POST">
                 @method('DELETE')
                 @csrf
-                <button type="submit" class="table-link text-info image-hover-resize-10"
-                        onclick="return confirm('Weet je zeker dat het artikel {{ $article->name }} wilt verwijderen?');"
-                        style="border: none; background: none; padding: 0; cursor: pointer;">
-                  <x-heroicon-o-trash stroke="white" style="width: 27px;" />
-                </button>
+                <x-buttons.delete tooltip="Weet je zeker dat het artikel '{{ $article->title }}' wilt verwijderen?" />
               </form>
             </div>
           </td>
