@@ -79,7 +79,7 @@ class ArticlesController extends Controller
     public function publicShow($slug)
     {
         return view('articles::public.show', [
-            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->where('slug', $slug)->get(),
+            'article' => Article::with('categories', 'author')->where('slug', $slug)->first(),
         ]);
     }
 

@@ -6,7 +6,6 @@
   @foreach($articles as $article)
     <div class="container mt-3 border shadow rounded">
       <div class="row">
-
         @if ($article->image !== null)
           <div class="col-md-3 d-flex justify-content-center align-items-center">
             <img src="{{$article->image}}" alt="picture" class="img-fluid rounded" style="max-width: 150px; max-height: 150px; object-fit: contain;">
@@ -19,8 +18,13 @@
           <div class="col-md-12">
         @endif
           <div class="custom-card">
-            <span class="badge mt-2" style="background-color: #d80414;">Nieuws</span>
-            <a href="#" style="color: black;">
+            @foreach($article->categories as $category)
+              <span class="badge mt-2" style="background-color: #d80414;">
+                {{ $category->name }}
+              </span>
+            @endforeach
+
+            <a href="{{ route('articles-public.show', $article->slug) }}" style="color: black;">
               <h3 class="mt-2 fw-bold">{{ $article->title }}</h3>
             </a>
             <p class="mb-0">
