@@ -20,7 +20,9 @@ class ArticlesController extends Controller
 
     public function publicIndex()
     {
-        return 'jej';
+        return view('articles::public.index', [
+            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
+        ]);
     }
 
     public function create()
@@ -76,7 +78,9 @@ class ArticlesController extends Controller
 
     public function publicShow($slug)
     {
-        return 'jeeej';
+        return view('articles::public.show', [
+            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->where('slug', $slug)->get(),
+        ]);
     }
 
     public function edit(int $id)
