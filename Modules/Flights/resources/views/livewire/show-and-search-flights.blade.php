@@ -6,19 +6,13 @@
     <div class="row">
       <div class="col ml-0">
         <div class="float-start mb-4 ms-0 mt-4">
-          <input wire:model.live="search" type="text" id="name_search" name="name_search" placeholder="Zoek op naam" class="form-control rounded">
+          <x-livewire.searchInput />
         </div>
       </div>
 
       <div class="col">
         <div class="float-end mb-4 ms-0 mt-4">
-          <select wire:model="selectYear" wire:change="updateSelectYear"  class="form-control form-control-lg selector_custom">
-            @foreach(range(2023, date('Y') + 7) as $year)
-              <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
-                {{ $year }}
-              </option>
-            @endforeach
-          </select>
+          <x-livewire.selectYear />
         </div>
       </div>
     </div>
@@ -70,17 +64,13 @@
                     <div style="display: flex;">
                       <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
                         @csrf
-                        <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
-                          <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
-                        </button>
+                        <x-buttons.edit />
                       </form>
 
                       <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST" id="delete-form-{{ $flight->id }}">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="table-link text-info image-hover-resize-10" onclick="return confirm('Weet je zeker dat je deze vlucht wilt verwijderen?');" style="border: none; background: none; padding: 0; cursor: pointer;">
-                          <x-heroicon-o-trash stroke="white" style="width: 27px;" />
-                        </button>
+                        <x-buttons.delete tooltip="Weet je zeker dat je deze vlucht wilt verwijderen?" />
                       </form>
                     </div>
                   </td>
