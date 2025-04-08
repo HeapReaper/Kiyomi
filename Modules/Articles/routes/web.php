@@ -8,3 +8,8 @@ Route::group(['middleware' => ['auth', 'role:management,webmaster']], function (
     Route::resource('articles', ArticlesController::class)->names('articles');
     Route::resource('categories', CategoriesController::class)->names('categories');
 });
+
+Route::group([], function () {
+    Route::get('artikelen', [ArticlesController::class, 'index'])->name('articles.index');
+    Route::get('artikelen/{slug}', [ArticlesController::class, 'index'])->name('articles.show');
+});
