@@ -14,7 +14,7 @@
       {{$article->title}}
     </h1>
 
-    <hr>
+    <hr style="color: #d80414;">
 
     <div class="mb-3">
       <p class="mb-0">
