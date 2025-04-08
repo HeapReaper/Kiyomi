@@ -13,10 +13,11 @@
     <h1 class="fw-bold mt-2">{{$article->title}}</h1>
 
     <hr>
+
     <div class="mb-3">
       <p class="mb-0">
         @if ($article->author->profile_picture)
-          <img src="{{ Storage::url('uploads/' . $article->author->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
+          <img src="{{ Storage::url('uploads/' . $article->author->profile_picture) }}" class="img-fluid rounded-circle mb-1" style="max-width: 40px; object-fit: cover;">
         @else
           <img src="https://placehold.co/80x80" class="rounded-circle">
         @endif
@@ -27,7 +28,6 @@
         {{ $article->author->name }}
       </p>
     </div>
-
 
     <div>
       {!! $article->content !!}
