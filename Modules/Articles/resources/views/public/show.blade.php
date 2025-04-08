@@ -10,7 +10,9 @@
       </span>
     @endforeach
 
-    <h1 class="fw-bold mt-2">{{$article->title}}</h1>
+    <h1 class="fw-bold mt-2">
+      {{$article->title}}
+    </h1>
 
     <hr>
 
