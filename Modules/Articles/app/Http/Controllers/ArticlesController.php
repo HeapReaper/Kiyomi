@@ -14,14 +14,19 @@ class ArticlesController extends Controller
     public function index()
     {
         return view('articles::articles.index', [
-            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
+            'articles' => Article::with('categories', 'author')
+                ->orderBy('created_at', 'desc')
+                ->get(),
         ]);
     }
 
     public function publicIndex()
     {
         return view('articles::public.index', [
-            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
+            'articles' => Article::with('categories', 'author')
+                ->orderBy('created_at', 'desc')
+                ->where('published', 1)
+                ->get(),
         ]);
     }
 
