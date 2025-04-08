@@ -5,7 +5,7 @@
 @section('content')
 <div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
-    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="/profile/update/{{ $user->id }}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
 
@@ -77,7 +77,9 @@
           </div>
         </div>
 
-        <div class="col-sm">
+
+        <div class="col-sm"
+        @if (!Auth::user()->hasRole(['management', 'webmaster'])) style="display: none" @endif>
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
@@ -89,7 +91,8 @@
           </div>
         </div>
 
-        <div class="col-sm">
+        <div class="col-sm"
+           @if (!Auth::user()->hasRole(['management', 'webmaster'])) style="display: none" @endif>
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
@@ -147,7 +150,8 @@
         </div>
       </div>
 
-      <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
+      @if (Auth::user()->hasRole(['management', 'webmaster']))
+        <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
         <div class="col">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="text-white font-weight-bold"><strong>Brevetten</strong></div>
@@ -227,6 +231,7 @@
           </div>
         </div>
       </div>
+      @endif
 
       <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
         <!-- Current profile picture -->
@@ -243,8 +248,7 @@
             <input class="form-control" type="file" id="profile_picture" name="profile_picture">
           </div>
         </div>
-
-        <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
+        <x-buttons.save />
       </div>
     </form>
   </div>

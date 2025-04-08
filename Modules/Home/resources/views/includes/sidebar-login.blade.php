@@ -24,13 +24,13 @@
 
         <div class="col">
           <div class="mt-4 mb-3">
-            <a href="#" class="sidebar-links">
+            <a href="{{ route('panel.index') }}" class="sidebar-links">
               Dashboard
             </a>
           </div>
 
           <div class="mt-4 mb-3">
-            <a href="{{ route('users.edit', Auth::user()->id) }}" class="sidebar-links">
+            <a href="{{ route('profile.edit', Auth::user()->id) }}" class="sidebar-links">
               Profiel
             </a>
           </div>

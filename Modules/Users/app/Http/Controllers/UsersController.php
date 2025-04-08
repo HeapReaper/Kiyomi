@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
@@ -24,6 +25,10 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
+        if (!Auth::user()->hasRole(['management', 'webmaster'])) {
+            abort(403);
+        }
+
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:40'],
             'birthdate' => ['required', 'date'],
@@ -143,7 +148,11 @@ class UsersController extends Controller
             $user->licences()->sync($licenceIds);
         }
 
-        return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
+        if (str_contains($request->headers->get('referer'), 'profile')) {
+            return redirect(route('profile.edit', $user->id))->with('success', 'Je profiel is aangepast!!');
+        }
+
+        return redirect(route('users.index'))->with('success', 'Gebruiker is aangepast!');
     }
 
     public function destroy($id)
