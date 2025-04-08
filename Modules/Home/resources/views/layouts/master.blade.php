@@ -199,12 +199,12 @@
         opacity: 0;
         transition: opacity 0.1s ease-in-out;
         display: block;
-        pointer-events: none; /* Initially disabled */
+        pointer-events: none;
       }
 
       .dropdown-menu.show {
         opacity: 1;
-        pointer-events: auto; /* Enabled when shown */
+        pointer-events: auto;
       }
     </style>
 

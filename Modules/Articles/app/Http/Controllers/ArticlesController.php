@@ -18,6 +18,13 @@ class ArticlesController extends Controller
         ]);
     }
 
+    public function publicIndex()
+    {
+        return view('articles::public.index', [
+            'articles' => Article::with('categories', 'author')->orderBy('created_at', 'desc')->get(),
+        ]);
+    }
+
     public function create()
     {
         return view('articles::articles.create', [
@@ -67,6 +74,13 @@ class ArticlesController extends Controller
     public function show($id)
     {
         return view('articles::show');
+    }
+
+    public function publicShow($slug)
+    {
+        return view('articles::public.show', [
+            'article' => Article::with('categories', 'author')->where('slug', $slug)->first(),
+        ]);
     }
 
     public function edit(int $id)
