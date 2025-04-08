@@ -14,6 +14,10 @@
         </li>
 
         <li class="nav-item">
+          <a class="nav-link text-white" href="{{ route('articles-public.index') }}">Nieuws</a>
+        </li>
+
+        <li class="nav-item">
           <a class="nav-link text-white" href="{{ route('flights.create') }}">Vlucht aanmelden</a>
         </li>
 

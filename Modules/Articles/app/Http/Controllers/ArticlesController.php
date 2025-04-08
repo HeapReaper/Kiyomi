@@ -18,6 +18,11 @@ class ArticlesController extends Controller
         ]);
     }
 
+    public function publicIndex()
+    {
+        return 'jej';
+    }
+
     public function create()
     {
         return view('articles::articles.create', [
@@ -67,6 +72,11 @@ class ArticlesController extends Controller
     public function show($id)
     {
         return view('articles::show');
+    }
+
+    public function publicShow($slug)
+    {
+        return 'jeeej';
     }
 
     public function edit(int $id)
