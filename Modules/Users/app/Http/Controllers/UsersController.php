@@ -8,6 +8,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -112,7 +113,7 @@ class UsersController extends Controller
 
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $fileName = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
 
             if ($user->profile_picture) {
                 $oldFilePath = 'pfp/' . $user->profile_picture;

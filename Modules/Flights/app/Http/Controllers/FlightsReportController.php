@@ -7,6 +7,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\FlightReport;
 use Modules\Users\Models\User;
@@ -45,15 +46,17 @@ class FlightsReportController extends Controller
                 'end_date' => date('d-m-Y', strtotime($validated['end_date'])),
             ]);
 
+            $fileName = Str::uuid()->toString() . '.pdf';
+
 			FlightReport::create([
 				'made_by' => (User::find(Auth::user()->id)->name),
 				'date' => date('Y-m-d'),
 				'report_start_date' => $validated['start_date'],
 				'report_end_date' => $validated['end_date'],
-				'file' => 'vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
+				'file' => $fileName,
 			]);
 
-			Storage::disk('minio')->put('reports/flights/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
+			Storage::disk('minio')->put('reports/flights/' . $fileName, $pdf->download()->getOriginalContent());
 
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
         } catch (\Exception $error) {
