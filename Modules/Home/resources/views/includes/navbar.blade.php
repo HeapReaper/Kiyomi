@@ -31,6 +31,26 @@
             </a>
         </li>
 
+
+        <button class="table-link text-info image-hover-resize-10" id="switchTheme" style="border: none; background: none; padding: 0; cursor: pointer; color: black">
+          <x-heroicon-s-moon style="width: 20px" />
+          <x-heroicon-s-sun style="width: 30px" />
+        </button>
+
+
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              console.log('dark');
+            } else {
+              console.log('light')
+            }
+          });
+
+          document.getElementById('switchTheme').addEventListener('click', function () {
+
+          });
+        </script>
       </ul>
     </div>
   </div>
