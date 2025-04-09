@@ -237,7 +237,7 @@
         <!-- Current profile picture -->
         <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
           @if ($user->profile_picture)
-            <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
+            <img src="{{ Storage::disk('minio')->url('pfp/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
           @endif
         </div>
 
