@@ -17,12 +17,12 @@ class FlightsReportController extends Controller
     {
         return view('flights::pages.reports.index');
     }
-	
+
     public function create()
     {
         return view('flights::create');
     }
-	
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -44,7 +44,7 @@ class FlightsReportController extends Controller
                 'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
                 'end_date' => date('d-m-Y', strtotime($validated['end_date'])),
             ]);
-			
+
 			FlightReport::create([
 				'made_by' => (User::find(Auth::user()->id)->name),
 				'date' => date('Y-m-d'),
@@ -52,25 +52,25 @@ class FlightsReportController extends Controller
 				'report_end_date' => $validated['end_date'],
 				'file' => 'vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
 			]);
-			
-			Storage::disk('local')->put('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
-			
+
+			Storage::disk('minio')->put('reports/flights/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
+
             return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
         } catch (\Exception $error) {
             return redirect()->back()->with('error', $error);
         }
     }
-	
+
     public function show($id)
     {
         return view('flights::show');
     }
-	
+
     public function edit($id)
     {
         return view('flights::edit');
     }
-	
+
     public function update(Request $request, $id)
     {
         //
@@ -84,17 +84,17 @@ class FlightsReportController extends Controller
             return redirect()->back()->with('error', 'Flight report niet gevonden.');
         }
 
-        Storage::disk('local')->delete('/reports/' . $flightReport->file);
+        Storage::disk('minio')->delete('reports/flights/' . $flightReport->file);
         $flightReport->delete();
 
         return redirect()->back()->with('success', 'Rapport is verwijderd.');
     }
-	
+
     public function download(string $report)
     {
         try {
 			session()->flash('success', 'Downloaden voltooid!');
-			return Storage::disk('local')->download('/reports/' . $report);
+			return Storage::disk('minio')->download('reports/flights/' . $report);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Flight rapport niet gevonden.');
         }

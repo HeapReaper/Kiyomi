@@ -38,7 +38,7 @@ class UsersExportController extends Controller
                 'included_roles' => $validated['include_members'],
             ])->setPaper('a4', 'landscape');
 
-            Storage::disk('local')->put('user_exports/leden_export_' . date('d-m-Y', ) . '.pdf', $pdf->download()->getOriginalContent());
+            Storage::disk('minio')->put('user_exports/leden_export_' . date('d-m-Y', ) . '.pdf', $pdf->download()->getOriginalContent());
 
             UserExport::create([
                 'file_name' => 'leden_export_' . date('d-m-Y', ) . '.pdf',
@@ -75,7 +75,7 @@ class UsersExportController extends Controller
             return redirect()->back()->with('error', 'Leden export niet gevonden.');
         }
 
-        Storage::disk('local')->delete('/reports/' . $userReport->file_name);
+        Storage::disk('minio')->delete('/reports/' . $userReport->file_name);
         $userReport->delete();
 
         return redirect()->back()->with('success', 'Leden export is verwijderd.');
@@ -84,7 +84,7 @@ class UsersExportController extends Controller
     public function download(string $filename)
     {
         try {
-            return Storage::disk('local')->download('/user_exports/' . $filename);
+            return Storage::disk('minio')->download('/user_exports/' . $filename);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Leden export niet gevonden.');
         }
