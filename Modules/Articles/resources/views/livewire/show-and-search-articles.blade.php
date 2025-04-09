@@ -16,7 +16,6 @@
       <tr>
         <th scope="col" class="text-white">#</th>
         <th scope="col" class="text-white">Titel</th>
-        <th scope="col" class="text-white">Slug</th>
         <th scope="col" class="text-white">Author</th>
         <th scope="col" class="text-white">Datum en tijd</th>
         <th scope="col" class="text-white">Gepubliceerd</th>
@@ -29,8 +28,9 @@
       @foreach ($articles as $article)
         <tr>
           <th scope="row" class="text-white">{{ $article->id }}</th>
-          <th scope="row" class="text-white">{{ $article->title }}</th>
-          <th scope="row" class="text-white">{{ $article->slug }}</th>
+          <th scope="row" class="text-white">
+            {{ Str::words(strip_tags($article->title), 4)  }}
+          </th>
           <th scope="row" class="text-white">{{ $article->author->name }}</th>
           <th scope="row" class="text-white">
             {{ \Carbon\Carbon::parse($article->created_at)->format('d-m-Y H:i:s') }}
