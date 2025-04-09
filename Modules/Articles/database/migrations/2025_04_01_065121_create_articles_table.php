@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->json('metadata')->nullable();
             $table->boolean('published')->default(false);
-            $table->integer('user_id')->unsigned();
             $table->softDeletes();
             $table->timestamps();
         });
