@@ -8,6 +8,7 @@ use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -112,19 +113,20 @@ class UsersController extends Controller
 
         if ($request->hasFile('profile_picture')) {
             $file = $request->file('profile_picture');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
+            $fileName = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
 
             if ($user->profile_picture) {
-                if (Storage::disk('public')->exists('uploads/' . $user->profile_picture)) {
-                    Storage::disk('public')->delete('uploads/' . $user->profile_picture);
+                $oldFilePath = 'pfp/' . $user->profile_picture;
+                if (Storage::disk('minio')->exists($oldFilePath)) {
+                    Storage::disk('minio')->delete($oldFilePath);
                 }
             }
 
             $user->update([
-                'profile_picture' => time() . '.' . $file->getClientOriginalExtension(),
+                'profile_picture' => $fileName,
             ]);
 
-            $file->storeAs('uploads', time() . '.' . $file->getClientOriginalExtension(), 'public');
+            Storage::disk('minio')->put('pfp/' . $fileName, fopen($file, 'r'));
         }
 
         $user->update([
