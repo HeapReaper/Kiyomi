@@ -4,12 +4,15 @@ namespace Modules\Media\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MediaController extends Controller
 {
     public function index()
     {
-        return view('media::index');
+        return view('media::index', [
+            'files' => Storage::disk('minio')->allFiles(),
+        ]);
     }
 
     public function create()
