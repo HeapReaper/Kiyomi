@@ -9,5 +9,6 @@
     "Financials": true,
     "Mail": true,
     "Articles": true,
-    "SiteView": true
+    "SiteView": true,
+    "Media": true
 }
