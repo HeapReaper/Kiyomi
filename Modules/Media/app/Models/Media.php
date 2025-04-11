@@ -4,19 +4,25 @@ namespace Modules\Media\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Modules\Media\Database\Factories\MediaFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Modules\Users\Models\User;
 
 class Media extends Model
 {
     use HasFactory;
+    protected $table = 'media';
 
-    /**
-     * The attributes that are mass assignable.
-     */
-    protected $fillable = [];
+    protected $fillable = [
+        'filename',
+        's3_name',
+        's3_path',
+        'mime_type',
+        'author_id',
+        'coupled_to_id',
+    ];
 
-    // protected static function newFactory(): MediaFactory
-    // {
-    //     // return MediaFactory::new();
-    // }
+    public function author(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'author_id');
+    }
 }
