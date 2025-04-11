@@ -19,12 +19,13 @@
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <x-heroicon-s-newspaper class="me-1" style="width: 22px;"/> Artikelen
+              <x-heroicon-s-newspaper class="me-1" style="width: 22px;"/> CMS
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
               <a class="dropdown-item text-white" href="{{ route('articles.index') }}">Alle artikelen</a>
               <a class="dropdown-item text-white" href="{{ route('categories.index') }}">Categorieën</a>
+              <a class="dropdown-item text-white" href="{{ route('media.index') }}">Media</a>
               <!--<li><hr class="dropdown-divider"></li>-->
             </ul>
           </li>
@@ -85,7 +86,6 @@
         </li>
         -->
 
-
         @if (Auth::user()->hasRole(['management', 'webmaster']))
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -105,14 +105,15 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <x-heroicon-s-user-circle class="me-1" style="width: 22px;"/> Welkom {{ Auth::user()->name }}
+            <x-heroicon-s-user-circle class="me-1" style="width: 22px;"/>
           </a>
-          <ul class="dropdown-menu bg-dark">
+          <ul class="dropdown-menu bg-dark dropdown-menu-end">
             <a class="dropdown-item text-white" href="{{ route('profile.edit', auth()->user()->id) }}">Profiel</a>
             <a class="dropdown-item text-white" href="/logout">Uitloggen</a>
           </ul>
         </li>
       </ul>
+
     </div>
   </div>
 </nav>
