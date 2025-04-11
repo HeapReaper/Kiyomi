@@ -153,6 +153,10 @@ class ArticlesController extends Controller
     {
         try {
             $article = Article::with('categories', 'author')->findOrFail($id);
+
+            Cache::forget('articles');
+            Cache::forget('article_slug_' . $article->slug);
+
             $article->categories()->detach();
             $article->delete();
 
