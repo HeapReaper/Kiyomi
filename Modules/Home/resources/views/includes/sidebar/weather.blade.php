@@ -20,16 +20,40 @@
         }
 
         $weather = $response->json();
+
+        $windDirectionDegrees = [
+          'N'  => 0,
+          'NE' => 45,
+          'E'  => 90,
+          'SE' => 135,
+          'S'  => 180,
+          'SW' => 225,
+          'W'  => 270,
+          'NW' => 315,
+        ];
     @endphp
+
     <p>
       Locatie: {{ $weather['location']['name'] }}<br>
       Temperatuur: {{ $weather['current']['temp_c'] }}C<br>
       Wind: {{ $weather['current']['wind_kph'] }}km/u<br>
       Windstoten: {{ $weather['current']['gust_kph'] }}km/u<br>
       Windrichting: {{ $weather['current']['wind_dir'] }}<br>
-      Laatste update: {{ \Carbon\Carbon::parse($weather['current']['last_updated'])->format('d-m-Y H:m:s') }}
     </p>
-    <img src="https:{{ $weather['current']['condition']['icon'] }}">
-    <p></p>
+
+    <div class="position-relative d-inline-block" style="height: 100px;">
+      <img src="/app_media/field-top.png" class="img rounded" style="height: 100px;">
+
+      <div class="position-absolute top-50 start-50 translate-middle">
+        <x-heroicon-o-arrow-long-up
+          id="wind-arrow"
+          style="
+            width: 46px;
+            transform: rotate({{ $windDirectionDegrees[$weather['current']['wind_dir']] ?? 0 }}deg);
+            color: white;
+            "
+        />
+      </div>
+    </div>
   </div>
 </div>
