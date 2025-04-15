@@ -56,6 +56,18 @@
             <label class="form-check-label text-white" for="publication">Publicatie</label>
           </div>
         </div>
+
+        <hr class="text-white">
+
+        <p class="text-white fw-bold">Auteur</p>
+
+        <div class="mt-3 mb-3">
+          <select class="form-control form-control-lg selector_custom" name="author">
+            @foreach($users as $user)
+              <option value={{ $user->id }} @selected(Auth::id() == $user->id)>{{ $user->name }}</option>
+            @endforeach
+          </select>
+        </div>
       </div>
     </div>
     </form>

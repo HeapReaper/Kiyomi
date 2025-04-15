@@ -9,6 +9,7 @@ use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Cache;
+use Modules\Users\Models\User;
 
 class ArticlesController extends Controller
 {
@@ -43,6 +44,9 @@ class ArticlesController extends Controller
     {
         return view('articles::articles.create', [
             'categories' => Category::all(),
+            'users' => User::whereHas('roles', function ($query) {
+                $query->whereIn('name', ['webmaster', 'management']);
+            })->get(),
         ]);
     }
 
@@ -54,6 +58,7 @@ class ArticlesController extends Controller
             'categories' => ['required', 'array'],
             'categories.*' => ['required', 'exists:categories,id'],
             'publication' => ['nullable'],
+            'author' => ['required', 'integer', 'exists:users,id'],
         ]);
 
         try {
@@ -76,7 +81,7 @@ class ArticlesController extends Controller
             ]);
 
             $article->categories()->attach($validated['categories']);
-            $article->author()->associate(auth()->user());
+            $article->author()->associate($validated['author']);
             $article->save();
 
             Cache::forget('articles');
@@ -111,6 +116,9 @@ class ArticlesController extends Controller
         return view('articles::articles.edit', [
             'article' => Article::with('categories', 'author')->findOrFail($id),
             'categories' => Category::all(),
+            'users' => User::whereHas('roles', function ($query) {
+                $query->whereIn('name', ['webmaster', 'management']);
+            })->get(),
         ]);
     }
 
@@ -122,6 +130,7 @@ class ArticlesController extends Controller
             'categories' => ['required', 'array'],
             'categories.*' => ['required', 'exists:categories,id'],
             'publication' => ['nullable'],
+            'author' => ['required', 'integer', 'exists:users,id'],
         ]);
 
         try {
@@ -136,6 +145,8 @@ class ArticlesController extends Controller
 
             $article->categories()->detach();
             $article->categories()->attach($validated['categories']);
+
+            $article->author()->associate($validated['author']);
 
             $article->save();
 
