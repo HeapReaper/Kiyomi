@@ -29,7 +29,7 @@ class FlightsController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string'],
-            'date' => ['required', 'max:12'],
+            'date' => ['required', 'max:12', 'date', 'date_format:Y-m-d'],
             'start_time' => ['required', 'max:6'],
             'end_time' => ['required', 'max:6'],
             'model_type' => ['required', 'integer', 'max:5'],
