@@ -16,17 +16,17 @@ class NewMemberController extends Controller
     {
         return view('users::index');
     }
-	
+
     public function create()
     {
         return view('users::pages.new_member_signup');
     }
-	
+
     public function store(Request $request)
     {
         $validated = $request->validate([
             'name' => ['string', 'required'], // TODO add unique check name
-            'birthdate' => ['string', 'required'],
+            'birthdate' => ['string', 'required', 'date', 'date_format:d-m-Y'],
             'address' => ['string', 'required'],
             'postcode' => ['string', 'required'],
             'city' => ['string', 'required'],
@@ -77,22 +77,22 @@ class NewMemberController extends Controller
 
         return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
     }
-	
+
     public function show($id)
     {
         return view('users::show');
     }
-	
+
     public function edit($id)
     {
         return view('users::edit');
     }
-	
+
     public function update(Request $request, $id)
     {
         //
     }
-	
+
     public function destroy($id)
     {
         //
