@@ -8,25 +8,34 @@ use Illuminate\Http\Request;
 use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Cache;
 
 class ArticlesController extends Controller
 {
     public function index()
     {
-        return view('articles::articles.index', [
-            'articles' => Article::with('categories', 'author')
+        $articles = Cache::rememberForever('articles', function () {
+            return Article::with('categories', 'author')
                 ->orderBy('created_at', 'desc')
-                ->get(),
+                ->get();
+        });
+
+        return view('articles::articles.index', [
+            'articles' => $articles,
         ]);
     }
 
     public function publicIndex()
     {
-        return view('articles::public.index', [
-            'articles' => Article::with('categories', 'author')
+        $articles = Cache::rememberForever('articles', function () {
+            return Article::with('categories', 'author')
                 ->orderBy('created_at', 'desc')
                 ->where('published', 1)
-                ->get(),
+                ->get();
+        });
+
+        return view('articles::public.index', [
+            'articles' => $articles,
         ]);
     }
 
@@ -70,6 +79,8 @@ class ArticlesController extends Controller
             $article->author()->associate(auth()->user());
             $article->save();
 
+            Cache::forget('articles');
+
             return redirect(route('articles.index'))->with('success', 'Artikel is aangemaakt!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -83,8 +94,15 @@ class ArticlesController extends Controller
 
     public function publicShow($slug)
     {
+        $article = Cache::remember('article_slug_' . $slug, now()->addHours(12), function () use ($slug) {
+            return Article::with('categories', 'author')
+                ->where('slug', $slug)
+                ->where('published', true)
+                ->firstOrFail();
+        });
+
         return view('articles::public.show', [
-            'article' => Article::with('categories', 'author')->where('slug', $slug)->first(),
+            'article' => $article,
         ]);
     }
 
@@ -121,6 +139,9 @@ class ArticlesController extends Controller
 
             $article->save();
 
+            Cache::forget('articles');
+            Cache::forget('article_slug_' . $article->slug);
+
             return redirect(route('articles.index'))->with('success', 'Artikel is aangepast!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
@@ -132,6 +153,10 @@ class ArticlesController extends Controller
     {
         try {
             $article = Article::with('categories', 'author')->findOrFail($id);
+
+            Cache::forget('articles');
+            Cache::forget('article_slug_' . $article->slug);
+
             $article->categories()->detach();
             $article->delete();
 
