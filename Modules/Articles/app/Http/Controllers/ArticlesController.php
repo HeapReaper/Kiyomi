@@ -44,6 +44,9 @@ class ArticlesController extends Controller
     {
         return view('articles::articles.create', [
             'categories' => Category::all(),
+            'users' => User::whereHas('roles', function ($query) {
+                $query->whereIn('name', ['webmaster', 'management']);
+            })->get(),
         ]);
     }
 
@@ -55,6 +58,7 @@ class ArticlesController extends Controller
             'categories' => ['required', 'array'],
             'categories.*' => ['required', 'exists:categories,id'],
             'publication' => ['nullable'],
+            'author' => ['required', 'integer', 'exists:users,id'],
         ]);
 
         try {
@@ -77,7 +81,7 @@ class ArticlesController extends Controller
             ]);
 
             $article->categories()->attach($validated['categories']);
-            $article->author()->associate(auth()->user());
+            $article->author()->associate($validated['author']);
             $article->save();
 
             Cache::forget('articles');

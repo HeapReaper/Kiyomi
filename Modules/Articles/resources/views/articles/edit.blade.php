@@ -59,7 +59,7 @@
             </div>
           </div>
 
-          <hr class="text-warning">
+          <hr class="text-white">
 
           <p class="text-white fw-bold">Auteur</p>
 
