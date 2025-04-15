@@ -15,7 +15,7 @@
             ]);
 
         if (!$response->successful()) {
-          echo 'fluff';
+          echo '<p>Fout bij het ophalen van de gegevens</p>';
           return;
         }
 
