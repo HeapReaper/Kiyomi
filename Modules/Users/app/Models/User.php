@@ -9,10 +9,15 @@ use Modules\Flights\Models\Flight;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Modules\Users\Models\Licence;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, HasRoles, Notifiable, \Illuminate\Auth\Passwords\CanResetPassword;
+    use HasFactory,
+        HasRoles,
+        Notifiable,
+        \Illuminate\Auth\Passwords\CanResetPassword,
+        TwoFactorAuthenticatable;
 
 	protected $table = 'users';
 
@@ -37,6 +42,12 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 
     protected function casts(): array
