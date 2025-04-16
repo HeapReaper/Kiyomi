@@ -23,7 +23,7 @@ class GenerateSiteMap extends Command
 
             Article::where('published', 1)->each(function ($article) use ($sitemap) {
                 $sitemap->add(
-                    Url::create(route('articles.show', $article->slug))
+                    Url::create(route('articles-public.show', $article->slug))
                         ->setLastModificationDate($article->updated_at)
                         ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
                         ->setPriority(0.8)
