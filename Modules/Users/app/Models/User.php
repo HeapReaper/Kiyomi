@@ -9,10 +9,15 @@ use Modules\Flights\Models\Flight;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Modules\Users\Models\Licence;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
-    use HasFactory, HasRoles, Notifiable, \Illuminate\Auth\Passwords\CanResetPassword;
+    use HasFactory,
+        HasRoles,
+        Notifiable,
+        \Illuminate\Auth\Passwords\CanResetPassword,
+        TwoFactorAuthenticatable;
 
 	protected $table = 'users';
 
@@ -32,11 +37,18 @@ class User extends Authenticatable
         'instruct',
         'in_memoriam',
         'profile_picture',
+        'two_factor_confirmed',
     ];
 
     protected $hidden = [
         'password',
         'remember_token',
+        'two_factor_secret',
+        'two_factor_recovery_codes',
+    ];
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
     ];
 
     protected function casts(): array
@@ -52,9 +64,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Flight::class, 'flight_model');
     }
 
-
     public function licences(): belongsToMany
     {
         return $this->belongsToMany(Licence::class);
     }
+
+    public function hasTotpEnabled(): bool
+    {
+        return !empty($this->two_factor_secret);
+    }
+
+
 }
