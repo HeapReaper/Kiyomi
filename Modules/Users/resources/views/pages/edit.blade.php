@@ -254,18 +254,21 @@
 
     <!-- 2FA -->
     <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2 col-lg-6 offset-lg-3 pt-4 pb-4">
-      <h1 class="text-white">totp</h1>
+      <h1 class="text-white">Totp</h1>
       <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
-        <form class="col-lg-6 offset-lg-3 pt-4 pb-4" method="POST" action="{{ url('/user/two-factor-authentication') }}">
-          @csrf
-          <button type="submit">2FA aan</button>
-        </form>
 
-        <form method="POST" action="{{ url('/user/two-factor-authentication') }}">
-          @csrf
-          @method('DELETE')
-          <button type="submit">2fa uit</button>
-        </form>
+        @if (auth()->user()?->hasEnabledTwoFactorAuthentication())
+          <form method="POST" action="{{ url('/user/two-factor-authentication') }}">
+            @csrf
+            @method('DELETE')
+            <x-buttons.off />
+         </form>
+        @else
+          <form class="col-lg-6 offset-lg-3 pt-4 pb-4" method="POST" action="{{ url('/user/two-factor-authentication') }}">
+            @csrf
+            <x-buttons.on />
+          </form>
+        @endif
       </div>
 
       <div class="col">
@@ -277,10 +280,12 @@
 
             <form method="POST" action="{{ route('two-factor.confirm') }}">
               @csrf
-              <label for="code">Authentication Code</label>
-              <input id="code" name="code" type="text" required>
 
-              <button type="submit">Zet aan</button>
+              <div class="form-group">
+                <label for="name" class="text-white font-weight-bold"><strong>TOTP code</strong></label>
+                <input type="text" class="form-control" id="code" name="code" aria-describedby="TOTP code" required>
+              </div>
+              <x-buttons.on />
             </form>
           @endif
         </div>
