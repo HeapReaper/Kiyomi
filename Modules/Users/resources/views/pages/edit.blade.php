@@ -251,6 +251,48 @@
         <x-buttons.save />
       </div>
     </form>
+
+    <!-- 2FA -->
+    <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2 col-lg-6 offset-lg-3 pt-4 pb-4">
+      <h1 class="text-white">totp</h1>
+      <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
+        <form class="col-lg-6 offset-lg-3 pt-4 pb-4" method="POST" action="{{ url('/user/two-factor-authentication') }}">
+          @csrf
+          <button type="submit">2FA aan</button>
+        </form>
+
+        <form method="POST" action="{{ url('/user/two-factor-authentication') }}">
+          @csrf
+          @method('DELETE')
+          <button type="submit">2fa uit</button>
+        </form>
+      </div>
+
+      <div class="col">
+        <div class="mt-2 mb-2">
+          @if (auth()->user()->two_factor_secret)
+            <div>
+              {!! auth()->user()->twoFactorQrCodeSvg() !!}
+            </div>
+
+            <form method="POST" action="{{ route('two-factor.confirm') }}">
+              @csrf
+              <label for="code">Authentication Code</label>
+              <input id="code" name="code" type="text" required>
+
+              <button type="submit">Zet aan</button>
+            </form>
+          @endif
+        </div>
+        @if (auth()->user()->two_factor_recovery_codes)
+          <ul>
+            @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes), true) as $code)
+              <li>{{ $code }}</li>
+            @endforeach
+          </ul>
+        @endif
+      </div>
+    </div>
   </div>
 </div>
     @livewireScripts

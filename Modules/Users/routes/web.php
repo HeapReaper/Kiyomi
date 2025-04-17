@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Modules\Users\Http\Controllers\TwoFactorController;
 use Modules\Users\Http\Controllers\UsersContactController;
 use Modules\Users\Http\Controllers\UsersController;
 use Modules\Users\Http\Controllers\NewMemberController;
@@ -23,7 +24,17 @@ Route::group(['middleware' => ['auth', 'role:management,webmaster']], function (
 Route::group(['middleware' => 'auth'], function () {
     Route::get('profile/edit/{id}', [UsersController::class, 'edit'])->name('profile.edit');
     Route::put('profile/update/{id}', [UsersController::class, 'update'])->name('profile.update');
+    Route::post('two-factor/confirm', [TwoFactorController::class, 'confirm'])->name('two-factor.confirm');
+
 });
+
+Route::group(['middleware' => 'throttle:5,1'], function () {
+    Route::get('/forgot-password', [PasswordResetController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
+    Route::post('/forgot-password', [PasswordResetController::class, 'forgotPasswordPost'])->middleware('guest')->name('password.email');
+    Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
+    Route::post('/reset-password', [PasswordResetController::class, 'resetPasswordPost'])->middleware('guest')->name('password.update');
+});
+
 
 Route::group(['middleware' => 'throttle:5,1'], function () {
     Route::get('/login', Signin::class)->name('login');
@@ -34,9 +45,3 @@ Route::get('/logout', [AuthenticationController::class, 'logout'])->name('logout
 
 Route::resource('member', NewMemberController::class)->names('new_member');
 
-Route::group(['middleware' => 'throttle:5,1'], function () {
-    Route::get('/forgot-password', [PasswordResetController::class, 'forgotPassword'])->middleware('guest')->name('password.request');
-    Route::post('/forgot-password', [PasswordResetController::class, 'forgotPasswordPost'])->middleware('guest')->name('password.email');
-    Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
-    Route::post('/reset-password', [PasswordResetController::class, 'resetPasswordPost'])->middleware('guest')->name('password.update');
-});

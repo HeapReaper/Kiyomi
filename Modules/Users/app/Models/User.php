@@ -37,6 +37,7 @@ class User extends Authenticatable
         'instruct',
         'in_memoriam',
         'profile_picture',
+        'two_factor_confirmed',
     ];
 
     protected $hidden = [
