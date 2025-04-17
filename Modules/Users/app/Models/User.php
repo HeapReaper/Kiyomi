@@ -64,9 +64,15 @@ class User extends Authenticatable
         return $this->belongsToMany(Flight::class, 'flight_model');
     }
 
-
     public function licences(): belongsToMany
     {
         return $this->belongsToMany(Licence::class);
     }
+
+    public function hasTotpEnabled(): bool
+    {
+        return !empty($this->two_factor_secret);
+    }
+
+
 }

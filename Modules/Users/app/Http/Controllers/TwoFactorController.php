@@ -33,4 +33,33 @@ class TwoFactorController extends Controller
 
         return redirect()->back()->with('error', '2FA is niet aangezet, verkeerde codes!');
     }
+
+    public function showVerifyTotp(Request $request)
+    {
+        return view('users::pages.auth.totp');
+    }
+
+    public function verifyTotp(Request $request, TwoFactorAuthenticationProvider $provider)
+    {
+        $validated = $request->validate([
+            'code' => ['required', 'numeric', 'digits:6'],
+        ]);
+
+        $userId = session('auth.pending_user_id');
+
+        if (!$userId) {
+            return redirect()->route('login')->with('error', 'Geen gebruiker gevonden.');
+        }
+
+        $user = User::findOrFail($userId);
+
+        if (!$provider->verify(decrypt($user->two_factor_secret), $request->code)) {
+            return redirect()->back()->with('error', 'Verkeerde TOTP!');
+        }
+
+        session()->forget('auth.pending_user_id');
+        Auth::login($user);
+
+        return redirect('/')->with('success', 'Je bent ingelogd!!');
+    }
 }
