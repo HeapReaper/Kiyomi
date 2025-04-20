@@ -57,15 +57,14 @@
       </div>
     </div>
 
-
     <div class="position-relative d-inline-block" style="height: 100px;">
-      <img src="/app_media/field-top.png" class="img rounded" style="height: 100px;">
+      <img src="/app_media/field-top-full.png" class="img rounded" style="height: 100px;">
 
       <div class="position-absolute top-50 start-50 translate-middle">
         <x-heroicon-o-arrow-long-up
           id="wind-arrow"
           style="
-            width: 46px;
+            width: 50px;
             transform: rotate({{ $windDirectionDegrees[$weather['current']['wind_dir']] ?? 0 }}deg);
             color: white;
             "
