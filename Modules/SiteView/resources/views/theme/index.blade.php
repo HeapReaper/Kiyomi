@@ -3,6 +3,22 @@
 @section('title', 'Thema')
 
 @section('content')
-  <div class="container mt-4 bg-dark rounded bg-opacity-25 shadow-lg">
+  <div class="container">
+    <div class="row mt-4 m-2 bg-dark bg-opacity-25 shadow-lg rounded">
+      <h2 class="text-white">Thema</h2>
+
+      <div class="col">
+        <div class="mb-3">
+          <label for="colorPicker" class="form-label text-white">
+            Selecteer een thema kleur:
+          </label>
+          <input type="color" class="form-control form-control-color" id="colorPickerTheme" name="colorPickerTheme" value="">
+        </div>
+      </div>
+
+      <div class="col mb-4">
+        <iframe src="/" class="rounded" style="height: 400px; width: 350px" id="websitePreview"></iframe>
+      </div>
+    </div>
   </div>
 @stop
