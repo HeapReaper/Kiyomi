@@ -4,6 +4,7 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Exception;
 use Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -112,14 +113,18 @@ class UsersController extends Controller
         $user = User::find($id);
 
         if ($request->hasFile('profile_picture')) {
-            $file = $request->file('profile_picture');
-            $fileName = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
+            try {
+                $file = $request->file('profile_picture');
+                $fileName = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
 
-            if ($user->profile_picture) {
-                $oldFilePath = 'pfp/' . $user->profile_picture;
-                if (Storage::disk('minio')->exists($oldFilePath)) {
-                    Storage::disk('minio')->delete($oldFilePath);
+                if ($user->profile_picture) {
+                    $oldFilePath = 'pfp/' . $user->profile_picture;
+                    if (Storage::disk('minio')->exists($oldFilePath)) {
+                        Storage::disk('minio')->delete($oldFilePath);
+                    }
                 }
+            } catch (Exception $error) {
+                return redirect()->back()->with('error', 'Er ging iets mis! ' . $error->getMessage());
             }
 
             $user->update([
