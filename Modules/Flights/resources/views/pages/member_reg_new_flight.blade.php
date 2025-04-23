@@ -144,7 +144,7 @@
       function isNightTime(time) {
         const [hours, minutes] = time.split(':').map(Number);
 
-        return hours >= 0o0 || hours < 6;
+        return hours >= 0o0 && hours < 6;
       }
 
       function onFormSubmit(event) {
@@ -164,6 +164,14 @@
 
         if (isNightTime(document.getElementById('start_time').value)) {
           document.getElementById('toastBodyError').textContent = 'Start tijd mag niet in de nacht zijn!';
+          (new bootstrap.Toast(document.getElementById('liveToastError'))).show();
+
+          event.preventDefault();
+        }
+
+        if (isNightTime(document.getElementById('end_time').value)) {
+          console.log(document.getElementById('end_time').value)
+          document.getElementById('toastBodyError').textContent = 'Eind tijd mag niet in de nacht zijn!';
           (new bootstrap.Toast(document.getElementById('liveToastError'))).show();
 
           event.preventDefault();
