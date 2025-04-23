@@ -4,6 +4,7 @@ namespace Modules\SiteView\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class ThemeController extends Controller
 {
@@ -19,7 +20,9 @@ class ThemeController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'primary-site-theme-color' => ['required'],
+        ]);
     }
 
     public function show($id)

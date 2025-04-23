@@ -1,3 +1,132 @@
 :root {
-    --primary-color: #d80414;
+    --primary-style-color: #d80414;
+}
+
+body, html {
+    background-color: white;
+    width: 100%;
+    min-height: 100%;
+    background-attachment: fixed;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.form-control:focus {
+    outline: 2px solid var(--primary-style-color);
+    box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
+}
+
+.form-control:hover {
+    outline: 2px solid var(--primary-style-color);
+    box-shadow: 0 0 0 0.0rem rgba(0, 0, 0, 0);
+}
+
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 128, 0, 0.25);
+}
+
+.form-control option {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+    cursor: pointer;
+}
+
+.header-img {
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .header-text {
+        margin-top: 20px;
+        top: 50%;
+        width: 90%;
+    }
+
+    .header-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-text {
+        top: 55%;
+        font-size: 16px;
+    }
+}
+
+.navbar {
+    background-color: var(--primary-style-color) !important;
+}
+
+.sidebar-header {
+    padding: 10px;
+    position: relative;
+}
+
+.sidebar-title {
+    background-color: var(--primary-style-color);
+    color: white;
+    padding: 4px 40px 4px 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 80% 0, 100% 100%, 0 100%); /** angle shape **/
+}
+
+.sidebar-links {
+    color: black;
+    text-decoration: underline var(--primary-style-color);
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-links:hover {
+    transform: translateX(5px);
+}
+
+.button-subtle-animation {
+    transition: transform 0.2s ease-in-out;
+}
+
+.button-subtle-animation:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: var(--primary-style-color);
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border-top: 0.3em solid;
+    border-right: 0.3em solid transparent;
+    border-bottom: 0;
+    border-left: 0.3em solid transparent;
+    transition: transform 0.6s ease-in-out;
+}
+
+.dropdown-toggle.show::after {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    opacity: 0;
+    transition: opacity 0.1s ease-in-out;
+    display: block;
+    pointer-events: none;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    pointer-events: auto;
 }

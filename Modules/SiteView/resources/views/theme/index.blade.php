@@ -8,12 +8,17 @@
       <h2 class="text-white">Thema</h2>
 
       <div class="col">
-        <div class="mb-3">
-          <label for="colorPicker" class="form-label text-white">
-            Selecteer een thema kleur:
-          </label>
-          <input type="color" class="form-control form-control-color" id="colorPickerTheme" name="colorPickerTheme" value="">
-        </div>
+        <form action="{{ route('theme.store') }}" method="POST">
+          @csrf
+          <div class="mb-3">
+            <label for="colorPicker" class="form-label text-white">
+              Selecteer een thema kleur:
+            </label>
+            <input type="color" class="form-control form-control-color" id="primary-site-theme-color" name="primary-site-theme-color" value="">
+          </div>
+
+          <x-buttons.save />
+        </form>
       </div>
 
       <div class="col mb-4">
