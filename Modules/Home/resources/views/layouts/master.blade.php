@@ -23,7 +23,22 @@
 
   {{-- Vite CSS --}}
   {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
-  @vite(['Modules/Home/resources/assets/js/app.js', 'Modules/Home/resources/assets/css/app.css'])
+
+  @vite(['Modules/Home/resources/assets/js/app.js'])
+  <script>
+    if (localStorage.getItem('theme') == 'dark') {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = "{{ mix('Modules/Home/resources/assets/css/app-dark.css') }}";
+      document.head.appendChild(link);
+    } else {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = "{{ mix('Modules/Home/resources/assets/css/app.css') }}";
+      document.head.appendChild(link);
+    }
+  </script>
+
 </head>
 
 <body>

@@ -31,23 +31,58 @@
             </a>
         </li>
 
-
-        <button class="table-link text-info image-hover-resize-10" id="switchTheme" style="border: none; background: none; padding: 0; cursor: pointer; color: black">
-          <x-heroicon-s-moon style="width: 20px" />
-          <x-heroicon-s-sun style="width: 30px" />
+        <button class="btn" id="theme-toggle">
+          <img src="/app_media/moon.png" style="width: 30px; color: white;" id="theme-icon"/>
         </button>
-
 
         <script>
           document.addEventListener('DOMContentLoaded', function() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              console.log('dark');
+            const currentTheme = localStorage.getItem('theme');
+            const icon = document.getElementById('theme-icon');
+
+            if (localStorage.getItem('theme') === 'dark') {
+              icon.src = '/app_media/sun.png';
             } else {
-              console.log('light')
+              icon.src = '/app_media/moon.png';
+            }
+
+            if (currentTheme) {
+              document.body.classList.add(currentTheme);
+            }
+
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              if (currentTheme) return;
+              document.body.classList.add('dark');
+            } else {
+              if (currentTheme) return;
+              document.body.classList.add('light');
             }
           });
 
-          document.getElementById('switchTheme').addEventListener('click', function () {
+          document.getElementById('theme-toggle').addEventListener('click', function () {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
+
+            console.log('Changing theme');
+            console.log('Current theme from local storage: ' + currentTheme)
+
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            console.log('New theme from local storage: ' + newTheme)
+
+            document.body.classList.remove(currentTheme);
+            document.body.classList.add(newTheme);
+
+            localStorage.setItem('theme', newTheme);
+
+            if (icon.className === 'heroicon-s-moon') {
+              icon.className = 'heroicon-s-sun'; // Change this to the appropriate icon for dark mode
+            } else {
+              icon.className = 'heroicon-s-moon'; // Change this to the appropriate icon for light mode
+            }
+
+
+            location.reload();
 
           });
         </script>
