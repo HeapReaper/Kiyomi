@@ -32,23 +32,42 @@
         </li>
 
 
-        <button class="table-link text-info image-hover-resize-10" id="switchTheme" style="border: none; background: none; padding: 0; cursor: pointer; color: black">
-          <x-heroicon-s-moon style="width: 20px" />
-          <x-heroicon-s-sun style="width: 30px" />
-        </button>
+        <button id="theme-toggle"></button>
 
 
         <script>
           document.addEventListener('DOMContentLoaded', function() {
+            const currentTheme = localStorage.getItem('theme');
+
+            if (currentTheme) {
+              document.body.classList.add(currentTheme);
+            }
+
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              console.log('dark');
+              if (currentTheme) return;
+              document.body.classList.add('dark');
             } else {
-              console.log('light')
+              if (currentTheme) return;
+              document.body.classList.add('light');
             }
           });
 
-          document.getElementById('switchTheme').addEventListener('click', function () {
+          document.getElementById('theme-toggle').addEventListener('click', function () {
+            const currentTheme = localStorage.getItem('theme') || 'light';
 
+            console.log('Changing theme');
+            console.log('Current theme from local storage: ' + currentTheme)
+
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+            console.log('New theme from local storage: ' + newTheme)
+
+            document.body.classList.remove(currentTheme);
+            document.body.classList.add(newTheme);
+
+            localStorage.setItem('theme', newTheme);
+
+            location.reload();
           });
         </script>
       </ul>
