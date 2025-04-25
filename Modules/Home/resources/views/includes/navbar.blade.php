@@ -31,13 +31,20 @@
             </a>
         </li>
 
-
-        <button id="theme-toggle"></button>
-
+        <button class="btn" id="theme-toggle">
+          <img src="/app_media/moon.png" style="width: 30px; color: white;" id="theme-icon"/>
+        </button>
 
         <script>
           document.addEventListener('DOMContentLoaded', function() {
             const currentTheme = localStorage.getItem('theme');
+            const icon = document.getElementById('theme-icon');
+
+            if (localStorage.getItem('theme') === 'dark') {
+              icon.src = '/app_media/sun.png';
+            } else {
+              icon.src = '/app_media/moon.png';
+            }
 
             if (currentTheme) {
               document.body.classList.add(currentTheme);
@@ -54,6 +61,7 @@
 
           document.getElementById('theme-toggle').addEventListener('click', function () {
             const currentTheme = localStorage.getItem('theme') || 'light';
+            const icon = document.getElementById('theme-icon');
 
             console.log('Changing theme');
             console.log('Current theme from local storage: ' + currentTheme)
@@ -67,7 +75,15 @@
 
             localStorage.setItem('theme', newTheme);
 
+            if (icon.className === 'heroicon-s-moon') {
+              icon.className = 'heroicon-s-sun'; // Change this to the appropriate icon for dark mode
+            } else {
+              icon.className = 'heroicon-s-moon'; // Change this to the appropriate icon for light mode
+            }
+
+
             location.reload();
+
           });
         </script>
       </ul>
