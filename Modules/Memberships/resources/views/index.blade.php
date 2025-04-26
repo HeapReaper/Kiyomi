@@ -24,29 +24,43 @@
       </thead>
 
       <tbody>
-        <tr class="text-center">
-          <th scope="row" class="text-white">1</th>
-          <td class="text-white">Donateur</td>
-          <td class="text-white">Het lidmaatschap voor donateurs</td>
-          <td class="text-white">€50,-</td>
-          <td class="text-white">
-            <span class="badge text-bg-success">Maandelijks</span>
-          </td>
-          <td class="text-white">
-            <span class="badge text-bg-success">Ja</span>
-          </td>
-          <td class="text-white d-flex">
-            <form>
-              @csrf
-              <x-buttons.edit />
-            </form>
+        @foreach($memberships as $membership)
+          <tr class="text-center">
+            <th scope="row" class="text-white">{{ $membership->id }}</th>
+            <td class="text-white">{{ $membership->name }}</td>
+            <td class="text-white">{{ Str::words($membership->description, 5) }}</td>
+            <td class="text-white">€{{ $membership->price }}</td>
+            <td class="text-white">
+              @if ($membership->payment_frequency === 1)
+                <span class="badge text-bg-success">Maandelijks</span>
+              @endif
 
-            <form>
-              @csrf
-              <x-buttons.delete tooltip="Weet je zeker dat je dit lidmaatschap wilt verwijderen?"/>
-            </form>
-          </td>
-        </tr>
+              @if ($membership->payment_frequency === 2)
+                  <span class="badge text-bg-primary">Jaarlijks</span>
+              @endif
+
+            </td>
+            <td class="text-white">
+              @if ($membership->active)
+                <span class="badge text-bg-success">Ja</span>
+              @else
+                <span class="badge text-bg-warning">Nee</span>
+              @endif
+            </td>
+            <td class="text-white d-flex">
+              <form action="{{ route('memberships.edit', $membership->id) }}" method="GET">
+                @csrf
+                <x-buttons.edit />
+              </form>
+
+              <form action="{{ route('memberships.destroy', $membership->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <x-buttons.delete tooltip="Weet je zeker dat je het lidmaatschap {{ $membership->name }} wilt verwijderen?"/>
+              </form>
+            </td>
+          </tr>
+        @endforeach
       </tbody>
     </table>
 

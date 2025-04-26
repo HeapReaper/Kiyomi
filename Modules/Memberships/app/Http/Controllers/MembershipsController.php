@@ -11,7 +11,9 @@ class MembershipsController extends Controller
 {
     public function index()
     {
-        return view('memberships::index');
+        return view('memberships::index', [
+            'memberships' => Membership::all(),
+        ]);
     }
 
     public function create()
@@ -35,7 +37,7 @@ class MembershipsController extends Controller
                 'description' => $validated['description'],
                 'price' => $validated['price'],
                 'payment_frequency' => $validated['payment_frequency'],
-                'active' => isset($validated['active']),
+                'active' => isset($validated['active']) ? 1 : 0,
             ]);
 
             return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
@@ -50,17 +52,42 @@ class MembershipsController extends Controller
         return view('memberships::show');
     }
 
-    public function edit($id)
+    public function edit(int $id)
     {
-        return view('memberships::edit');
+        return view('memberships::edit', [
+            'membership' => Membership::where('id', $id)->first(),
+        ]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $validated = $request->validate([
+            'name' => ['required', 'string'],
+            'description' => ['required', 'string'],
+            'price' => ['required', 'numeric'],
+            'payment_frequency' => ['required', 'integer'],
+            'active' => ['nullable', 'integer'],
+        ]);
+
+        try {
+            $membership = Membership::where('id', $id)->first();
+
+            $membership->update([
+                'name' => $validated['name'],
+                'description' => $validated['description'],
+                'price' => $validated['price'],
+                'payment_frequency' => $validated['payment_frequency'],
+                'active' => isset($validated['active']) ? 1 : 0,
+            ]);
+
+            return redirect()->route('memberships.index')->with('success', 'Membership updated successfully.');
+        } catch (\Exception $error) {
+            Log::channel('laravel')->error($error->getMessage());
+            return redirect()->back()->with('error', $error->getMessage());
+        }
     }
 
-    public function destroy($id)
+    public function destroy(int $id)
     {
         //
     }

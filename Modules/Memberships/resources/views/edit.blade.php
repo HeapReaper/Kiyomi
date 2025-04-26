@@ -6,37 +6,41 @@
 
     <form action="{{ route('memberships.update', $membership->id) }}" method="POST" >
       @csrf
+      @method('PUT')
       <div class="form-group mb-3">
         <label for="name" class="text-white font-weight-bold"><strong>Naam</strong></label>
-        <input type="text" class="form-control" id="name" name="name" aria-describedby="name" placeholder="Bijvoorbeeld: Donateurs, junior lid" value="{{ old('name') }}" required>
+        <input type="text" class="form-control" id="name" name="name" aria-describedby="name"
+               placeholder="Bijvoorbeeld: Donateurs, junior lid" value="{{ $membership->name }}" required>
       </div>
 
       <div class="form-group mb-3">
         <label for="description" class="text-white font-weight-bold"><strong>Beschrijving</strong></label>
-        <textarea class="form-control" id="description" name="description" aria-describedby="description" required rows="3">
+        <textarea class="form-control" id="description" name="description" aria-describedby="description"
+                  required rows="3">{{ $membership->description }}
         </textarea>
       </div>
 
       <div class="form-group mb-3">
         <label for="price" class="text-white font-weight-bold"><strong>Prijs (€)</strong></label>
-        <input type="number" step="1" class="form-control" id="price" name="price" aria-describedby="price" placeholder="" value="{{ old('price') }}" required>
+        <input type="number" step="1" class="form-control" id="price" name="price" aria-describedby="price"
+               placeholder="" value="{{ $membership->price }}" required>
       </div>
 
       <div class="form-group mb-3">
         <label for="payment_frequency" class="text-white font-weight-bold"><strong>Betaal frequentie</strong></label>
         <select class="form-control" id="payment_frequency" name="payment_frequency" required>
-          <option value=1 selected>
+          <option value=1 @selected($membership->payment_frequency == 1)>
             Per maand
           </option>
-          <option value=2>
+          <option value=2 @selected($membership->payment_frequency == 2)>
             Per jaar
           </option>
         </select>
       </div>
 
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="is_active" value="1">
-        <label class="form-check-label text-white" for="membershipActive"><strong>Actief</strong></label>
+        <input type="checkbox" class="form-check-input" id="active" name="active" value="1" @checked($membership->active)>
+        <label class="form-check-label text-white" for="active"><strong>Actief</strong></label>
       </div>
 
       <x-buttons.save />

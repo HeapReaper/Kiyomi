@@ -35,8 +35,8 @@
       </div>
 
       <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="membershipActive">
-        <label class="form-check-label text-white" for="membershipActive"><strong>Actief</strong></label>
+        <input type="checkbox" class="form-check-input" id="active" name="active">
+        <label class="form-check-label text-white" for="active"><strong>Actief</strong></label>
       </div>
 
       <x-buttons.save />
