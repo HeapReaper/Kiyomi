@@ -2,8 +2,13 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="main-box no-header clearfix bg-dark bg-opacity-25 rounded shadow-lg p-2">
-        <h2 class="text-white font-weight-bold">Leden</h2>
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h2 class="text-white">Leden</h2>
 
+          <a href="{{ route('users.create') }}" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
+            Nieuw lid
+          </a>
+        </div>
         <div class="row">
           <div class="col ml-2">
             <div class="float-start mb-4 ms-0 mt-2">

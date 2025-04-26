@@ -1,5 +1,11 @@
 <div>
-  <h4 class="text-white">Alle artikelen</h4>
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2 class="text-white">Artikelen</h2>
+
+    <a href="{{ route('articles.create') }}" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
+      Nieuw artikel
+    </a>
+  </div>
 
   <!-- FILTERS -->
   <div class="row">
