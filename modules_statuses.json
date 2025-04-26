@@ -11,5 +11,6 @@
     "Articles": true,
     "SiteView": true,
     "Media": true,
-    "Payments": true
+    "Payments": true,
+    "Memberships": true
 }
