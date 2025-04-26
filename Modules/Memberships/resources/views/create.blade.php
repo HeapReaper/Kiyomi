@@ -4,7 +4,7 @@
   <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
     <h2 class="text-white">Nieuw lidmaatschap</h2>
 
-    <form>
+    <form action="{{ route('memberships.store') }}" method="POST" >
       @csrf
       <div class="form-group mb-3">
         <label for="name" class="text-white font-weight-bold"><strong>Naam</strong></label>
