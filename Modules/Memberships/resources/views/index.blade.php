@@ -8,7 +8,7 @@
       <h2 class="text-white">Lidmaatschappen</h2>
 
       <a href="{{ route('memberships.create') }}" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
-        <i class="fas fa-plus"></i> Nieuw lidmaatschap
+        Nieuw lidmaatschap
       </a>
     </div>
 
