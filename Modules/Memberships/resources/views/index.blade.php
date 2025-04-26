@@ -1,5 +1,7 @@
 @extends('panel::layouts.master')
 
+@section('title', 'Lidmaatschappen')
+
 @section('content')
   <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
     <div class="d-flex justify-content-between align-items-center mb-3">

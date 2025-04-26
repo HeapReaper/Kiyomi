@@ -1,5 +1,7 @@
 @extends('panel::layouts.master')
 
+@section('title', 'Lidmaatschap bewerk')
+
 @section('content')
   <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
     <h2 class="text-white">Bewerk lidmaatschap</h2>

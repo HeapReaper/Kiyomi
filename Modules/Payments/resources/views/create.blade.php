@@ -1,5 +1,8 @@
 @extends('panel::layouts.master')
 
+@section('title', 'Betaling nieuw')
+
+
 @section('content')
   <h1>Hello World</h1>
 

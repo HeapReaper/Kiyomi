@@ -1,7 +1,9 @@
 @extends('panel::layouts.master')
 
-@section('content')
-  <h1>Hello World</h1>
+@section('title', 'Betalingen')
 
-  <p>Module: {!! config('payments.name') !!}</p>
-@endsection
+@section('content')
+  <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
+
+  </div>
+@stop
