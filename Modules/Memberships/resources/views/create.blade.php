@@ -34,9 +34,14 @@
         </select>
       </div>
 
-      <div class="mb-3 form-check">
+      <div class="form-check mb-3 ">
         <input type="checkbox" class="form-check-input" id="active" name="active">
         <label class="form-check-label text-white" for="active"><strong>Actief</strong></label>
+      </div>
+
+      <div class="mb-2">
+        <label for="checkbox" class="text-white"><strong>Gebruikersgroep</strong></label>
+        <x-roles.checkboxes/>
       </div>
 
       <x-buttons.save />
