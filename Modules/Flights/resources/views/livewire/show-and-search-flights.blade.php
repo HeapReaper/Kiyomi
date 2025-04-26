@@ -71,8 +71,8 @@
                         @csrf
                         @method('DELETE')
                         <x-buttons.delete tooltip="Weet je zeker dat je deze vlucht wilt verwijderen?" />
-                      </form>
-                    </div>
+                      </form
+                    </div>>
                   </td>
                 @endif
               </tr>
