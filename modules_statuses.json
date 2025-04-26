@@ -10,5 +10,7 @@
     "Mail": true,
     "Articles": true,
     "SiteView": true,
-    "Media": true
+    "Media": true,
+    "Payments": true,
+    "Memberships": true
 }

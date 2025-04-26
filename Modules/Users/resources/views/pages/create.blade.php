@@ -89,44 +89,8 @@
 
           <div class="col-sm">
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
-              <div class="form-group">
-                <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="junior_member" id="junior_member" name="roles[]">
-                  <label class="form-check-label text-white" for="junior_member">
-                    Junior lid
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="aspirant_member" id="aspirant_member" name="roles[]">
-                  <label class="form-check-label text-white" for="aspirant_member">
-                    Aspirant lid
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="member" id="member" name="roles[]">
-                  <label class="form-check-label text-white" for="member">
-                    Lid
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="management" id="management" name="roles[]">
-                  <label class="form-check-label text-white" for="management">
-                    Bestuur
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="donor" id="donor" name="roles[]">
-                  <label class="form-check-label text-white" for="donor">
-                    Donateur
-                  </label>
-                </div>
-              </div>
+              <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
+              <x-roles.checkboxes/>
             </div>
           </div>
         </div>
@@ -172,24 +136,21 @@
             <div class="pt-2 pb-2 ps-2 pe-2 mb-2 mt-2 w-25">
               <div class="text-white font-weight-bold"><strong>Drone</strong></div>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Drone A1" id="droneA1Checkbox" name="licences[]"
-                >
+                <input class="form-check-input" type="checkbox" value="Drone A1" id="droneA1Checkbox" name="licences[]">
                 <label class="form-check-label text-white" for="droneA1Checkbox">
                   A1
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Drone A2" id="droneA2Checkbox" name="licences[]"
-                >
+                <input class="form-check-input" type="checkbox" value="Drone A2" id="droneA2Checkbox" name="licences[]">
                 <label class="form-check-label text-white" for="droneA2Checkbox">
                   A2
                 </label>
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="Drone A3" id="droneA3Checkbox" name="licences[]"
-                       )>
+                <input class="form-check-input" type="checkbox" value="Drone A3" id="droneA3Checkbox" name="licences[]">
                 <label class="form-check-label text-white" for="droneA3Checkbox">
                   A3
                 </label>

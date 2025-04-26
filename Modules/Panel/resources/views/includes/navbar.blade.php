@@ -22,7 +22,6 @@
               <x-heroicon-s-newspaper class="me-1" style="width: 22px;"/> CMS
             </a>
             <ul class="dropdown-menu bg-dark">
-              <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
               <a class="dropdown-item text-white" href="{{ route('articles.index') }}">Alle artikelen</a>
               <a class="dropdown-item text-white" href="{{ route('categories.index') }}">Categorieën</a>
               <a class="dropdown-item text-white" href="{{ route('media.index') }}">Media</a>
@@ -53,7 +52,6 @@
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
               <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
-              <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
               <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
               <a class="dropdown-item text-white" href="{{ route('users-export.index') }}">Exporteer</a>
             </ul>
@@ -64,7 +62,7 @@
           <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/> Weergave
+              <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/>Weergave
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('theme.index') }}">Thema</a>
@@ -72,6 +70,19 @@
             </ul>
           </li>
           -->
+        @endif
+
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-credit-card class="me-1" style="width: 22px;"/>Financiën
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="{{ route('financials.index') }}">Inkomsten/Uitgaven</a>
+              <a class="dropdown-item text-white" href="{{ route('memberships.index') }}">Lidmaatschappen</a>
+              <a class="dropdown-item text-white" href="{{ route('payments.index') }}">Betalingen</a>
+            </ul>
+          </li>
         @endif
 
         <!--
