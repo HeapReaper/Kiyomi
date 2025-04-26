@@ -80,11 +80,9 @@
               <x-heroicon-s-credit-card class="me-1" style="width: 22px;"/>Financiën
             </a>
             <ul class="dropdown-menu bg-dark">
-              <a class="dropdown-item text-white" href="#">Inkomsten</a>
-              <a class="dropdown-item text-white" href="#">Uitgaven</a>
-              <a class="dropdown-item text-white" href="#">Lidmaatschappen</a>
-              <a class="dropdown-item text-white" href="#">Betalingen</a>
-              <a class="dropdown-item text-white" href="#">Rapportages</a>
+              <a class="dropdown-item text-white" href="{{ route('financials.index') }}">Inkomsten/Uitgaven</a>
+              <a class="dropdown-item text-white" href="{{ route('memberships.index') }}">Lidmaatschappen</a>
+              <a class="dropdown-item text-white" href="{{ route('payments.index') }}">Betalingen</a>
             </ul>
           </li>
         @endif
