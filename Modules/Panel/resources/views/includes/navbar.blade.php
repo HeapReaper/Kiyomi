@@ -64,7 +64,7 @@
           <!--
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/> Weergave
+              <x-heroicon-s-paint-brush class="me-1" style="width: 22px;"/>Weergave
             </a>
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('theme.index') }}">Thema</a>
@@ -72,6 +72,21 @@
             </ul>
           </li>
           -->
+        @endif
+
+        @if (Auth::user()->hasRole(['management', 'webmaster']))
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white d-flex align-items-center" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <x-heroicon-s-credit-card class="me-1" style="width: 22px;" />Financiën
+            </a>
+            <ul class="dropdown-menu bg-dark">
+              <a class="dropdown-item text-white" href="#">Inkomsten</a>
+              <a class="dropdown-item text-white" href="#">Uitgaven</a>
+              <a class="dropdown-item text-white" href="#">Lidmaatschappen</a>
+              <a class="dropdown-item text-white" href="#">Betalingen</a>
+              <a class="dropdown-item text-white" href="#">Rapportages</a>
+            </ul>
+          </li>
         @endif
 
         <!--
