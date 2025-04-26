@@ -6,19 +6,22 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Modules\Memberships\Models\Membership;
+use Spatie\Permission\Models\Role;
 
 class MembershipsController extends Controller
 {
     public function index()
     {
         return view('memberships::index', [
-            'memberships' => Membership::all(),
+            'memberships' => Membership::orderBy('name', 'ASC')->get(),
         ]);
     }
 
     public function create()
     {
-        return view('memberships::create');
+        return view('memberships::create', [
+            'roles' => Role::all(),
+        ]);
     }
 
     public function store(Request $request)
@@ -29,10 +32,11 @@ class MembershipsController extends Controller
             'price' => ['required', 'numeric'],
             'payment_frequency' => ['required', 'integer'],
             'active' => ['nullable', 'integer'],
+            'roles' => ['required', 'array'],
         ]);
 
         try {
-            Membership::create([
+            $membership =Membership::create([
                 'name' => $validated['name'],
                 'description' => $validated['description'],
                 'price' => $validated['price'],
@@ -40,7 +44,9 @@ class MembershipsController extends Controller
                 'active' => isset($validated['active']) ? 1 : 0,
             ]);
 
-            return redirect()->route('memberships.index')->with('success', 'Membership created successfully.');
+            $membership->syncRoles($validated['roles']);
+
+            return redirect()->route('memberships.index')->with('success', 'Lidmaatschap is aangemaakt!');
         } catch (\Exception $error) {
             Log::channel('laravel')->error($error->getMessage());
             return redirect()->back()->with('error', $error->getMessage());
@@ -67,6 +73,7 @@ class MembershipsController extends Controller
             'price' => ['required', 'numeric'],
             'payment_frequency' => ['required', 'integer'],
             'active' => ['nullable', 'integer'],
+            'roles' => ['required', 'array'],
         ]);
 
         try {
@@ -80,7 +87,9 @@ class MembershipsController extends Controller
                 'active' => isset($validated['active']) ? 1 : 0,
             ]);
 
-            return redirect()->route('memberships.index')->with('success', 'Membership updated successfully.');
+            $membership->syncRoles($validated['roles']);
+
+            return redirect()->route('memberships.index')->with('success', 'Lidmaatschap is aangepast!');
         } catch (\Exception $error) {
             Log::channel('laravel')->error($error->getMessage());
             return redirect()->back()->with('error', $error->getMessage());
@@ -89,6 +98,16 @@ class MembershipsController extends Controller
 
     public function destroy(int $id)
     {
-        //
+        try {
+            $membership = Membership::findOrFail($id);
+
+            $membership->roles()->detach();
+            $membership->delete();
+
+            return redirect()->route('memberships.index')->with('success', 'Lidmaatschap is verwijderd!');
+        } catch (\Exception $error) {
+            Log::channel('laravel')->error($error->getMessage());
+            return redirect()->back()->with('error', $error->getMessage());
+        }
     }
 }
