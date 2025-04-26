@@ -22,7 +22,6 @@
               <x-heroicon-s-newspaper class="me-1" style="width: 22px;"/> CMS
             </a>
             <ul class="dropdown-menu bg-dark">
-              <a class="dropdown-item text-white" href="{{ route('articles.create') }}">Nieuw artikel</a>
               <a class="dropdown-item text-white" href="{{ route('articles.index') }}">Alle artikelen</a>
               <a class="dropdown-item text-white" href="{{ route('categories.index') }}">Categorieën</a>
               <a class="dropdown-item text-white" href="{{ route('media.index') }}">Media</a>
@@ -53,7 +52,6 @@
             <ul class="dropdown-menu bg-dark">
               <a class="dropdown-item text-white" href="{{ route('users.index') }}">Overzicht</a>
               <a class="dropdown-item text-white" href="{{ route('users-statistics.index') }}">Statistieken</a>
-              <a class="dropdown-item text-white" href="{{ route('users.create') }}">Toevoegen</a>
               <a class="dropdown-item text-white" href="{{ route('contact.index') }}">Contact</a>
               <a class="dropdown-item text-white" href="{{ route('users-export.index') }}">Exporteer</a>
             </ul>
