@@ -5,6 +5,7 @@ namespace Modules\Articles\Http\Controllers;
 use App\Http\Controllers\Controller;
 use DOMDocument;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Modules\Articles\Models\Article;
 use Modules\Articles\Models\Category;
 use Illuminate\Support\Str;
@@ -157,7 +158,6 @@ class ArticlesController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
-
     }
 
     public function destroy(int $id)
@@ -175,7 +175,28 @@ class ArticlesController extends Controller
         } catch (\Exception $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
 
+    public function uploadMedia(Request $request)
+    {
+        if (!$request->hasFile('file')) {
+            return response()->json(['error' => 'No file uploaded.'], 400);
+        }
 
+        $validated = $request->validate([
+            'file' => ['required', 'file', 'mimes:jpeg,jpg,png,webp,mp4,avi,mkv,mov'],
+        ]);
+
+        try {
+            $fileName = Str::uuid()->toString() . '.' .  $validated['file']->getClientOriginalExtension();
+
+            Storage::disk('minio')->put('articles/media/' . $fileName, file_get_contents($request->file('file')->getRealPath()));
+
+            return response()->json([
+                'location' => Storage::disk('minio')->url('articles/media/' . $fileName),
+            ]);
+        } catch (\Exception $e) {
+            return response()->json(['error' => 'Error uploading file: ' . $e->getMessage()], 400);
+        }
     }
 }

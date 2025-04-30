@@ -3,7 +3,7 @@
 @section('title', 'Categorieën')
 
 @section('content')
-  <div class="container mt-4">
+  <div class="container mt-2">
     <div class="row">
       <div class="col me-1 bg-dark rounded bg-opacity-25 shadow-lg">
         <h1 class="text-white">Categorie maken</h1>

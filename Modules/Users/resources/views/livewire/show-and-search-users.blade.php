@@ -74,7 +74,7 @@
                         @if ($user->profile_picture)
                           <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
                         @else
-                          <img src="https://placehold.co/80x80" class="rounded-circle">
+                          <img src="https://placehold.co/40x40" class="rounded-circle">
                         @endif
                       </td>
                       <!-- Name -->

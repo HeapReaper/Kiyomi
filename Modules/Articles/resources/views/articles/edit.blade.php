@@ -4,8 +4,9 @@
 
 @section('content')
   <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+  @vite(['Modules/Articles/resources/assets/js/app.js'])
 
-  <div class="container-fluid ms-4 mt-4">
+  <div class="container-fluid ms-4 mt-2">
     <form method="POST" action="{{ route('articles.update', $article->id) }}">
       @csrf
       @method('PUT')
@@ -18,14 +19,6 @@
               <input type="text" class="form-control" placeholder="Titel..." name="title" value="{{ $article->title }}">
             </div>
 
-            <script>
-              tinymce.init({
-                selector: 'textarea',
-                plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
-                toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-                height: 600,
-              });
-            </script>
             <textarea name="content">
               <!-- Text -->
               {{ $article->content }}
