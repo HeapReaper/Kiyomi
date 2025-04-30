@@ -15,6 +15,8 @@ return [
 
     'default' => env('FILESYSTEM_DISK', 'local'),
 
+    'TINYMCE_API_KEY' => env('TINYMCE_API_KEY'),
+
     /*
     |--------------------------------------------------------------------------
     | Filesystem Disks
