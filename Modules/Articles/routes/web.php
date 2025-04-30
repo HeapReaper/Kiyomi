@@ -6,6 +6,7 @@ use Modules\Articles\Http\Controllers\CategoriesController;
 
 Route::group(['middleware' => ['auth', 'role:management,webmaster']], function () {
     Route::resource('articles', ArticlesController::class)->names('articles');
+    Route::post('articles/upload-media', [ArticlesController::class, 'uploadMedia'])->name('articles.upload-media');
     Route::resource('categories', CategoriesController::class)->names('categories');
 });
 

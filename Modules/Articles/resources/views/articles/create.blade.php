@@ -17,11 +17,37 @@
           </div>
 
           <script>
+            const fileUploadUrl = '/articles/upload-media';
             tinymce.init({
               selector: 'textarea',
               plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
               toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
               height: 600,
+              images_upload_url: fileUploadUrl,
+              automatic_uploads: true,
+              images_upload_handler: (blobInfo, success, failure) => {
+                const formData = new FormData();
+                formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+                fetch(fileUploadUrl, {
+                  method: 'POST',
+                  headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                  },
+                  body: formData,
+                })
+                  .then(response => response.json())
+                  .then(json => {
+                    if (json.location) {
+                      success(json.location);
+                    } else {
+                      failure('Upload failed: ' + (json.error || 'Unknown error'));
+                    }
+                  })
+                  .catch(err => {
+                    failure('Fetch error: ' + err.message);
+                  });
+              }
             });
           </script>
           <textarea name="content">
