@@ -180,19 +180,23 @@ class ArticlesController extends Controller
     public function uploadMedia(Request $request)
     {
         if (!$request->hasFile('file')) {
-            return;
+            return response()->json(['error' => 'No file uploaded.'], 400);
         }
 
-        try {
-            $fileName = Str::uuid()->toString() . '.' .  $request->file('file')->getClientOriginalExtension();
+        $validated = $request->validate([
+            'file' => ['required', 'file', 'mimes:jpeg,jpg,png,webp,mp4,avi,mkv,mov'],
+        ]);
 
-            Storage::disk('minio')->put('articles/media/' . $fileName,  $request->file('file'));
+        try {
+            $fileName = Str::uuid()->toString() . '.' .  $validated['file']->getClientOriginalExtension();
+
+            Storage::disk('minio')->put('articles/media/' . $fileName, file_get_contents($request->file('file')->getRealPath()));
 
             return response()->json([
                 'location' => Storage::disk('minio')->url('articles/media/' . $fileName),
             ]);
         } catch (\Exception $e) {
-            return response()->json(['error' => 'No file uploaded.'], 400);
+            return response()->json(['error' => 'Error uploading file: ' . $e->getMessage()], 400);
         }
     }
 }
