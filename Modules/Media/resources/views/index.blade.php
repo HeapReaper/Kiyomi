@@ -3,7 +3,9 @@
 @section('title', 'Media')
 
 @section('content')
-  <div class="container py-4">
+  <div class="container bg-dark bg-opacity-25 rounded shadow-lg mt-2 p-2">
+    <h2 class="text-white">Media</h2>
+
     <div class="table-responsive">
       <table class="table table-custom-dark user-list ml-2 mr-2" >
         <thead class="text-white">
