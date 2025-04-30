@@ -5,7 +5,7 @@
 @section('content')
   <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
 
-  <div class="container-fluid ms-4 mt-4">
+  <div class="container-fluid ms-4 mt-2">
     <form method="POST" action="{{ route('articles.update', $article->id) }}">
       @csrf
       @method('PUT')
