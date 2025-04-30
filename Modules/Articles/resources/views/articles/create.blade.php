@@ -17,7 +17,7 @@
           </div>
 
           <script>
-            const fileUploadUrl = '/articles/upload-media'; // Your file upload URL
+            const fileUploadUrl = '/articles/upload-media';
 
             tinymce.init({
               selector: 'textarea',
