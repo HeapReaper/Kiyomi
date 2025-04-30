@@ -29,13 +29,19 @@
 
                 media_live_embeds: true,
 
-
                 images_upload_url: fileUploadUrl,
                 automatic_uploads: true,
 
                 file_picker_types: 'image media',
 
                 file_picker_callback: (callback, value, meta) => {
+                  const existingMedia = document.querySelectorAll('img, video');
+                  let existingMediaSrc = [];
+
+                  existingMedia.forEach(media => {
+                    existingMediaSrc.push(media.src);
+                  });
+
                   const input = document.createElement('input');
                   input.setAttribute('type', 'file');
 
@@ -47,7 +53,12 @@
 
                   input.onchange = function () {
                     const file = this.files[0];
-                    console.log('File selected:', file);
+
+                    if (existingMediaSrc.includes(URL.createObjectURL(file))) {
+                      console.log('File already exists in content, skipping upload.');
+                      return;
+                    }
+
                     const formData = new FormData();
                     formData.append('file', file);
 
@@ -101,6 +112,7 @@
 
                 drag_drop: true,
               });
+
             </script>
             <textarea name="content">
               <!-- Text -->
