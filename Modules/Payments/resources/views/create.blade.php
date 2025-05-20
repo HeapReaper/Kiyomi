@@ -9,6 +9,8 @@
     <h2 class="text-white">Nieuwe betaling</h2>
 
     <form action="{{ route('payments.store') }}" method="POST">
+      @csrf
+
       <div class="form-group mb-3">
         <label for="for" class="text-white font-weight-bold"><strong>Voor</strong></label>
         <input list="options" name="for" id="for" class="form-control" placeholder="Typ om te zoeken..." required>
@@ -25,13 +27,13 @@
       </div>
 
       <div class="form-group mb-3">
-        <label for="amount" class="text-white font-weight-bold"><strong>Hoeveelheid (€)</strong></label>
-        <input type="number" step="1" class="form-control" id="amount" name="amount" aria-describedby="amount" placeholder="" value="{{ old('amount') }}" required>
+        <label for="amount_paid" class="text-white font-weight-bold"><strong>Hoeveelheid betaald(€)</strong></label>
+        <input type="number" step="1" class="form-control" id="amount_paid" name="amount_paid" aria-describedby="amount" placeholder="" value="{{ old('amount') }}" required>
       </div>
 
       <div class="form-group mb-3">
-        <label for="method" class="text-white font-weight-bold"><strong>Betalingsmethode</strong></label>
-        <select class="form-control" id="method" name="method" required>
+        <label for="payment_method" class="text-white font-weight-bold"><strong>Betalingsmethode</strong></label>
+        <select class="form-control" id="payment_method" name="payment_method" required>
           <option value=0 selected disabled>
             Selecteer
           </option>
