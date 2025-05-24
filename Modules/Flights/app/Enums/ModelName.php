@@ -14,7 +14,7 @@ enum ModelName: string
                 return 'Zweefvliegtuig';
                 break;
             case 3:
-                return 'Helicopter';
+                return 'Helikopter';
                 break;
             case 4:
                 return 'Drone';

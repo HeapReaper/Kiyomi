@@ -91,6 +91,7 @@
 
 
 {{-- Vite JS --}}
+@vite('resources/js/app.js')
 {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}
 </body>
 </html>
