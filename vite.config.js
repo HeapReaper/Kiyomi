@@ -11,6 +11,7 @@ const modules = fs.existsSync(modulePath)
 const moduleAssets = modules.flatMap(module => [
     `Modules/${module}/resources/assets/js/app.js`,
     `Modules/${module}/resources/assets/css/app.css`,
+    'resources/js/app.js',
 ]);
 
 export default defineConfig({
