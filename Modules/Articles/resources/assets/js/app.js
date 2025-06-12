@@ -57,11 +57,12 @@ tinymce.init({
     images_upload_handler: (blobInfo, success, failure) => {
         const formData = new FormData();
         formData.append('file', blobInfo.blob(), blobInfo.filename());
+        const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-        fetch(fileUploadUrl, {
+        fetch(window.uploadConfig.fileUploadUrl, {
             method: 'POST',
             headers: {
-                'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                'X-CSRF-TOKEN': csrfToken,
             },
             body: formData,
         })
@@ -74,7 +75,7 @@ tinymce.init({
                 }
             })
             .catch(err => {
-                failure('Fetch error: ' + err.message);
+                console.error('Fetch error: ' + err.message);
             });
     },
 
