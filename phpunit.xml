@@ -6,15 +6,15 @@
 >
     <testsuites>
         <testsuite name="Unit">
-            <directory>./modules/*/Tests/Unit</directory>
+            <directory>./Modules/*/tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
-            <directory>./modules/*/Tests/Feature</directory>
+            <directory>./Modules/*/tests/Feature</directory>
         </testsuite>
     </testsuites>
     <source>
         <include>
-            <directory suffix="Test.php">./modules/*/Tests/Feature</directory>
+            <directory suffix="Test.php">./Modules/*/tests/Feature</directory>
         </include>
     </source>
     <php>
