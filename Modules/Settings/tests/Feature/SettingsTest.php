@@ -25,16 +25,12 @@ class SettingsTest extends TestCase
         Artisan::call('db:seed', ['--class' => 'DefaultUserSeeder']);
         Artisan::call('db:seed', ['--class' => 'LicenceSeeder']);
 
-        (User::where('email', 'admin@default.com')->first())->assignRole(Role::findByName('management'));
+        $user = User::where('email', 'admin@default.com')->first();
+        $user->assignRole(Role::findByName('management'));
 
-        \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management,webmaster');
+        \App\Helpers\Settings::insertOrUpdate('roles_allowed_sign_in', 'management, webmaster');
 
-        // Log in the admin user first
-        Livewire::test('users::signin')
-            ->set('email', 'admin@default.com')
-            ->set('password', 'admin')
-            ->call('submit');
-        $this->assertAuthenticatedAs(auth()->user());
+        $this->actingAs($user, 'web');
     }
 
     public function test_can_show_settings(): void

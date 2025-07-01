@@ -12,6 +12,7 @@ const moduleAssets = modules.flatMap(module => [
     `Modules/${module}/resources/assets/js/app.js`,
     `Modules/${module}/resources/assets/css/app.css`,
     'resources/js/app.js',
+    'resources/js/turbo.js',
 ]);
 
 export default defineConfig({
@@ -20,6 +21,7 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/js/app.js',
+                'resources/js/turbo.js',
                 ...moduleAssets,
             ],
             server: {

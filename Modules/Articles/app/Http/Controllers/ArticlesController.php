@@ -184,7 +184,7 @@ class ArticlesController extends Controller
         }
 
         $validated = $request->validate([
-            'file' => ['required', 'file', 'mimes:jpeg,jpg,png,webp,mp4,avi,mkv,mov'],
+            'file' => ['required', 'file'],
         ]);
 
         try {
