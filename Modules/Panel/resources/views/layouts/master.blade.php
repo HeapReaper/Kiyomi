@@ -29,6 +29,9 @@
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-admin', 'resources/assets/sass/app.scss') }} --}}
     @vite(['Modules/Panel/resources/assets/js/app.js', 'Modules/Panel/resources/assets/css/app.css'])
+
+    <script defer data-domain="club.trmc.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
+    <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
   </head>
 
   <body>

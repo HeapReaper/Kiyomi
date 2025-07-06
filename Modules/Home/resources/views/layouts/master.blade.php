@@ -25,6 +25,7 @@
   {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
 
   @vite(['Modules/Home/resources/assets/js/app.js'])
+  <!-- TODO move to own file -->
   <script>
     if (localStorage.getItem('theme') == 'dark') {
       const link = document.createElement('link');
@@ -39,6 +40,8 @@
     }
   </script>
 
+  <script defer data-domain="club.trmc.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
+  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 </head>
 
 <body>
