@@ -168,10 +168,12 @@
   @endif
 
   <script>
-    function getCurrentTimeInNetherlands() {
+    function getCurrentTimeInNetherlands(addminutes = 0) {
       const now = new Date();
       const amsterdamTimeZone = 'Europe/Amsterdam';
       const amsterdamTime = new Date(now.toLocaleString('en-US', { timeZone: amsterdamTimeZone }));
+
+      amsterdamTime.setMinutes(amsterdamTime.getMinutes() + addminutes);
 
       const options = {
         hour: 'numeric',
@@ -179,9 +181,7 @@
         hour12: false,
       };
 
-      const formattedTime = amsterdamTime.toLocaleString('nl-NL', options);
-
-      return formattedTime;
+      return amsterdamTime.toLocaleString('nl-NL', options);
     }
 
     document.onload = changeCurrentDateOnDateInput();
@@ -203,7 +203,9 @@
     });
 
     function changeStartTime() {
-      document.getElementById('start_time').value = getCurrentTimeInNetherlands();
+      document.getElementById('start_time').value = getCurrentTimeInNetherlands(0);
+      document.getElementById('end_time').value = getCurrentTimeInNetherlands(5);
+
     }
 
     function changeEndTime() {
