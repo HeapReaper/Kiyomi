@@ -11,7 +11,7 @@
           <div class="justify-content-center">
             <!-- TOP TEXT AND IMAGE -->
             <h2 class="text-white text-center pt-2 ">Registratie aanvang modelvliegen TRMC</h2>
-              <img src="/app_media/field_and_members.jpg" class="img-fluid p-2" style="border-radius: 1.25rem;">
+              <img src="/app_media/field_and_members.jpg" alt="" class="img-fluid p-2" style="border-radius: 1.25rem;">
 
             <div class="form-group m-2">
               <h5 class="text-white font-weight-bold">Naam modelvlieger:</h5>
@@ -96,7 +96,7 @@
           <hr class="mt-3 mb-3">
 
           <!-- reCAPTCHA -->
-          <div class="form-group mt-2 p-2" id="rechapcha" name="rechapcha" hidden>
+          <div class="form-group mt-2 p-2" id="rechapcha" hidden>
             <h5 class="text-white font-weight-bold">Anti bot vraag:</h5>
             <input type="text" class="form-control" id="rechapcha_custom" name="rechapcha_custom" placeholder="Wat is 2 + 2?" value="{{ old('rechapcha_custom') }}" required>
           </div>
