@@ -160,103 +160,97 @@
         border-color: #2b5c93;
     }
   </style>
-      <style>
-        input[type="checkbox"] {
-          width: 1.2rem;
-          height: 1.2rem;
-          border-radius: 50%;
-        }
 
-        hr {
-          padding-top: 1px;
-          padding-bottom: 1px;
-          background-color: #ffffff;
-          margin-top: 5px;
-          margin-bottom: 5px;
-        }
-      </style>
+  @if (session()->has('success'))
+    <script>
+      localStorage.setItem('validatedUser', '4');
+    </script>
+  @endif
 
-      @if (session()->has('success'))
-        <script>
-          localStorage.setItem('validatedUser', '4');
-        </script>
-      @endif
+  <script>
+    function getCurrentTimeInNetherlands() {
+      const now = new Date();
+      const amsterdamTimeZone = 'Europe/Amsterdam';
+      const amsterdamTime = new Date(now.toLocaleString('en-US', { timeZone: amsterdamTimeZone }));
 
-      <script>
-        function getCurrentTimeInNetherlands() {
-          const now = new Date();
-          const amsterdamTimeZone = 'Europe/Amsterdam';
-          const amsterdamTime = new Date(now.toLocaleString('en-US', { timeZone: amsterdamTimeZone }));
+      const options = {
+        hour: 'numeric',
+        minute: 'numeric',
+        hour12: false,
+      };
 
-          const options = {
-            hour: 'numeric',
-            minute: 'numeric',
-            hour12: false,
-          };
+      const formattedTime = amsterdamTime.toLocaleString('nl-NL', options);
 
-          const formattedTime = amsterdamTime.toLocaleString('nl-NL', options);
+      return formattedTime;
+    }
 
-          return formattedTime;
-        }
+    document.onload = changeCurrentDateOnDateInput();
 
-        document.onload = changeCurrentDateOnDateInput();
+    function changeCurrentDateOnDateInput() {
+      const now = new Date()
+      document.getElementById('date').value = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+    }
 
-        function changeCurrentDateOnDateInput() {
-          const now = new Date()
-          document.getElementById('date').value = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
-        }
+    document.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
 
-        document.addEventListener('DOMContentLoaded', async () => {
-          document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
+      if(typeof Storage === 'undefined') return;
 
-          if(typeof Storage === 'undefined') return;
+      const user = localStorage.getItem('name_id');
+      if(user) {
+        document.getElementById('name').value = user;
+      }
+    });
 
-          const user = localStorage.getItem('name_id');
-          if(user) {
-            document.getElementById('name').value = user;
+    function changeStartTime() {
+      document.getElementById('start_time').value = getCurrentTimeInNetherlands();
+    }
+
+    function changeEndTime() {
+      document.getElementById('end_time').value = getCurrentTimeInNetherlands();
+    }
+
+    function setName(e) {
+        localStorage.setItem('name', document.getElementById('name').value);
+    }
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      document.getElementById('name').value = localStorage.getItem('name');
+
+      if (localStorage.getItem('name')) {
+          document.getElementById('nameHelp').hidden = true;
+      }
+
+      if (localStorage.getItem('validatedUser')) {
+        document.getElementById('rechapcha_custom').value = Number(localStorage.getItem('validatedUser'));
+        document.getElementById('rechapcha').hidden = true;
+      } else {
+        document.getElementById('rechapcha').hidden = false;
+      }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const modelTypeSelect = document.getElementById('model_type');
+      const powerTypeSelect = document.getElementById('power_type');
+      const allPowerOptions = Array.from(powerTypeSelect.options);
+
+      modelTypeSelect.addEventListener('change', function () {
+        if (modelTypeSelect.value === '2') {
+          allPowerOptions.forEach(option => {
+            option.hidden = option.value !== '4';
+          });
+          powerTypeSelect.value = '4'; // Selecteer de enige zichtbare optie
+        } else {
+          allPowerOptions.forEach(option => {
+            option.hidden = false;
+          });
+
+          if (powerTypeSelect.value === '4') {
+            powerTypeSelect.selectedIndex = 0;
           }
-        });
-
-        function changeStartTime() {
-          document.getElementById('start_time').value = getCurrentTimeInNetherlands();
         }
+      });
+    });
 
-        function changeEndTime() {
-          document.getElementById('end_time').value = getCurrentTimeInNetherlands();
-        }
-
-        function setName(e) {
-            localStorage.setItem('name', document.getElementById('name').value);
-        }
-
-        document.addEventListener('DOMContentLoaded', async () => {
-          document.getElementById('name').value = localStorage.getItem('name');
-
-          if (localStorage.getItem('name')) {
-              document.getElementById('nameHelp').hidden = true;
-          }
-
-          if (localStorage.getItem('validatedUser')) {
-            document.getElementById('rechapcha_custom').value = Number(localStorage.getItem('validatedUser'));
-            document.getElementById('rechapcha').hidden = true;
-          } else {
-            document.getElementById('rechapcha').hidden = false;
-          }
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            const modelTypeSelect = document.getElementById('model_type');
-            const powerTypeSelect = document.getElementById('power_type');
-            const zeroWOption = powerTypeSelect.querySelector('option[value="4"]');
-
-            modelTypeSelect.addEventListener('change', function () {
-              if (modelTypeSelect.value === '2') {
-                  zeroWOption.hidden = false;
-              } else {
-                  zeroWOption.hidden = true;
-              }
-            });
-        });
-      </script>
-  </div>
+    </script>
 @stop
