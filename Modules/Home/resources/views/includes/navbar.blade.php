@@ -14,10 +14,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('articles-public.index') }}">Nieuws</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link text-white" href="{{ route('flights.create') }}">Vlucht aanmelden</a>
         </li>
 
@@ -26,14 +22,9 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ route('panel.index') }}">
-              {{ Auth::check() ? 'Dashboard' : 'login' }}
-            </a>
+          <a class="nav-link text-white" href="{{ route('panel.index') }}">Login</a>
         </li>
 
-        <button class="btn" id="theme-toggle">
-          <img src="/app_media/moon.png" style="width: 30px; color: white;" id="theme-icon"/>
-        </button>
       </ul>
     </div>
   </div>

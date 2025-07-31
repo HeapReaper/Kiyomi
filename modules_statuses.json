@@ -7,10 +7,5 @@
     "Panel": true,
     "Home": true,
     "Financials": true,
-    "Mail": true,
-    "Articles": true,
-    "SiteView": true,
-    "Media": true,
-    "Payments": true,
-    "Memberships": true
+    "Mail": true
 }

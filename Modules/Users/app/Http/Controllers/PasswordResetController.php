@@ -16,7 +16,7 @@ class PasswordResetController extends Controller
 {
     public function forgotPassword(): \Illuminate\Contracts\View\View
     {
-        return view('users::pages.auth.forgot-password');
+        return view('users::pages.forgot-password');
     }
 
     public function forgotPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
@@ -42,7 +42,7 @@ class PasswordResetController extends Controller
 
     public function resetPassword(string $token): \Illuminate\Contracts\View\View
     {
-        return view('users::pages.auth.reset-password', ['token' => $token]);
+        return view('users::pages.reset-password', ['token' => $token]);
     }
 
     public function resetPasswordPost(Request $request): \Illuminate\Http\RedirectResponse
@@ -67,7 +67,7 @@ class PasswordResetController extends Controller
         );
 
         return $status === Password::PASSWORD_RESET
-            ? redirect('/')->with('success', 'Wachtwoord reset is voltooid! Log nu in met je nieuwe wachtwoord.')
+            ? redirect()->route('login')->with('success', 'Wachtwoord reset is voltooid! Log nu in met je nieuwe wachtwoord.')
             : back()->withErrors(['email' => [__($status)]]);
     }
 }

@@ -1,4 +1,4 @@
-@extends('panel::layouts.master')
+@extends('financials::layouts.master')
 
 @section('content')
     <h1>Hello World</h1>

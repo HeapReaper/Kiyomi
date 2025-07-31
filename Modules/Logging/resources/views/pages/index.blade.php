@@ -11,20 +11,20 @@
         <div class="float-start">
           <ul class="nav nav-tabs" id="log-tabs" role="tablist">
             <li class="nav-item" role="presentation">
-              <button class="nav-link text-white active" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs"
-                      type="button" role="tab" aria-controls="home" aria-selected="true" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
+              <button class="nav-link active" id="laravel-logs-tab" data-bs-toggle="tab" data-bs-target="#laravel-logs"
+                      type="button" role="tab" aria-controls="home" aria-selected="true">
                 Applicatie
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link text-white" id="user-error-tab" data-bs-toggle="tab" data-bs-target="#user-errors" type="button"
-                      role="tab" aria-controls="profile" aria-selected="false" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">
+              <button class="nav-link" id="user-error-tab" data-bs-toggle="tab" data-bs-target="#user-errors" type="button"
+                      role="tab" aria-controls="profile" aria-selected="false">
                 Gebruikers fouten
               </button>
             </li>
             <li class="nav-item" role="presentation">
-              <button class="nav-link text-white" id="access-tab" data-bs-toggle="tab" data-bs-target="#access" type="button"
-                      role="tab" aria-controls="profile" aria-selected="false" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%);">
+              <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access" type="button"
+                      role="tab" aria-controls="profile" aria-selected="false">
                 Toegang
               </button>
             </li>

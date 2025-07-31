@@ -5,7 +5,7 @@
 @section('content')
 <div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
-    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="/profile/update/{{ $user->id }}" method="POST" enctype="multipart/form-data">
+    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST">
       @csrf
       @method('PUT')
 
@@ -77,9 +77,7 @@
           </div>
         </div>
 
-
-        <div class="col-sm"
-        @if (!Auth::user()->hasRole(['management', 'webmaster'])) style="display: none" @endif>
+        <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
@@ -91,8 +89,7 @@
           </div>
         </div>
 
-        <div class="col-sm"
-           @if (!Auth::user()->hasRole(['management', 'webmaster'])) style="display: none" @endif>
+        <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
               <label for="role" class="text-white font-weight-bold"><strong>Rol</strong></label>
@@ -139,7 +136,7 @@
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]"
+                <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]" disabled
                   @checked($user->hasRole('webmaster') === true)>
                 <label class="form-check-label text-white" for="webmaster">
                   Webmaster
@@ -150,8 +147,7 @@
         </div>
       </div>
 
-      @if (Auth::user()->hasRole(['management', 'webmaster']))
-        <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
+      <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
         <div class="col">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="text-white font-weight-bold"><strong>Brevetten</strong></div>
@@ -230,74 +226,11 @@
             </div>
           </div>
         </div>
-      </div>
-      @endif
 
-      <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
-        <!-- Current profile picture -->
-        <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
-          @if ($user->profile_picture)
-            <img src="{{ Storage::disk('minio')->url('pfp/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
-          @endif
-        </div>
+        <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
 
-        <!-- New profile picture -->
-        <div class="col">
-          <div class="mb-3">
-            <label for="profile_picture" class="form-label text-white">Upload nieuwe profiel foto</label>
-            <input class="form-control" type="file" id="profile_picture" name="profile_picture">
-          </div>
-        </div>
-        <x-buttons.save />
       </div>
     </form>
-
-    <!-- 2FA -->
-    <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2 col-lg-6 offset-lg-3 pt-4 pb-4">
-      <h1 class="text-white">Totp</h1>
-      <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
-
-        @if (auth()->user()?->hasEnabledTwoFactorAuthentication())
-          <form method="POST" action="{{ url('/user/two-factor-authentication') }}">
-            @csrf
-            @method('DELETE')
-            <x-buttons.off />
-         </form>
-        @else
-          <form class="col-lg-6 offset-lg-3 pt-4 pb-4" method="POST" action="{{ url('/user/two-factor-authentication') }}">
-            @csrf
-            <x-buttons.on />
-          </form>
-        @endif
-      </div>
-
-      <div class="col">
-        <div class="mt-2 mb-2">
-          @if (auth()->user()->two_factor_secret)
-            <div>
-              {!! auth()->user()->twoFactorQrCodeSvg() !!}
-            </div>
-
-            <form method="POST" action="{{ route('two-factor.confirm') }}">
-              @csrf
-
-              <div class="form-group">
-                <label for="name" class="text-white font-weight-bold"><strong>TOTP code</strong></label>
-                <input type="text" class="form-control" id="code" name="code" aria-describedby="TOTP code" required>
-              </div>
-              <x-buttons.on />
-            </form>
-          @endif
-        </div>
-        @if (auth()->user()->two_factor_recovery_codes)
-          <ul>
-            @foreach (json_decode(decrypt(auth()->user()->two_factor_recovery_codes), true) as $code)
-              <li>{{ $code }}</li>
-            @endforeach
-          </ul>
-        @endif
-      </div>
-    </div>
   </div>
 </div>
     @livewireScripts

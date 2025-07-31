@@ -4,12 +4,8 @@ namespace Modules\Users\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
-use Exception;
 use Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -19,18 +15,14 @@ class UsersController extends Controller
     {
         return view('users::pages.index');
     }
-
+	
     public function create()
     {
         return view('users::pages.create');
     }
-
+	
     public function store(Request $request)
     {
-        if (!Auth::user()->hasRole(['management', 'webmaster'])) {
-            abort(403);
-        }
-
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:40'],
             'birthdate' => ['required', 'date'],
@@ -76,21 +68,21 @@ class UsersController extends Controller
 
         return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
-
+	
     public function show($id)
     {
         return view('users::pages.show', [
             'user' => User::find($id),
         ]);
     }
-
+	
     public function edit($id)
     {
         return view('users::pages.edit', [
             'user' => User::find($id),
         ]);
     }
-
+	
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -103,7 +95,6 @@ class UsersController extends Controller
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'profile_picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:2048'],
             'roles' => ['required'],
             'instruct' => ['required', 'integer', 'max:1'],
             'licences' => ['nullable'],
@@ -111,28 +102,6 @@ class UsersController extends Controller
         ]);
 
         $user = User::find($id);
-
-        if ($request->hasFile('profile_picture')) {
-            try {
-                $file = $request->file('profile_picture');
-                $fileName = Str::uuid()->toString() . '.' . $file->getClientOriginalExtension();
-
-                if ($user->profile_picture) {
-                    $oldFilePath = 'pfp/' . $user->profile_picture;
-                    if (Storage::disk('minio')->exists($oldFilePath)) {
-                        Storage::disk('minio')->delete($oldFilePath);
-                    }
-                }
-            } catch (Exception $error) {
-                return redirect()->back()->with('error', 'Er ging iets mis! ' . $error->getMessage());
-            }
-
-            $user->update([
-                'profile_picture' => $fileName,
-            ]);
-
-            Storage::disk('minio')->put('pfp/' . $fileName, fopen($file, 'r'));
-        }
 
         $user->update([
             'name' => $validated['name'],
@@ -155,13 +124,9 @@ class UsersController extends Controller
             $user->licences()->sync($licenceIds);
         }
 
-        if (str_contains($request->headers->get('referer'), 'profile')) {
-            return redirect(route('profile.edit', $user->id))->with('success', 'Je profiel is aangepast!!');
-        }
-
-        return redirect(route('users.index'))->with('success', 'Gebruiker is aangepast!');
+        return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }
-
+	
     public function destroy($id)
     {
         User::find($id)->delete();

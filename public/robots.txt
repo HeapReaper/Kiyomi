@@ -1,8 +1,2 @@
 User-agent: *
-Disallow: /login
-Disallow: /dashboard
-
-allow: /
-allow: /articles
-
-Sitemap: https://club.trmc.nl/sitemap.xml
+Disallow:
