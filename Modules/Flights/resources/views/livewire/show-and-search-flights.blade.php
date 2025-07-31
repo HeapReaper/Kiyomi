@@ -6,13 +6,19 @@
     <div class="row">
       <div class="col ml-0">
         <div class="float-start mb-4 ms-0 mt-4">
-          <x-livewire.searchInput />
+          <input wire:model.live="search" type="text" id="name_search" name="name_search" placeholder="Zoek op naam" class="form-control rounded">
         </div>
       </div>
 
       <div class="col">
         <div class="float-end mb-4 ms-0 mt-4">
-          <x-livewire.selectYear />
+          <select wire:model="selectYear" wire:change="updateSelectYear"  class="form-control form-control-lg selector_custom">
+            @foreach(range(2023, date('Y') + 7) as $year)
+              <option value="{{ $year }}" @if ( (string) $year == date('Y')) selected @endif>
+                {{ $year }}
+              </option>
+            @endforeach
+          </select>
         </div>
       </div>
     </div>
@@ -28,9 +34,7 @@
             <th scope="col" class="text-white">Eind tijd</th>
             <th scope="col" class="text-white">Model</th>
             <th scope="col" class="text-white">Vermogen</th>
-            @if (Auth::user()->hasRole(['management', 'webmaster']))
-              <th scope="col" class="text-white">Opties</th>
-            @endif
+            <th scope="col" class="text-white">Opties</th>
           </tr>
         </thead>
           <tbody>
@@ -58,23 +62,25 @@
                 <td class="text-white">
                   {{ Modules\Flights\Enums\ModelPowerClassName::convertToName($flight->submittedModel[0]->class) }}
                 </td>
-                @if (Auth::user()->hasRole(['management', 'webmaster']))
-                  <!-- Edit, delete -->
-                  <td style="" class="text-center">
-                    <div style="display: flex;">
-                      <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
-                        @csrf
-                        <x-buttons.edit />
-                      </form>
+                <!-- Edit, delete -->
+                <td style="" class="text-center">
+                  <div style="display: flex;">
+                    <form action="{{ route('flights-panel.edit', $flight->id) }}" method="GET" style="margin-right: 10px;">
+                      @csrf
+                      <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
+                        <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
+                      </button>
+                    </form>
 
-                      <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST" id="delete-form-{{ $flight->id }}">
-                        @csrf
-                        @method('DELETE')
-                        <x-buttons.delete tooltip="Weet je zeker dat je deze vlucht wilt verwijderen?" />
-                      </form>
-                    </div>
-                  </td>
-                @endif
+                    <form action="{{ route('flights-panel.destroy', $flight->id) }}" method="POST" id="delete-form-{{ $flight->id }}">
+                      @csrf
+                      @method('DELETE')
+                      <button type="submit" class="table-link text-info image-hover-resize-10" onclick="return confirm('Weet je zeker dat je deze vlucht wilt verwijderen?');" style="border: none; background: none; padding: 0; cursor: pointer;">
+                        <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                      </button>
+                    </form>
+                  </div>
+                </td>
               </tr>
           @endforeach
         </tbody>

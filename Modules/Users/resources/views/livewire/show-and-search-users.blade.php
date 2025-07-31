@@ -49,7 +49,6 @@
               <thead class="text-white">
                 <tr>
                   <th class="text-white"><span>ID</span></th>
-                  <th class="text-white"><span>Foto</span></th>
                   <th class="text-white"><span>Vol. naam</span></th>
                   <th class="text-white"><span>KNVvL</span></th>
                   <th class="text-center text-white"><span>Rol</span></th>
@@ -64,13 +63,6 @@
                     <tr>
                       <td class="text-white">
                         {{ $user->id }}
-                      </td>
-                      <td>
-                        @if ($user->profile_picture)
-                          <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
-                        @else
-                          <img src="https://placehold.co/80x80" class="rounded-circle">
-                        @endif
                       </td>
                       <!-- Name -->
                       <td class="text-white">
@@ -130,17 +122,25 @@
                         <div style="display: flex;">
                           <form action="{{ route('users.show', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <x-buttons.show />
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-magnifying-glass-plus stroke="white" style="width: 27px;" />
+                            </button>
                           </form>
 
                           <form action="{{ route('users.edit', $user->id) }}" method="GET" style="margin-right: 10px;">
                             @csrf
-                            <x-buttons.edit />
+                            <button type="submit" class="table-link text-info image-hover-resize-10" style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-pencil stroke="white" style="width: 27px;" />
+                            </button>
                           </form>
 
                           <form action="users-remove/{{ $user->id }}" method="GET" id="delete-form-{{ $user->id }}">
                             @csrf
-                            <x-buttons.delete tooltip="Weet je zeker dat je {{ $user->name }} wilt verwijderen?" />
+                            <button type="submit" class="table-link text-info image-hover-resize-10"
+                                    onclick="return confirm('Weet je zeker dat je gebruiker {{ $user->name }} wilt verwijderen?');"
+                                    style="border: none; background: none; padding: 0; cursor: pointer;">
+                              <x-heroicon-o-trash stroke="white" style="width: 27px;" />
+                            </button>
                           </form>
                         </div>
                       </td>
@@ -158,7 +158,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-    .table-link.danger {
+      .table-link.danger {
       color: inherit;
       text-decoration: none;
     }

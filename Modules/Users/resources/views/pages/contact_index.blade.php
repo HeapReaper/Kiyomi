@@ -82,8 +82,61 @@
           </textarea>
         </div>
 
-        <x-buttons.send />
+        <button type="submit" class="btn text-white m-1" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Verstuur</button>
       </form>
     </div>
   </div>
+
+  <style>
+        .form-control {
+      background-color: rgba(255, 255, 255, 0.1) !important;
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+      border-radius: 5px !important;
+      padding: 10px !important;
+      color: white !important;
+      font-size: 14px !important;
+      -webkit-appearance: listbox !important;
+    }
+
+    .form-control::placeholder {
+      color: white !important;
+    }
+
+    .form-control:focus {
+        color: white !important;
+    }
+
+    .form-control option {
+        color: #000000;
+        padding: 8px 16px;
+        border: 1px solid transparent;
+        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+        cursor: pointer;
+    }
+
+    .form-control option:hover {
+        background-color: #d53131 !important;
+        color: white !important;
+    }
+
+    .form-control:after {
+      position: absolute !important;
+      content: "" !important;
+      top: 14px !important;
+      right: 10px !important;
+      width: 0 !important;
+      height: 0 !important;
+      border: 6px solid !important;
+      border-color: #fff !important;
+    }
+
+    .form-control:focus::placeholder {
+        color: transparent !important;
+    }
+
+    .form-check-input:checked {
+        background-color: green;
+        border-color: #2b5c93;
+    }
+  </style>
 @endsection

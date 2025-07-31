@@ -1,4 +1,4 @@
-@extends('panel::layouts.master')
+@extends('panel::layouts.master')	
 
 @section('title', 'Lid toevoegen')
 
@@ -195,8 +195,9 @@
                 </label>
               </div>
             </div>
-          </div>
-          <x-buttons.save />
+
+          <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Toevoegen</button>
+        </div>
       </form>
     </div>
   </div>

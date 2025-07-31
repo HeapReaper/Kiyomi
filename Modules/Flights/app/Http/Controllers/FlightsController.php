@@ -29,7 +29,7 @@ class FlightsController extends Controller
     {
         $validated = $request->validate([
             'name' => ['required', 'string'],
-            'date' => ['required', 'max:12', 'date', 'date_format:Y-m-d'],
+            'date' => ['required', 'max:12'],
             'start_time' => ['required', 'max:6'],
             'end_time' => ['required', 'max:6'],
             'model_type' => ['required', 'integer', 'max:5'],
@@ -43,7 +43,7 @@ class FlightsController extends Controller
         }
 
         $user = User::whereRaw("SOUNDEX(name) = SOUNDEX(?)", [$validated['name']])->first();
-
+        
         if (!$user) {
             Log::channel('user_error')->info('Vlucht aanmelden - Naam niet gevonden - ' . $validated['name']);
             return redirect()->back()->with('error', 'Ik kon je naam niet vinden, heb je hem goed getypt?')->withInput();

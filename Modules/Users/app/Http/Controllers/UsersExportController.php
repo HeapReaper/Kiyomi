@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 use Modules\Users\Models\User;
 use Modules\Users\Models\UserExport;
 
@@ -34,17 +33,15 @@ class UsersExportController extends Controller
                 $query->whereIn('name', $validated['include_members']);
             })->get();
 
-            $fileName = Str::uuid()->toString() . '.pdf';
-
             $pdf = PDF::loadView('users::pages.users_export_pdf', [
                 'users'          => $users,
                 'included_roles' => $validated['include_members'],
             ])->setPaper('a4', 'landscape');
 
-            Storage::disk('minio')->put('reports/members/' . $fileName, $pdf->download()->getOriginalContent());
+            Storage::disk('local')->put('user_exports/leden_export_' . date('d-m-Y', ) . '.pdf', $pdf->download()->getOriginalContent());
 
             UserExport::create([
-                'file_name' => $fileName,
+                'file_name' => 'leden_export_' . date('d-m-Y', ) . '.pdf',
                 'made_on'   => date('Y-m-d'),
                 'made_by'   => (User::find(Auth::user()->id)->name),
             ]);
@@ -78,7 +75,7 @@ class UsersExportController extends Controller
             return redirect()->back()->with('error', 'Leden export niet gevonden.');
         }
 
-        Storage::disk('minio')->delete('reports/members/' . $userReport->file_name);
+        Storage::disk('local')->delete('/reports/' . $userReport->file_name);
         $userReport->delete();
 
         return redirect()->back()->with('success', 'Leden export is verwijderd.');
@@ -87,7 +84,7 @@ class UsersExportController extends Controller
     public function download(string $filename)
     {
         try {
-            return Storage::disk('minio')->download('reports/members/' . $filename);
+            return Storage::disk('local')->download('/user_exports/' . $filename);
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Leden export niet gevonden.');
         }

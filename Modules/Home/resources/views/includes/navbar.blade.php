@@ -14,10 +14,6 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link text-white" href="{{ route('articles-public.index') }}">Nieuws</a>
-        </li>
-
-        <li class="nav-item">
           <a class="nav-link text-white" href="{{ route('flights.create') }}">Vlucht aanmelden</a>
         </li>
 
@@ -26,31 +22,9 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link text-white" href="{{ route('panel.index') }}">
-              {{ Auth::check() ? 'Dashboard' : 'login' }}
-            </a>
+          <a class="nav-link text-white" href="{{ route('panel.index') }}">Login</a>
         </li>
 
-
-        <button class="table-link text-info image-hover-resize-10" id="switchTheme" style="border: none; background: none; padding: 0; cursor: pointer; color: black">
-          <x-heroicon-s-moon style="width: 20px" />
-          <x-heroicon-s-sun style="width: 30px" />
-        </button>
-
-
-        <script>
-          document.addEventListener('DOMContentLoaded', function() {
-            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-              console.log('dark');
-            } else {
-              console.log('light')
-            }
-          });
-
-          document.getElementById('switchTheme').addEventListener('click', function () {
-
-          });
-        </script>
       </ul>
     </div>
   </div>
