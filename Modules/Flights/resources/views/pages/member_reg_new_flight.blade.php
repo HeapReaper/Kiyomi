@@ -238,7 +238,6 @@
 
       modelTypeSelect.addEventListener('change', function () {
         if (modelTypeSelect.value === '2') {
-          // Show only option with value '4'
           allPowerOptions.forEach(option => {
             option.hidden = option.value !== '4';
           });
@@ -249,7 +248,7 @@
           });
 
           if (powerTypeSelect.value === '4') {
-            powerTypeSelect.selectedIndex = 0; // or whatever default you want
+            powerTypeSelect.selectedIndex = 0;
           }
         }
       });
