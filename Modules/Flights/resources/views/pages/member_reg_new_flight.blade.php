@@ -238,21 +238,21 @@
 
       modelTypeSelect.addEventListener('change', function () {
         if (modelTypeSelect.value === '2') {
+          // Show only option with value '4'
           allPowerOptions.forEach(option => {
             option.hidden = option.value !== '4';
           });
-          powerTypeSelect.value = '4'; // Selecteer de enige zichtbare optie
+          powerTypeSelect.value = '4';
         } else {
           allPowerOptions.forEach(option => {
-            option.hidden = false;
+            option.hidden = option.value === '4';
           });
 
           if (powerTypeSelect.value === '4') {
-            powerTypeSelect.selectedIndex = 0;
+            powerTypeSelect.selectedIndex = 0; // or whatever default you want
           }
         }
       });
     });
-
     </script>
 @stop
