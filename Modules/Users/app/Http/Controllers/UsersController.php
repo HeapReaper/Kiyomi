@@ -34,7 +34,7 @@ class UsersController extends Controller
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'roles' => ['required'],
-            'instruct' => ['required', 'integer', 'max:1'],
+            'instructor' => ['nullable', 'integer'],
             'PlaneCertCheckbox' => ['nullable'],
             'HeliCertCheckbox' => ['nullable'],
             'gliderCertCheckbox' => ['nullable'],
@@ -54,7 +54,7 @@ class UsersController extends Controller
             'rdw_number' => $validated['rdw_number'] ?? null,
             'knvvl' => $validated['knvvl'] ?? 0,
             'email' => $validated['email'],
-            'instruct' => $validated['instruct'],
+            'instruct' => 0,
             'has_plane_brevet' => $validated['PlaneCertCheckbox'] ?? 0,
             'has_helicopter_brevet' => $validated['HeliCertCheckbox'] ?? 0,
             'has_glider_brevet' => $validated['gliderCertCheckbox'] ?? 0,
@@ -66,20 +66,28 @@ class UsersController extends Controller
 
         $user->syncRoles($validated['roles']);
 
+        if (isset($validated['instructor'])) {
+            foreach ($validated['instructor'] as $instructor) {
+                $user->instructor()->create([
+                    'model_type' => $instructor,
+                ]);
+            }
+        }
+
         return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
 	
     public function show($id)
     {
         return view('users::pages.show', [
-            'user' => User::find($id),
+            'user' => User::with('instructor')->find($id),
         ]);
     }
 	
     public function edit($id)
     {
         return view('users::pages.edit', [
-            'user' => User::find($id),
+            'user' => User::with('instructor')->find($id),
         ]);
     }
 	
@@ -96,7 +104,7 @@ class UsersController extends Controller
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'roles' => ['required'],
-            'instruct' => ['required', 'integer', 'max:1'],
+            'instructor' => ['required'],
             'licences' => ['nullable'],
             'password' => ['nullable'],
         ]);
@@ -113,7 +121,7 @@ class UsersController extends Controller
             'rdw_number' => $validated['rdw_number'],
             'knvvl' => $validated['knvvl'],
             'email' => $validated['email'],
-            'instruct' => $validated['instruct'],
+            'instruct' => 0,
             'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
         ]);
 
@@ -122,6 +130,15 @@ class UsersController extends Controller
         if (isset($validated['licences'])) {
             $licenceIds = Licence::whereIn('name', $validated['licences'])->pluck('id')->toArray();
             $user->licences()->sync($licenceIds);
+        }
+
+        // Clear existing1
+        $user->instructor()->delete();
+
+        foreach ($validated['instructor'] as $instructor) {
+            $user->instructor()->create([
+                'model_type' => $instructor,
+            ]);
         }
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');

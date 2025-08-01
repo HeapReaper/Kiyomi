@@ -80,11 +80,41 @@
         <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
-              <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
-              <select class="form-control" id="instruct" name="instruct" required>
-                <option value=0 @selected($user->instruct === 0)>Nee</option>
-                <option value=1 @selected($user->instruct === 1)>Ja</option>
-              </select>
+              <label for="instructor" class="text-white font-weight-bold"><strong>Keurmeester/Instructeur</strong></label>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="1"
+                       id="instructor_plane"
+                       name="instructor[]"
+                        {{ in_array('1', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_plane">
+                  Vliegtuig
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="2"
+                       id="instructor_glider"
+                       name="instructor[]"
+                        {{ in_array('2', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_glider">
+                  Zweefvliegtuig
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="3"
+                       id="instructor_heli"
+                       name="instructor[]"
+                        {{ in_array('3', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_heli">
+                  Helikopter
+                </label>
+              </div>
+
             </div>
           </div>
         </div>

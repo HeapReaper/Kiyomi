@@ -13,11 +13,11 @@ use Modules\Users\Models\Licence;
 class User extends Authenticatable
 {
     use HasFactory, HasRoles, Notifiable, \Illuminate\Auth\Passwords\CanResetPassword;
-	
-	protected $table = 'users';
+
+    protected $table = 'users';
 
     protected string $guard_name = 'web';
-	
+
     protected $fillable = [
         'name',
         'email',
@@ -32,28 +32,32 @@ class User extends Authenticatable
         'instruct',
         'in_memoriam',
     ];
-	
+
     protected $hidden = [
         'password',
         'remember_token',
     ];
-	
+
     protected function casts(): array
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
-    }
-	
-    public function flight(): belongsToMany
-    {
-        return $this->belongsToMany(Flight::class, 'flight_model');
+      return [
+          'email_verified_at' => 'datetime',
+          'password' => 'hashed',
+      ];
     }
 
+    public function flight(): belongsToMany
+    {
+      return $this->belongsToMany(Flight::class, 'flight_model');
+    }
 
     public function licences(): belongsToMany
     {
-        return $this->belongsToMany(Licence::class);
+      return $this->belongsToMany(Licence::class);
+    }
+
+    public function instructor()
+    {
+        return $this->hasMany(Instructor::class);
     }
 }
