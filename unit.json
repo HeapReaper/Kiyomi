@@ -4,7 +4,7 @@
       "pass": "routes",
       "forwarded": {
         "protocol": "X-Forwarded-Proto",
-        "source": ["78.46.134.87", "https://test-club.trmc.nl"]
+        "source": ["*"]
       }
     }
   },
