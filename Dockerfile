@@ -23,7 +23,6 @@ WORKDIR /var/www/html
 
 COPY --chown=unit:unit . .
 
-USER unit
 RUN composer install --prefer-dist --optimize-autoloader --no-interaction
 
 RUN mkdir -p storage bootstrap/cache \
