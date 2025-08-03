@@ -20,15 +20,15 @@ WORKDIR /var/www/html
 
 RUN mkdir -p /var/www/html/storage /var/www/html/bootstrap/cache
 
-RUN chown -R unit:unit /var/www/html/storage bootstrap/cache && chmod -R 775 /var/www/html/storage
-
 COPY . .
+
+RUN chown -R unit:unit /var/www/html/storage bootstrap/cache && chmod -R 775 /var/www/html/storage
 
 RUN chown -R unit:unit storage bootstrap/cache && chmod -R 775 storage bootstrap/cache
 
 RUN composer install --prefer-dist --optimize-autoloader --no-interaction
 
-COPY unit.json /docker-entrypoint.d/unit.json
+COPY unit.json /docker-entrypoint.d/config.json
 
 EXPOSE 8000
 
