@@ -50,7 +50,7 @@
             </div>
             <div class="toast-body">
               @foreach ($errors->all() as $error)
-              <li>{{ session('error') }}</li>
+              <li>{{ $error }}</li>
               @endforeach
             </div>
           </div>
