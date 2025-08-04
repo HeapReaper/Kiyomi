@@ -9,6 +9,8 @@ use Carbon\Carbon;
 use Modules\Users\Emails\SendNewMemberEmail;
 use Mail;
 use App\Helpers\Settings;
+use App\Notifications\NewMemberNotification;
+use Spatie\Permission\Models\Role;
 
 class NewMemberController extends Controller
 {
@@ -70,6 +72,15 @@ class NewMemberController extends Controller
 
             $user->assignRole(6);
 
+            $managementUsers = User::role('management')->get();
+
+            foreach ($managementUsers as $managementUser) {
+                $managementUser->notify(new NewMemberNotification([
+                    'title' => 'Nieuwe aanmelding: ' . $user->name,
+                    'subtitle' => 'Van: ' . $user->name,
+                    'url'   => route('users.show', $user->id)
+                ]));
+            }
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Er ging iets mis! ' . $e-getMessage());
         }

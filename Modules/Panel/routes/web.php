@@ -17,3 +17,8 @@ use Modules\Panel\Http\Controllers\PanelController;
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('panel', PanelController::class)->names('panel');
 });
+
+Route::post('/notifications/mark-read', function () {
+    auth()->user()->unreadNotifications->markAsRead();
+    return response()->json(['success' => true]);
+})->name('notifications.markRead');
