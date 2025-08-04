@@ -26,7 +26,15 @@ COPY --chown=unit:unit . .
 
 RUN composer install --prefer-dist --optimize-autoloader --no-interaction
 
+# Create home directory for 'unit' user and set ownership
+RUN mkdir -p /home/unit && chown unit:unit /home/unit
+
+USER unit
+ENV HOME=/home/unit
+
 RUN npm install && npm run build
+
+USER root
 
 RUN mkdir -p storage bootstrap/cache \
     && chmod -R 775 storage bootstrap/cache
