@@ -41,6 +41,10 @@ RUN mkdir -p storage bootstrap/cache \
 
 COPY --chown=unit:unit unit.json /docker-entrypoint.d/config.json
 
+RUN apt update && apt install -y supervisor
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+
 EXPOSE 8000
 
 CMD ["unitd", "--no-daemon"]
