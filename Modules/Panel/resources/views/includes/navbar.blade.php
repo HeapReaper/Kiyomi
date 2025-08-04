@@ -63,6 +63,7 @@
             <ul class="dropdown-menu bg-dark">
               <li><a class="dropdown-item text-white" href="{{ route('settings.index') }}">Instellingen</a></li>
               <li><a class="dropdown-item text-white" href="{{ route('logging.index') }}">Logs</a></li>
+              <li><a class="dropdown-item text-white" href="{{ route('tests.index') }}">Tests</a></li>
               <!--
               <a class="dropdown-item text-white" href="{{ route('mail.index') }}">Email templaten</a>
               -->
