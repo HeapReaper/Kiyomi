@@ -7,5 +7,6 @@
     "Panel": true,
     "Home": true,
     "Financials": true,
-    "Mail": true
+    "Mail": true,
+    "Tests": true
 }
