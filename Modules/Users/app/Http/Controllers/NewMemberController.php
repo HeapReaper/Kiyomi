@@ -76,7 +76,7 @@ class NewMemberController extends Controller
 
             foreach ($managementUsers as $managementUser) {
                 $managementUser->notify(new NewMemberNotification([
-                    'title' => 'Nieuwe aanmelding: ' . $user->name,
+                    'title' => 'Nieuwe aanmelding',
                     'subtitle' => 'Van: ' . $user->name,
                     'url'   => route('users.show', $user->id)
                 ]));
