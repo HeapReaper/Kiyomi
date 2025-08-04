@@ -13,7 +13,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->trustProxies(at: [
-            '10.0.2.0/24',
+            '*',
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
