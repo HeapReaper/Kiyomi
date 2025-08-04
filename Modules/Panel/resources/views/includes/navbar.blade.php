@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark bg-opacity-50">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
   <div class="container-fluid">
     <a class="navbar-brand text-white" href="/">
       <img src="/app_media/faticon.ico" width="30" height="30" class="d-inline-block align-top ms-2" alt="">
@@ -82,7 +83,45 @@
             <li><a class="dropdown-item text-white" href="/logout">Uitloggen</a></li>
           </ul>
         </li>
+
+        <!-- Notification Bell in Navbar -->
+        <li class="nav-item dropdown">
+          <a class="nav-link position-relative" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-bell" style="font-size: 1.2rem;"></i>
+            @php
+              $unreadNotifications = auth()->user()->unreadNotifications()->take(10)->get();
+            @endphp
+            @if($unreadNotifications->count() > 0)
+              <span class="notification-dot"></span>
+            @endif
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 300px;">
+            <li class="dropdown-header">
+              Meldingen
+            </li>
+            @forelse($unreadNotifications as $notification)
+              <li>
+                <a class="dropdown-item d-flex align-items-start" href="{{ $notification->data['url'] ?? '#' }}">
+                  <div>
+                    <div class="fw-bold">{{ $notification->data['title'] ?? 'No title' }}</div>
+                    @if(!empty($notification->data['subtitle']))
+                      <div class="text-muted small">{{ $notification->data['subtitle'] }}</div>
+                    @endif
+                    <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
+                  </div>
+                </a>
+              </li>
+            @empty
+              <li>
+                <div class="dropdown-item text-muted">Geen nieuwe meldingen...</div>
+              </li>
+            @endforelse
+            <li><hr class="dropdown-divider"></li>
+          </ul>
+        </li>
+
       </ul>
+
     </div>
   </div>
 </nav>
@@ -114,4 +153,34 @@
     margin-bottom: 0;
     padding-bottom: 0;
   }
+
+  .notification-dot {
+      position: absolute;
+      top: 4px;
+      right: 4px;
+      width: 8px;
+      height: 8px;
+      background-color: red;
+      border-radius: 50%;
+  }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const bell = document.getElementById("navbarDropdown");
+
+        bell.addEventListener("click", function () {
+            const dot = this.querySelector(".notification-dot");
+            if (dot) dot.remove();
+
+            fetch("{{ route('notifications.markRead') }}", {
+                method: "POST",
+                headers: {
+                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({})
+            });
+        });
+    });
+</script>
