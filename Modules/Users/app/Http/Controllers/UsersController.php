@@ -105,7 +105,7 @@ class UsersController extends Controller
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'roles' => ['required'],
-            'instructor' => ['required'],
+            'instructor' => ['nullable'],
             'licences' => ['nullable'],
             'password' => ['nullable'],
         ]);
@@ -133,13 +133,14 @@ class UsersController extends Controller
             $user->licences()->sync($licenceIds);
         }
 
-        // Clear existing1
         $user->instructor()->delete();
 
-        foreach ($validated['instructor'] as $instructor) {
-            $user->instructor()->create([
-                'model_type' => $instructor,
-            ]);
+        if (isset($validated['instructor'])) {
+            foreach ($validated['instructor'] as $instructor) {
+                $user->instructor()->create([
+                    'model_type' => $instructor,
+                ]);
+            }
         }
 
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
