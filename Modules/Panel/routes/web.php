@@ -8,4 +8,3 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('panel', PanelController::class)->names('panel');
     Route::post('/notifications/read', [NotificationController::class, 'markSingleAsRead'])->name('notifications.markReadSingle');
 });
-

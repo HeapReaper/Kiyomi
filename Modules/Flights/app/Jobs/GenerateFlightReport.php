@@ -4,6 +4,7 @@ namespace Modules\Flights\Jobs;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\{InteractsWithQueue, SerializesModels};
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Storage;
@@ -27,47 +28,63 @@ class GenerateFlightReport implements ShouldQueue
 
     public function handle()
     {
-        try {
-            $flights = Flight::whereBetween('date', [$this->startDate, $this->endDate])
-                ->orderBy('date', 'DESC')
-                ->orderBy('end_time', 'DESC')
-                ->with(['user', 'submittedModel'])
-                ->get();
+        PDF::setBinary('/usr/local/bin/wkhtmltopdf');
 
-            $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
-                'flights'    => $flights,
-                'start_date' => date('d-m-Y', strtotime($this->startDate)),
-                'end_date'   => date('d-m-Y', strtotime($this->endDate)),
-            ]);
+        Log::info('GenerateFlightReport job started', [
+            'start_date' => $this->startDate,
+            'end_date' => $this->endDate,
+            'user_id' => $this->userId,
+        ]);
 
-            $fileName = 'vluchten_' . date('d-m-Y', strtotime($this->startDate)) . '-' . date('d-m-Y', strtotime($this->endDate)) . '.pdf';
-            $filePath = 'reports/' . $fileName;
+        $flights = Flight::whereBetween('date', [$this->startDate, $this->endDate])
+            ->orderBy('date', 'DESC')
+            ->orderBy('end_time', 'DESC')
+            ->with(['user', 'submittedModel'])
+            ->get();
 
-            Storage::disk('local')->put($filePath, $pdf->download()->getOriginalContent());
+        Log::info('Flights fetched', ['count' => $flights->count()]);
 
-            $user = User::where('id', $this->userId)->first();
+        $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
+            'flights'    => $flights,
+            'start_date' => date('d-m-Y', strtotime($this->startDate)),
+            'end_date'   => date('d-m-Y', strtotime($this->endDate)),
+        ]);
 
-            FlightReport::create([
-                'made_by'           => $user?->name ?? 'Onbekend',
-                'date'              => now()->toDateString(),
-                'report_start_date' => $this->startDate,
-                'report_end_date'   => $this->endDate,
-                'file'              => $fileName,
-            ]);
+        $fileName = 'vluchten_' . date('d-m-Y', strtotime($this->startDate)) . '-' . date('d-m-Y', strtotime($this->endDate)) . '.pdf';
+        $filePath = 'reports/' . $fileName;
 
-            // Immediately after, is $user still the same?
-            if ($user === null) {
-                \Log::error('User became null after creating FlightReport!');
-                return;
-            }
+        Storage::disk('local')->put($filePath, $pdf->download()->getOriginalContent());
 
-            $user->notify(new FinishedGeneratingFlightReportNotification([
-                'title'    => 'Vlucht report is aangemaakt!',
-                'subtitle' => 'Report van ' . $this->startDate . ' tot ' . $this->endDate,
-                'url'      => route('flights-report.index'),
-            ]));
-        } catch (\Exception $exception) {
-            \Log::error($exception->getMessage());
+        Log::info('PDF stored', ['file_path' => $filePath]);
+
+        $user = User::find($this->userId);
+
+        if (!$user) {
+            Log::error('User not found with ID ' . $this->userId);
+            return;
         }
+
+        FlightReport::create([
+            'made_by'           => $user->name,
+            'date'              => now()->toDateString(),
+            'report_start_date' => $this->startDate,
+            'report_end_date'   => $this->endDate,
+            'file'              => $fileName,
+        ]);
+
+        Log::info('FlightReport record created', [
+            'made_by' => $user->name,
+            'file' => $fileName,
+        ]);
+
+        $user->notify(new FinishedGeneratingFlightReportNotification([
+            'title'    => 'Vlucht report is aangemaakt!',
+            'subtitle' => 'Report van ' . $this->startDate . ' tot ' . $this->endDate,
+            'url'      => route('flights-report.index'),
+        ]));
+
+        Log::info('Notification sent to user ID ' . $this->userId);
+
+        Log::info('GenerateFlightReport job finished successfully');
     }
 }

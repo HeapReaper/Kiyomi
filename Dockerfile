@@ -1,59 +1,50 @@
-FROM unit:1.34.1-php8.3
+# Base PHP image
+FROM php:8.2-fpm
 
-RUN apt update && apt install -y \
-    curl unzip git libicu-dev libzip-dev libpng-dev libjpeg-dev libfreetype6-dev libssl-dev \
-    nodejs npm \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) pcntl opcache pdo pdo_mysql intl zip gd exif ftp bcmath \
-    && pecl install redis \
-    && docker-php-ext-enable redis \
-    && rm -rf /var/lib/apt/lists/*
+# Set working directory
+WORKDIR /var/www
 
-RUN apt update && apt install -y \
-    wkhtmltopdf \
-    xfonts-75dpi \
-    xfonts-base \
-    fontconfig \
-    libxrender1 \
-    libxext6 \
-    libjpeg62-turbo
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    nginx \
+    supervisor \
+    git \
+    curl \
+    unzip \
+    zip \
+    nodejs \
+    npm \
+    libpng-dev \
+    libjpeg-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    libcurl4-openssl-dev \
+    pkg-config \
+    libssl-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
-RUN { \
-    echo "opcache.enable=1"; \
-    echo "opcache.jit=tracing"; \
-    echo "opcache.jit_buffer_size=256M"; \
-    echo "memory_limit=512M"; \
-    echo "upload_max_filesize=64M"; \
-    echo "post_max_size=64M"; \
-} > /usr/local/etc/php/conf.d/custom.ini
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
-
-WORKDIR /var/www/html
-
-COPY --chown=unit:unit . .
-
-RUN composer install --prefer-dist --optimize-autoloader --no-interaction
-
-# Create home directory for 'unit' user and set ownership
-RUN mkdir -p /home/unit && chown unit:unit /home/unit
-
-USER unit
-ENV HOME=/home/unit
-
-RUN npm install && npm run build
-
-USER root
-
-RUN mkdir -p storage bootstrap/cache \
-    && chmod -R 775 storage bootstrap/cache
-
-COPY --chown=unit:unit unit.json /docker-entrypoint.d/config.json
-
-RUN apt update && apt install -y supervisor
+# Copy config files
+COPY php.ini /usr/local/etc/php/php.ini
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# Copy package files & build assets
+COPY package*.json ./
 
-EXPOSE 8000
+RUN npm install
 
-CMD ["unitd", "--no-daemon"]
+# Copy Laravel source and set ownership
+COPY --chown=www-data:www-data . .
+
+# Set permissions
+RUN chmod -R 775 storage bootstrap/cache
+
+# Expose port
+EXPOSE 80
+
+# Use supervisor to start all processes
+CMD ["/usr/bin/supervisord"]
