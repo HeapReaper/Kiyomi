@@ -35,7 +35,7 @@ return [
     
     'pdf' => [
         'enabled' => true,
-        'binary'  => env('WKHTML_PDF_BINARY', '/bin/wkhtmltopdf'),
+        'binary' => env('WKHTML_PDF_BINARY', '/root/.nix-profile/bin/wkhtmltopdf'), // Temp
         'timeout' => false,
         'options' => [],
         'env'     => [],
