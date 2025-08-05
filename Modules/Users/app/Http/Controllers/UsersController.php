@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -16,12 +16,12 @@ class UsersController extends Controller
     {
         return view('users::pages.index');
     }
-
+	
     public function create()
     {
         return view('users::pages.create');
     }
-
+	
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -35,7 +35,7 @@ class UsersController extends Controller
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'roles' => ['required'],
-            'instruct' => ['required', 'integer', 'max:1'],
+            'instructor' => ['nullable', 'integer'],
             'PlaneCertCheckbox' => ['nullable'],
             'HeliCertCheckbox' => ['nullable'],
             'gliderCertCheckbox' => ['nullable'],
@@ -55,7 +55,7 @@ class UsersController extends Controller
             'rdw_number' => $validated['rdw_number'] ?? null,
             'knvvl' => $validated['knvvl'] ?? 0,
             'email' => $validated['email'],
-            'instruct' => $validated['instruct'],
+            'instruct' => 0,
             'has_plane_brevet' => $validated['PlaneCertCheckbox'] ?? 0,
             'has_helicopter_brevet' => $validated['HeliCertCheckbox'] ?? 0,
             'has_glider_brevet' => $validated['gliderCertCheckbox'] ?? 0,
@@ -67,23 +67,31 @@ class UsersController extends Controller
 
         $user->syncRoles($validated['roles']);
 
+        if (isset($validated['instructor'])) {
+            foreach ($validated['instructor'] as $instructor) {
+                $user->instructor()->create([
+                    'model_type' => $instructor,
+                ]);
+            }
+        }
+
         return redirect(route('users.index'))->with('success', 'Lid is aangemaakt!');
     }
-
+	
     public function show($id)
     {
         return view('users::pages.show', [
-            'user' => User::find($id),
+            'user' => User::with('instructor')->find($id),
         ]);
     }
-
+	
     public function edit($id)
     {
         return view('users::pages.edit', [
-            'user' => User::find($id),
+            'user' => User::with('instructor')->find($id),
         ]);
     }
-
+	
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
@@ -96,31 +104,13 @@ class UsersController extends Controller
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'profile_picture' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg,webp', 'max:2048'],
             'roles' => ['required'],
-            'instruct' => ['required', 'integer', 'max:1'],
+            'instructor' => ['nullable'],
             'licences' => ['nullable'],
             'password' => ['nullable'],
         ]);
 
         $user = User::find($id);
-
-        if ($request->hasFile('profile_picture')) {
-            $file = $request->file('profile_picture');
-            $fileName = time() . '.' . $file->getClientOriginalExtension();
-
-            if ($user->profile_picture) {
-                if (Storage::disk('public')->exists('uploads/' . $user->profile_picture)) {
-                    Storage::disk('public')->delete('uploads/' . $user->profile_picture);
-                }
-            }
-
-            $user->update([
-                'profile_picture' => time() . '.' . $file->getClientOriginalExtension(),
-            ]);
-
-            $file->storeAs('uploads', time() . '.' . $file->getClientOriginalExtension(), 'public');
-        }
 
         $user->update([
             'name' => $validated['name'],
@@ -132,7 +122,7 @@ class UsersController extends Controller
             'rdw_number' => $validated['rdw_number'],
             'knvvl' => $validated['knvvl'],
             'email' => $validated['email'],
-            'instruct' => $validated['instruct'],
+            'instruct' => 0,
             'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
         ]);
 
@@ -143,9 +133,19 @@ class UsersController extends Controller
             $user->licences()->sync($licenceIds);
         }
 
+        $user->instructor()->delete();
+
+        if (isset($validated['instructor'])) {
+            foreach ($validated['instructor'] as $instructor) {
+                $user->instructor()->create([
+                    'model_type' => $instructor,
+                ]);
+            }
+        }
+
         return redirect(route('users.index'))->with('success', 'Gebruiker is geupdated!');
     }
-
+	
     public function destroy($id)
     {
         User::find($id)->delete();

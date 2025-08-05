@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | AuthenticationController Defaults
+    | Authentication Defaults
     |--------------------------------------------------------------------------
     |
     | This option defines the default authentication "guard" and password
@@ -20,7 +20,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | AuthenticationController Guards
+    | Authentication Guards
     |--------------------------------------------------------------------------
     |
     | Next, you may define every authentication guard for your application.

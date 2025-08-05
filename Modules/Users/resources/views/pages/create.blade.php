@@ -1,4 +1,4 @@
-@extends('panel::layouts.master')	
+@extends('panel::layouts.master')
 
 @section('title', 'Lid toevoegen')
 
@@ -78,15 +78,31 @@
           <div class="col-sm">
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
               <div class="form-group">
-                <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
-                <select class="form-control" id="instruct" name="instruct" required>
-                  <option value=0 selected>Nee</option>
-                  <option value=1>Ja</option>
-                </select>
+                <label for="instructor" class="text-white font-weight-bold"><strong>Keurmeester/Instructeur</strong></label>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="plane" id="1" name="instructor[]">
+                  <label class="form-check-label text-white" for="junior_member">
+                    Vliegtuig
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="glider_plane" id="2" name="instructor[]">
+                  <label class="form-check-label text-white" for="member">
+                    Zweefvliegtuig
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="helicopter" id="3" name="instructor[]">
+                  <label class="form-check-label text-white" for="helicopter">
+                    Helikopter
+                  </label>
+                </div>
               </div>
             </div>
           </div>
-
           <div class="col-sm">
             <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
               <div class="form-group">
@@ -195,7 +211,7 @@
                 </label>
               </div>
             </div>
-
+          </div>
           <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Toevoegen</button>
         </div>
       </form>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->string('mobile_phone')->nullable();
             $table->integer('club_status')->nullable();
-            $table->string('knvvl')->nullable();
+            $table->integer('knvvl')->nullable();
             $table->string('rdw_number')->nullable();
             $table->integer('instruct')->nullable();
             $table->integer('in_memoriam')->nullable();

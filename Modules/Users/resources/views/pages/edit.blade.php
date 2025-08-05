@@ -5,7 +5,7 @@
 @section('content')
 <div class="ms-3 me-3 mt-0">
   <div class="container-fluid">
-    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('users.update', $user->id) }}" method="POST">
       @csrf
       @method('PUT')
 
@@ -80,11 +80,41 @@
         <div class="col-sm">
           <div class="pt-2 pb-2 pl-2 pr-2 mb-2 mt-2">
             <div class="form-group">
-              <label for="instruct" class="text-white font-weight-bold"><strong>Instructeur</strong></label>
-              <select class="form-control" id="instruct" name="instruct" required>
-                <option value=0 @selected($user->instruct === 0)>Nee</option>
-                <option value=1 @selected($user->instruct === 1)>Ja</option>
-              </select>
+              <label for="instructor" class="text-white font-weight-bold"><strong>Keurmeester/Instructeur</strong></label>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="1"
+                       id="instructor_plane"
+                       name="instructor[]"
+                        {{ in_array('1', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_plane">
+                  Vliegtuig
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="2"
+                       id="instructor_glider"
+                       name="instructor[]"
+                        {{ in_array('2', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_glider">
+                  Zweefvliegtuig
+                </label>
+              </div>
+
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox"
+                       value="3"
+                       id="instructor_heli"
+                       name="instructor[]"
+                        {{ in_array('3', $user->instructor->pluck('model_type')->toArray()) ? 'checked' : '' }}>
+                <label class="form-check-label text-white" for="instructor_heli">
+                  Helikopter
+                </label>
+              </div>
+
             </div>
           </div>
         </div>
@@ -136,7 +166,7 @@
               </div>
 
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]"
+                <input class="form-check-input" type="checkbox" value="webmaster" id="webmaster" name="roles[]" disabled
                   @checked($user->hasRole('webmaster') === true)>
                 <label class="form-check-label text-white" for="webmaster">
                   Webmaster
@@ -226,25 +256,9 @@
             </div>
           </div>
         </div>
-      </div>
-
-      <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
-        <!-- Current profile picture -->
-        <div class="col d-flex justify-content-center align-items-center" style="min-height: 80px;">
-          @if ($user->profile_picture)
-            <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 80px; object-fit: cover;">
-          @endif
-        </div>
-
-        <!-- New profile picture -->
-        <div class="col">
-          <div class="mb-3">
-            <label for="profile_picture" class="form-label text-white">Upload nieuwe profiel foto</label>
-            <input class="form-control" type="file" id="profile_picture" name="profile_picture">
-          </div>
-        </div>
 
         <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Opslaan</button>
+
       </div>
     </form>
   </div>

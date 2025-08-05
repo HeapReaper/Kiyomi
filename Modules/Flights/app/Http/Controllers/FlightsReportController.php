@@ -3,11 +3,11 @@
 namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
+use App\Notifications\FinishedGeneratingFlightReportNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Modules\Flights\Models\Flight;
+use Modules\Flights\Jobs\GenerateFlightReport;
 use Modules\Flights\Models\FlightReport;
 use Modules\Users\Models\User;
 
@@ -22,7 +22,8 @@ class FlightsReportController extends Controller
     {
         return view('flights::create');
     }
-	
+
+
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -30,37 +31,15 @@ class FlightsReportController extends Controller
             'end_date' => ['date', 'required'],
         ]);
 
-		// TODO: Split up try catch
-        try {
-            $flights = Flight::whereBetween('date', [$validated['start_date'], $validated['end_date']])
-                ->orderBy('date', 'DESC')
-                ->orderBy('end_time', 'DESC')
-                ->with('user')
-                ->with('submittedModel')
-                ->get();
+        GenerateFlightReport::dispatch(
+            $validated['start_date'],
+            $validated['end_date'],
+            Auth::id()
+        );
 
-            $pdf = Pdf::loadView('flights::pages.reports.pdf_flight_report', [
-                'flights' => $flights,
-                'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
-                'end_date' => date('d-m-Y', strtotime($validated['end_date'])),
-            ]);
-			
-			FlightReport::create([
-				'made_by' => (User::find(Auth::user()->id)->name),
-				'date' => date('Y-m-d'),
-				'report_start_date' => $validated['start_date'],
-				'report_end_date' => $validated['end_date'],
-				'file' => 'vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf',
-			]);
-			
-			Storage::disk('local')->put('reports/vluchten_' . date('d-m-Y', strtotime($validated['start_date'])).'-' . date('d-m-Y', strtotime($validated['end_date'])).'.pdf', $pdf->download()->getOriginalContent());
-			
-            return redirect()->back()->with('success', 'Vlucht report is aangemaakt! Download hem nu...');
-        } catch (\Exception $error) {
-            return redirect()->back()->with('error', $error);
-        }
+        return redirect()->back()->with('success', 'Vlucht report wordt gegenereerd. Even geduld aub...');
     }
-	
+
     public function show($id)
     {
         return view('flights::show');

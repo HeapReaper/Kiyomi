@@ -1,12 +1,4 @@
 <div>
-  <!-- Pre loader -->
-  <div id="preloader">
-    <div class="plane-container">
-      <div class="plane">
-      </div>
-    </div>
-  </div>
-  
   <div class="container mb-3 mt-3">
     <h2 class="text-white font-weight-bold">Vlucht statistieken</h2>
 
@@ -166,19 +158,6 @@
 
   @livewireStyles
   @livewireScripts
+  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   @livewireChartsScripts
-  
-  <script>
-    window.addEventListener('load', () => {
-      const preloader = document.getElementById('preloader');
-      
-      setTimeout(() => {
-        preloader.classList.add('hidden');
-      }, 2000);
-  
-      preloader.addEventListener('transitionend', () => {
-        preloader.style.display = 'none';
-      });
-    });
-  </script>
 </div>

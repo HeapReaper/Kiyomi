@@ -2,18 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Mail\Http\Controllers\MailController;
+use Modules\Mail\Http\Controllers\EmailTestController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::group([], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::resource('mail', MailController::class)->names('mail');
+    Route::post('/test-email', [EmailTestController::class, 'sendTestMail']);
 });
+

@@ -32,7 +32,7 @@ return [
     |
     */
 
-    'lifetime' => 525600, // 1 year
+    'lifetime' => 1440, // 1 day (60 minutes x 24 hours)
 
     'expire_on_close' => false,
 

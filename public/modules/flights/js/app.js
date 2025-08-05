@@ -2,19 +2,6 @@ if (document.body.dataset.sessionSuccess) {
     localStorage.setItem('validatedUser', '4');
 }
 
-function getCurrentTimeInNetherlands() {
-    const now = new Date();
-    const amsterdamTimeZone = 'Europe/Amsterdam';
-    const amsterdamTime = new Date(now.toLocaleString('en-US', { timeZone: amsterdamTimeZone }));
-
-    const options = {
-        hour: 'numeric',
-        minute: 'numeric',
-        hour12: false,
-    };
-
-    return amsterdamTime.toLocaleString('nl-NL', options);
-}
 
 function changeCurrentDateOnDateInput() {
     const now = new Date();
@@ -48,7 +35,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function changeStartTime() {
-    document.getElementById('start_time').value = getCurrentTimeInNetherlands();
+    document.getElementById('start_time').value = getCurrentTimeInNetherlands(0);
+  console.log('fewfwe')
+    // add time to end time ( +5 minutes )
+  document.getElementById('end_time').value = getCurrentTimeInNetherlands(5);
+
 }
 
 function changeEndTime() {

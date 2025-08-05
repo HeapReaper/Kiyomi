@@ -12,22 +12,12 @@ class Statistics
 {
 	static function getFlightCountEachMonth(int $year)
 	{
-    if (env('DB_CONNECTION') == 'sqlite') {
-        $results = DB::table('flights')
-            ->select(DB::raw("strftime('%m', date) AS month, COUNT(*) AS flight_count"))
-            ->where(DB::raw("strftime('%Y', date)"), '=', (string) $year)
-            ->groupBy(DB::raw("strftime('%m', date)"))
-            ->orderBy(DB::raw("strftime('%m', date)"))
-            ->get();
-    } else {
-        $results = DB::table('flights')
-            ->select(DB::raw('MONTH(date) AS month, COUNT(*) AS flight_count'))
-            ->whereYear('date', $year)
-            ->groupBy(DB::raw('MONTH(date)'))
-            ->orderBy(DB::raw('MONTH(date)'))
-            ->get();
-    }
-
+		$results = DB::table('flights')
+			->select(DB::raw('MONTH(date) AS month, COUNT(*) AS flight_count'))
+			->whereYear('date', $year)
+			->groupBy(DB::raw('MONTH(date)'))
+			->orderBy(DB::raw('MONTH(date)'))
+			->get();
 		
 		$monthNames = [
 			1 => 'Januari',

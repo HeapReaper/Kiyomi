@@ -1,0 +1,38 @@
+{
+  "listeners": {
+    "*:8000": {
+      "pass": "routes",
+      "forwarded": {
+        "protocol": "X-Forwarded-Proto",
+        "source": [
+          "10.0.0.0/24",
+          "10.0.1.0/24",
+          "10.0.2.0/24",
+          "10.0.3.0/24",
+          "10.0.4.0/24",
+          "10.0.5.0/24"
+        ]
+      }
+    }
+  },
+  "routes": [
+    {
+      "match": {
+        "uri": "!/index.php"
+      },
+      "action": {
+        "share": "/var/www/html/public$uri",
+        "fallback": {
+          "pass": "applications/laravel"
+        }
+      }
+    }
+  ],
+  "applications": {
+    "laravel": {
+      "type": "php",
+      "root": "/var/www/html/public",
+      "script": "index.php"
+    }
+  }
+}

@@ -14,6 +14,8 @@ class ShowAndSearchUsers extends Component
 
     public $role = '';
 
+    public $instructor = '';
+
     public function render()
     {
         return view('users::livewire.show-and-search-users', [
@@ -23,6 +25,11 @@ class ShowAndSearchUsers extends Component
                 })
                 ->when($this->role && $this->role != 'all', function ($query) {
                     $query->role($this->role);
+                })
+                ->when($this->instructor === 'yes', function ($query) {
+                    $query->whereHas('instructor', function ($q) {
+                        $q->whereIn('model_type', [1, 2, 3]);
+                    });
                 })
                 ->where(function ($query) {
                     $query->where('name', 'like', '%'.$this->search.'%')

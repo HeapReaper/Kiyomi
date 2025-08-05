@@ -43,7 +43,7 @@ class FlightsController extends Controller
         }
 
         $user = User::whereRaw("SOUNDEX(name) = SOUNDEX(?)", [$validated['name']])->first();
-
+        
         if (!$user) {
             Log::channel('user_error')->info('Vlucht aanmelden - Naam niet gevonden - ' . $validated['name']);
             return redirect()->back()->with('error', 'Ik kon je naam niet vinden, heb je hem goed getypt?')->withInput();

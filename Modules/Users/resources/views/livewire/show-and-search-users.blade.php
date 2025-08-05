@@ -13,7 +13,6 @@
 
           <div class="col mr-2 mt-2">
             <div class=" mb-4 me-0 float-end">
-
               <select wire:model.live="role" class="form-control form-control-lg selector_custom">
                 <option selected value='all'>
                   Alle rollen
@@ -41,6 +40,21 @@
                 </option>
               </select>
             </div>
+
+            <div class=" mb-4 me-2 float-end">
+
+              <select wire:model.live="instructor" class="form-control form-control-lg selector_custom">
+                <option selected value='all'>
+                  Keur/instr
+                </option>
+                <option value="yes">
+                  Ja
+                </option>
+                <option value="no">
+                  Nee
+                </option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="main-box-body clearfix">
@@ -49,8 +63,8 @@
               <thead class="text-white">
                 <tr>
                   <th class="text-white"><span>ID</span></th>
-                  <th class="text-white"><span>Foto</span></th>
-                  <th class="text-white"><span>Vol. naam</span></th>
+                  <th class="text-white"><span>Naam</span></th>
+                  <th class="text-white"><span>Keur/Instr</span></th>
                   <th class="text-white"><span>KNVvL</span></th>
                   <th class="text-center text-white"><span>Rol</span></th>
                   <th class="text-white"><span>RDW</span></th>
@@ -65,16 +79,15 @@
                       <td class="text-white">
                         {{ $user->id }}
                       </td>
-                      <td>
-                        @if ($user->profile_picture)
-                          <img src="{{ Storage::url('uploads/' . $user->profile_picture) }}" class="img-fluid rounded-circle" style="max-width: 40px; object-fit: cover;">
-                        @else
-                          <img src="https://placehold.co/80x80" class="rounded-circle">
-                        @endif
-                      </td>
                       <!-- Name -->
                       <td class="text-white">
                         {{ $user->name ?? 'Leeg' }}
+                      </td>
+                      <!-- Instruct -->
+                      <td class="text-white">
+                        {{ in_array('1', $user->instructor->pluck('model_type')->toArray()) ? 'Vlieg.' : '' }}
+                        {{ in_array('2', $user->instructor->pluck('model_type')->toArray()) ? 'Zweef.' : '' }}
+                        {{ in_array('3', $user->instructor->pluck('model_type')->toArray()) ? 'Heli.' : '' }}
                       </td>
                       <!-- KNVvl number -->
                       <td class="text-white">
@@ -166,7 +179,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
   <style>
-    .table-link.danger {
+      .table-link.danger {
       color: inherit;
       text-decoration: none;
     }

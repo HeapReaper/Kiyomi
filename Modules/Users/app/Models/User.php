@@ -14,7 +14,7 @@ class User extends Authenticatable
 {
     use HasFactory, HasRoles, Notifiable, \Illuminate\Auth\Passwords\CanResetPassword;
 
-	protected $table = 'users';
+    protected $table = 'users';
 
     protected string $guard_name = 'web';
 
@@ -31,7 +31,6 @@ class User extends Authenticatable
         'knvvl',
         'instruct',
         'in_memoriam',
-        'profile_picture',
     ];
 
     protected $hidden = [
@@ -41,20 +40,24 @@ class User extends Authenticatable
 
     protected function casts(): array
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+      return [
+          'email_verified_at' => 'datetime',
+          'password' => 'hashed',
+      ];
     }
 
     public function flight(): belongsToMany
     {
-        return $this->belongsToMany(Flight::class, 'flight_model');
+      return $this->belongsToMany(Flight::class, 'flight_model');
     }
-
 
     public function licences(): belongsToMany
     {
-        return $this->belongsToMany(Licence::class);
+      return $this->belongsToMany(Licence::class);
+    }
+
+    public function instructor()
+    {
+        return $this->hasMany(Instructor::class);
     }
 }
