@@ -27,47 +27,42 @@ class GenerateFlightReport implements ShouldQueue
 
     public function handle()
     {
-        try {
-            $flights = Flight::whereBetween('date', [$this->startDate, $this->endDate])
-                ->orderBy('date', 'DESC')
-                ->orderBy('end_time', 'DESC')
-                ->with(['user', 'submittedModel'])
-                ->get();
+        $flights = Flight::whereBetween('date', [$this->startDate, $this->endDate])
+            ->orderBy('date', 'DESC')
+            ->orderBy('end_time', 'DESC')
+            ->with(['user', 'submittedModel'])
+            ->get();
 
-            $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
-                'flights'    => $flights,
-                'start_date' => date('d-m-Y', strtotime($this->startDate)),
-                'end_date'   => date('d-m-Y', strtotime($this->endDate)),
-            ]);
+        $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
+            'flights'    => $flights,
+            'start_date' => date('d-m-Y', strtotime($this->startDate)),
+            'end_date'   => date('d-m-Y', strtotime($this->endDate)),
+        ]);
 
-            $fileName = 'vluchten_' . date('d-m-Y', strtotime($this->startDate)) . '-' . date('d-m-Y', strtotime($this->endDate)) . '.pdf';
-            $filePath = 'reports/' . $fileName;
+        $fileName = 'vluchten_' . date('d-m-Y', strtotime($this->startDate)) . '-' . date('d-m-Y', strtotime($this->endDate)) . '.pdf';
+        $filePath = 'reports/' . $fileName;
 
-            Storage::disk('local')->put($filePath, $pdf->download()->getOriginalContent());
+        Storage::disk('local')->put($filePath, $pdf->download()->getOriginalContent());
 
-            $user = User::where('id', $this->userId)->first();
+        $user = User::find($this->userId);
 
-            FlightReport::create([
-                'made_by'           => $user?->name ?? 'Onbekend',
-                'date'              => now()->toDateString(),
-                'report_start_date' => $this->startDate,
-                'report_end_date'   => $this->endDate,
-                'file'              => $fileName,
-            ]);
+        FlightReport::create([
+            'made_by'           => $user?->name ?? 'Onbekend',
+            'date'              => now()->toDateString(),
+            'report_start_date' => $this->startDate,
+            'report_end_date'   => $this->endDate,
+            'file'              => $fileName,
+        ]);
 
-            // Immediately after, is $user still the same?
-            if ($user === null) {
-                \Log::error('User became null after creating FlightReport!');
-                return;
-            }
-
-            $user->notify(new FinishedGeneratingFlightReportNotification([
-                'title'    => 'Vlucht report is aangemaakt!',
-                'subtitle' => 'Report van ' . $this->startDate . ' tot ' . $this->endDate,
-                'url'      => route('flights-report.index'),
-            ]));
-        } catch (\Exception $exception) {
-            \Log::error($exception->getMessage());
+        if (!$user) {
+            \Log::error('User not found with ID ' . $this->userId);
+            return;
         }
+
+        $user->notify(new FinishedGeneratingFlightReportNotification([
+            'title'    => 'Vlucht report is aangemaakt!',
+            'subtitle' => 'Report van ' . $this->startDate . ' tot ' . $this->endDate,
+            'url'      => route('flights-report.index'),
+        ]));
     }
 }
