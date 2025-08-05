@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
-use App\Notifications\NewTestNotification;
 
 class UsersController extends Controller
 {
