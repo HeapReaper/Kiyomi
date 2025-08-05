@@ -14,8 +14,8 @@
     </div>
   </div>
 
-  <div class="">
-    <table class="table table-custom-dark text-white">
+  <div class="overflow-y-auto max-h-96 w-full">
+    <table class="table table-custom-dark text-white min-w-full">
       <thead>
         <tr>
           <th class="text-white" scope="col">Bestand naam</th>
