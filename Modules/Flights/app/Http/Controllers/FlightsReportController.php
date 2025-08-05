@@ -3,13 +3,13 @@
 namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Modules\Flights\Models\Flight;
 use Modules\Flights\Models\FlightReport;
 use Modules\Users\Models\User;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 
 class FlightsReportController extends Controller
 {
@@ -39,12 +39,12 @@ class FlightsReportController extends Controller
                 ->with('submittedModel')
                 ->get();
 
-            $pdf = Pdf::loadView('flights::pages.reports.pdf_flight_report', [
+            $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
                 'flights' => $flights,
                 'start_date' => date('d-m-Y', strtotime($validated['start_date'])),
                 'end_date' => date('d-m-Y', strtotime($validated['end_date'])),
             ]);
-			
+
 			FlightReport::create([
 				'made_by' => (User::find(Auth::user()->id)->name),
 				'date' => date('Y-m-d'),
