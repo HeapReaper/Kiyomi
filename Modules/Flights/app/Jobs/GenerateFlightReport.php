@@ -4,6 +4,7 @@ namespace Modules\Flights\Jobs;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Queue\{InteractsWithQueue, SerializesModels};
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Storage;
@@ -27,11 +28,19 @@ class GenerateFlightReport implements ShouldQueue
 
     public function handle()
     {
+        Log::info('GenerateFlightReport job started', [
+            'start_date' => $this->startDate,
+            'end_date' => $this->endDate,
+            'user_id' => $this->userId,
+        ]);
+
         $flights = Flight::whereBetween('date', [$this->startDate, $this->endDate])
             ->orderBy('date', 'DESC')
             ->orderBy('end_time', 'DESC')
             ->with(['user', 'submittedModel'])
             ->get();
+
+        Log::info('Flights fetched', ['count' => $flights->count()]);
 
         $pdf = PDF::loadView('flights::pages.reports.pdf_flight_report', [
             'flights'    => $flights,
@@ -44,25 +53,36 @@ class GenerateFlightReport implements ShouldQueue
 
         Storage::disk('local')->put($filePath, $pdf->download()->getOriginalContent());
 
+        Log::info('PDF stored', ['file_path' => $filePath]);
+
         $user = User::find($this->userId);
 
+        if (!$user) {
+            Log::error('User not found with ID ' . $this->userId);
+            return;
+        }
+
         FlightReport::create([
-            'made_by'           => $user?->name ?? 'Onbekend',
+            'made_by'           => $user->name,
             'date'              => now()->toDateString(),
             'report_start_date' => $this->startDate,
             'report_end_date'   => $this->endDate,
             'file'              => $fileName,
         ]);
 
-        if (!$user) {
-            \Log::error('User not found with ID ' . $this->userId);
-            return;
-        }
+        Log::info('FlightReport record created', [
+            'made_by' => $user->name,
+            'file' => $fileName,
+        ]);
 
         $user->notify(new FinishedGeneratingFlightReportNotification([
             'title'    => 'Vlucht report is aangemaakt!',
             'subtitle' => 'Report van ' . $this->startDate . ' tot ' . $this->endDate,
             'url'      => route('flights-report.index'),
         ]));
+
+        Log::info('Notification sent to user ID ' . $this->userId);
+
+        Log::info('GenerateFlightReport job finished successfully');
     }
 }

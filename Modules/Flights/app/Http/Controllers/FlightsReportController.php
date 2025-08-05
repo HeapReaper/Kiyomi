@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Notifications\FinishedGeneratingFlightReportNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use Modules\Flights\Jobs\GenerateFlightReport;
 use Modules\Flights\Models\FlightReport;
@@ -31,11 +32,19 @@ class FlightsReportController extends Controller
             'end_date' => ['date', 'required'],
         ]);
 
+        Log::info('Dispatching GenerateFlightReport job', [
+            'start_date' => $validated['start_date'],
+            'end_date' => $validated['end_date'],
+            'user_id' => Auth::id(),
+        ]);
+
         GenerateFlightReport::dispatch(
             $validated['start_date'],
             $validated['end_date'],
             Auth::id()
         );
+
+        Log::info('GenerateFlightReport job dispatched successfully');
 
         return redirect()->back()->with('success', 'Vlucht report wordt gegenereerd. Even geduld aub...');
     }
