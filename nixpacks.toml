@@ -12,6 +12,7 @@ cmds = [
     "mkdir -p /bin",
     "ln -sf /nix/store/mzr129vx4m65vf8fvxapx80qh720vslf-wkhtmltopdf-0.12.6.1-3/bin/wkhtmltopdf /bin/wkhtmltopdf",
     "chmod +x /bin/wkhtmltopdf",
+    "php artisan view:clear",
     "..."
 ]
 
