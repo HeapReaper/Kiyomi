@@ -35,7 +35,6 @@ COPY --chown=unit:unit . .
 
 RUN composer install --prefer-dist --optimize-autoloader --no-interaction
 
-# Create home directory for 'unit' user and set ownership
 RUN mkdir -p /home/unit && chown unit:unit /home/unit
 
 USER unit
@@ -53,7 +52,6 @@ COPY --chown=unit:unit unit.json /docker-entrypoint.d/config.json
 RUN apt update && apt install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-
 EXPOSE 8000
 
-CMD ["unitd", "--no-daemon"]
+CMD ["sh", "-c", "unitd --no-daemon & nohup php /var/www/html/artisan queue:work"]
