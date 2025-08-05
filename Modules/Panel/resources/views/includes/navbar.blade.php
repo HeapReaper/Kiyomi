@@ -133,20 +133,34 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        const bell = document.getElementById("navbarDropdown");
-
-        bell.addEventListener("click", function () {
-            const dot = this.querySelector(".notification-dot");
-            if (dot) dot.remove();
-
-            fetch("{{ route('notifications.markRead') }}", {
-                method: "POST",
-                headers: {
-                    "X-CSRF-TOKEN": "{{ csrf_token() }}",
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({})
-            });
+      function markNotificationAsRead(notificationId, remove = false) {
+        fetch("{{ route('notifications.markReadSingle') }}", {
+          method: "POST",
+          headers: {
+            "X-CSRF-TOKEN": "{{ csrf_token() }}",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ id: notificationId })
+        }).then(response => {
+          if (response.ok && remove) {
+            const item = document.getElementById("notification-" + notificationId);
+            if (item) item.remove();
+          }
         });
+      }
+
+      document.querySelectorAll(".notification-dismiss").forEach(button => {
+        button.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          markNotificationAsRead(this.dataset.id, true);
+        });
+      });
+
+      document.querySelectorAll(".notification-click").forEach(link => {
+        link.addEventListener("click", function () {
+          markNotificationAsRead(this.closest("li").id.replace("notification-", ""));
+        });
+      });
     });
 </script>

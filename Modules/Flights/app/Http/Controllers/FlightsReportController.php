@@ -3,11 +3,13 @@
 namespace Modules\Flights\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Notifications\FinishedGeneratingFlightReportNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Modules\Flights\Jobs\GenerateFlightReport;
 use Modules\Flights\Models\FlightReport;
+use Modules\Users\Models\User;
 
 class FlightsReportController extends Controller
 {

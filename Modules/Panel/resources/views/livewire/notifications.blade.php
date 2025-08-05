@@ -9,12 +9,12 @@
     </a>
 
     {{-- ✅ Prevent Livewire from interfering with the dropdown --}}
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 300px;" wire:ignore>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 300px;" >
       <li class="dropdown-header">Meldingen</li>
 
-      @forelse($this->unreadNotifications as $notification)
-        <li>
-          <a class="dropdown-item d-flex align-items-start" href="{{ $notification->data['url'] ?? '#' }}">
+      @foreach($this->unreadNotifications as $notification)
+        <li id="notification-{{ $notification->id }}" class="position-relative">
+          <a class="dropdown-item d-flex align-items-start pe-4 notification-click" href="{{ $notification->data['url'] ?? '#' }}">
             <div>
               <div class="fw-bold">{{ $notification->data['title'] ?? 'No title' }}</div>
               @if(!empty($notification->data['subtitle']))
@@ -23,12 +23,14 @@
               <small class="text-muted">{{ $notification->created_at->diffForHumans() }}</small>
             </div>
           </a>
+
+          <button class="btn btn-sm btn-link text-danger position-absolute top-0 end-0 notification-dismiss"
+            data-id="{{ $notification->id }}"
+            style="padding: 0.25rem 0.5rem;">
+            &times;
+          </button>
         </li>
-      @empty
-        <li>
-          <div class="dropdown-item text-muted">Geen nieuwe meldingen...</div>
-        </li>
-      @endforelse
+      @endforeach
 
       <li><hr class="dropdown-divider"></li>
     </ul>
