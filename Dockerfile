@@ -9,6 +9,15 @@ RUN apt update && apt install -y \
     && docker-php-ext-enable redis \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt update && apt install -y \
+    wkhtmltopdf \
+    xfonts-75dpi \
+    xfonts-base \
+    fontconfig \
+    libxrender1 \
+    libxext6 \
+    libjpeg62-turbo
+
 RUN { \
     echo "opcache.enable=1"; \
     echo "opcache.jit=tracing"; \
