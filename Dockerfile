@@ -1,33 +1,21 @@
-FROM php:8.3-fpm
+FROM serversideup/php:8.3-fpm-nginx
 
-RUN apt-get update && apt-get install -y \
-    git unzip curl supervisor wkhtmltopdf nginx iproute2 \
-    && docker-php-ext-install pdo_mysql
+USER root
 
-WORKDIR /var/www/html
+RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
+RUN apt-get install -y nodejs
 
-COPY . .
+# Copy the existing application directory contents to the working directory
+COPY . /var/www/html
 
-# Install composer
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+# Copy the existing application directory permissions to the working directory
+RUN chown -R www-data:www-data /var/www
 
-RUN composer install --no-interaction --optimize-autoloader
+USER www-data
 
-# Set PHP-FPM to listen on 9000 TCP socket (default)
-RUN sed -i 's|^listen = .*|listen = 9000|' /usr/local/etc/php-fpm.d/www.conf
+RUN npm ci
+RUN npm run build
 
-# Remove default Nginx config
-RUN rm /etc/nginx/sites-enabled/default
+RUN ls -la
 
-# Copy custom nginx config
-COPY nginx.conf /etc/nginx/sites-enabled/default
-
-# Copy supervisord config
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-RUN chmod -R 755 /var/www/html
-RUN chown -R www-data:www-data /var/www/html
-
-EXPOSE 80 9000
-
-CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+RUN composer install --no-interaction --optimize-autoloader --no-dev
