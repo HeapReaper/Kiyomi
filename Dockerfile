@@ -50,8 +50,15 @@ RUN mkdir -p storage bootstrap/cache \
 COPY --chown=unit:unit unit.json /docker-entrypoint.d/config.json
 
 RUN apt update && apt install -y supervisor
+
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+RUN apt update && apt install -y net-tools
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "unitd --no-daemon & nohup php /var/www/html/artisan queue:work"]
+COPY start.sh /start.sh
+
+RUN chmod +x /start.sh
+
+CMD ["/start.sh"]
