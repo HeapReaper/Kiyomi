@@ -28,6 +28,8 @@ class GenerateFlightReport implements ShouldQueue
 
     public function handle()
     {
+        PDF::setBinary('/root/.nix-profile/bin/wkhtmltopdf');
+
         Log::info('GenerateFlightReport job started', [
             'start_date' => $this->startDate,
             'end_date' => $this->endDate,
