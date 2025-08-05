@@ -1,21 +1,50 @@
-FROM serversideup/php:8.3-fpm-nginx
+# Base PHP image
+FROM php:8.2-fpm
 
-USER root
+# Set working directory
+WORKDIR /var/www
 
-RUN curl -sL https://deb.nodesource.com/setup_22.x | bash -
-RUN apt-get install -y nodejs
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    nginx \
+    supervisor \
+    git \
+    curl \
+    unzip \
+    zip \
+    nodejs \
+    npm \
+    libpng-dev \
+    libjpeg-dev \
+    libonig-dev \
+    libxml2-dev \
+    libzip-dev \
+    libcurl4-openssl-dev \
+    pkg-config \
+    libssl-dev \
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Copy the existing application directory contents to the working directory
-COPY . /var/www/html
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy the existing application directory permissions to the working directory
-RUN chown -R www-data:www-data /var/www
+# Copy config files
+COPY php.ini /usr/local/etc/php/php.ini
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-USER www-data
+# Copy package files & build assets
+COPY package*.json ./
 
-RUN npm ci
-RUN npm run build
+RUN npm install
 
-RUN ls -la
+# Copy Laravel source and set ownership
+COPY --chown=www-data:www-data . .
 
-RUN composer install --no-interaction --optimize-autoloader --no-dev
+# Set permissions
+RUN chmod -R 775 storage bootstrap/cache
+
+# Expose port
+EXPOSE 80
+
+# Use supervisor to start all processes
+CMD ["/usr/bin/supervisord"]
