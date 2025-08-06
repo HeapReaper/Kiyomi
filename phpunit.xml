@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="vendor/phpunit/phpunit/phpunit.xsd"
          bootstrap="vendor/autoload.php"
@@ -6,15 +8,15 @@
 >
     <testsuites>
         <testsuite name="Unit">
-            <directory>./modules/*/Tests/Unit</directory>
+            <directory>./Modules/*/tests/Unit</directory>
         </testsuite>
         <testsuite name="Feature">
-            <directory>./modules/*/Tests/Feature</directory>
+            <directory>./Modules/*/tests/Feature</directory>
         </testsuite>
     </testsuites>
     <source>
         <include>
-            <directory suffix="Test.php">./modules/*/Tests/Feature</directory>
+            <directory suffix="Test.php">./Modules/*/Tests/Feature</directory>
         </include>
     </source>
     <php>
