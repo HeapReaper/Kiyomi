@@ -184,11 +184,15 @@
       return amsterdamTime.toLocaleString('nl-NL', options);
     }
 
-    document.onload = changeCurrentDateOnDateInput();
+    document.addEventListener('DOMContentLoaded', changeCurrentDateOnDateInput);
+
+    function pad(n) {
+      return n < 10 ? '0' + n : n;
+    }
 
     function changeCurrentDateOnDateInput() {
-      const now = new Date()
-      document.getElementById('date').value = now.getFullYear() + '-' + (now.getMonth() + 1) + '-' + now.getDate();
+      const now = new Date();
+      document.getElementById('date').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
@@ -205,7 +209,6 @@
     function changeStartTime() {
       document.getElementById('start_time').value = getCurrentTimeInNetherlands(0);
       document.getElementById('end_time').value = getCurrentTimeInNetherlands(5);
-
     }
 
     function changeEndTime() {
@@ -213,14 +216,14 @@
     }
 
     function setName(e) {
-        localStorage.setItem('name', document.getElementById('name').value);
+      localStorage.setItem('name', document.getElementById('name').value);
     }
 
     document.addEventListener('DOMContentLoaded', async () => {
       document.getElementById('name').value = localStorage.getItem('name');
 
       if (localStorage.getItem('name')) {
-          document.getElementById('nameHelp').hidden = true;
+        document.getElementById('nameHelp').hidden = true;
       }
 
       if (localStorage.getItem('validatedUser')) {
