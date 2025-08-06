@@ -21,6 +21,7 @@ class Statistics extends Component
     public function render()
     {
 		return view('flights::livewire.statistics', [
+            'flightsEachYear' => StatisticsHelper::getFlightCountEachYear(),
             'flightsThisYearCount' => StatisticsHelper::getFlightCountEachMonth(date('Y')),
             'topTenPilots' => StatisticsHelper::getTopTenMostFrequentFlyers(date('Y')),
             'modelFlightsCount' => StatisticsHelper::getModelFlightsCount(date('Y')),
