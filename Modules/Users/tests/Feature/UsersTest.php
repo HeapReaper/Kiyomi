@@ -63,8 +63,6 @@ class UsersTest extends TestCase
             'knvvl'      => '324234',
         ]);
 
-        $response->dump();
-
         $this->assertDatabaseHas('users', [
             'name' => 'John Doe',
         ]);
