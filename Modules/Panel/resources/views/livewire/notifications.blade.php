@@ -8,13 +8,13 @@
       @endif
     </a>
 
-    {{-- ✅ Prevent Livewire from interfering with the dropdown --}}
+    {{-- Prevent Livewire from interfering with the dropdown --}}
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="width: 300px;" >
       <li class="dropdown-header">Meldingen</li>
 
       @foreach($this->unreadNotifications as $notification)
-        <li id="notification-{{ $notification->id }}" class="position-relative">
-          <a class="dropdown-item d-flex align-items-start pe-4 notification-click" href="{{ $notification->data['url'] ?? '#' }}">
+        <li id="notification-{{ $notification->id }}" class="position-relative" >
+          <a class="dropdown-item d-flex align-items-start pe-4 notification-click" href="{{ $notification->data['url'] ?? '#' }}" >
             <div>
               <div class="fw-bold">{{ $notification->data['title'] ?? 'No title' }}</div>
               @if(!empty($notification->data['subtitle']))
@@ -35,4 +35,39 @@
       <li><hr class="dropdown-divider"></li>
     </ul>
   </li>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.notification-click').forEach(function (el) {
+        el.addEventListener('click', function (e) {
+          const notificationId = this.dataset.id;
+          const url = this.getAttribute('href');
+
+          e.preventDefault();
+
+          fetch('{{ route('notifications.markReadSingle') }}', {
+            method: 'POST',
+            headers: {
+              'X-CSRF-TOKEN': '{{ csrf_token() }}',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: notificationId })
+          })
+            .then(response => response.json())
+            .then(data => {
+              const li = document.getElementById('notification-' + notificationId);
+              if (li) {
+                li.classList.add('opacity-50');
+              }
+
+              window.location.href = url;
+            })
+            .catch(error => {
+              console.error('Error marking notification as read:', error);
+              window.location.href = url;
+            });
+        });
+      });
+    });
+  </script>
 </div>
