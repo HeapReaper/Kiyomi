@@ -1,8 +1,7 @@
-<div>
+<div class=" bg-dark bg-opacity-25 rounded m-2 p-2">
   <script
     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
   </script>
-
   <div class="container mb-3 mt-3">
     <h2 class="text-white font-weight-bold">Vlucht statistieken</h2>
 
@@ -18,48 +17,18 @@
   </div>
 
   <div class="container mt-3">
-    <div class="row">
-
-      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
-      <script>
-          const myChart = new Chart("myChart", {
-              type: "scatter",
-              data: {},
-              options: {}
-          });
-      </script>
-      <div class="col-md-6 text-center text-white">
-        <h2>Vluchten:</h2>
-        <h2>{{ $totalFlightsCount }}</h2>
-      </div>
-
-      <div class="col-md-6 text-center text-white">
-        <h2>Leden:</h2>
-        <h2>{{ $memberCount }}</h2>
-      </div>
-
-    </div>
+    <h2 class="text-white">Aantal vluchten per maand</h2>
+    <canvas id="flightsEachMonth" style="width:100%;max-width:700px; color:white;"></canvas>
   </div>
 
   <div class="container mt-3">
-    <livewire:livewire-column-chart
-      key="{{ $flightsThisYearCount->reactiveKey() }}"
-      :column-chart-model="$flightsThisYearCount"
-    />
+    <h2 class="text-white">Top 10 Piloten</h2>
+    <canvas id="top10PilotsWithFlights" style="width:100%;max-width:700px; color:white;"></canvas>
   </div>
 
   <div class="container mt-3">
-    <livewire:livewire-line-chart
-      key="{{ $topTenPilots->reactiveKey() }}"
-      :line-chart-model="$topTenPilots"
-   />
-  </div>
-
-  <div class="container mt-3">
-    <livewire:livewire-column-chart
-      key="{{ $modelFlightsCount->reactiveKey() }}"
-      :column-chart-model="$modelFlightsCount"
-    />
+    <h2 class="text-white">Modellen gevlogen</h2>
+    <canvas id="modelsFlown" style="width:100%;max-width:700px; color:white;"></canvas>
   </div>
 
   <style>
@@ -112,7 +81,7 @@
       background-color: green;
       border-color: #2b5c93;
     }
-    
+
     #preloader {
       position: fixed;
       top: 0;
@@ -127,11 +96,11 @@
       overflow: hidden;
       transition: opacity 2s ease;
     }
-    
+
     #preloader.hidden {
       opacity: 0;
     }
-    
+
     .plane-container {
       position: relative;
       width: 100%;
@@ -172,4 +141,129 @@
   @livewireStyles
   @livewireScripts
   @livewireChartsScripts
+
+  <script>
+      // Reusable options object
+      const options = {
+          responsive: true,
+          legend: {
+              labels: {
+                  fontColor: '#FFFFFF'
+              }
+          },
+          scales: {
+              xAxes: [{
+                  ticks: {
+                      fontColor: '#FFFFFF'
+                  }
+              }],
+              yAxes: [{
+                  ticks: {
+                      fontColor: '#FFFFFF'
+                  }
+              }]
+          },
+          tooltips: {
+              bodyFontColor: '#FFFFFF',
+              titleFontColor: '#FFFFFF'
+          }
+      };
+
+      const months = [
+          "Januari",
+          "Februari",
+          "Maart",
+          "April",
+          "Mei",
+          "Juni",
+          "Juli",
+          "Augustus",
+          "September",
+          "Oktober",
+          "November",
+          "December"
+      ];
+
+      const barColors= [
+          "red",
+          "green",
+          "blue",
+          "orange",
+          "brown",
+          "purple",
+          "cyan",
+          "magenta",
+          "lime",
+          "teal",
+          "pink",
+          "gold"
+      ];
+
+      const models = [
+          "Vliegtuig",
+          "Motorzweefvliegtuig",
+          "Zweefvliegtuig",
+          "Helikopter",
+          "Drone",
+      ]
+
+      var yValuesFlightsEachMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+
+      new Chart("flightsEachMonth", {
+          type: "bar",
+          data: {
+              labels: months,
+              datasets: [{
+                  backgroundColor: barColors,
+                  data: yValuesFlightsEachMonth
+              }]
+          },
+          options: options
+      });
+
+      var pilots = [
+          "Kelvin",
+          "Peter",
+          "Kelvin",
+          "Peter",
+          "Kelvin",
+          "Peter",
+          "Kelvin",
+          "Peter",
+          "Kelvin",
+          "Peter",
+      ]
+
+      new Chart("top10PilotsWithFlights", {
+          type: "bar",
+          data: {
+              labels: pilots,
+              datasets: [{
+                  backgroundColor: barColors,
+                  data: yValuesFlightsEachMonth
+              }]
+          },
+          options: options
+      });
+
+      var modelsFlowData = [
+          10,
+          5,
+          1,
+          8,
+          4
+      ]
+
+      new Chart("modelsFlown", {
+          type: "pie",
+          data: {
+              labels: models,
+              datasets: [{
+                  backgroundColor: barColors,
+                  data: modelsFlowData
+              }]
+          },
+          options: options
+      });
+  </script>
 </div>
