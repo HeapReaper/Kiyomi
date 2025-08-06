@@ -38,4 +38,3 @@ Route::middleware(CacheResponse::class)->group(function () {
     Route::get('/reset-password/{token}', [PasswordResetController::class, 'resetPassword'])->middleware('guest')->name('password.reset');
     Route::post('/reset-password', [PasswordResetController::class, 'resetPasswordPost'])->middleware('guest')->name('password.update');
 });
-
