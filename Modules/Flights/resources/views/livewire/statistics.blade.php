@@ -4,16 +4,6 @@
   </script>
   <div class="container mb-3 mt-3">
     <h2 class="text-white font-weight-bold">Vlucht statistieken</h2>
-
-    <select class="form-select" aria-label="" wire:change="updateSelectYear" wire:model="selectYear" style="width: 20%">
-      @for ($year = 2024; $year < 2029; $year++)
-        @if ($year == Date('Y'))
-          <option selected value="{{ $year }}">{{ $year }}</option>
-        @else
-          <option value="{{ $year }}">{{ $year }}</option>
-        @endif
-      @endfor
-    </select>
   </div>
 
   <div class="container mt-3">
@@ -146,6 +136,7 @@
       // Reusable options object
       const options = {
           responsive: true,
+          maintainAspectRatio: true,
           legend: {
               labels: {
                   fontColor: '#FFFFFF'
@@ -207,7 +198,9 @@
           "Drone",
       ]
 
-      var yValuesFlightsEachMonth = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+      const flightsEachMonthData = @json($flightsThisYearCount);
+      const top10PilotsData = @json($topTenPilots);
+      const modelsFlownData = @json($modelFlightsCount);
 
       new Chart("flightsEachMonth", {
           type: "bar",
@@ -215,44 +208,23 @@
               labels: months,
               datasets: [{
                   backgroundColor: barColors,
-                  data: yValuesFlightsEachMonth
+                  data: months.map(month => flightsEachMonthData[month] ?? 0)
               }]
           },
           options: options
       });
-
-      var pilots = [
-          "Kelvin",
-          "Peter",
-          "Kelvin",
-          "Peter",
-          "Kelvin",
-          "Peter",
-          "Kelvin",
-          "Peter",
-          "Kelvin",
-          "Peter",
-      ]
 
       new Chart("top10PilotsWithFlights", {
           type: "bar",
           data: {
-              labels: pilots,
+              labels: Object.keys(top10PilotsData),
               datasets: [{
                   backgroundColor: barColors,
-                  data: yValuesFlightsEachMonth
+                  data: Object.values(top10PilotsData)
               }]
           },
           options: options
       });
-
-      var modelsFlowData = [
-          10,
-          5,
-          1,
-          8,
-          4
-      ]
 
       new Chart("modelsFlown", {
           type: "pie",
@@ -260,7 +232,7 @@
               labels: models,
               datasets: [{
                   backgroundColor: barColors,
-                  data: modelsFlowData
+                  data: models.map(model => modelsFlownData[model] ?? 0)
               }]
           },
           options: options
