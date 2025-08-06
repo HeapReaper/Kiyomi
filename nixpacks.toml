@@ -1,10 +1,5 @@
 [phases.setup]
-nixPkgs = [
-    "composer",
-    "php82Extensions.redis",
-    "python311Packages.supervisor",
-    "wkhtmltopdf"
-]
+nixPkgs = ["...", "python311Packages.supervisor", "wkhtmltopdf"]
 
 [phases.build]
 cmds = [
