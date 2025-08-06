@@ -10,6 +10,23 @@ use Modules\Users\Models\User;
 
 class Statistics
 {
+
+    static function getFlightCountEachYear()
+    {
+        $results = DB::table('flights')
+            ->select(DB::raw('YEAR(date) AS year, COUNT(*) AS flight_count'))
+            ->groupBy(DB::raw('YEAR(date)'))
+            ->orderBy(DB::raw('YEAR(date)'))
+            ->get();
+
+        $years = [];
+        foreach ($results as $result) {
+            $years[$result->year] = $result->flight_count;
+        }
+
+        return $years;
+    }
+
 	static function getFlightCountEachMonth(int $year)
 	{
 		$results = DB::table('flights')

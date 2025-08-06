@@ -7,6 +7,11 @@
   </div>
 
   <div class="container mt-3">
+    <h2 class="text-white">Totaal vluchten elk jaar</h2>
+    <canvas id="flightsEachYear" style="width:100%;max-width:700px; color:white;"></canvas>
+  </div>
+
+  <div class="container mt-3">
     <h2 class="text-white">Aantal vluchten per maand</h2>
     <canvas id="flightsEachMonth" style="width:100%;max-width:700px; color:white;"></canvas>
   </div>
@@ -90,9 +95,22 @@
       "Drone",
     ];
 
+    const flightsEachYear = @json($flightsEachYear);
     const flightsEachMonthData = @json($flightsThisYearCount);
     const top10PilotsData = @json($topTenPilots);
     const modelsFlownData = @json($modelFlightsCount);
+
+    new Chart("flightsEachYear", {
+        type: "bar",
+        data: {
+            labels: Object.keys(flightsEachYear),
+            datasets: [{
+                backgroundColor: barColors,
+                data: Object.values(flightsEachYear)
+            }]
+        },
+        options: options
+    });
 
     new Chart("flightsEachMonth", {
       type: "bar",
