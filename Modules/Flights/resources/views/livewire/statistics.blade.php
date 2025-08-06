@@ -1,4 +1,8 @@
 <div>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </script>
+
   <div class="container mb-3 mt-3">
     <h2 class="text-white font-weight-bold">Vlucht statistieken</h2>
 
@@ -15,6 +19,15 @@
 
   <div class="container mt-3">
     <div class="row">
+
+      <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+      <script>
+          const myChart = new Chart("myChart", {
+              type: "scatter",
+              data: {},
+              options: {}
+          });
+      </script>
       <div class="col-md-6 text-center text-white">
         <h2>Vluchten:</h2>
         <h2>{{ $totalFlightsCount }}</h2>
@@ -158,6 +171,5 @@
 
   @livewireStyles
   @livewireScripts
-  <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
   @livewireChartsScripts
 </div>
