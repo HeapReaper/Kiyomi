@@ -5,8 +5,8 @@ namespace Modules\Users\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Modules\Users\Models\User;
+use Modules\Mail\Jobs\SendEmailToUsers;
 
 class UsersContactController extends Controller
 {
@@ -44,16 +44,13 @@ class UsersContactController extends Controller
         }
 
         try {
-            Mail::html($validated['content'], function ($message) use ($validated, $usersEmails) {
-                $message->bcc($usersEmails)
-                    ->subject($validated['subject']);
-            });
+            SendEmailToUsers::dispatch($usersEmails, $validated['subject'], $validated['content']);
         } catch (Exception $e) {
             // Add decent error handling
             return redirect()->back()->with('error', 'Er ging iets mis! Error: '.$e->getMessage());
         }
 
-        return redirect('/contact')->with('success', 'Email is verstuurd!');
+        return redirect('/contact')->with('success', 'De emails zijn aan de queue toegevoegd, ze zullen zo verwerkt worden...');
     }
 	
     public function show($id)

@@ -46,7 +46,7 @@
     <div class="tab-content bg-dark rounded mt-2 mb-1 p-2" id="tab-content">
       <div class="tab-pane fade show active" id="laravel-logs" role="tabpanel" aria-labelledby="laravel-logs">
         @foreach(\App\Helpers\logs::laravel() as $logEntry)
-          @if ($loop->index > 50)
+          @if ($loop->index > 300)
             @break
           @endif
           <code>

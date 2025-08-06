@@ -1,0 +1,30 @@
+<?php
+
+namespace Modules\Mail\Jobs;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Queue\SerializesModels;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Support\Facades\Mail;
+
+class SendTestMailJob implements ShouldQueue
+{
+    use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+
+    protected $email;
+
+    public function __construct($email)
+    {
+        $this->email = $email;
+    }
+
+    public function handle(): void
+    {
+        Mail::raw('Test email van Kiyomi', function ($message) {
+            $message->to($this->email)
+                ->subject('Kiyomi test email');
+        });
+    }
+}

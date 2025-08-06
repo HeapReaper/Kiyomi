@@ -5,6 +5,7 @@ namespace Modules\Mail\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Modules\Mail\Jobs\SendTestMailJob;
 
 class EmailTestController extends Controller
 {
@@ -15,11 +16,9 @@ class EmailTestController extends Controller
         ]);
 
         try {
-            Mail::raw('This is a test email from Kiyomi.', function ($message) use ($validated, $request) {
-                $message->to($validated['email_test'])
-                    ->subject('Kiyomi test email');
-            });
-            return redirect()->back()->with('success', 'Test email is verstuurd, hij zal zo in je inbox of SPAM zitten...');
+            SendTestMailJob::dispatch($validated['email_test']);
+
+            return redirect()->back()->with('success', 'Je test email is aan de queue toegevoegd, hij zal zo verwerkt worden...');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Ik kon geen test email versturen: ' . $e->getMessage());
         }
