@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Gate::define('viewPulse', function (User $user) {
-            return env('ENABLE_VIEW_PULSE', false);
+            return true;
         });
     }
 }
