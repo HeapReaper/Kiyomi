@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -64,6 +63,10 @@ class UsersController extends Controller
             'has_drone_a2' => $validated['droneA2Checkbox'] ?? 0,
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
+
+        if (in_array('webmaster', $validated['roles'])) {
+            return redirect(route('users.index'))->with('error', 'Je mag geen webmaster toevoegen!');
+        }
 
         $user->syncRoles($validated['roles']);
 
@@ -126,6 +129,10 @@ class UsersController extends Controller
             'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
         ]);
 
+        if (in_array('webmaster', $validated['roles'])) {
+            return redirect(route('users.index'))->with('error', 'Je mag geen webmaster toevoegen!');
+        }
+
         $user->syncRoles([$validated['roles']]);
 
         if (isset($validated['licences'])) {
@@ -148,7 +155,13 @@ class UsersController extends Controller
 	
     public function destroy($id)
     {
-        User::find($id)->delete();
+        $user = User::with('roles')->find($id);
+
+        if ($user->hasRole('webmaster')) {
+            return redirect(route('users.index'))->with('error', 'Webmaster kan niet verwijderd worden!');
+        }
+
+        $user->delete();
 
         return redirect(route('users.index'))->with('success', 'Lid verwijderd!');
     }

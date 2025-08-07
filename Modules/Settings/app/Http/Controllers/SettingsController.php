@@ -28,8 +28,12 @@ class SettingsController extends Controller
             'roles' => ['required', 'array', 'min:1'],
         ]);
 
+        $roles = $validated['roles'] ?? [];
+        $roles[] = 'webmaster'; // Always allow webmaster to sign in
+        $roles = array_unique($roles);
+
         Settings::insertOrUpdate('email_new_members', $validated['email_new_members'] ?? 0);
-        Settings::insertOrUpdate('roles_allowed_sign_in', implode(',', $validated['roles'] ?? []));
+        Settings::insertOrUpdate('roles_allowed_sign_in', implode(',', $roles));
 
         return redirect()->back()->with('success', 'Instellingen opgeslagen!');
     }
