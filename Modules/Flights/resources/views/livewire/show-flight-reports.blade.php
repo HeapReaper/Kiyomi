@@ -1,4 +1,4 @@
-<div>
+<div wire:poll.3s>
   <!-- Filters -->
   <div class="row">
     <div class="col mr-2 mt-2">
