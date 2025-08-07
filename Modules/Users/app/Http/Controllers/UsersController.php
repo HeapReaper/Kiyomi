@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 use Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Modules\Users\Models\User;
 use Modules\Users\Models\Licence;
 
@@ -13,11 +14,19 @@ class UsersController extends Controller
 {
     public function index()
     {
+        if (!Auth::user()->can('view members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.index');
     }
 	
     public function create()
     {
+        if (!Auth::user()->can('create members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.create');
     }
 	
@@ -43,6 +52,10 @@ class UsersController extends Controller
             'droneA2Checkbox' => ['nullable'],
             'droneA3Checkbox' => ['nullable'],
         ]);
+
+        if (!Auth::user()->can('create members')) {
+            abort(403, 'Niet toegestaan.');
+        }
 
         $user = User::create([
             'name' => $validated['name'],
@@ -83,6 +96,10 @@ class UsersController extends Controller
 	
     public function show($id)
     {
+        if (!Auth::user()->can('view members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.show', [
             'user' => User::with('instructor')->find($id),
         ]);
@@ -90,6 +107,10 @@ class UsersController extends Controller
 	
     public function edit($id)
     {
+        if (!Auth::user()->can('edit members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.edit', [
             'user' => User::with('instructor')->find($id),
         ]);
@@ -112,6 +133,10 @@ class UsersController extends Controller
             'licences' => ['nullable'],
             'password' => ['nullable'],
         ]);
+
+        if (!Auth::user()->can('edit members')) {
+            abort(403, 'Niet toegestaan.');
+        }
 
         $user = User::find($id);
 
@@ -155,6 +180,10 @@ class UsersController extends Controller
 	
     public function destroy($id)
     {
+        if (!Auth::user()->can('delete members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         $user = User::with('roles')->find($id);
 
         if ($user->hasRole('webmaster')) {
