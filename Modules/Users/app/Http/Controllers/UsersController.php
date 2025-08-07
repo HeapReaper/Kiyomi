@@ -14,11 +14,19 @@ class UsersController extends Controller
 {
     public function index()
     {
+        if (!Auth::user()->can('view members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.index');
     }
 	
     public function create()
     {
+        if (!Auth::user()->can('create members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.create');
     }
 	
@@ -45,6 +53,10 @@ class UsersController extends Controller
             'droneA3Checkbox' => ['nullable'],
         ]);
 
+        if (!Auth::user()->can('create members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         $user = User::create([
             'name' => $validated['name'],
             'birthdate' => Carbon::parse($validated['birthdate'])->format('Y-m-d'),
@@ -65,6 +77,10 @@ class UsersController extends Controller
             'has_drone_a3' => $validated['droneA3Checkbox'] ?? 0,
         ]);
 
+        if (in_array('webmaster', $validated['roles'])) {
+            return redirect(route('users.index'))->with('error', 'Je mag geen webmaster toevoegen!');
+        }
+
         $user->syncRoles($validated['roles']);
 
         if (isset($validated['instructor'])) {
@@ -80,6 +96,10 @@ class UsersController extends Controller
 	
     public function show($id)
     {
+        if (!Auth::user()->can('view members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.show', [
             'user' => User::with('instructor')->find($id),
         ]);
@@ -87,6 +107,10 @@ class UsersController extends Controller
 	
     public function edit($id)
     {
+        if (!Auth::user()->can('edit members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         return view('users::pages.edit', [
             'user' => User::with('instructor')->find($id),
         ]);
@@ -110,6 +134,10 @@ class UsersController extends Controller
             'password' => ['nullable'],
         ]);
 
+        if (!Auth::user()->can('edit members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
         $user = User::find($id);
 
         $user->update([
@@ -125,6 +153,10 @@ class UsersController extends Controller
             'instruct' => 0,
             'in_memoriam' => $validated['honoraryMemberCheckbox'] ?? 0,
         ]);
+
+        if (in_array('webmaster', $validated['roles'])) {
+            return redirect(route('users.index'))->with('error', 'Je mag geen webmaster toevoegen!');
+        }
 
         $user->syncRoles([$validated['roles']]);
 
@@ -148,7 +180,17 @@ class UsersController extends Controller
 	
     public function destroy($id)
     {
-        User::find($id)->delete();
+        if (!Auth::user()->can('delete members')) {
+            abort(403, 'Niet toegestaan.');
+        }
+
+        $user = User::with('roles')->find($id);
+
+        if ($user->hasRole('webmaster')) {
+            return redirect(route('users.index'))->with('error', 'Webmaster kan niet verwijderd worden!');
+        }
+
+        $user->delete();
 
         return redirect(route('users.index'))->with('success', 'Lid verwijderd!');
     }
