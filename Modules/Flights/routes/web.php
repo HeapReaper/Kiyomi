@@ -14,7 +14,6 @@ Route::middleware(CacheResponse::class)->group(function () {
 
 Route::resource('flights', FlightsController::class)->names('flights');
 
-
 Route::middleware(['auth', CacheResponse::class])->group(function () {
     Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
     Route::resource('flights-reports', FlightsReportController::class)->names('flights-report');
