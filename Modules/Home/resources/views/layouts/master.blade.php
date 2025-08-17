@@ -26,6 +26,7 @@
     <script defer data-domain="club.trmc.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
 
+    <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
   </head>
 
   <body>
