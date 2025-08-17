@@ -8,8 +8,8 @@ use Modules\Users\Http\Controllers\UsersStatisticsController;
 use Modules\Users\Http\Controllers\PasswordResetController;
 use Modules\Users\Http\Controllers\UsersExportController;
 use Illuminate\Support\Facades\Auth;
-use Modules\Users\Livewire\Signin;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
+use Modules\Users\Http\Controllers\AuthenticationController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', UsersController::class)->names('users');
@@ -21,9 +21,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('users-export/destroy/{id}', [UsersExportController::class, 'destroy']);
 });
 
-Route::middleware(['throttle:5,1', CacheResponse::class])->group(function () {
-    Route::get('/login', Signin::class)->name('login');
-});
+Route::get('/login', [AuthenticationController::class, 'index'])->name('login');
+Route::post('/login-post', [AuthenticationController::class, 'login']);
 
 Route::get('/logout', function () {
 	Auth::logout();
