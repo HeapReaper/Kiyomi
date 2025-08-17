@@ -26,10 +26,6 @@
     <canvas id="modelsFlown" style="width:100%;max-width:700px; color:white;"></canvas>
   </div>
 
-  @livewireStyles
-  @livewireScripts
-  @livewireChartsScripts
-
   <script>
     const options = {
       responsive: true,
