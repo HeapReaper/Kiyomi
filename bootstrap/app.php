@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 use Sentry\Laravel\Integration;
+use Illuminate\Http\Request;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
@@ -19,10 +20,13 @@ return Application::configure(basePath: dirname(__DIR__))
             '10.0.3.0/24',
             '10.0.4.0/24',
             '10.0.5.0/24',
-        ]);
+        ],headers: Request::HEADER_X_FORWARDED_FOR |
+            Request::HEADER_X_FORWARDED_HOST |
+            Request::HEADER_X_FORWARDED_PORT |
+            Request::HEADER_X_FORWARDED_PROTO
+        );
         $middleware->validateCsrfTokens(except: [
             '/flights',
-            '/flights/store',
             '/login',
         ]);
     })
