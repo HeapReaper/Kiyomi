@@ -7,7 +7,7 @@
   </p>
   <p class="text-white">
     Hosting & development door
-    <a href="https://auticodes.nl">
+    <a href="https://heapreaper.nl">
       Kelvin de Reus
     </a>
   </p>

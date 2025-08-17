@@ -27,7 +27,6 @@ class FlightsController extends Controller
 
     public function store(Request $request)
     {
-        Log::debug('Store started');
 
         $validated = $request->validate([
             'name' => ['required', 'string'],
@@ -38,8 +37,6 @@ class FlightsController extends Controller
             'power_type' => ['required', 'integer', 'max:4'],
             'rechapcha_custom' => ['integer', 'required'],
         ]);
-
-        Log::debug('Validation passed', ['validated' => $validated]);
 
         if (intval($validated['rechapcha_custom']) != 4) {
             Log::channel('user_error')->info('Vlucht aanmelden - Verkeerde Recaptha', [
@@ -56,8 +53,6 @@ class FlightsController extends Controller
             return redirect()->back()->with('error', 'Ik kon je naam niet vinden, heb je hem goed getypt?')->withInput();
         }
 
-        Log::debug('User found', ['user_id' => $user->id]);
-
         try {
             $flight = Flight::create([
                 'date' => $validated['date'],
@@ -65,10 +60,7 @@ class FlightsController extends Controller
                 'end_time' => $validated['end_time'],
             ]);
 
-            Log::debug('Flight created', ['flight_id' => $flight->id]);
-
             $flight->user()->attach($user->id);
-            Log::debug('User attached to flight', ['flight_id' => $flight->id, 'user_id' => $user->id]);
 
             $model = SubmittedModel::create([
                 'model_type' => $validated['model_type'],
@@ -78,11 +70,8 @@ class FlightsController extends Controller
             Log::debug('SubmittedModel created', ['model_id' => $model->id]);
 
             $flight->submittedModel()->attach($model->id);
-            Log::debug('Model attached to flight', ['flight_id' => $flight->id, 'model_id' => $model->id]);
 
 //      Cache::tags(['flights_search'])->flush();
-
-            Log::debug('Store completed successfully');
             return redirect()->back()->with('success', 'Vlucht is aangemeld!');
         } catch (\Throwable $e) {
             Log::error('Flight store failed', ['error' => $e->getMessage(), 'trace' => $e->getTraceAsString()]);

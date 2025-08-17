@@ -8,10 +8,11 @@ use Modules\Flights\Http\Controllers\FlightsStatisticsController;
 use Spatie\ResponseCache\Middlewares\CacheResponse;
 
 Route::middleware(CacheResponse::class)->group(function () {
-    Route::resource('flights', FlightsController::class)->names('flights');
-    Route::get('/flights', [FlightsController::class, 'index']);
-    Route::get('/aanmeld-formulier', [FlightsController::class, 'redirect']);
 });
+Route::get('/flights', [FlightsController::class, 'index']);
+Route::resource('flights', FlightsController::class)->names('flights');
+Route::get('/aanmeld-formulier', [FlightsController::class, 'redirect']);
+
 
 Route::middleware(['auth'])->group(function () {
     Route::resource('flights-panel', FlightsPanelController::class)->names('flights-panel');
