@@ -267,13 +267,6 @@
             transform: rotate(180deg);
         }
 
-        .dropdown-menu {
-            opacity: 0;
-            transition: opacity 0.1s ease-in-out;
-            display: block;
-            pointer-events: none; /* Initially disabled */
-        }
-
         .dropdown-menu.show {
             opacity: 1;
             pointer-events: auto; /* Enabled when shown */

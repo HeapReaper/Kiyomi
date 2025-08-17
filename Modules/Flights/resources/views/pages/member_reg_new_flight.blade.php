@@ -109,60 +109,6 @@
       </form>
     </div>
   </div>
-</main>
-
-<style>
-  .form-control {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 5px !important;
-    padding: 10px !important;
-    color: white !important;
-    font-size: 14px !important;
-    -webkit-appearance: listbox !important;
-  }
-
-  .form-control::placeholder {
-    color: white !important;
-  }
-
-  .form-control:focus {
-    color: white !important;
-  }
-
-  .form-control option {
-    color: #000000;
-    padding: 8px 16px;
-    border: 1px solid transparent;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
-  }
-
-  .form-control option:hover {
-    background-color: #d53131 !important;
-    color: white !important;
-  }
-
-  .form-control:after {
-    position: absolute !important;
-    content: "" !important;
-    top: 14px !important;
-    right: 10px !important;
-    width: 0 !important;
-    height: 0 !important;
-    border: 6px solid !important;
-    border-color: #fff !important;
-  }
-
-  .form-control:focus::placeholder {
-      color: transparent !important;
-  }
-
-  .form-check-input:checked {
-      background-color: green;
-      border-color: #2b5c93;
-  }
-</style>
 
 @if (session()->has('success'))
   <script>
@@ -187,7 +133,7 @@
     return amsterdamTime.toLocaleString('nl-NL', options);
   }
 
-  document.addEventListener('DOMContentLoaded', changeCurrentDateOnDateInput);
+  document.addEventListener('turbo:load', changeCurrentDateOnDateInput);
 
   function pad(n) {
     return n < 10 ? '0' + n : n;
@@ -198,7 +144,7 @@
     document.getElementById('date').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
+  document.addEventListener('turbo:load', async () => {
     document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
 
     if(typeof Storage === 'undefined') return;
@@ -222,7 +168,7 @@
     localStorage.setItem('name', document.getElementById('name').value);
   }
 
-  document.addEventListener('DOMContentLoaded', async () => {
+  document.addEventListener('turbo:load', async () => {
     document.getElementById('name').value = localStorage.getItem('name');
 
     if (localStorage.getItem('name')) {
@@ -237,7 +183,7 @@
     }
   });
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('turbo:load', function () {
     const modelTypeSelect = document.getElementById('model_type');
     const powerTypeSelect = document.getElementById('power_type');
     const allPowerOptions = Array.from(powerTypeSelect.options);

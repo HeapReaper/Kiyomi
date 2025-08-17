@@ -100,13 +100,7 @@
   .dropdown-menu .dropdown-item:hover {
       background-color: rgba(0,0,0,0.2);
   }
-  .dropdown-menu {
-    position: absolute !important;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
+
 
   .dropdown.show .dropdown-menu {
     display: block !important;
