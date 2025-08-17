@@ -9,7 +9,6 @@
       @csrf
       @method('PUT')
 
-      @livewireStyles
       <div class="row bg-dark rounded bg-opacity-25 shadow-lg">
         <h2 class="text-white font-weight-bold">Lid bewerken</h2>
 
@@ -263,5 +262,4 @@
     </form>
   </div>
 </div>
-    @livewireScripts
 @endsection

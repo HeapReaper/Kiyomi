@@ -15,7 +15,6 @@
     <!-- Favicon -->
     <link rel="icon" href="app_media/faticon.ico" type="image/x-icon">
     <livewire:styles />
-    @livewireStyles
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
@@ -309,7 +308,6 @@
       </style>
 
       <livewire:scripts />
-      @livewireScripts
     </main>
   </body>
 </html>
