@@ -30,7 +30,7 @@
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
   </head>
 
-  <body>
+  <body style="background-color:#121212;">
     @include('home::includes.navbar')
 
     <main>
@@ -144,7 +144,6 @@
           cursor: pointer;
       }
     </style>
-
 
     {{-- Vite JS --}}
     <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
