@@ -17,9 +17,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
-    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
 
     <link rel="icon" href="/app_media/faticon.ico" type="image/x-icon">
+
+    @vite('resources/js/app.js')
 
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-home', 'resources/assets/sass/app.scss') }} --}}
@@ -29,7 +30,7 @@
     <meta http-equiv="refresh" content="{{ config('session.lifetime') * 60 }}">
   </head>
 
-  <body>
+  <body style="background-color:#121212;">
     @include('home::includes.navbar')
 
     <main>
@@ -37,7 +38,7 @@
 
       <!-- Errors -->
       @if ($errors->any())
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -59,7 +60,7 @@
       @endif
 
       @if (session()->has('error'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -80,7 +81,7 @@
 
       <!-- Success -->
       @if (session()->has('success'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -144,8 +145,7 @@
       }
     </style>
 
-
     {{-- Vite JS --}}
-    {{-- {{ module_vite('build-home', 'resources/assets/js/app.js') }} --}}
+    <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.js') }}"></script>
   </body>
 </html>

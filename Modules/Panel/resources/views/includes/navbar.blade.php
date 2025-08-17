@@ -18,7 +18,8 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+             data-turbo="false">
             Vluchten
           </a>
           <ul class="dropdown-menu bg-dark">
@@ -30,7 +31,8 @@
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+             data-turbo="false">
             Leden
           </a>
           <ul class="dropdown-menu bg-dark">
@@ -58,7 +60,8 @@
 
         @can('view system')
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+               data-turbo="false">
               Systeem
             </a>
             <ul class="dropdown-menu bg-dark">
@@ -75,7 +78,8 @@
 
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
+             data-turbo="false">
             Welkom {{ Auth::user()->name }}!
           </a>
           <ul class="dropdown-menu bg-dark">
@@ -96,13 +100,7 @@
   .dropdown-menu .dropdown-item:hover {
       background-color: rgba(0,0,0,0.2);
   }
-  .dropdown-menu {
-    position: absolute !important;
-    z-index: 1000;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-  }
+
 
   .dropdown.show .dropdown-menu {
     display: block !important;

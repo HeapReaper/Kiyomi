@@ -26,11 +26,11 @@
     <link href="{{ asset('bootstrap-5.3.3-dist/css/bootstrap.css') }}" rel="stylesheet">
     <script src="{{ asset('bootstrap-5.3.3-dist/js/bootstrap.bundle.js') }}"></script>
 
+    @vite('resources/js/app.js')
     {{-- Vite CSS --}}
     {{-- {{ module_vite('build-admin', 'resources/assets/sass/app.scss') }} --}}
     <script defer data-domain="club.trmc.nl" src="https://analytics.heapreaper.nl/js/script.outbound-links.js"></script>
     <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }</script>
-
   </head>
 
   <body>
@@ -61,7 +61,7 @@
       @endif
 
       @if (session()->has('error'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -82,7 +82,7 @@
 
       <!-- Success -->
       @if(session('success'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -103,7 +103,7 @@
 
       <!-- Success -->
       @if (session()->has('success'))
-        <div class="toast-container showposition-fixed bottom-0 end-0 p-3">
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
             <div class="toast-header">
               <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
@@ -265,13 +265,6 @@
 
         .dropdown-toggle.show::after {
             transform: rotate(180deg);
-        }
-
-        .dropdown-menu {
-            opacity: 0;
-            transition: opacity 0.1s ease-in-out;
-            display: block;
-            pointer-events: none; /* Initially disabled */
         }
 
         .dropdown-menu.show {
