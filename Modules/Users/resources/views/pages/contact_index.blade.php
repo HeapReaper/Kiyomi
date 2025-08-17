@@ -64,19 +64,37 @@
           <input type="text" class="form-control" id="subject" name="subject" aria-describedby="subject" placeholder="Onderwerp...">
         </div>
 
-        <script src="js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
-
         <h4 class="text-white mt-2">Content</h4>
 
         <div class="m-1 mt-3">
+          <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+
           <script>
-            tinymce.init({
-              selector: 'textarea',
-              plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
-              toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-              height: 600,
+            function initTinyMCE() {
+              if (typeof tinymce !== "undefined") {
+                if (tinymce.editors && tinymce.editors.length > 0) {
+                  tinymce.remove();
+                }
+
+                tinymce.init({
+                  selector: 'textarea',
+                  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount linkchecker',
+                  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+                  height: 600,
+                });
+              }
+            }
+
+            document.addEventListener("turbo:load", initTinyMCE);
+
+            document.addEventListener("turbo:before-cache", function () {
+              if (typeof tinymce !== "undefined") {
+                tinymce.remove();
+              }
             });
           </script>
+
+
           <textarea name="content">
             <!-- Text -->
           </textarea>
@@ -86,57 +104,4 @@
       </form>
     </div>
   </div>
-
-  <style>
-        .form-control {
-      background-color: rgba(255, 255, 255, 0.1) !important;
-      border: 1px solid rgba(255, 255, 255, 0.2) !important;
-      border-radius: 5px !important;
-      padding: 10px !important;
-      color: white !important;
-      font-size: 14px !important;
-      -webkit-appearance: listbox !important;
-    }
-
-    .form-control::placeholder {
-      color: white !important;
-    }
-
-    .form-control:focus {
-        color: white !important;
-    }
-
-    .form-control option {
-        color: #000000;
-        padding: 8px 16px;
-        border: 1px solid transparent;
-        border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-        cursor: pointer;
-    }
-
-    .form-control option:hover {
-        background-color: #d53131 !important;
-        color: white !important;
-    }
-
-    .form-control:after {
-      position: absolute !important;
-      content: "" !important;
-      top: 14px !important;
-      right: 10px !important;
-      width: 0 !important;
-      height: 0 !important;
-      border: 6px solid !important;
-      border-color: #fff !important;
-    }
-
-    .form-control:focus::placeholder {
-        color: transparent !important;
-    }
-
-    .form-check-input:checked {
-        background-color: green;
-        border-color: #2b5c93;
-    }
-  </style>
 @endsection
