@@ -1,5 +1,5 @@
-# Base PHP image (ensure ARM64 build is used)
-FROM --platform=linux/arm64 php:8.2-fpm AS base
+# Base PHP image
+FROM php:8.2-fpm
 
 # Set working directory
 WORKDIR /var/www
@@ -22,11 +22,10 @@ RUN apt-get update && apt-get install -y \
     libcurl4-openssl-dev \
     pkg-config \
     libssl-dev \
-    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip \
-    && apt-get clean && rm -rf /var/lib/apt/lists/*
+    && docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd zip
 
-# Install Composer (ARM64 compatible)
-COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Copy config files
 COPY php.ini /usr/local/etc/php/php.ini
@@ -47,5 +46,5 @@ RUN chmod -R 775 storage bootstrap/cache
 # Expose port
 EXPOSE 80
 
-# Use supervisor to start PHP-FPM + Nginx
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+# Use supervisor to start all processes
+CMD ["/usr/bin/supervisord"]
