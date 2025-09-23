@@ -934,3 +934,5 @@
 #62 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\Users\\\\aerob\\\\...')
 #63 {main}
 "} 
+[2025-09-23 21:08:15] local.DEBUG: SubmittedModel created {"model_id":2} 
+[2025-09-23 21:09:52] local.DEBUG: SubmittedModel created {"model_id":3} 

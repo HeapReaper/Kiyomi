@@ -8,6 +8,7 @@
       @if(session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
       @endif
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
       <form class="col-lg-6 offset-lg-3 bg-dark rounded bg-opacity-25 shadow-xl" id="plane_submittion" action="{{ route('flights.store') }}" method="POST" onsubmit="setName()">
         @csrf
