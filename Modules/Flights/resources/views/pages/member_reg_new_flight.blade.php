@@ -133,7 +133,7 @@
     return amsterdamTime.toLocaleString('nl-NL', options);
   }
 
-  document.addEventListener('turbo:load', changeCurrentDateOnDateInput);
+  document.addEventListener('DOMContentLoaded', changeCurrentDateOnDateInput);
 
   function pad(n) {
     return n < 10 ? '0' + n : n;
@@ -144,7 +144,7 @@
     document.getElementById('date').value = `${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}`;
   }
 
-  document.addEventListener('turbo:load', async () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('date').value = (new Date()).toISOString().split('T')[0];
 
     if(typeof Storage === 'undefined') return;
@@ -168,7 +168,7 @@
     localStorage.setItem('name', document.getElementById('name').value);
   }
 
-  document.addEventListener('turbo:load', async () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('name').value = localStorage.getItem('name');
 
     if (localStorage.getItem('name')) {
@@ -183,7 +183,7 @@
     }
   });
 
-  document.addEventListener('turbo:load', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const modelTypeSelect = document.getElementById('model_type');
     const powerTypeSelect = document.getElementById('power_type');
     const allPowerOptions = Array.from(powerTypeSelect.options);

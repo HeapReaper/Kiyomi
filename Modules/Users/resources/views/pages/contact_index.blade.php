@@ -85,13 +85,7 @@
               }
             }
 
-            document.addEventListener("turbo:load", initTinyMCE);
-
-            document.addEventListener("turbo:before-cache", function () {
-              if (typeof tinymce !== "undefined") {
-                tinymce.remove();
-              }
-            });
+            document.addEventListener("DOMContentLoaded", initTinyMCE);
           </script>
 
 
