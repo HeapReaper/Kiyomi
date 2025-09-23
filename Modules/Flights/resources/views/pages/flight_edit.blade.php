@@ -36,7 +36,7 @@
               <label for="date" class="text-white font-weight-bold mb-1">
                 <strong>Datum</strong>
               </label>
-              <input type="text" id="date" name="date" class="form-control" placeholder="Selecteer datum">
+              <input type="text" id="date" name="date" class="form-control" placeholder="Selecteer datum" value="{{ $flight->start_time }}" required>
             </div>
           </div>
         </div>
