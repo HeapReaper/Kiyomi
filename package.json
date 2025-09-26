@@ -12,6 +12,6 @@
     },
     "dependencies": {
         "@hotwired/turbo": "^8.0.13",
-        "puppeteer": "^23.6.1"
+        "puppeteer": "^23.11.1"
     }
 }
