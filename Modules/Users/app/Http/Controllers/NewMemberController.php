@@ -75,6 +75,9 @@ class NewMemberController extends Controller
             $managementUsers = User::role('management')->get();
 
             foreach ($managementUsers as $managementUser) {
+              if (empty($managementUser->email)) {
+                  continue;
+              }
                 $managementUser->notify(new NewMemberNotification([
                     'title' => 'Nieuwe aanmelding',
                     'subtitle' => 'Van: ' . $user->name,
@@ -85,6 +88,10 @@ class NewMemberController extends Controller
             return redirect()->back()->with('error', 'Er ging iets mis! ' . $e-getMessage());
         }
 
+        if (empty(Settings::get('email_new_members'))) {
+            return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
+        }
+        
         Mail::to(Settings::get('email_new_members'))->send(new SendNewMemberEmail($validated['name']));
 
         return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');

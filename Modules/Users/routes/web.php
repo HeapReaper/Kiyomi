@@ -29,7 +29,7 @@ Route::get('/logout', function () {
 	return redirect()->route('login');
 })->name('logout');
 
-Route::middleware(CacheResponse::class)->group(function () {
+Route::middleware([])->group(function () { //CacheResponse::class
     Route::resource('member', NewMemberController::class)->names('new_member');
 
     Route::get('/forgot-password', [PasswordResetController::class, 'forgotPassword'])->middleware('guest')->name('password.request');

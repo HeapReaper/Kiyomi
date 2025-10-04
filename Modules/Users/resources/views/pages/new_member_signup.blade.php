@@ -7,7 +7,7 @@
     <div class="container-fluid">
       <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('new_member.store') }}" method="POST">
         @csrf
-        <h1>Aanmelden als nieuw lid van T.R.M.C.</h1>
+        <h1 class="text-white">Aanmelden als nieuw lid van T.R.M.C.</h1>
 
         <div class="row bg-dark rounded bg-opacity-25 shadow-lg">
           <div class="col-sm">
@@ -130,15 +130,80 @@
             <label for="anti_bot"  class="text-white font-weight-bold"><strong>Anti bot (vereist)</strong></label>
             <input type="text" class="form-control" id="anti_bot" name="anti_bot" placeholder="Wat is 2 + 2?" value="{{ old('anti_bot') }}" required>
           </div>
-
-
         </div>
-
 
         <div class="row bg-dark rounded bg-opacity-25 shadow-lg mt-2">
           <button type="submit" class="btn text-white" style="background-image: linear-gradient(45deg, #874da2 0%, #c43a30 100%)">Verstuur</button>
         </div>
       </form>
+
+      <div class="container-fluid col-lg-6 offset-lg-3">
+        <h1 class="text-white mt-3">Kosten</h1>
+
+        <table class="table table-bordered table-striped text-center align-middle">
+          <thead class="table-dark">
+            <tr>
+              <th>Jaar 2025</th>
+              <th>Juniorleden</th>
+              <th>Volwassenen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Inschrijfgeld Leden</td>
+              <td>n.t.b.</td>
+              <td>n.t.b.</td>
+            </tr>
+            <tr>
+              <td>Inschrijfgeld Donateurs (1)</td>
+              <td>n.t.b.</td>
+              <td>n.t.b.</td>
+            </tr>
+            <tr>
+              <td>Contributie per jaar</td>
+              <td>tot 18 € 50,00</td>
+              <td>€ 100,00</td>
+            </tr>
+            <tr>
+              <td>Donateur per jaar</td>
+              <td></td>
+              <td>€ 50,00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h1 class="text-white mt-3">K.N.V.v.L. contributie 2025 gespecificeerd:</h1>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-striped text-center align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>K.N.V.v.L. contributie 2025 gespecificeerd</th>
+                <th>Lid Modelvliegsport</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Volwassenen</td>
+                <td>€ 59,00</td>
+                <td>n.t.b.</td>
+                <td>n.t.b.</td>
+                <td>n.t.b.</td>
+              </tr>
+              <tr>
+                <td>Junior lid</td>
+                <td>€ 29,50</td>
+                <td>n.t.b.</td>
+                <td>n.t.b.</td>
+                <td>n.t.b.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 @endsection
