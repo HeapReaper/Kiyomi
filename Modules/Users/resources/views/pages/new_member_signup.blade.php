@@ -5,6 +5,28 @@
 @section('content')
   <div class="m-3">
     <div class="container-fluid">
+
+      <!-- Success -->
+      @if (session()->has('success'))
+        <div class="toast-container show position-fixed bottom-0 end-0 p-3">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              <img src="/app_media/trmc.png" class="rounded me-2" alt="..." style="max-width: 35px">
+              <strong class="me-auto">Success!</strong>
+              <small>Een paar seconden geleden</small>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+              {{ session('success') }}
+            </div>
+          </div>
+        </div>
+
+        <script>
+          (new bootstrap.Toast(document.getElementById('liveToast'))).show()
+        </script>
+      @endif
+      
       <form class="col-lg-6 offset-lg-3 pt-4 pb-4" action="{{ route('new_member.store') }}" method="POST">
         @csrf
         <h1 class="text-white">Aanmelden als nieuw lid van T.R.M.C.</h1>
