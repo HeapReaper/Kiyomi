@@ -19,7 +19,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-             data-turbo="false">
+             >
             Vluchten
           </a>
           <ul class="dropdown-menu bg-dark">
@@ -32,7 +32,7 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-             data-turbo="false">
+            >
             Leden
           </a>
           <ul class="dropdown-menu bg-dark">
@@ -61,7 +61,7 @@
         @can('view system')
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-               data-turbo="false">
+              >
               Systeem
             </a>
             <ul class="dropdown-menu bg-dark">
@@ -79,7 +79,7 @@
       <ul class="navbar-nav ms-auto">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"
-             data-turbo="false">
+            >
             Welkom {{ Auth::user()->name }}!
           </a>
           <ul class="dropdown-menu bg-dark">

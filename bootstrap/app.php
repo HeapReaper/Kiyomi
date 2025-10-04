@@ -14,12 +14,13 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->trustProxies(at: [
-            '10.0.0.0/24',
-            '10.0.1.0/24',
-            '10.0.2.0/24',
-            '10.0.3.0/24',
-            '10.0.4.0/24',
-            '10.0.5.0/24',
+          "172.17.0.0/16",
+          "172.18.0.0/16",
+          "172.19.0.0/16",
+          "172.20.0.0/16",
+          "172.21.0.0/16",
+          "172.22.0.0/16",
+          "172.19.0.0/16"
         ],headers: Request::HEADER_X_FORWARDED_FOR |
             Request::HEADER_X_FORWARDED_HOST |
             Request::HEADER_X_FORWARDED_PORT |

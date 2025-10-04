@@ -103,13 +103,8 @@
           }));
       }
 
-      document.addEventListener("turbo:load", function () {
+      document.addEventListener("DOMContentLoaded", function () {
         initCharts();
-      });
-
-      document.addEventListener("turbo:before-cache", function () {
-        charts.forEach(c => c.destroy());
-        charts = [];
       });
   </script>
 </div>

@@ -41,7 +41,7 @@ class UsersController extends Controller
             'phone' => ['required', 'max:16'],
             'rdw_number' => ['nullable'],
             'knvvl' => ['nullable'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email', 'max:255'], // unique:users
             'roles' => ['required'],
             'instructor' => ['nullable', 'integer'],
             'PlaneCertCheckbox' => ['nullable'],
