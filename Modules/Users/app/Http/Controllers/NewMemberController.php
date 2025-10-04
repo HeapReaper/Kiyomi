@@ -27,7 +27,7 @@ class NewMemberController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['string', 'required'], // TODO add unique check name
+            'name' => ['string', 'required'],
             'birthdate' => ['required', 'date_format:d-m-Y'],
             'address' => ['string', 'required'],
             'postcode' => ['string', 'required'],

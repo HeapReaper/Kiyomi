@@ -1,5 +1,5 @@
 <div class="bg-dark bg-opacity-25 rounded m-2 p-2">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 
   <div class="container mb-3 mt-3">
     <h2 class="text-white font-weight-bold">Vlucht statistieken</h2>
@@ -46,20 +46,29 @@
 
           const models = ["Vliegtuig","Motorzweefvliegtuig","Zweefvliegtuig","Helikopter","Drone"];
 
-          const options = {
-            responsive: true,
-            maintainAspectRatio: true,
-            legend: { labels: { fontColor: '#FFFFFF' }},
-            scales: {
-              xAxes: [{ ticks: { fontColor: '#FFFFFF' }}],
-              yAxes: [{ ticks: { fontColor: '#FFFFFF' }}]
-            },
-            tooltips: {
-              bodyFontColor: '#FFFFFF',
-              titleFontColor: '#FFFFFF'
-            }
-          };
-
+const options = {
+  responsive: true,
+  maintainAspectRatio: true,
+  plugins: {
+    legend: {
+      labels: { color: "#FFFFFF" }
+    },
+    tooltip: {
+      bodyColor: "#FFFFFF",
+      titleColor: "#FFFFFF"
+    }
+  },
+  scales: {
+    x: {
+      ticks: { color: "#FFFFFF" },
+      grid: { color: "rgba(255,255,255,0.2)" }
+    },
+    y: {
+      ticks: { color: "#FFFFFF" },
+      grid: { color: "rgba(255,255,255,0.2)" }
+    }
+  }
+};
           charts.push(new Chart(document.getElementById("flightsEachYear").getContext("2d"), {
             type: "bar",
             data: {
