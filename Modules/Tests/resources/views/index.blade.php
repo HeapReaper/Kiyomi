@@ -4,9 +4,9 @@
 
 @section('content')
   <div class="container">
+
     <div class="mt-2 mb-2 bg-dark bg-opacity-25 m-3 p-3 rounded">
       <h3 class="text-white">Email</h3>
-
       <form action="/test-email" method="POST">
         @csrf
         <div class="mb-3">
@@ -19,7 +19,32 @@
           </div>
         </div>
 
+        <hr>
+
+        <p class="text-white">Huidige ENV instellingen voor e-mail:</p>
+        <ul class="text-white">
+          <li><strong>MAIL_MAILER:</strong> {{ env('MAIL_MAILER', 'niet ingesteld') }}</li>
+          <li><strong>MAIL_HOST:</strong> {{ env('MAIL_HOST', 'niet ingesteld') }}</li>
+          <li><strong>MAIL_PORT:</strong> {{ env('MAIL_PORT', 'niet ingesteld') }}</li>
+          <li><strong>MAIL_USERNAME:</strong> {{ env('MAIL_USERNAME', 'niet ingesteld') }}</li>
+          <li><strong>MAIL_FROM_ADDRESS:</strong> {{ env('MAIL_FROM_ADDRESS', 'niet ingesteld') }}</li>
+        </ul>
       </form>
     </div>
+
+    
+  <div class="mt-2 mb-2 bg-dark bg-opacity-25 m-3 p-3 rounded">
+    <h3 class="text-white">Queue</h3>
+
+    @if(session('queue_status'))
+      <p class="text-white">Queue werkt: {{ session('queue_status') }}</p>
+    @else
+        <p class="text-warning">Queue nog niet getest</p>
+    @endif
+
+    <form action="{{ url('/queue-check') }}" method="GET" class="mt-3">
+      <button type="submit" class="btn btn-primary">Test Queue</button>
+    </form>
+  </div>
   </div>
 @endsection

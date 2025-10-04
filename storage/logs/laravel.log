@@ -936,3 +936,27 @@
 "} 
 [2025-09-23 21:08:15] local.DEBUG: SubmittedModel created {"model_id":2} 
 [2025-09-23 21:09:52] local.DEBUG: SubmittedModel created {"model_id":3} 
+[2025-10-04 11:56:48] local.ERROR: Module [] does not exist! {"exception":"[object] (Nwidart\\Modules\\Exceptions\\ModuleNotFoundException(code: 0): Module [] does not exist! at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\FileRepository.php:290)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\FileRepository.php(378): Nwidart\\Modules\\FileRepository->findOrFail('')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Traits\\ModuleCommandTrait.php(9): Nwidart\\Modules\\FileRepository->getUsedNow()
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Commands\\Make\\JobMakeCommand.php(85): Nwidart\\Modules\\Commands\\Make\\JobMakeCommand->getModuleName()
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Commands\\Make\\GeneratorCommand.php(41): Nwidart\\Modules\\Commands\\Make\\JobMakeCommand->getDestinationFilePath()
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Nwidart\\Modules\\Commands\\Make\\GeneratorCommand->handle()
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Nwidart\\Modules\\Commands\\Make\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#18 {main}
+"} 
+[2025-10-04 12:01:06] local.INFO: TestQueueJob executed successfully.  
+[2025-10-04 12:01:30] local.INFO: TestQueueJob executed successfully.  
