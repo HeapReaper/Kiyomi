@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Modules\Users\Models\User;
 use Carbon\Carbon;
 use Modules\Users\Emails\SendNewMemberEmail;
+use Modules\Users\Emails\SendWelcomeEmail;
 use Mail;
 use App\Helpers\Settings;
 use App\Notifications\NewMemberNotification;
@@ -27,7 +28,7 @@ class NewMemberController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => ['string', 'required'], // TODO add unique check name
+            'name' => ['string', 'required'],
             'birthdate' => ['required', 'date_format:d-m-Y'],
             'address' => ['string', 'required'],
             'postcode' => ['string', 'required'],
@@ -92,9 +93,14 @@ class NewMemberController extends Controller
             return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
         }
         
-        Mail::to(Settings::get('email_new_members'))->send(new SendNewMemberEmail($validated['name']));
+        Mail::to(Settings::get('email_new_members'))
+            ->send(new SendNewMemberEmail($validated['name']));
+
+        Mail::to($validated['email'])
+            ->send(new SendWelcomeEmail($validated['name']));
 
         return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
+
     }
 	
     public function show($id)
