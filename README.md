@@ -52,13 +52,19 @@ A Laravel based application to manage flights, members, send newsletters and man
 2) Generate `APP_KEY` `php artisan key:generate`
 3) Migrate the database: `php artisan migrate`
 
-4) Seed the database:
+4.1) Seed the database:
 ```
 php artisan db:seed --class=RoleSeeder
 php artisan db:seed --class=PermissionSeeder
 php artisan db:seed --class=DefaultUserSeeder 
 php artisan db:seed --class=LicenceSeeder       
 ```
+
+4.2 If needed to have demo data:
+```
+php artisan db:seed --class=Database\Seeders\DemoData
+```
+
 5) Login into `https://<domain>/login`
 6) Login with: Email: `admin@default.com`. Password: `admin`
 7) Change the credentials!

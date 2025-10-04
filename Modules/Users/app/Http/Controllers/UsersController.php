@@ -83,6 +83,11 @@ class UsersController extends Controller
 
         $user->syncRoles($validated['roles']);
 
+        if (isset($validated['licences'])) {
+            $licenceIds = Licence::whereIn('name', $validated['licences'])->pluck('id')->toArray();
+            $user->licences()->sync($licenceIds);
+        }
+
         if (isset($validated['instructor'])) {
             foreach ($validated['instructor'] as $instructor) {
                 $user->instructor()->create([
