@@ -62,7 +62,8 @@ php artisan db:seed --class=LicenceSeeder
 
 4.2 If needed to have demo data:
 ```
-php artisan db:seed --class=Database\Seeders\DemoData
+php artisan db:seed --class=Database\Seeders\DemoData or
+php artisan db:seed --class="Database\\Seeders\\DemoData"
 ```
 
 5) Login into `https://<domain>/login`

@@ -12,6 +12,7 @@ use Mail;
 use App\Helpers\Settings;
 use App\Notifications\NewMemberNotification;
 use Spatie\Permission\Models\Role;
+use Exception;
 
 class NewMemberController extends Controller
 {
@@ -89,15 +90,23 @@ class NewMemberController extends Controller
             return redirect()->back()->with('error', 'Er ging iets mis! ' . $e-getMessage());
         }
 
+        try {
+            Mail::to($validated['email'])
+                ->send(new SendWelcomeEmail($validated['name']));
+        } catch (\Exception $e) {
+            Log::error('Sending welcome email to new member failed: ' . $e->getMessage());
+        }
+
         if (empty(Settings::get('email_new_members'))) {
             return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
         }
         
-        Mail::to(Settings::get('email_new_members'))
-            ->send(new SendNewMemberEmail($validated['name']));
-
-        Mail::to($validated['email'])
-            ->send(new SendWelcomeEmail($validated['name']));
+        try {
+            Mail::to(Settings::get('email_new_members'))
+                ->send(new SendNewMemberEmail($validated['name']));
+        } catch (\Exception $e) {
+            Log::error('Mail sending to management failed: ' . $e->getMessage());
+        }
 
         return redirect()->back()->with('success', 'Je formulier is verstuurd! We nemen spoedig contact op.');
 
