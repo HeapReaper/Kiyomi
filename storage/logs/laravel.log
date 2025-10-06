@@ -936,3 +936,690 @@
 "} 
 [2025-09-23 21:08:15] local.DEBUG: SubmittedModel created {"model_id":2} 
 [2025-09-23 21:09:52] local.DEBUG: SubmittedModel created {"model_id":3} 
+[2025-10-04 11:56:48] local.ERROR: Module [] does not exist! {"exception":"[object] (Nwidart\\Modules\\Exceptions\\ModuleNotFoundException(code: 0): Module [] does not exist! at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\FileRepository.php:290)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\FileRepository.php(378): Nwidart\\Modules\\FileRepository->findOrFail('')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Traits\\ModuleCommandTrait.php(9): Nwidart\\Modules\\FileRepository->getUsedNow()
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Commands\\Make\\JobMakeCommand.php(85): Nwidart\\Modules\\Commands\\Make\\JobMakeCommand->getModuleName()
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\nwidart\\laravel-modules\\src\\Commands\\Make\\GeneratorCommand.php(41): Nwidart\\Modules\\Commands\\Make\\JobMakeCommand->getDestinationFilePath()
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Nwidart\\Modules\\Commands\\Make\\GeneratorCommand->handle()
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Nwidart\\Modules\\Commands\\Make\\JobMakeCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#18 {main}
+"} 
+[2025-10-04 12:01:06] local.INFO: TestQueueJob executed successfully.  
+[2025-10-04 12:01:30] local.INFO: TestQueueJob executed successfully.  
+[2025-10-04 14:33:56] local.DEBUG: SubmittedModel created {"model_id":4} 
+[2025-10-04 14:41:21] local.ERROR: syntax error, unexpected end of file, expecting "elseif" or "else" or "endif" (View: C:\Users\aerob\Documents\GitHub\Kiyomi\Kiyomi\Modules\Users\resources\views\pages\new_member_signup.blade.php) {"userId":1,"exception":"[object] (Illuminate\\View\\ViewException(code: 0): syntax error, unexpected end of file, expecting \"elseif\" or \"else\" or \"endif\" (View: C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\Modules\\Users\\resources\\views\\pages\\new_member_signup.blade.php) at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\storage\\framework\\views\\b2b1f6b40db4436c765840411d40d1c0.php:274)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php(58): Illuminate\\View\\Engines\\CompilerEngine->handleViewException(Object(ParseError), 1)
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(60): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->handleViewException(Object(ParseError), 1)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\aerob\\\\...', Array)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath('C:\\\\Users\\\\aerob\\\\...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\aerob\\\\...', Array)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get('C:\\\\Users\\\\aerob\\\\...', Array)
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(192): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(161): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(79): Illuminate\\View\\View->render()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(920): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(887): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\Users\\\\aerob\\\\...')
+#58 {main}
+
+[previous exception] [object] (ParseError(code: 0): syntax error, unexpected end of file, expecting \"elseif\" or \"else\" or \"endif\" at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\storage\\framework\\views\\b2b1f6b40db4436c765840411d40d1c0.php:274)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Filesystem\\Filesystem.php(124): Illuminate\\Filesystem\\Filesystem::Illuminate\\Filesystem\\{closure}()
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\PhpEngine.php(58): Illuminate\\Filesystem\\Filesystem->getRequire('C:\\\\Users\\\\aerob\\\\...', Array)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php(22): Illuminate\\View\\Engines\\PhpEngine->evaluatePath('C:\\\\Users\\\\aerob\\\\...', Array)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Engines\\CompilerEngine.php(75): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->evaluatePath('C:\\\\Users\\\\aerob\\\\...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine.php(10): Illuminate\\View\\Engines\\CompilerEngine->get('C:\\\\Users\\\\aerob\\\\...', Array)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(209): Livewire\\Mechanisms\\ExtendBlade\\ExtendedCompilerEngine->get('C:\\\\Users\\\\aerob\\\\...', Array)
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(192): Illuminate\\View\\View->getContents()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\View.php(161): Illuminate\\View\\View->renderContents()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(79): Illuminate\\View\\View->render()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Response.php(35): Illuminate\\Http\\Response->setContent(Object(Illuminate\\View\\View))
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(920): Illuminate\\Http\\Response->__construct(Object(Illuminate\\View\\View), 200, Array)
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(887): Illuminate\\Routing\\Router::toResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Routing\\Router->prepareResponse(Object(Illuminate\\Http\\Request), Object(Illuminate\\View\\View))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}(Object(Illuminate\\Http\\Request))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Middleware\\SubstituteBindings.php(51): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Routing\\Middleware\\SubstituteBindings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken.php(88): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\VerifyCsrfToken->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\View\\Middleware\\ShareErrorsFromSession.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\View\\Middleware\\ShareErrorsFromSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(121): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Session\\Middleware\\StartSession.php(64): Illuminate\\Session\\Middleware\\StartSession->handleStatefulRequest(Object(Illuminate\\Http\\Request), Object(Illuminate\\Session\\Store), Object(Closure))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Session\\Middleware\\StartSession->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse.php(37): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Cookie\\Middleware\\AddQueuedCookiesToResponse->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Cookie\\Middleware\\EncryptCookies.php(75): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Cookie\\Middleware\\EncryptCookies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(807): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(786): Illuminate\\Routing\\Router->runRouteWithinStack(Object(Illuminate\\Routing\\Route), Object(Illuminate\\Http\\Request))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(750): Illuminate\\Routing\\Router->runRoute(Object(Illuminate\\Http\\Request), Object(Illuminate\\Routing\\Route))
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php(739): Illuminate\\Routing\\Router->dispatchToRoute(Object(Illuminate\\Http\\Request))
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(201): Illuminate\\Routing\\Router->dispatch(Object(Illuminate\\Http\\Request))
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(170): Illuminate\\Foundation\\Http\\Kernel->Illuminate\\Foundation\\Http\\{closure}(Object(Illuminate\\Http\\Request))
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\livewire\\livewire\\src\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware.php(19): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Livewire\\Features\\SupportDisablingBackButtonCache\\DisableBackButtonCacheMiddleware->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php(31): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php(21): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php(51): Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\TrimStrings->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php(27): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\ValidatePostSize->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php(110): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#45 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#46 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php(49): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#47 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\HandleCors->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#48 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php(58): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#49 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Http\\Middleware\\TrustProxies->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#50 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks.php(22): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#51 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(209): Illuminate\\Foundation\\Http\\Middleware\\InvokeDeferredCallbacks->handle(Object(Illuminate\\Http\\Request), Object(Closure))
+#52 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php(127): Illuminate\\Pipeline\\Pipeline->Illuminate\\Pipeline\\{closure}(Object(Illuminate\\Http\\Request))
+#53 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(176): Illuminate\\Pipeline\\Pipeline->then(Object(Closure))
+#54 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(145): Illuminate\\Foundation\\Http\\Kernel->sendRequestThroughRouter(Object(Illuminate\\Http\\Request))
+#55 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1220): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
+#56 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\public\\index.php(17): Illuminate\\Foundation\\Application->handleRequest(Object(Illuminate\\Http\\Request))
+#57 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\resources\\server.php(23): require_once('C:\\\\Users\\\\aerob\\\\...')
+#58 {main}
+"} 
+[2025-10-04 14:43:29] local.ERROR: Command "module:make-email" is not defined.
+
+Did you mean one of these?
+    model:prune
+    model:show
+    module:clear-compiled
+    module:composer-update
+    module:delete
+    module:disable
+    module:discover
+    module:dump
+    module:enable
+    module:install
+    module:lang
+    module:list
+    module:make
+    module:make-action
+    module:make-cast
+    module:make-channel
+    module:make-class
+    module:make-command
+    module:make-component
+    module:make-component-view
+    module:make-controller
+    module:make-enum
+    module:make-event
+    module:make-event-provider
+    module:make-exception
+    module:make-factory
+    module:make-helper
+    module:make-interface
+    module:make-job
+    module:make-listener
+    module:make-livewire
+    module:make-mail
+    module:make-middleware
+    module:make-migration
+    module:make-model
+    module:make-notification
+    module:make-observer
+    module:make-policy
+    module:make-provider
+    module:make-repository
+    module:make-request
+    module:make-resource
+    module:make-rule
+    module:make-scope
+    module:make-seed
+    module:make-service
+    module:make-test
+    module:make-trait
+    module:make-view
+    module:migrate
+    module:migrate-fresh
+    module:migrate-refresh
+    module:migrate-reset
+    module:migrate-rollback
+    module:migrate-status
+    module:model-show
+    module:prune
+    module:publish
+    module:publish-config
+    module:publish-migration
+    module:publish-translation
+    module:route-provider
+    module:seed
+    module:setup
+    module:unuse
+    module:update
+    module:update-phpunit-coverage
+    module:use
+    module:v6:migrate {"exception":"[object] (Symfony\\Component\\Console\\Exception\\CommandNotFoundException(code: 0): Command \"module:make-email\" is not defined.
+
+Did you mean one of these?
+    model:prune
+    model:show
+    module:clear-compiled
+    module:composer-update
+    module:delete
+    module:disable
+    module:discover
+    module:dump
+    module:enable
+    module:install
+    module:lang
+    module:list
+    module:make
+    module:make-action
+    module:make-cast
+    module:make-channel
+    module:make-class
+    module:make-command
+    module:make-component
+    module:make-component-view
+    module:make-controller
+    module:make-enum
+    module:make-event
+    module:make-event-provider
+    module:make-exception
+    module:make-factory
+    module:make-helper
+    module:make-interface
+    module:make-job
+    module:make-listener
+    module:make-livewire
+    module:make-mail
+    module:make-middleware
+    module:make-migration
+    module:make-model
+    module:make-notification
+    module:make-observer
+    module:make-policy
+    module:make-provider
+    module:make-repository
+    module:make-request
+    module:make-resource
+    module:make-rule
+    module:make-scope
+    module:make-seed
+    module:make-service
+    module:make-test
+    module:make-trait
+    module:make-view
+    module:migrate
+    module:migrate-fresh
+    module:migrate-refresh
+    module:migrate-reset
+    module:migrate-rollback
+    module:migrate-status
+    module:model-show
+    module:prune
+    module:publish
+    module:publish-config
+    module:publish-migration
+    module:publish-translation
+    module:route-provider
+    module:seed
+    module:setup
+    module:unuse
+    module:update
+    module:update-phpunit-coverage
+    module:use
+    module:v6:migrate at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php:725)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(283): Symfony\\Component\\Console\\Application->find('module:make-ema...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#5 {main}
+"} 
+[2025-10-04 16:21:10] local.ERROR: Target class [Database\\Seeders\\DemoData] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Database\\\\Seeders\\\\DemoData] does not exist. at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:961)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#22 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Database\\\\Seeders\\\\DemoData\" does not exist at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:959)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(959): ReflectionClass->__construct('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#23 {main}
+"} 
+[2025-10-04 16:21:34] local.ERROR: Target class [Database\\Seeders\\DemoData] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Database\\\\Seeders\\\\DemoData] does not exist. at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:961)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#22 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Database\\\\Seeders\\\\DemoData\" does not exist at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:959)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(959): ReflectionClass->__construct('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#23 {main}
+"} 
+[2025-10-04 16:24:24] local.ERROR: Target class [Database\\Seeders\\DemoData] does not exist. {"exception":"[object] (Illuminate\\Contracts\\Container\\BindingResolutionException(code: 0): Target class [Database\\\\Seeders\\\\DemoData] does not exist. at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:961)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#22 {main}
+
+[previous exception] [object] (ReflectionException(code: -1): Class \"Database\\\\Seeders\\\\DemoData\" does not exist at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php:959)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(959): ReflectionClass->__construct('Database\\\\\\\\Seede...')
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(832): Illuminate\\Container\\Container->build('Database\\\\\\\\Seede...')
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1078): Illuminate\\Container\\Container->resolve('Database\\\\\\\\Seede...', Array, true)
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(763): Illuminate\\Foundation\\Application->resolve('Database\\\\\\\\Seede...', Array)
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1058): Illuminate\\Container\\Container->make('Database\\\\\\\\Seede...', Array)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(98): Illuminate\\Foundation\\Application->make('Database\\\\\\\\Seede...')
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Console\\Seeds\\SeedCommand->getSeeder()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#23 {main}
+"} 
+[2025-10-04 16:29:16] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists (Connection: mysql, SQL: alter table `users` drop index `users_email_unique`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists (Connection: mysql, SQL: alter table `users` drop index `users_email_unique`) at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback('alter table `us...', Array, Object(Closure))
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('alter table `us...', Array, Object(Closure))
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement('alter table `us...')
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(406): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->table('users', Object(Closure))
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\database\\migrations\\2025_09_25_145225_remove_unique_constraint_from_users_email.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic('table', Array)
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render('2025_09_25_1452...', Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_09_25_1452...', Object(Closure))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\aerob\\\\...', 1, false)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand('migrate', Array, Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call('migrate', Array)
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\FreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('alter table `us...', Array)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback('alter table `us...', Array, Object(Closure))
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('alter table `us...', Array, Object(Closure))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement('alter table `us...')
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(406): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->table('users', Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\database\\migrations\\2025_09_25_145225_remove_unique_constraint_from_users_email.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic('table', Array)
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render('2025_09_25_1452...', Object(Closure))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_09_25_1452...', Object(Closure))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\aerob\\\\...', 1, false)
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand('migrate', Array, Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call('migrate', Array)
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\FreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#45 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#46 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#47 {main}
+"} 
+[2025-10-04 16:34:36] local.ERROR: SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists (Connection: mysql, SQL: alter table `users` drop index `users_email_unique`) {"exception":"[object] (Illuminate\\Database\\QueryException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists (Connection: mysql, SQL: alter table `users` drop index `users_email_unique`) at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:825)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback('alter table `us...', Array, Object(Closure))
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('alter table `us...', Array, Object(Closure))
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement('alter table `us...')
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(406): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->table('users', Object(Closure))
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\database\\migrations\\2025_09_25_145225_remove_unique_constraint_from_users_email.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic('table', Array)
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render('2025_09_25_1452...', Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_09_25_1452...', Object(Closure))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\aerob\\\\...', 1, false)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand('migrate', Array, Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call('migrate', Array)
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\FreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#45 {main}
+
+[previous exception] [object] (PDOException(code: 42000): SQLSTATE[42000]: Syntax error or access violation: 1091 Can't DROP 'users_email_unique'; check that column/key exists at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php:571)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(571): PDOStatement->execute()
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(812): Illuminate\\Database\\Connection->Illuminate\\Database\\{closure}('alter table `us...', Array)
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(779): Illuminate\\Database\\Connection->runQueryCallback('alter table `us...', Array, Object(Closure))
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Connection.php(560): Illuminate\\Database\\Connection->run('alter table `us...', Array, Object(Closure))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Blueprint.php(118): Illuminate\\Database\\Connection->statement('alter table `us...')
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(564): Illuminate\\Database\\Schema\\Blueprint->build(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Schema\\Grammars\\MySqlGrammar))
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Schema\\Builder.php(406): Illuminate\\Database\\Schema\\Builder->build(Object(Illuminate\\Database\\Schema\\Blueprint))
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Support\\Facades\\Facade.php(361): Illuminate\\Database\\Schema\\Builder->table('users', Object(Closure))
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\database\\migrations\\2025_09_25_145225_remove_unique_constraint_from_users_email.php(11): Illuminate\\Support\\Facades\\Facade::__callStatic('table', Array)
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(507): Illuminate\\Database\\Migrations\\Migration@anonymous->up()
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(432): Illuminate\\Database\\Migrations\\Migrator->runMethod(Object(Illuminate\\Database\\MySqlConnection), Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(441): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->runMigration(Object(Illuminate\\Database\\Migrations\\Migration@anonymous), 'up')
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\View\\Components\\Task.php(40): Illuminate\\Database\\Migrations\\Migrator->Illuminate\\Database\\Migrations\\{closure}()
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(798): Illuminate\\Console\\View\\Components\\Task->render('2025_09_25_1452...', Object(Closure))
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(244): Illuminate\\Database\\Migrations\\Migrator->write('Illuminate\\\\Cons...', '2025_09_25_1452...', Object(Closure))
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(211): Illuminate\\Database\\Migrations\\Migrator->runUp('C:\\\\Users\\\\aerob\\\\...', 1, false)
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(138): Illuminate\\Database\\Migrations\\Migrator->runPending(Array, Array)
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(117): Illuminate\\Database\\Migrations\\Migrator->run(Array, Array)
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Migrations\\Migrator.php(658): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->Illuminate\\Database\\Console\\Migrations\\{closure}()
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(110): Illuminate\\Database\\Migrations\\Migrator->usingConnection(NULL, Object(Closure))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\MigrateCommand.php(89): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->runMigrations()
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\MigrateCommand->handle()
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#24 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#25 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#26 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#27 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#28 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#29 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#30 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(68): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArrayInput), Object(Illuminate\\Console\\OutputStyle))
+#31 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Concerns\\CallsCommands.php(29): Illuminate\\Console\\Command->runCommand('migrate', Array, Object(Illuminate\\Console\\OutputStyle))
+#32 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Migrations\\FreshCommand.php(82): Illuminate\\Console\\Command->call('migrate', Array)
+#33 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Migrations\\FreshCommand->handle()
+#34 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#35 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#36 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#37 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#38 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#39 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#40 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#41 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#42 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Migrations\\FreshCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#43 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#44 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#45 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#46 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#47 {main}
+"} 
+[2025-10-04 16:35:00] local.ERROR: Class "Modules\Licences\Models\Licence" not found {"exception":"[object] (Error(code: 0): Class \"Modules\\Licences\\Models\\Licence\" not found at C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\database\\seeders\\DemoData.php:64)
+[stacktrace]
+#0 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Database\\Seeders\\DemoData->run()
+#1 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#2 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#3 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#4 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#5 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(188): Illuminate\\Container\\Container->call(Array, Array)
+#6 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Seeder.php(197): Illuminate\\Database\\Seeder->Illuminate\\Database\\{closure}()
+#7 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(70): Illuminate\\Database\\Seeder->__invoke()
+#8 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Eloquent\\Concerns\\GuardsAttributes.php(155): Illuminate\\Database\\Console\\Seeds\\SeedCommand->Illuminate\\Database\\Console\\Seeds\\{closure}()
+#9 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Database\\Console\\Seeds\\SeedCommand.php(69): Illuminate\\Database\\Eloquent\\Model::unguarded(Object(Closure))
+#10 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(36): Illuminate\\Database\\Console\\Seeds\\SeedCommand->handle()
+#11 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Util.php(43): Illuminate\\Container\\BoundMethod::Illuminate\\Container\\{closure}()
+#12 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(95): Illuminate\\Container\\Util::unwrapIfClosure(Object(Closure))
+#13 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\BoundMethod.php(35): Illuminate\\Container\\BoundMethod::callBoundMethod(Object(Illuminate\\Foundation\\Application), Array, Object(Closure))
+#14 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(696): Illuminate\\Container\\BoundMethod::call(Object(Illuminate\\Foundation\\Application), Array, Array, NULL)
+#15 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(213): Illuminate\\Container\\Container->call(Array)
+#16 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Command\\Command.php(318): Illuminate\\Console\\Command->execute(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#17 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Console\\Command.php(182): Symfony\\Component\\Console\\Command\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Illuminate\\Console\\OutputStyle))
+#18 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(1092): Illuminate\\Console\\Command->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#19 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(341): Symfony\\Component\\Console\\Application->doRunCommand(Object(Illuminate\\Database\\Console\\Seeds\\SeedCommand), Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#20 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\symfony\\console\\Application.php(192): Symfony\\Component\\Console\\Application->doRun(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#21 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(198): Symfony\\Component\\Console\\Application->run(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#22 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(1235): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#23 C:\\Users\\aerob\\Documents\\GitHub\\Kiyomi\\Kiyomi\\artisan(13): Illuminate\\Foundation\\Application->handleCommand(Object(Symfony\\Component\\Console\\Input\\ArgvInput))
+#24 {main}
+"} 

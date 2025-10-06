@@ -20,7 +20,8 @@ class SendNewMemberEmail extends Mailable
 	
     public function build(): self
     {
-        return $this->view('users::mail.new_member_email', ['name' => $this->name])
-            ->subject('Nieuwe lid aanmelding');
+        return $this->view('users::mail.welcome_mail', ['name' => $this->name])
+                    ->subject('Welkom bij Onze Club!')
+                    ->attach(storage_path('public/KennismakingsfolderV4.pdf'));
     }
 }
