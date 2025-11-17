@@ -85,7 +85,7 @@
           @endforeach
         </tbody>
       </table>
-      {{ $flights->links('pagination::bootstrap-5') }}
+      {{ $flights->links('livewire::bootstrap') }}
     </div>
   </div>
 </div>
